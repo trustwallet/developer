@@ -8,7 +8,7 @@ permalink: /wallet-core
 
 # Wallet Core
 
-![](/assets/images/wallet-core-banner.png)
+![](../assets/images/wallet-core-banner.png)
 
 ## Introduction
 
