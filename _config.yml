@@ -1,6 +1,8 @@
 title: Trust Wallet Developer Documentation
 description: Trust Wallet Developer Documentation
 remote_theme: pmarsceill/just-the-docs
+baseurl: "/"
+url: "https://developers.trustwallet.com"
 
 permalink: pretty
 exclude:
