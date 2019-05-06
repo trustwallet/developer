@@ -1,7 +1,6 @@
 title: Trust Wallet Developer Documentation
 description: Trust Wallet Developer Documentation
-theme: just-the-docs
-url: "https://developers.trustwallet.com"
+remote_theme: pmarsceill/just-the-docs
 
 permalink: pretty
 exclude:
@@ -12,6 +11,11 @@ exclude:
 
 # Enable or disable the site search
 search_enabled: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "Just the Docs on GitHub":
+    - "//github.com/pmarsceill/just-the-docs"
 
 plugins:
   - jekyll-seo-tag
