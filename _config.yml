@@ -1,0 +1,17 @@
+title: Trust Wallet Developer Documentation
+description: Trust Wallet Developer Documentation
+theme: just-the-docs
+url: "https://developers.trustwallet.com"
+
+permalink: pretty
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+
+# Enable or disable the site search
+search_enabled: true
+
+plugins:
+  - jekyll-seo-tag
