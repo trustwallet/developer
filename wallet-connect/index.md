@@ -1,10 +1,3 @@
----
-title: WalletConnect
-nav_order: 4
-has_children: true
-permalink: /wallet-connect
----
-
 # WalletConnect
 
 [WalletConnect](https://walletconnect.org/) Swift SDK, implements 1.0.0 websocket based protocol. Demo video: 

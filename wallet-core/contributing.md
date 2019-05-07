@@ -1,8 +1,3 @@
----
-nav_order: 1
-parent: Wallet Core
----
-
 # Contributing
 
 We want to make Trust Wallet Core as good as it can be. If you want to contribute your help is greatly appreciated. Contributing is also a great way to learn more about blockchain technology and a great way improving Trust Wallet. To make the process as smooth as possible please read this document and follow our guidelines. We are happy to review your code but please ensure that you have a [clean pull request](contributing.md#pull-requests).

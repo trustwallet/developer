@@ -1,11 +1,3 @@
----
-title: Block Atlas
-description: 'Clean and lightweight cross-chain transaction API.'
-nav_order: 3
-has_children: true
-permalink: /block-atlas
----
-
 # Block Atlas by Trust Wallet
 
 [![Build Status](https://dev.azure.com/TrustWallet/Trust%20BlockAtlas/_apis/build/status/TrustWallet.blockatlas?branchName=master)](https://dev.azure.com/TrustWallet/Trust%20BlockAtlas/_build/latest?definitionId=27&branchName=master)

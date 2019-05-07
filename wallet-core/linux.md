@@ -1,8 +1,3 @@
----
-nav_order: 4
-parent: Wallet Core
----
-
 # Linux
 
 Trust Wallet Core was developed mainly on macOS because it's the only platform that can compile to every supported platform. Because of this, getting to compile on Linux is a bit of extra work. If you have access to macOS we highly recommend developing on that platform.

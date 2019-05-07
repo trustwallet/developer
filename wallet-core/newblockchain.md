@@ -1,8 +1,3 @@
----
-nav_order: 2
-parent: Wallet Core
----
-
 # Adding Support for a New Blockchain
 
 If you haven't, first read the [guide to contributing](contributing.md). It contains important information about the library and how to contribute.

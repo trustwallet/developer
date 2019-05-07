@@ -1,8 +1,3 @@
----
-nav_order: 3
-parent: Wallet Core
----
-
 # Releasing
 
 Before releasing please update the version numbers in `android/gradle.properties` and `TrustWalletCore.podspec` and commit this change. Then create a new git tag for that number and push \(replace 0.0.0 with the actual version number\):

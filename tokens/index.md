@@ -1,10 +1,3 @@
----
-title: Tokens
-description: 'Directory of ERC20 token images.'
-nav_order: 5
-permalink: /tokens
----
-
 # Add custom image:
 ## Image Requirements
 - format: `png`. Format `PNG` considered not valid.

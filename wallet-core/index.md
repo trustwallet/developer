@@ -1,11 +1,3 @@
----
-title: Wallet Core
-description: 'Cross-platform, cross-blockchain wallet library.'
-nav_order: 2
-has_children: true
-permalink: /wallet-core
----
-
 # Wallet Core
 
 ![](../assets/images/wallet-core-banner.png)
