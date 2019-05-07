@@ -6,7 +6,7 @@ Wallet Core implements the cryptographic functionality of blockchains. This incl
 
 This is a diagram representing how Trust Wallet interacts with Trust Wallet Core.
 
-![](../assets/images/wallet-core.png)
+![](../assets/wallet-core.png)
 
 ## Library Design Guidelines
 
