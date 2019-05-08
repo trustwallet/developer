@@ -1,4 +1,5 @@
-# Add custom image:
+# Adding a new token image
+
 ## Image Requirements
 - format: `png`. Format `PNG` considered not valid.
 - name：name of the file in lowercase fromat

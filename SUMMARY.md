@@ -9,4 +9,3 @@
 * [Blockatlas](blockatlas/blockatlas.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
 * [Tokens](tokens/index.md)
-  * [Add Token Image](tokens/add_token_image.md)
