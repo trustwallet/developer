@@ -141,4 +141,3 @@ Wallet core follows the [LLVM Coding Standards](http://llvm.org/docs/CodingStand
 * Building on [Linux](linux.md)
 * [Adding Support for a New Blockchain](newblockchain.md)
 * [Releasing](releasing.md)
-
