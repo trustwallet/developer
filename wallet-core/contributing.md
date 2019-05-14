@@ -126,6 +126,29 @@ Methods always take the type as their first argument. The type needs to be a poi
 
 Static property declarations can take no arguments. Static methods can take any arguments.
 
+## Coin definition
+
+The wallet core code generator also parses coin configuration defined in `coins.json`, the generated code will locate at `src/Generated/Coins.cpp`.
+
+```json
+{
+    "id": "bitcoin",                            // coin id
+    "name": "Bitcoin",                          // coin name
+    "symbol": "BTC",                            // coin symbol
+    "decimals": 8,                              // minimum currency unit, e.g. a satoshi is 0.00000001 ฿
+    "blockchain": "Bitcoin",                    // blockchain type
+    "derivationPath": "m/84'/0'/0'/0/0",        // default path for derivating private key from a mnemonic
+    "curve": "secp256k1",                       // elliptic curve used in Bitcoin's public key cryptography
+    "publicKeyType": "secp256k1",               // public key type
+    "publicKeyHasher": "sha256ripemd",          // xpub / xprv fingerprint hasher
+    "base58Hasher": "sha256d",                  // xpub / xprv base58 hasher, base58(hasher(hd node data))
+    "xpub": "zpub",                             // hd version bytes defined in slip-0132
+    "xprv": "zprv",                             // hd version bytes defined in slip-0132
+    "transactionPath": "/transaction/",         // transaction detail url = explorer + transactionPath + txId
+    "explorer": "https://blockchair.com/bitcoin"// block explorer used to view transaction detail
+}
+```
+
 ## Protocol Buffers
 
 Since the C language doesn't provide good abstractions for variable-sized arrays and strings, the C interface uses [Protocol Buffers](https://developers.google.com/protocol-buffers/). All models are defined in the `src/proto` folder. These models can then be used in the C interface by using the proto model name with underscores. For instance `TW_Binance_Proto_SigningInput`.
