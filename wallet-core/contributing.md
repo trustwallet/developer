@@ -126,6 +126,8 @@ Methods always take the type as their first argument. The type needs to be a poi
 
 Static property declarations can take no arguments. Static methods can take any arguments.
 
+Since C interface doesn't know how to handle C++ exception, we should catch all possible exceptions in the C implementation.
+
 ## Coin definition
 
 The wallet core code generator also parses coin configuration defined in `coins.json`, the generated code will locate at `src/Generated/Coins.cpp`.

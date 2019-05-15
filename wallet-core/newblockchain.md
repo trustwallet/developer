@@ -70,6 +70,8 @@ The C++ implementation with tests should be the second commit.
 
 Once you are satisfied with your C++ implementation write a C interface for it. The C interface needs to be as small as possible so that clients don't need to worry about implementation details. If you are implementing blockchain `X` create a `TWXAddress.h` to handle addresses associated to the blockchain and `TWXSigner.h` to handle transaction signing.
 
+Please make sure you catch all C++ exceptions in C implementation.
+
 Generate the idiomatic interface code by running `tools/generate-files`. If possible test the interface on Android, iOS and TypeScript. Optionally add integration test to each platform. This is required only if the interface is significantly different than the interface used for other blockchains.
 
 The C interface, any Protobuf models, and integration tests should be third commit.
