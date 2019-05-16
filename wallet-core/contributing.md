@@ -146,8 +146,7 @@ The wallet core code generator also parses coin configuration defined in `coins.
     "base58Hasher": "sha256d",                  // xpub / xprv base58 hasher, base58(hasher(hd node data))
     "xpub": "zpub",                             // hd version bytes defined in slip-0132
     "xprv": "zprv",                             // hd version bytes defined in slip-0132
-    "transactionPath": "/transaction/",         // transaction detail url = explorer + transactionPath + txId
-    "explorer": "https://blockchair.com/bitcoin"// block explorer used to view transaction detail
+    "explorer": "https://blockchair.com/bitcoin/transaction/"// block explorer used to view transaction detail
 }
 ```
 
