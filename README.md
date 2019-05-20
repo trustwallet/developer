@@ -6,3 +6,4 @@ Welcome to the Trust Wallet developer documentation. Here you can find documenta
 * [Blockatlas](blockatlas/blockatlas.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
 * [Tokens](tokens/index.md)
+* [Deep Linking](deeplinking/deeplinking.md)

@@ -1,4 +1,4 @@
-# Deep Links
+# Deep Linking
 
 ## Usage 
 ### Open dapp browser for specific url and coin_id

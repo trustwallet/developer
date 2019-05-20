@@ -9,4 +9,4 @@
 * [Blockatlas](blockatlas/blockatlas.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
 * [Tokens](tokens/index.md)
-* [DeepLinks](deeplinks/index.md)
+* [Deep Linking](deeplinking/deeplinking.md)
