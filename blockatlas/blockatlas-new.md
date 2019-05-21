@@ -76,7 +76,18 @@ Side notes:
  - Normalize currency amounts to `models.Amount` if needed
    - Use `util.DecimalExp` to compute `x * 10 ^ n`
  
-TODO
+##### Transaction metadata types
+
+`Tx` can express different transaction types:
+
+ - __Transfer__: A transfer of the currency native to the chain.
+   e.g. BTC on Bitcoin, ETH on Ethereum
+ - __NativeTokenTransfer__: A transfer of a token defined in a native contract.
+   e.g. TRC10 tokens on Tron
+ - __TokenTransfer__: A transfer of a token expressed by a smart contract.
+   e.g. ERC-20 tokens on Ethereum
+ - __ContractCall__: A smart contract call with unspecified effects.
+
 
 #### Config & Route
 
