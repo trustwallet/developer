@@ -94,5 +94,5 @@ The above steps are summarized below as a checklist:
   * [ ] Address interface \(if necessary\).
   * [ ] Signing interface.
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
-* [ ] Add a coin icon to "Supported Blockchains" section in `README.md`
+* [ ] Add a coin icon to section in `docs/coins.md`
   * [ ] Upload coin icon to [TrustWallet/tokens](https://github.com/TrustWallet/tokens) if necessary
