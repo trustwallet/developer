@@ -1,4 +1,4 @@
-# Adding a new token image
+# Adding a new token and coin image
 
 ## Image Requirements
 - format: `png`. Format `PNG` considered not valid.
@@ -9,17 +9,17 @@
 - background: preferably transparant
 - use simple drag and drop online servise [tinypng](https://tinypng.com/) to optimize image size
 
-
-## How To Add
-1) Press on `Fork` in the top right corner, wait for process to complite
-2) Navigate to `tokens` (or `coins`, if you're adding a coin icon) folder on your own fork.
-3) Press on `Upload File` in the top right corner.
-4) Choose file, make sure it follows requirments above
-5) Press on `Commitchanges`
-6) Press on `New pull request` on your own fork page and submit it by pressing on `Create pull request`!
-7) Add short description including name and token symbol in a header field
-8) Press on `Create pull request`
-9) Once tests complited and verifies your image follows requirments maintainer will merge it and in 5-10 minutes token became searchable and will have image insted of plain logo in Trust Wallet
+## How To Add a Token
+1. Go to https://github.com/TrustWallet/tokens
+2. Press on `Fork` in the top right corner, wait for process to complite
+3. Navigate to `tokens` (or `coins`, if you're adding a coin icon) folder on your own fork.
+4. Press on `Upload File` in the top right corner.
+5. Choose file, make sure it follows requirments above
+6. Press on `Commitchanges`
+7. Press on `New pull request` on your own fork page and submit it by pressing on `Create pull request`!
+8. Add short description including name and token symbol in a header field
+9. Press on `Create pull request`
+10. Once tests complited and verifies your image follows requirments maintainer will merge it and in 5-10 minutes token became searchable and will have image insted of plain logo in Trust Wallet
 
 ### Youtube: Upload ERC20 Token Image to Trust Wallet:
 
