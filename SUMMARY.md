@@ -8,5 +8,5 @@
   * [Releasing](wallet-core/releasing.md)
 * [Blockatlas](blockatlas/blockatlas.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
-* [Tokens](tokens/index.md)
+* [Tokens](tokens/add_new_token_image.md)
 * [Deep Linking](deeplinking/deeplinking.md)
