@@ -18,25 +18,25 @@ Directory of token images for ERC20 contracts
 
 
 ## How To Add
-1) Press on `Fork` in the top right corner, wait for process to complite
-2) Navigate to `tokens` (or `coins`, if you're adding a coin icon) folder on your own fork
-3) Press on `Upload File` in the top right corner
-4) Choose file, make sure it follows requirments above
-5) Press on `Commitchanges`
-6) Press on `New pull request` on your own fork page and submit it by pressing on `Create pull request`!
-7) Add short description including name and token symbol in a header field
-8) Press on `Create pull request`
-9) Once tests complited and verifies your image follows requirments maintainer will merge it and in 5-10 minutes token became searchable and will have image insted of plain logo in Trust Wallet
+1. Press on `Fork` in the top right corner, wait for process to complite
+2. Navigate to `tokens` (or `coins`, if you're adding a coin icon) folder on your own fork
+3. Press on `Upload File` in the top right corner
+4. Choose file, make sure it follows requirments above
+5. Press on `Commitchanges`
+6. Press on `New pull request` on your own fork page and submit it by pressing on `Create pull request`!
+7. Add short description including name and token symbol in a header field
+8. Press on `Create pull request`
+9. Once tests complited and verifies your image follows requirments maintainer will merge it and in 5-10 minutes token became searchable and will have image insted of plain logo in Trust Wallet
 
 ## How to generate address for BEP2 (Binance DEX based) token
-1) Grap `symbol` property for desired token https://dex.binance.org/api/v1/tokens?limit=1000
-2) [Generate address based on BEP2 token symbol](https://repl.it/@TrustWallet/generatetrustwalletaddressforbep2token)
-3) Use generated address and uplaod an image
+1. Grap `symbol` property for desired token https://dex.binance.org/api/v1/tokens?limit=1000
+2. [Generate address based on BEP2 token symbol](https://repl.it/@TrustWallet/generatetrustwalletaddressforbep2token)
+3. Use generated address and uplaod an image
 
 ## How to generate address for TRC10 (TRON based) token
-1) Grap `ID` for desired TRC10 token from the list https://tronscan.org/#/tokens/list (sort by TRC10)
-2) [Generate address based on TRC10 token ID](https://repl.it/@TrustWallet/generatetrustwalletaddressforbep2token) for TRC10 token ID
-3) Use generated address and uplaod an image
+1. Grap `ID` for desired TRC10 token from the list https://tronscan.org/#/tokens/list (sort by TRC10)
+2. [Generate address based on TRC10 token ID](https://repl.it/@TrustWallet/generatetrustwalletaddressforbep2token) for TRC10 token ID
+3. Use generated address and uplaod an image
 
 ### Youtube: Upload ERC20 Token Image to Trust Wallet:
 
