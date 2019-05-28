@@ -2,6 +2,14 @@
 
 If you haven't, first read the [guide to contributing](contributing.md). It contains important information about the library and how to contribute.
 
+## Requirements
+
+The Trust Wallet development team is always striving to add more blockchains that will be essential for developers and wallet users. We choose blockchains carefully that will have the biggest impact for our community.
+
+- The blockchain has extensive public documentation and tools available for developers to use.
+- The native coin is listed in the top 100 coins on CoinMarketCap.
+- The native coin is tradable on major exchanges
+
 ## Blockchain definitions
 
 The first step to adding a blockchain is to define its configuration parameters. Add the definition to the `coins.json` file. Then run `tools/generate-files` to generate the C++ code from that. Add the corresponding definition to `TWCoinType.h`. After doing this add tests to `TWCoinTypeConfigTests.cpp` and `CoinTests.cpp`. Run the tests and make sure everything is passing before moving on to the next step. Create a commit with this change \(don't create a pull request yet\).
