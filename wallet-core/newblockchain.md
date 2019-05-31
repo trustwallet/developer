@@ -97,7 +97,9 @@ The above steps are summarized below as a checklist:
   * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file
   * [ ] Transaction signing tests
 * [ ] Add relevant constants in `TWP2SHPrefix`, `TWEthereymChainID`, `TWHRP`, etc., as necessary.
-* [ ] Implement address validation and derivation in `src/Coin.cpp`.
+* [ ] Implement address validation and derivation
+  * [ ] Implement validation and derivation in `src/Coin.cpp`.
+  * [ ] Add tests for validation in `tests/CoinAddressValidationTests.cpp` and derivation in `tests/CoinAddressDerivationTests.cpp`. 
 * [ ] Write interface header in `include/TrustWalletCore` and implement the interface in `src/interface`.
   * [ ] Address interface \(if necessary\).
   * [ ] Signing interface.
