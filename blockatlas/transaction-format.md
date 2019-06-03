@@ -107,18 +107,6 @@ Type: `token_swap`
 }
 ```
 
-### Contract Call
-
-Type: `contract_call`
-
-```
-{
-    "type": "contract_call",
-    "metadata": [
-    ]
-}
-```
-
 ### Any Action
 
 Type: `any_action`
