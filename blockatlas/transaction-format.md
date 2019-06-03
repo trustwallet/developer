@@ -17,6 +17,9 @@
 ```
 
 ### Transfer
+
+Type: `transfer`
+
 ```
 {
    "type": "transfer",
@@ -30,6 +33,9 @@
 ```
 
 ### Token Transfer
+
+Type: `token_transfer`
+
 ```
 {
    "type": "token_transfer",
@@ -46,6 +52,9 @@
 ```
 
 ### Native Token Transfer
+
+Type: `native_token_transfer`
+
 ```
 {
    "type": "native_token_transfer",
@@ -60,6 +69,9 @@
 ```
 
 ### Collectible Transfer
+
+Type: `collectible_transfer`
+
 ```
 {
    "type": "collectible_transfer",
@@ -72,6 +84,9 @@
 ```
 
 ### Token Swap
+
+Type: `token_swap`
+
 ```
 {
    "type": "token_swap"
@@ -93,6 +108,9 @@
 ```
 
 ### Contract Call
+
+Type: `contract_call`
+
 ```
 {
     "type": "contract_call",
@@ -102,6 +120,9 @@
 ```
 
 ### Any Action
+
+Type: `any_action`
+
 ```
 {
     "type": "any_action",
@@ -120,16 +141,13 @@
 ```
 
 #### Keys
-`place_order` - Placer Order
-`cancel_order` - Cancel order
-`issue_token` - Issue Token
-`burn_token` - Burn Token
-`mint_token` - Mint Token
+- `place_order` - Placer Order
+- `cancel_order` - Cancel order
+- `issue_token` - Issue Token
+- `burn_token` - Burn Token
+- `mint_token` - Mint Token
 
 will continue... Keys mostly used to provide localized version on the clients by key
-
-#### Types
-`transfer`, `token_transfer`, `native_token_transfer`, `collectible_transfer`, `token_swap`, `contract_call`
 
 #### Transaction Status
 ```
