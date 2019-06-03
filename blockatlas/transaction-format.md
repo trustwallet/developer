@@ -4,6 +4,8 @@
 
 ### Base
 
+`id` - transaction hash
+
 ```
 {
    "id": "12345678"
@@ -78,7 +80,9 @@ Type: `collectible_transfer`
    "metadata: [
        "name": "Viktor Kittie",
        "contract" : "0x123",
-       "image_url": "https://google.com/img.png"
+       "image_url": "https://google.com/img.png",
+       "from": "0x123",
+       "to": "0x123",
     ]
 }
 ```
@@ -92,13 +96,15 @@ Type: `token_swap`
    "type": "token_swap"
    "metadata: [
        "input" : [
-           "token_id": "0x123" - this property is optional
+           "coin": 60,
+           "token_id": "0x123" - optional
            "symbol": "BNB",
            "value": "123",
            "decimals": 8
        ],
        "output": [
-           "token_id": "0x123" - this property is optional
+           "coin": 60,
+           "token_id": "0x123" - optional
            "symbol": "BTT",
            "value": "123",
            "decimals": 8
@@ -129,11 +135,13 @@ Type: `any_action`
 ```
 
 #### Keys
+
 - `place_order` - Placer Order
 - `cancel_order` - Cancel order
 - `issue_token` - Issue Token
 - `burn_token` - Burn Token
 - `mint_token` - Mint Token
+- `approve_token` - Approve Token
 
 will continue... Keys mostly used to provide localized version on the clients by key
 
