@@ -45,35 +45,10 @@
 }
 ```
 
-### Token Transfer
+### Native Token Transfer
 ```
 {
-   "type": "contract_token_transfer",
-   "metadata: [
-       "token": {
-           "type": "token_transfer",
-           "metadata: [
-               "name": "Viktor Coin",
-               "symbol": "VIK",
-               "token_id" : "0x123",
-               "decimals": 18,
-               "value": "12312312",
-               "from": "123",
-               "to": "123",
-           ]
-        },
-        "coin": {
-               "type": "contract_call",
-                "metadata": []
-         }
-    ]
-}
-```
-
-### Tron Token Transfer
-```
-{
-   "type": "token_transfer",
+   "type": "native_token_transfer",
    "metadata: [
        "name": "Bittorent",
        "symbol": "BTT",
@@ -84,7 +59,7 @@
 }
 ```
 
-### Collectible Transfer**
+### Collectible Transfer
 ```
 {
    "type": "collectible_transfer",
@@ -154,7 +129,7 @@
 will continue... Keys mostly used to provide localized version on the clients by key
 
 #### Types
-`transfer`, `token_transfer`, `collectible_transfer`, `token_swap`, `contract_call`
+`transfer`, `token_transfer`, `native_token_transfer`, `collectible_transfer`, `token_swap`, `contract_call`
 
 #### Transaction Status
 ```
