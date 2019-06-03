@@ -101,8 +101,6 @@ Type: `token_swap`
            "symbol": "BNB",
            "value": "123",
            "decimals": 8,
-           "from": "123",
-           "to": "123",
        ],
        "output": [
            "coin": 60,
@@ -110,8 +108,6 @@ Type: `token_swap`
            "symbol": "BTT",
            "value": "123",
            "decimals": 8,
-           "from": "123",
-           "to": "123",
        ]
     ]
 }
