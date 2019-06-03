@@ -138,13 +138,9 @@ Type: `any_action`
 will continue... Keys mostly used to provide localized version on the clients by key
 
 #### Transaction Status
-```
-enum Status {
-    completed
-    pending
-    errror
-}
-```
+- `completed` - completed and settled in the ledger
+- `pending` - pending in the mempool
+- `errror` - smart contract failed to execute transaction or failed for any reason in the ledger
 
 
 
