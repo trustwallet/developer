@@ -100,14 +100,18 @@ Type: `token_swap`
            "token_id": "0x123" - optional
            "symbol": "BNB",
            "value": "123",
-           "decimals": 8
+           "decimals": 8,
+           "from": "123",
+           "to": "123",
        ],
        "output": [
            "coin": 60,
            "token_id": "0x123" - optional
            "symbol": "BTT",
            "value": "123",
-           "decimals": 8
+           "decimals": 8,
+           "from": "123",
+           "to": "123",
        ]
     ]
 }
