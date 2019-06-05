@@ -106,3 +106,17 @@ The above steps are summarized below as a checklist:
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
 * [ ] Add a coin icon to section in `docs/coins.md`
   * [ ] Upload coin icon to [TrustWallet/tokens](https://github.com/TrustWallet/tokens) if necessary
+
+### Bitcoin forks checklist
+
+If you're adding a Bitcoin fork, you might not neeed to implement new Address or Signer class, please complete this checklist before you submit a pull request:
+
+- [ ] Derive address according to definition in `coins.json`, `p2pkh` address for `bip44` or native `bech32` segwit address for `bip84`.
+- [ ] Check [SLIP-0132 :Registered HD version bytes](https://github.com/satoshilabs/slips/blob/master/slip-0132.md).
+- [ ] Check fee preference, use static fee or not, Trust will use fee that can be confirmed with in 2 blocks.
+- [ ] Add tests to validate all possible addresses, `p2pkh`, `p2sh` and `bech32`.
+- [ ] Add tests to derive `xpub` / `xprv` and cross check the values with other wallets, like ledger or trezor.
+- [ ] Add tests to derive address from `xpub` at random index.
+- [ ] Add tests to cover lock scripts for all addresses.
+- [ ] Add tests to make sure transaction detail url in block explorer is correct.
+- [ ] Add a mainnet transaction test, you can construct it by using wallet core and validate it by broadcasting it.
