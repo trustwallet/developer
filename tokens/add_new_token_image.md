@@ -1,19 +1,23 @@
 # Trust Wallet Token Images
 
 Token repository [https://github.com/TrustWallet/tokens](https://github.com/TrustWallet/tokens) (repo) source of images for:
-1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) tokens on Ethreum compatible networks supported by Trust Wallet such as:
-* [Ethreum (ETC)](https://ethereum.org/)
-* [Ethereum Classic (ETC)](https://ethereumclassic.org/)
-* [POA Network (POA)](https://poa.network/)
-* [TomoChain (TOMO)](https://tomochain.com/)
-* [GoChain (GO)](https://gochain.io/)
-* [Wanchain (WAN)](https://wanchain.org/)
-* [Callisto Network (CLO)](https://callisto.network/)
-* [Thunder Token (TT)](https://thundercore.com/)
 
-2. [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) tokens on Binance Chain.
-3. [TRC10](https://developer.trustwallet.com/add_new_token_image#how-to-generate-address-for-trc10-tron-based-token) tokens on TRON blockchain.
+1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) tokens on Ethreum compatible networks supported by Trust Wallet such as:
+  - [Ethreum (ETC)](https://ethereum.org/)
+  - [Ethereum Classic (ETC)](https://ethereumclassic.org/)
+  - [POA Network (POA)](https://poa.network/)
+  - [TomoChain (TOMO)](https://tomochain.com/)
+  - [GoChain (GO)](https://gochain.io/)
+  - [Wanchain (WAN)](https://wanchain.org/)
+  - [Callisto Network (CLO)](https://callisto.network/)
+  - [Thunder Token (TT)](https://thundercore.com/)
+
+2. [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) tokens on Binance Chain
+
+3. [TRC10](https://developer.trustwallet.com/add_new_token_image#how-to-generate-address-for-trc10-tron-based-token) tokens on TRON blockchain
+
 4. [coins](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) integrated in [Wallet Core](https://developer.trustwallet.com/wallet-core). [Folder for upload](https://github.com/TrustWallet/tokens/tree/master/coins)
+
 5. dApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com. [Folder for upload](https://github.com/TrustWallet/tokens/tree/master/dapps) 
 
 <center><img src='https://raw.githubusercontent.com/TrustWallet/tokens/master/tutorial/trust-wallet.png'></center>
