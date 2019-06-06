@@ -1,32 +1,49 @@
 # Trust Wallet Token Images
 
-This repository (repo) source of images for ERC20 tokens on Ethreum compatible networks supported by Trust Wallet such as [Ethreum (ETC)](https://www.ethereum.org/), [Ethereum Classic (ETC)](https://ethereumclassic.org/), [POA Network (POA)](https://poa.network/), [TomoChain (TOMO)](https://tomochain.com/), [GoChain (GO)](https://gochain.io/), [Wanchain (WAN)](https://wanchain.org/), [Callisto Network (CLO)](https://callisto.network/), [Thunder Token (TT)](https://www.thundercore.com/), [coins](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) integrated in [Wallet Core](https://developer.trustwallet.com/wallet-core) and dApp images available in Browser section with in Trust Wallet and at https://dapps.trustwallet.com
+Token repository [https://github.com/TrustWallet/tokens](https://github.com/TrustWallet/tokens) (repo) source of images for:
+1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) tokens on Ethreum compatible networks supported by Trust Wallet such as:
+* [Ethreum (ETC)](https://ethereum.org/)
+* [Ethereum Classic (ETC)](https://ethereumclassic.org/)
+* [POA Network (POA)](https://poa.network/)
+* [TomoChain (TOMO)](https://tomochain.com/)
+* [GoChain (GO)](https://gochain.io/)
+* [Wanchain (WAN)](https://wanchain.org/)
+* [Callisto Network (CLO)](https://callisto.network/)
+* [Thunder Token (TT)](https://thundercore.com/)
+
+2. [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) tokens on Binance Chain.
+3. [TRC10](https://developer.trustwallet.com/add_new_token_image#how-to-generate-address-for-trc10-tron-based-token) tokens on TRON blockchain.
+4. [coins](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) integrated in [Wallet Core](https://developer.trustwallet.com/wallet-core). [Folder for upload](https://github.com/TrustWallet/tokens/tree/master/coins)
+5. dApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com. [Folder for upload](https://github.com/TrustWallet/tokens/tree/master/dapps) 
 
 <center><img src='https://raw.githubusercontent.com/TrustWallet/tokens/master/tutorial/trust-wallet.png'></center>
-
-Directory of token images for ERC20 contracts
 
 # Add custom image:
 ## Image Requirements
 - format: `png`. Format `PNG` considered not valid.
-- name：name of the file in lowercase fromat
-- - For tokens: `contract_address.png`. Ex: `0xd26114cd6ee289accf82350c8d8487fedb8a0c07.png`
-- - For coins: `slip44.png`. Ex: Bitcoin is `0.png`
+- name：file name requirments for: 
+  - **ERC20**:
+    - `contract_address.png` in lowercase register. Ex: `0xd26114cd6ee289accf82350c8d8487fedb8a0c07.png`
+  - **BEP2**: Read how to generate BEP2 compatible address with Trust Wallet [here](https://developer.trustwallet.com/add_new_token_image#how-to-generate-address-for-bep2-binance-dex-based-token)
+  - **TRC10**: Read how to generate TRC10 compatible address with Trust Wallet [here](https://developer.trustwallet.com/add_new_token_image#how-to-generate-address-for-trc10-tron-based-token)
+  - **coin**: `slip44Index.png` from [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) list. Ex: Bitcoin is `0.png`
 - size: `256px by 256px`
 - background: preferably transparant
 - use simple drag and drop online servise [tinypng](https://tinypng.com/) to optimize image size
 
 
-## How To Add
-1. Press on `Fork` in the top right corner, wait for process to complite
-2. Navigate to `tokens` (or `coins`, if you're adding a coin icon) folder on your own fork
-3. Press on `Upload File` in the top right corner
-4. Choose file, make sure it follows requirments above
-5. Press on `Commitchanges`
-6. Press on `New pull request` on your own fork page and submit it by pressing on `Create pull request`!
-7. Add short description including name and token symbol in a header field
-8. Press on `Create pull request`
-9. Once tests complited and verifies your image follows requirments maintainer will merge it and in 5-10 minutes token became searchable and will have image insted of plain logo in Trust Wallet
+## How To Add Image
+1. [Follow requirmetns](https://developer.trustwallet.com/add_new_token_image#image-requirements)
+2. Proceeed to [https://github.com/TrustWallet/tokens](https://github.com/TrustWallet/tokens)
+3. Press on `Fork` in the top right corner, wait for process to complite
+4. Navigate to `tokens` (or `coins`, if you're adding a coin icon) folder on your own fork
+5. Press on `Upload File` in the top right corner
+6. Choose file, make sure it follows requirments above
+7. Press on `Commitchanges`
+8. Press on `New pull request` on your own fork page and submit it by pressing on `Create pull request`!
+9. Add short description including name and token symbol in a header field
+10. Press on `Create pull request`
+11. Once tests complited and verifies your image follows requirments maintainer will merge it and in 5-10 minutes token became searchable and will have image insted of plain logo in Trust Wallet
 
 ## How to generate address for BEP2 (Binance DEX based) token
 1. Grap `symbol` property for desired token https://dex.binance.org/api/v1/tokens?limit=1000
