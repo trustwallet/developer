@@ -49,7 +49,8 @@ Is it not uncommon for a PR to accumulate commits and merges with time. The libr
 
 * Install Xcode
 * Install Xcode command line tools: `xcode-select --install`
-* Install other tools: `brew install cmake ninja boost autoconf automake libtool xcodegen clang-format`
+* Install other tools: `brew install cmake ninja boost autoconf automake libtool xcodegen clang-format rbenv`
+* Install Ruby 2.6.3: `rbenv install 2.6.3`
 * Install [Android Studio](https://developer.android.com/studio/index.html)
 * Install the [Android NDK](https://developer.android.com/ndk/guides/)
 
