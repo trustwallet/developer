@@ -135,22 +135,24 @@ The wallet core code generator also parses coin configuration defined in `coins.
 
 ```json
 {
-    "id": "bitcoin",                            // coin id
-    "name": "Bitcoin",                          // coin name
-    "symbol": "BTC",                            // coin symbol
-    "decimals": 8,                              // minimum currency unit, e.g. a satoshi is 0.00000001 ฿
-    "blockchain": "Bitcoin",                    // blockchain type
-    "derivationPath": "m/84'/0'/0'/0/0",        // default path for derivating private key from a mnemonic
-    "curve": "secp256k1",                       // elliptic curve used in Bitcoin's public key cryptography
-    "publicKeyType": "secp256k1",               // public key type
-    "p2pkhPrefix": 0,                           // pay-to-pubkey hash address prefix
-    "p2shPrefix": 5,                            // pay-to-script hash address prefix
-    "hrp": "bc",                                // human readable part for bech32 address
-    "publicKeyHasher": "sha256ripemd",          // xpub / xprv fingerprint hasher
-    "base58Hasher": "sha256d",                  // xpub / xprv base58 hasher, base58(hasher(hd node data))
-    "xpub": "zpub",                             // hd version bytes defined in slip-0132
-    "xprv": "zprv",                             // hd version bytes defined in slip-0132
-    "explorer": "https://blockchair.com/bitcoin/transaction/"// block explorer used to view transaction detail
+    "id": "bitcoin",                                            // coin id
+    "name": "Bitcoin",                                          // coin name
+    "symbol": "BTC",                                            // coin symbol
+    "decimals": 8,                                              // minimum currency unit, e.g. a satoshi is 0.00000001 ฿
+    "blockchain": "Bitcoin",                                    // blockchain type
+    "derivationPath": "m/84'/0'/0'/0/0",                        // default path for derivating private key from a mnemonic
+    "curve": "secp256k1",                                       // elliptic curve used in Bitcoin's public key cryptography
+    "publicKeyType": "secp256k1",                               // public key type
+    "p2pkhPrefix": 0,                                           // pay-to-pubkey hash address prefix
+    "p2shPrefix": 5,                                            // pay-to-script hash address prefix
+    "hrp": "bc",                                                // human readable part for bech32 address
+    "publicKeyHasher": "sha256ripemd",                          // xpub / xprv fingerprint hasher
+    "base58Hasher": "sha256d",                                  // xpub / xprv base58 hasher, base58(hasher(hd node data))
+    "xpub": "zpub",                                             // hd version bytes defined in slip-0132
+    "xprv": "zprv",                                             // hd version bytes defined in slip-0132
+    "explorer": "https://blockchair.com/bitcoin/transaction/",  // block explorer used to view transaction detail
+    "url": "https://bitcoin.org",                               // project homepage
+    "rpcNodeInfo": "https://github.com/trezor/blockbook"        // rpc node to query balance, utxo, send transactions
 }
 ```
 
