@@ -10,5 +10,6 @@
   * [Adding Support for a New Blockchain](blockatlas/newblockchain.md)
   * [Transaction Format](blockatlas/transaction-format.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
+  * [DApp](wallet-connect/dapp.md)
 * [Tokens](tokens/add_new_token_image.md)
 * [Deep Linking](deeplinking/deeplinking.md)

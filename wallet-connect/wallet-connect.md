@@ -10,8 +10,9 @@ Features:
 
 - [x] Connect and disconnect
 - [x] Approve / Reject / Kill session
-- [x] Approve and reject `eth_sign` / `personal_sign` / `eth_sendTransaction`
-- [x] Approve and reject `bnb_sign` (binance dex orders)
+- [x] Approve and reject ethereum transactions `eth_sign` / `personal_sign` / `eth_sendTransaction`
+- [x] Approve and reject binance dex orders `bnb_sign`
+- [x] Sign Transactions `trust_sign` (full documentation [here](/wallet-connect/dapp.md))
 
 ## Example
 
@@ -61,6 +62,10 @@ interactor.onEthSendTransaction = { [weak self] (id, transaction) in
 
 interactor.onBnbSign = { [weak self] (id, order) in
     // handle bnb_sign
+}
+
+interactor.onTrustSignTransaction = { [weak self] (id, transaction) in
+    // handle trust_signTransaction
 }
 ```
 
