@@ -1,7 +1,9 @@
 # WalletConnect
 
 [WalletConnect](https://walletconnect.org/) Swift SDK, implements 1.0.0 websocket based protocol. 
+
 Demo video: 
+
 [![How to Use WalletConnect to Trade on Binance DEX](https://img.youtube.com/vi/kI6UiqudBng/0.jpg)](https://www.youtube.com/watch?v=kI6UiqudBng)
 
 Features:
