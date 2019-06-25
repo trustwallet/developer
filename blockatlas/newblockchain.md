@@ -170,7 +170,7 @@ After implementation the observer API gets enabled (required for tx push notific
 Write a test at `/platform/<yourcoin>/api_test.go` to ensure correct normalization.
 Try reading and normalizing a sample API response (copy paste output of REST client).
 
-### Submitting your code
+### Pull Request
 
 As soon as you are done, file a pull request from your fork to `TrustWallet:master`.
 Our devs will get a notification and review your code soon.
