@@ -3,7 +3,15 @@
 Trust uses a forked version of WalletConnect with aditional methods to allow **dApp** developers
 to sign transactions [for any blockchain](https://github.com/TrustWallet/wallet-core/blob/master/docs/coins.md). 
 
-> We're currently supporting **Ethereum**, **Binance Coin** and **Cosmos**. More chains will be added soon.
+__Supported Coins__
+
+<a href="https://binance.com" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/714.png" width="32" /></a>
+<a href="https://ethereum.org" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/60.png" width="32" /></a>
+<a href="https://cosmos.network/" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/118.png" width="32" /></a>
+
+
+### Demo
+Checkout the demo [here](https://wallet-connect.trustwallet.com/)
 
 ## Getting started
 To use Trust's WalletConnect implementation, you need to clone the following repository:
@@ -98,39 +106,66 @@ walletConnector.on("disconnect", (error, payload) => {
 });
 ```
 
+### Get Accounts
+Once you have `walletconnect client` set up, you will be able to get the user's accounts:
+
+```javascript
+walletConnector
+  .trusSignTransaction(network, tx)
+  .then(result => {
+    // Returns the accounts
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+The result is an array with the following structure:
+```javascript
+[
+  {
+    network: number,
+    address: string
+  }
+]
+```
+
 ### Sign Transaction
-Once you have `walletconnect client` set up, you can sign a transaction:
+Once you have the account list, you will be able sign a transaction:
 
 ```javascript
 const network = 118; // Atom (SLIP-44)
+const account = accounts.find((account) => account.network === network);
 // Transaction structure based on Trust's protobuf messages.
 const tx = {
-"accountNumber": "1035",
-  "chainId": "cosmoshub-2",
-  "fee": {
-    "amounts": [
+accountNumber: "1035",
+  chainId: "cosmoshub-2",
+  fee: {
+    amounts: [
       {
-        "denom": "uatom",
-        "amount": "5000"
+        denom: "uatom",
+        amount: "5000"
       }
     ],
-    "gas": "200000"
+    gas: "200000"
   },
-  "sequence": "40",
-  "sendCoinsMessage": {
-    "fromAddress": "cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0",
-    "toAddress": "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa",
-    "amounts": [
+  sequence: "40",
+  sendCoinsMessage: {
+    fromAddress: account.address,
+    toAddress: "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa",
+    amounts: [
       {
-        "denom": "uatom",
-        "amount": "100000"
+        denom: "uatom",
+        amount: "100000"
       }
     ]
   }
 };
 
 walletConnector
-  .trusSignTransaction(network, tx)
+  .trustSignTransaction(network, tx)
   .then(result => {
     // Returns transaction signed in json or encoded format
     console.log(result);
@@ -146,5 +181,3 @@ The result can be either a string JSON or an HEX encoded string. For Atom, the r
 "{\"tx\":{\"fee\":{\"amount\":[{\"amount\":\"5000\",\"denom\":\"uatom\"}],\"gas\":\"200000\"},\"memo\":\"\",\"msg\":[{\"type\":\"cosmos-sdk/MsgSend\",\"value\":{\"amount\":[{\"amount\":\"100000\",\"denom\":\"uatom\"}],\"from_address\":\"cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0\",\"to_address\":\"cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa\"}}],\"signatures\":[{\"pub_key\":{\"type\":\"tendermint/PubKeySecp256k1\",\"value\":\"A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7\"},\"signature\":\"m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A==\"}],\"type\":\"cosmos-sdk/MsgSend\"}}"
 ```
 > **REMEMBER:** You have to provide the json structure based on [WalletCore's proto messages](https://github.com/TrustWallet/wallet-core/tree/master/src/proto). Please check the repository for more details.
-
-For more information checkout the [sample app](https://wallet-connect.trustwallet.com).
