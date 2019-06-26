@@ -11,7 +11,7 @@ __Supported Coins__
 
 
 ### Demo
-Checkout the demo [here]()
+Checkout the demo [here](https://wallet-connect.trustwallet.com/)
 
 ## Getting started
 To use Trust's WalletConnect implementation, you need to clone the following repository:
