@@ -27,7 +27,7 @@ Before starting development on Block Atlas integration, make sure that _all_ of 
     2) a ready-for-review PR for wallet-core has been submitted
  - Your coin has a public JSON-RPC or HTTP API.
  - Said API supports querying a list of transactions by address
- - Your coin is registered with SLIP-0044
+ - Your coin is registered with [SLIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
  - Your coin is not already supported
 
 ### Structure
