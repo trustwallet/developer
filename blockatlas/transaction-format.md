@@ -25,12 +25,12 @@ Type: `transfer`
 ```
 {
    "type": "transfer",
-   "metadata: [
+   "metadata: {
        "name": "Viktor Coin",
        "symbol": "VIK",
        "decimals": 18,
        "value": "12312312"
-    ]
+   }
 }
 ```
 
@@ -41,7 +41,7 @@ Type: `token_transfer`
 ```
 {
    "type": "token_transfer",
-   "metadata: [
+   "metadata: {
        "name": "Viktor Coin",
        "symbol": "VIK",
        "token_id" : "0x123",
@@ -49,7 +49,7 @@ Type: `token_transfer`
        "value": "12312312",
        "from": "123",
        "to": "123",
-    ]
+   }
 }
 ```
 
@@ -60,13 +60,13 @@ Type: `native_token_transfer`
 ```
 {
    "type": "native_token_transfer",
-   "metadata: [
+   "metadata: {
        "name": "Bittorent",
        "symbol": "BTT",
        "token_id" : "1002000",
        "decimals": 8,
        "value": "12312312"
-    ]
+   }
 }
 ```
 
@@ -77,13 +77,13 @@ Type: `collectible_transfer`
 ```
 {
    "type": "collectible_transfer",
-   "metadata: [
+   "metadata: {
        "name": "Viktor Kittie",
        "contract" : "0x123",
        "image_url": "https://google.com/img.png",
        "from": "0x123",
        "to": "0x123",
-    ]
+   }
 }
 ```
 
@@ -94,22 +94,22 @@ Type: `token_swap`
 ```
 {
    "type": "token_swap"
-   "metadata: [
-       "input" : [
+   "metadata: {
+       "input" : {
            "coin": 60,
            "token_id": "0x123" - optional
            "symbol": "BNB",
            "value": "123",
            "decimals": 8,
-       ],
-       "output": [
+       },
+       "output": {
            "coin": 60,
            "token_id": "0x123" - optional
            "symbol": "BTT",
            "value": "123",
            "decimals": 8,
-       ]
-    ]
+       }
+   }
 }
 ```
 
@@ -120,17 +120,16 @@ Type: `any_action`
 ```
 {
     "type": "any_action",
-    "metadata": [
+    "metadata": {
        "coin": 60,  
        "title": "Place Order",
        "key":  "place_order",     
-       "token_id": "0x123" - this property is optional
-
+       "token_id": "0x123" - optional
        "name": "Viktor Coin",
        "symbol": "VIK",
        "decimals": 18,
        "value": "12312312"
-    ]
+    }
 }
 ```
 
@@ -148,7 +147,7 @@ will continue... Keys mostly used to provide localized version on the clients by
 #### Transaction Status
 - `completed` - completed and settled in the ledger
 - `pending` - pending in the mempool
-- `errror` - smart contract failed to execute transaction or failed for any reason in the ledger
+- `error` - smart contract failed to execute transaction or failed for any reason in the ledger
 
 
 
