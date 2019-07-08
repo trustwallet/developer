@@ -153,18 +153,20 @@ will continue... Keys mostly used to provide localized version on the clients by
 
 ### Validators
 
-```json
+```
 {
+   "rank": 1,
    "name":"Polychain Labs",
    "description":"Secure staking with Polychain Labs, the most experienced institutional grade staking team.",
    "status":"online/offline",
    "uptime": 100,
    "rate": 0.2,
-   "address":"cosmosvaloper14k4pzckkre6uxxyd2lnhnpp8sngys9m6hl6ml7",
+   "address": "cosmos14k4pzckkre6uxxyd2lnhnpp8sngys9m6jtwwnd",
+   "operator_address":"cosmosvaloper14k4pzckkre6uxxyd2lnhnpp8sngys9m6hl6ml7",
    "pubkey":"cosmosvalconspub1zcjduepquhlqdhjw4qp2c2t6qh5z7tfk52qc72623f0etc8f3n7hy8uuh25ql34fvu"
    "info":{
       "website":"https://google.com",
       "image":"https://google.com/placeholder.png"
-   },
+   }
 }
 ```
