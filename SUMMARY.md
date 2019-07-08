@@ -8,7 +8,7 @@
   * [Releasing](wallet-core/releasing.md)
 * [Blockatlas](blockatlas/blockatlas.md)
   * [Adding Support for a New Blockchain](blockatlas/newblockchain.md)
-  * [Transaction Format](blockatlas/transaction-format.md)
+  * [Formats](blockatlas/formats.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
   * [DApp](wallet-connect/dapp.md)
 * [Tokens](tokens/add_new_token_image.md)
