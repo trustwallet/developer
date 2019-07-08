@@ -157,8 +157,8 @@ will continue... Keys mostly used to provide localized version on the clients by
 {
    "rank": 1,
    "name":"Polychain Labs",
-   "description":"Secure staking with Polychain Labs, the most experienced institutional grade staking team.",
-   "status":"online/offline",
+   "description":"Secure staking with Polychain Labs",
+   "status": "online/offline",
    "uptime": 100,
    "rate": 0.2,
    "address": "cosmos14k4pzckkre6uxxyd2lnhnpp8sngys9m6jtwwnd",
