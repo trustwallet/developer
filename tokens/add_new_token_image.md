@@ -37,7 +37,7 @@ Token repository [https://github.com/TrustWallet/tokens](https://github.com/Trus
 
 
 ## How To Add Image
-1. [Follow requirmetns](https://developer.trustwallet.com/add_new_token_image#image-requirements)
+1. [Follow requirements](https://developer.trustwallet.com/add_new_token_image#image-requirements)
 2. Proceeed to [https://github.com/TrustWallet/tokens](https://github.com/TrustWallet/tokens)
 3. Press on `Fork` in the top right corner, wait for process to complite
 4. Navigate to `tokens` (or `coins`, if you're adding a coin icon) folder on your own fork
@@ -60,7 +60,7 @@ Token repository [https://github.com/TrustWallet/tokens](https://github.com/Trus
 2. [Generate address based on TRC10 token ID](https://repl.it/@TrustWallet/generatetrustwalletaddressfortrc10token) for TRC10 token ID
 3. Use generated address and [upload](https://developer.trustwallet.com/add_new_token_image#how-to-add) an image
 
-### Youtube: Upload ERC20 Token Image to Trust Wallet:
+### YouTube: Upload ERC20 Token Image to Trust Wallet:
 
 <center>
 <video alignwidth="720" height="480" controls>
