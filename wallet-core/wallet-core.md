@@ -38,7 +38,7 @@ npm install trust-wallet-core
 
 ## Contributing
 
-The best way to submit feedback and report bugs is to [open a GitHub issue](https://github.com/TrustWallet/wallet-core/issues/new). If you want to contribute code please see [Contributing](https://github.com/TrustWallet/wallet-core/blob/master/docs/Contributing.md). If you want to add support for a new blockchain also see [Adding Support for a New Blockchain](newblockchain.md).
+The best way to submit feedback and report bugs is to [open a GitHub issue](https://github.com/TrustWallet/wallet-core/issues/new). If you want to contribute code please see [Contributing](https://developer.trustwallet.com/wallet-core/contributing). If you want to add support for a new blockchain also see [Adding Support for a New Blockchain](newblockchain.md).
 
 ## License
 
