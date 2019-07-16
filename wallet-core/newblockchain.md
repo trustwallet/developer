@@ -96,8 +96,8 @@ The above steps are summarized below as a checklist:
   * [ ] Signer
 * [ ] Write unit tests. Put them in a subfolder of `tests/`.
   * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file
-  * [ ] Transaction signing tests
-* [ ] Add relevant constants in `TWP2SHPrefix`, `TWEthereymChainID`, `TWHRP`, etc., as necessary.
+  * [ ] Transaction signing tests, at least a mainnet transaction test
+* [ ] Add relevant constants in `TWEthereymChainID`, `TWCurve`, etc., as necessary.
 * [ ] Implement address validation and derivation
   * [ ] Implement validation and derivation in `src/Coin.cpp`.
   * [ ] Add tests for validation in `tests/CoinAddressValidationTests.cpp` and derivation in `tests/CoinAddressDerivationTests.cpp`. 
@@ -105,8 +105,7 @@ The above steps are summarized below as a checklist:
   * [ ] Address interface \(if necessary\).
   * [ ] Signing interface.
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
-* [ ] Add a coin icon to section in `docs/coins.md`
-  * [ ] Upload coin icon to [TrustWallet/tokens](https://github.com/TrustWallet/tokens) if necessary
+* [ ] Upload coin icon to [TrustWallet/tokens](https://github.com/TrustWallet/tokens) if necessary
 
 ### Bitcoin forks checklist
 
