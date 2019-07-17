@@ -3,7 +3,7 @@
 Token repository [https://github.com/TrustWallet/tokens](https://github.com/TrustWallet/tokens) (repo) source of images for:
 
 1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) tokens on Ethereum compatible networks supported by Trust Wallet such as:
-  - [Ethreum (ETC)](https://ethereum.org/)
+  - [Ethreum (ETH)](https://ethereum.org/)
   - [Ethereum Classic (ETC)](https://ethereumclassic.org/)
   - [POA Network (POA)](https://poa.network/)
   - [TomoChain (TOMO)](https://tomochain.com/)
