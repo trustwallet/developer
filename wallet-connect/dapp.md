@@ -111,7 +111,7 @@ Once you have `walletconnect client` set up, you will be able to get the user's 
 
 ```javascript
 walletConnector
-  .trusSignTransaction(network, tx)
+  .getAccounts()
   .then(result => {
     // Returns the accounts
     console.log(result);
