@@ -97,7 +97,7 @@ The above steps are summarized below as a checklist:
 * [ ] Write unit tests. Put them in a subfolder of `tests/`.
   * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file
   * [ ] Transaction signing tests, at least a mainnet transaction test
-* [ ] Add relevant constants in `TWEthereymChainID`, `TWCurve`, etc., as necessary.
+* [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
 * [ ] Implement address validation and derivation
   * [ ] Implement validation and derivation in `src/Coin.cpp`.
   * [ ] Add tests for validation in `tests/CoinAddressValidationTests.cpp` and derivation in `tests/CoinAddressDerivationTests.cpp`. 
