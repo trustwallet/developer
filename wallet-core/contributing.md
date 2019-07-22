@@ -150,9 +150,13 @@ The wallet core code generator also parses coin configuration defined in `coins.
     "base58Hasher": "sha256d",                                  // [optional] xpub / xprv base58 hasher, base58(hasher(hd node data))
     "xpub": "zpub",                                             // [optional] hd version bytes defined in slip-0132
     "xprv": "zprv",                                             // [optional] hd version bytes defined in slip-0132
-    "explorer": "https://blockchair.com/bitcoin/transaction/",  // block explorer used to view transaction detail
-    "url": "https://bitcoin.org",                               // project homepage
-    "rpcNodeInfo": "https://github.com/trezor/blockbook"        // rpc node to query balance, utxo, send transactions
+    "explorer": "https://blockchair.com/bitcoin/transaction/",  // block explorer used to view transaction detail     
+    "info": {
+        "url": "https://ethereum.org", // project homepage
+        "client": "https://github.com/ethereum/go-ethereum", // rpc node to query balance, utxo, send transactions
+        "clientPublic": "https://mainnet.infura.io", // public rpc/api node to query balance, utxo, send transactions
+        "clientPuclicDocs": "https://github.com/ethereum/wiki/wiki/JSON-RPC" // API Reference
+    }
 }
 ```
 
