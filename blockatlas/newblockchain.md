@@ -170,6 +170,16 @@ After implementation the observer API gets enabled (required for tx push notific
 Write a test at `/platform/<yourcoin>/api_test.go` to ensure correct normalization.
 Try reading and normalizing a sample API response (copy paste output of REST client).
 
+Where there's a need to access the `coin.Coins` map in tests context, the map has to be initialized 
+by loading coins and their configuration from the yml file. 
+That's to make sure the map won't be empty when running tests.
+
+```go
+func initCoins() {
+	coin.Load("../../coins.yml")
+}
+```
+
 ### Pull Request
 
 As soon as you are done, file a pull request from your fork to `TrustWallet:master`.
