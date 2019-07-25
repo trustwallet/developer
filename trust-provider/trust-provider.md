@@ -1,6 +1,5 @@
-# DApp Integration
-
-Trust extends WalletConnect with aditional methods to support multi-chain **dApps**. Currently, you can get accounts and sign transactions [for any blockchain](https://github.com/TrustWallet/wallet-core/blob/master/docs/coins.md).
+# Trust Provider
+Trust dApp browser provides simple a API for **dApp** developers to create multi-chain applications. Currently, our API allows you to get accounts and sign transactions [for any blockchain](https://github.com/TrustWallet/wallet-core/blob/master/docs/coins.md) for both iOS and Android.
 
 __Supported Coins__
 
@@ -8,78 +7,14 @@ __Supported Coins__
 <a href="https://ethereum.org" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/60.png" width="32" /></a>
 <a href="https://cosmos.network/" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/118.png" width="32" /></a>
 
-
-### Demo
-Checkout the demo [here](https://wallet-connect.trustwallet.com/)
-
 ## Getting started
-To use Trust's WalletConnect's implementation, you just need install two packages:
-
-```bash
-npm install --save @walletconnect/qrcode-modal @trustwallet/walletconnect
-```
-
-### Initiate Connection
-Before you can sign transactions, you have to initiate a connection to a WalletConnect bridge server, and handle all possible states:
-
-```javascript
-import WalletConnect from "@trustwallet/walletconnect";
-import WalletConnectQRCodeModal from "@walletconnect/qrcode-modal";
-
-// Create a walletConnector
-const walletConnector = new WalletConnect({
-  bridge: "https://bridge.walletconnect.org" // Required
-});
-
-// Check if connection is already established
-if (!walletConnector.connected) {
-  // create new session
-  walletConnector.createSession().then(() => {
-    // get uri for QR Code modal
-    const uri = walletConnector.uri;
-    // display QR Code modal
-    WalletConnectQRCodeModal.open(uri, () => {
-      console.log("QR Code Modal closed");
-    });
-  });
-}
-
-// Subscribe to connection events
-walletConnector.on("connect", (error, payload) => {
-  if (error) {
-    throw error;
-  }
-
-  // Close QR Code Modal
-  WalletConnectQRCodeModal.close();
-
-  // Get provided accounts and chainId
-  const { accounts, chainId } = payload.params[0];
-});
-
-walletConnector.on("session_update", (error, payload) => {
-  if (error) {
-    throw error;
-  }
-
-  // Get updated accounts and chainId
-  const { accounts, chainId } = payload.params[0];
-});
-
-walletConnector.on("disconnect", (error, payload) => {
-  if (error) {
-    throw error;
-  }
-
-  // Delete walletConnector
-});
-```
+TrustWallet's dApp browser expostes through `window.trustProvider` object. All methods return a `Promise`, whcih is resolved asynchronously with the result of the call.
 
 ### Get Accounts
-Once you have `walletconnect client` set up, you will be able to get the user's accounts:
+To get a list of supported accounts, you just need to call `trustProvider.getAccounts()` method:
 
 ```javascript
-walletConnector
+window.trustProvider
   .getAccounts()
   .then(result => {
     // Returns the accounts
@@ -90,6 +25,7 @@ walletConnector
     console.error(error);
   });
 ```
+
 
 The result is an array with the following structure:
 ```javascript
@@ -102,7 +38,7 @@ The result is an array with the following structure:
 ```
 
 ### Sign Transaction
-Once you have the account list, you will be able sign a transaction:
+After getting the user account for a specific network, you can sign a transaction using `trustProvider.signTransaction(network: number, transaction: any)` method:
 
 ```javascript
 const network = 118; // Atom (SLIP-44)
@@ -133,8 +69,8 @@ accountNumber: "1035",
   }
 };
 
-walletConnector
-  .trustSignTransaction(network, tx)
+window.trustProvider
+  .signTransaction(network, tx)
   .then(result => {
     // Returns transaction signed in json or encoded format
     console.log(result);
@@ -149,4 +85,5 @@ The result can be either a string JSON or an HEX encoded string. For Atom, the r
 ```javascript
 "{\"tx\":{\"fee\":{\"amount\":[{\"amount\":\"5000\",\"denom\":\"uatom\"}],\"gas\":\"200000\"},\"memo\":\"\",\"msg\":[{\"type\":\"cosmos-sdk/MsgSend\",\"value\":{\"amount\":[{\"amount\":\"100000\",\"denom\":\"uatom\"}],\"from_address\":\"cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0\",\"to_address\":\"cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa\"}}],\"signatures\":[{\"pub_key\":{\"type\":\"tendermint/PubKeySecp256k1\",\"value\":\"A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7\"},\"signature\":\"m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A==\"}],\"type\":\"cosmos-sdk/MsgSend\"}}"
 ```
+
 > **REMEMBER:** You have to provide the json structure based on [WalletCore's proto messages](https://github.com/TrustWallet/wallet-core/tree/master/src/proto). Please check the repository for more details.

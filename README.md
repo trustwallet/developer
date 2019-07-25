@@ -5,5 +5,6 @@ Welcome to the Trust Wallet developer documentation. Here you can find documenta
 * [Wallet Core](wallet-core/wallet-core.md)
 * [Blockatlas](blockatlas/blockatlas.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
+* [TrustProvider](trust-provider/trust-provider.md)
 * [Tokens](tokens/add_new_token_image.md)
 * [Deep Linking](deeplinking/deeplinking.md)
