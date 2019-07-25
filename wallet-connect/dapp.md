@@ -14,47 +14,17 @@ __Supported Coins__
 Checkout the demo [here](https://wallet-connect.trustwallet.com/)
 
 ## Getting started
-To use Trust's WalletConnect implementation, you need to clone the following repository:
+To use Trust's WalletConnect's implementation, you just need install two packages:
 
 ```bash
-git clone git@github.com:TrustWallet/walletconnect-monorepo.git
+npm install --save @walletconnect/qrcode-modal @trustwallet/walletconnect
 ```
-
-then build and link `@walletconnect/core` package:
-
-```bash
-cd packages/core
-npm install
-npm run build
-npm link
-```
-
-and build and link `@walletconnect/browser` package:
-
-```bash
-cd walletconnect-monorepo/browser
-npm install
-npm link @walletconnect/core
-npm run build
-npm link
-```
-
-> **Notice:** This package must use our core implementation. The command `npm link @walletconnect/core` link's our core package to the browser package before building it.
-
-After having both packages linked to your global repository, you have to install the following packages in your project:
-
-```bash
-npm install --save @walletconnect/browser @walletconnect/qrcode-modal
-npm link @walletconnect/browser
-```
-
-Now you're ready to sign transactions.
 
 ### Initiate Connection
 Before you can sign transactions, you have to initiate a connection to a WalletConnect bridge server, and handle all possible states:
 
 ```javascript
-import WalletConnect from "@walletconnect/browser";
+import WalletConnect from "@trustwallet/walletconnect";
 import WalletConnectQRCodeModal from "@walletconnect/qrcode-modal";
 
 // Create a walletConnector
