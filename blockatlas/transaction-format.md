@@ -4,7 +4,23 @@
 
 ### Base
 
-`id` - transaction hash
+`id` - Transaction hash
+
+`from` - Transaction original sender
+
+`to` - Transaction original recipient
+
+`fee` - Transaction fee
+
+`coin` - Coin index from [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+
+`date` - Time in Unix format at which a transaction is mined
+
+`block` - Block number at which transaction is included
+
+`memo` - Message included with a transaction
+
+`status` - [Transaction status](#transaction-status)
 
 ```
 {
@@ -13,7 +29,10 @@
    "to": "123",
    "fee": "1234"
    "coin": 60,
-   "block": 1
+   "date": 1562256431,
+   "block": 123,
+   "memo": "",
+   "status": ""
 }
 
 ```
@@ -166,5 +185,29 @@ will continue... Keys mostly used to provide localized version on the clients by
    },
    "address":"cosmosvaloper14k4pzckkre6uxxyd2lnhnpp8sngys9m6hl6ml7",
    "pubkey":"cosmosvalconspub1zcjduepquhlqdhjw4qp2c2t6qh5z7tfk52qc72623f0etc8f3n7hy8uuh25ql34fvu"
+}
+```
+
+## Token
+
+## Base
+
+`name` - Token name
+
+`symbol` - Token symbol
+
+`decimals` - Number of decimla places
+
+`tokenID` - Token unique id on the chain. e.g. (Dai token id on Ethereum - 0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359)
+
+`coin` - Coin index from [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+
+```json
+{
+   "name": "Givly Coin",
+   "symbol": "GIV",
+   "decimals": 8,
+   "tokenID": "GIV-94E",
+   "coin": 714
 }
 ```
