@@ -32,7 +32,7 @@
    "date": 1562256431,
    "block": 123,
    "memo": "",
-   "status": ""
+   "status": "completed"
 }
 
 ```
@@ -196,7 +196,7 @@ will continue... Keys mostly used to provide localized version on the clients by
 
 `symbol` - Token symbol
 
-`decimals` - Number of decimla places
+`decimals` - Number of decimal places
 
 `tokenID` - Token unique id on the chain. e.g. (Dai token id on Ethereum - 0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359)
 
