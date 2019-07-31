@@ -99,7 +99,7 @@ Process adding new tokens may look complicated at first glance, but once you com
 ### Easy way for Git user
 1. Fork the repo to your own github account
 2. Clone fork and crate new branch:
-```json
+```bash
 git clone git@github.com:YOUR_HANDLE/token-profile.git
 cd tokens
 git branch <branch_name>
