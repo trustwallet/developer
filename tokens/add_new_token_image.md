@@ -39,6 +39,13 @@ Hello and welcome to Trust Wallet assets info contribution guide. We appriciate 
 
 ## Repository structure
 
+`blockchains` folder contains many subfolders and represents chains e.g. `ethreum`, `binance` ...
+
+`assets` folder contains token folders named by smart contract address in lowercase register and inside of it `logo.png` - image representation
+
+`info` folder contains for now only `logo.png` that represents coin image
+
+
 ```
 .
 ├── blockchains
