@@ -109,7 +109,7 @@ git checkout XXX
 4. Commit and push to your fork
 ```json
 git add -A
-git commit -m “Add WHATEVER_YOU_ADDING token”
+git commit -m “Add <token_name>”
 git push origin XXX
 ```
 5. From your repo clone page make PR 
