@@ -110,7 +110,7 @@ git checkout <branch_name>
 ```json
 git add -A
 git commit -m “Add <token_name>”
-git push origin XXX
+git push origin <branch_name>
 ```
 5. From your repo clone page make PR 
 
