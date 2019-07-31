@@ -107,7 +107,7 @@ git checkout <branch_name>
 ```
 3.  Add asset to appropriate directory, here [folder strcture](#repository-structure) to help you
 4. Commit and push to your fork
-```json
+```bash
 git add -A
 git commit -m “Add <token_name>”
 git push origin <branch_name>
