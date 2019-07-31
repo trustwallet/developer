@@ -103,7 +103,7 @@ Process adding new tokens may look complicated at first glance, but once you com
 git clone git@github.com:YOUR_HANDLE/token-profile.git
 cd tokens
 git branch <branch_name>
-git checkout XXX
+git checkout <branch_name>
 ```
 3.  Add asset to appropriate directory, here [folder strcture](#repository-structure) to help you
 4. Commit and push to your fork
