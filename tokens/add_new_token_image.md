@@ -1,8 +1,8 @@
 # Trust Wallet Assets Info
 ## Overview
-Hello and welcome to Trust Wallet assets info contribution guide. We appriciate your effort to open-source. Token repository [https://github.com/TrustWallet/tokens](https://github.com/TrustWallet/tokens) (repo) is a source of images used by [Trust Wallet](https://trustwallet.com/) (TW) including:
+Hello and welcome to Trust Wallet assets info contribution guide. We appriciate your effort to open-source. Token repository [https://github.com/TrustWallet/tokens](https://github.com/TrustWallet/tokens) (repo) is a source of images used by [Trust Wallet](https://trustwallet.com/) including:
 
-1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) tokens on Ethereum compatible networks supported by TW such as:
+1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) tokens on Ethereum compatible networks supported by Trust Wallet such as:
   - [Ethreum (ETH)](https://ethereum.org/)
   - [Ethereum Classic (ETC)](https://ethereumclassic.org/)
   - [POA Network (POA)](https://poa.network/)
