@@ -102,7 +102,7 @@ Process adding new tokens may look complicated at first glance, but once you com
 ```json
 git clone git@github.com:YOUR_HANDLE/token-profile.git
 cd tokens
-git branch XXX
+git branch <branch_name>
 git checkout XXX
 ```
 3.  Add asset to appropriate directory, here [folder strcture](#repository-structure) to help you
