@@ -24,7 +24,7 @@ WalletConnect is available through [CocoaPods](https://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'WalletConnect', git: 'git@github.com:TrustWallet/wallet-connect-swift.git', branch: 'master'
+pod 'WalletConnect', git: 'git@github.com:trustwallet/wallet-connect-swift.git', branch: 'master'
 ```
 
 ## Usage
