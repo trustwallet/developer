@@ -1,6 +1,6 @@
 # Wallet Core
 
-![](/assets/wallet-core-banner.png)
+![](/media/wallet-core-banner.png)
 
 ## Introduction
 
