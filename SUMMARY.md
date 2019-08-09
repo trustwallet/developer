@@ -12,5 +12,5 @@
 * [WalletConnect](wallet-connect/wallet-connect.md)
   * [DApp](wallet-connect/dapp.md)
 * [TrustProvider](trust-provider/trust-provider.md)
-* [Tokens](tokens/add_new_token_image.md)
+* [Assets](tokens/add_new_asset.md)
 * [Deep Linking](deeplinking/deeplinking.md)
