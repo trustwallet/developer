@@ -59,7 +59,7 @@ Replace `Blockchain` with the actual blockchain name.
 
 At minimum the address needs a string validation static method, a string constructor, a constructor from a public key, and a method to convert back to a string. Make sure you can parse a string representation of an address and detect invalid addresses. Write unit tests for this. Also make sure that you can derive an address string from a private key. Write unit tests for this as well.
 
-For an example of this have a look at Cosmos [Address.h](https://github.com/TrustWallet/wallet-core/blob/master/src/Cosmos/Address.h) and [Address.cpp](https://github.com/TrustWallet/wallet-core/blob/master/src/Cosmos/Address.cpp).
+For an example of this have a look at Cosmos [Address.h](https://github.com/trustwallet/wallet-core/blob/master/src/Cosmos/Address.h) and [Address.cpp](https://github.com/trustwallet/wallet-core/blob/master/src/Cosmos/Address.cpp).
 
 Implement address validation and derivation in `src/Coin.cpp`.
 
@@ -67,7 +67,7 @@ Implement address validation and derivation in `src/Coin.cpp`.
 
 The second step is supporting signing of transactions. Create `src/Blockchain/Signer.h` and `src/Blockchain/Signer.cpp` where `Blockchain` is the blockchain name. Make sure you can generate a valid signature and a valid signed and encoded transaction. Write a unit tests for this.
 
-For an example of this have a look at Binance's [Signer.h](https://github.com/TrustWallet/wallet-core/blob/master/src/Binance/Signer.h) and [Signer.cpp](https://github.com/TrustWallet/wallet-core/blob/master/src/Binance/Signer.cpp).
+For an example of this have a look at Binance's [Signer.h](https://github.com/trustwallet/wallet-core/blob/master/src/Binance/Signer.h) and [Signer.cpp](https://github.com/trustwallet/wallet-core/blob/master/src/Binance/Signer.cpp).
 
 ### Tests
 
@@ -105,7 +105,7 @@ The above steps are summarized below as a checklist:
   * [ ] Address interface \(if necessary\).
   * [ ] Signing interface.
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
-* [ ] Upload coin icon to [TrustWallet/tokens](https://github.com/TrustWallet/tokens) if necessary
+* [ ] Upload coin icon to [trustwallet/tokens](https://github.com/trustwallet/assets/blockchains) if necessary
 
 ### Bitcoin forks checklist
 

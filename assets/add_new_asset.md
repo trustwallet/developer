@@ -18,7 +18,7 @@ Hello and welcome to Trust Wallet assets info contribution guide. We appriciate 
 
 4. [coins](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) integrated in [Wallet Core](https://developer.trustwallet.com/wallet-core)
 
-5. dApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com. [Folder for upload](https://github.com/trustwallet/tokens/tree/master/dapps) 
+5. dApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com. [Folder for upload](https://github.com/trustwallet/assets/tree/master/dapps) 
 
 6. Coming soon: token info, token price, blacklisted and whitelisted tokens (mostly scam/spam ones)
 

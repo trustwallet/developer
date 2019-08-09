@@ -1,12 +1,12 @@
 # DApp Integration
 
-Trust extends WalletConnect with aditional methods to support multi-chain **dApps**. Currently, you can get accounts and sign transactions [for any blockchain](https://github.com/TrustWallet/wallet-core/blob/master/docs/coins.md).
+Trust extends WalletConnect with aditional methods to support multi-chain **dApps**. Currently, you can get accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/coins.md).
 
 __Supported Coins__
 
-<a href="https://binance.com" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/714.png" width="32" /></a>
-<a href="https://ethereum.org" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/60.png" width="32" /></a>
-<a href="https://cosmos.network/" target="_blank"><img src="https://raw.githubusercontent.com/TrustWallet/tokens/master/coins/118.png" width="32" /></a>
+<a href="https://binance.com/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png" width="32" /></a>
+<a href="https://ethereum.org/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" width="32" /></a>
+<a href="https://cosmos.network/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/cosmos/info/logo.png" width="32" /></a>
 
 
 ### Demo
@@ -149,4 +149,4 @@ The result can be either a string JSON or an HEX encoded string. For Atom, the r
 ```javascript
 "{\"tx\":{\"fee\":{\"amount\":[{\"amount\":\"5000\",\"denom\":\"uatom\"}],\"gas\":\"200000\"},\"memo\":\"\",\"msg\":[{\"type\":\"cosmos-sdk/MsgSend\",\"value\":{\"amount\":[{\"amount\":\"100000\",\"denom\":\"uatom\"}],\"from_address\":\"cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0\",\"to_address\":\"cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa\"}}],\"signatures\":[{\"pub_key\":{\"type\":\"tendermint/PubKeySecp256k1\",\"value\":\"A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7\"},\"signature\":\"m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A==\"}],\"type\":\"cosmos-sdk/MsgSend\"}}"
 ```
-> **REMEMBER:** You have to provide the json structure based on [WalletCore's proto messages](https://github.com/TrustWallet/wallet-core/tree/master/src/proto). Please check the repository for more details.
+> **REMEMBER:** You have to provide the json structure based on [WalletCore's proto messages](https://github.com/trustwallet/wallet-core/tree/master/src/proto). Please check the repository for more details.
