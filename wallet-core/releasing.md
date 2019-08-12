@@ -26,7 +26,8 @@ $ npm login
 
 1. Run `bootstrap.sh`.
 2. Update the version number in `js/package.json` and the `npm` badge in `js/README.md`
-3. Run `tools/js-release` to build, test and publish the updated version to the `npm` registry.
+3. Run `tools/js-binary-release` on both `Linux` and `macOS` to publish the new binaries to `AWS S3`. 
+4. Run `tools/js-release` to build, test and publish the updated version to the `npm` registry.
 
 ## Android
 
