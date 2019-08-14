@@ -26,7 +26,7 @@ Hello and welcome to Trust Wallet assets info contribution guide. We appreciate 
 
 ## Contribution steps
 
-1. Prepare image [requrimetns](#image-requirements)
+1. Prepare image [requirements](#image-requirements)
 2. Get familiar with [folder structure](#repository-structure), will give you understanding where asset image should be placed
 3. [Add asset guide](#how-to-add-asset)
 
