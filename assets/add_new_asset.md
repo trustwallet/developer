@@ -1,6 +1,6 @@
 # Trust Wallet Assets Info
 ## Overview
-Hello and welcome to Trust Wallet assets info contribution guide. We appriciate your effort to open-source. Token repository [https://github.com/trustwallet/assets](https://github.com/trustwallet/assets) (repo) is a source of images used by [Trust Wallet](https://trustwallet.com/) including:
+Hello and welcome to Trust Wallet assets info contribution guide. We appreciate your effort to open-source. Token repository [https://github.com/trustwallet/assets](https://github.com/trustwallet/assets) (repo) is a source of images used by [Trust Wallet](https://trustwallet.com/) including:
 
 1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) tokens on Ethereum compatible networks supported by Trust Wallet such as:
   - [Ethereum (ETH)](https://ethereum.org/)
@@ -26,8 +26,8 @@ Hello and welcome to Trust Wallet assets info contribution guide. We appriciate 
 
 ## Contribution steps
 
-1. Prepare image [requrimetns](#image-requirments)
-2. Get familiar with [folder strcture](#repository-structure), will give you understanding where asset image should be placed
+1. Prepare image [requirements](#image-requirements)
+2. Get familiar with [folder structure](#repository-structure), will give you understanding where asset image should be placed
 3. [Add asset guide](#how-to-add-asset)
 
 ## Image Requirements
