@@ -92,20 +92,20 @@ The above steps are summarized below as a checklist:
 
 * [ ] Add the coin definition to `coins.json` and `TWCoinType`.
 * [ ] Implement functionality in C++. Put it in a subfolder of `src/`.
-  * [ ] Address \(if necessary\)
-  * [ ] Transaction \(if necessary\)
-  * [ ] Signer
+  * [ ] Address \(if necessary\).
+  * [ ] Transaction \(if necessary\).
+  * [ ] Signer.
 * [ ] Write unit tests. Put them in a subfolder of `tests/`.
-  * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file
-  * [ ] Transaction signing tests, at least a mainnet transaction test
-  * [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like
-* [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary
+  * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file.
+  * [ ] Transaction signing tests, at least a mainnet transaction test.
+  * [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
+* [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
 * [ ] Implement address validation and derivation.
-  * [ ] Implement validation and derivation in `src/Coin.cpp`
-  * [ ] Add tests for validation in `tests/CoinAddressValidationTests.cpp` and derivation in `tests/CoinAddressDerivationTests.cpp`
+  * [ ] Implement validation and derivation in `src/Coin.cpp`.
+  * [ ] Add tests for validation in `tests/CoinAddressValidationTests.cpp` and derivation in `tests/CoinAddressDerivationTests.cpp`.
 * [ ] Write interface header in `include/TrustWalletCore` and implement the interface in `src/interface`.
-  * [ ] Address interface \(if necessary\)
-  * [ ] Signing interface
+  * [ ] Address interface \(if necessary\).
+  * [ ] Signing interface.
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
 * [ ] Upload coin icon to [trustwallet/assets](https://github.com/trustwallet/assets/#how-to-add-asset) if necessary.
 
