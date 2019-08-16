@@ -6,10 +6,13 @@ If you haven't, first read the [guide to contributing](contributing.md). It cont
 
 The Trust Wallet development team is always striving to add more blockchains that will be essential for developers and wallet users. We choose blockchains carefully that will have the biggest impact for our community.
 
+In general: 
+
+- The blockchain has launched mainnet and stably run at least 3 ~ 6 months without any major security incidents.
 - The blockchain has extensive public documentation and tools available for developers to use.
 - The native coin is listed in the top 100 coins on CoinMarketCap.
 - The project needs to provide API/JSON-RPC access to the node with a load balancing setup for private use.
-- The native coin is tradable on major exchanges
+- The native coin is tradable on major exchanges.
 
 ## Blockchain definitions
 
@@ -91,21 +94,22 @@ The above steps are summarized below as a checklist:
 
 * [ ] Add the coin definition to `coins.json` and `TWCoinType`.
 * [ ] Implement functionality in C++. Put it in a subfolder of `src/`.
-  * [ ] Address \(if necessary\)
-  * [ ] Transaction \(if necessary\)
-  * [ ] Signer
+  * [ ] Address \(if necessary\).
+  * [ ] Transaction \(if necessary\).
+  * [ ] Signer.
 * [ ] Write unit tests. Put them in a subfolder of `tests/`.
-  * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file
-  * [ ] Transaction signing tests, at least a mainnet transaction test
+  * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file.
+  * [ ] Transaction signing tests, at least a mainnet transaction test.
+  * [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
 * [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
-* [ ] Implement address validation and derivation
+* [ ] Implement address validation and derivation.
   * [ ] Implement validation and derivation in `src/Coin.cpp`.
-  * [ ] Add tests for validation in `tests/CoinAddressValidationTests.cpp` and derivation in `tests/CoinAddressDerivationTests.cpp`. 
+  * [ ] Add tests for validation in `tests/CoinAddressValidationTests.cpp` and derivation in `tests/CoinAddressDerivationTests.cpp`.
 * [ ] Write interface header in `include/TrustWalletCore` and implement the interface in `src/interface`.
   * [ ] Address interface \(if necessary\).
   * [ ] Signing interface.
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
-* [ ] Upload coin icon to [trustwallet/tokens](https://github.com/trustwallet/assets/blockchains) if necessary
+* [ ] Upload coin icon to [trustwallet/assets](https://github.com/trustwallet/assets/#how-to-add-asset) if necessary.
 
 ### Bitcoin forks checklist
 
