@@ -6,6 +6,8 @@ If you haven't, first read the [guide to contributing](contributing.md). It cont
 
 The Trust Wallet development team is always striving to add more blockchains that will be essential for developers and wallet users. We choose blockchains carefully that will have the biggest impact for our community.
 
+In general: 
+
 - The blockchain has launched mainnet and stably run at least 3 ~ 6 months without any major security incidents.
 - The blockchain has extensive public documentation and tools available for developers to use.
 - The native coin is listed in the top 100 coins on CoinMarketCap.
