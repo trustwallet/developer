@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Trust Wallet Core is a cross-platform library that implements low-level cryptographic wallet functionality for many blockchains. Most of the code is C++ with a set of strict exported C interfaces. The library provides idiomatic interfaces for all supported languages \(currently Swift for iOS, Java for Android and TypeScript for Desktop\).
+Trust Wallet Core is a cross-platform library that implements low-level cryptographic wallet functionality for many blockchains. Most of the code is C++ with a set of strict exported C interfaces. The library provides idiomatic interfaces for all supported languages \(currently Swift for iOS and Java for Android\).
 
 ## Usage
 
@@ -26,14 +26,6 @@ Add this line to your Podfile and run `pod install`:
 
 ```ruby
 pod 'TrustWalletCore'
-```
-
-#### JavaScript
-
-Type definititions are included in the package. To install the `npm` package, run
-
-```bash
-npm install trust-wallet-core
 ```
 
 ## Contributing

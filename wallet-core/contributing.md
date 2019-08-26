@@ -65,7 +65,6 @@ This project has a number of different pieces. Each piece lives in its own subfo
 * The `include` folder contains the public C header files used to expose a cross-platform interface.
 * The `codegen` folder contains the code and templates used to generate code for different platforms and languages.
 * The `jni` folder contains the generated JNI interface and Java classes.
-* The `js` folder contains the generated NAPI C++ bindings and JavaScript classes.
 * The `android` folder contains the Android Studio project and integration tests.
 * The `swift` folder contains the generated Swift code and Xcode project.
 * The `trezor-crypto` folder contains a fork of [https://github.com/trezor/trezor-crypto/](https://github.com/trezor/trezor-crypto/) with modifications.
@@ -86,7 +85,6 @@ After running `bootstrap.sh` run `make -C build tests && build/tests/tests tests
 
 * Android: run `tools/android-test` or import `android` folder to Android Studio
 * iOS: run `tools/ios-test` or cd `swift` folder and open `TrustWalletCore.xcworkspace`
-* JavaScript: run `tools/js-test` or cd `js` folder, run `npm test`
 
 To run all tests in one go use the `tools/tests` script.
 
