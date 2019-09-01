@@ -8,3 +8,4 @@ Welcome to the Trust Wallet developer documentation. Here you can find documenta
 * [TrustProvider](trust-provider/trust-provider.md)
 * [Assets](assets/add_new_asset.md)
 * [Deep Linking](deeplinking/deeplinking.md)
+* [Staking](platform/staking.md)

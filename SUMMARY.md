@@ -14,3 +14,4 @@
 * [TrustProvider](trust-provider/trust-provider.md)
 * [Assets](assets/add_new_asset.md)
 * [Deep Linking](deeplinking/deeplinking.md)
+* [Staking](platform/staking.md)
