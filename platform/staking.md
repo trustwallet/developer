@@ -35,19 +35,16 @@ in your blockchain: if is on chain, you should start with `Step 1`, if not, `Ste
 ## Step 4: Define Validators Information
   - Open a pull request to [trust assets](https://github.com/trustwallet/assets) and add all validators
   that will be supported by TrustWallet.
-    - You have to create a folder with the following format `/blockchains/:blockchain:/validators`, 
-    where `:blockchain:` is the name of your network.
+    - Create a folder with the following format `/blockchains/<network_name>/validators` if one not yet not exist.
     - The folder should contain the following files and subfolders:
       ```
-      /blockchains/:blockchain:/validators
-        |
-        +- list.json
-        |
-        `- assets
-           |
-           `- :validator:
-              |
-              `- logo.png
+      .
+      ├──blockchains/:blockchain:/validators
+      |                           └──assets
+      |                           |  └──<validator_address>
+      |                           |      └──logo.png
+      |                           |
+      |                           └──list.json
       ```
     - Inside `assets` you have to add the logo for each supported validator, where `:validator:` is the 
     the validator address.
@@ -62,8 +59,9 @@ in your blockchain: if is on chain, you should start with `Step 1`, if not, `Ste
             }
         ]
       ```
-    - You have to provide at least 3 validators to be listed in TrustWallet.
     - You can find a sample [here](https://github.com/trustwallet/assets/tree/master/blockchains/cosmos).
+
+    * Minimum 3 validators required to support staking on TrustWallet platform.
 
 ## Step 5: Define RPC Endpoints for Platform
   - If Staking is on chain, please provide all RPC methods that are needed for a Dapp and add them to [web-core](https://github.com/trustwallet/web-core)
