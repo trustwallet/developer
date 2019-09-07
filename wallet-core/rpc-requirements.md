@@ -12,11 +12,11 @@ We need API or RPC to:
 - [ ] query blockchain status (block height etc)
 - [ ] send raw transaction
 
-## for blockatlas: 
+## for Block Atlas: 
 
-We need API or RPC to: 
+At first, please read [Block Atlas Developer Guide](blockatlas/newblockchain.md), We need API or RPC to: 
 
-- [ ] query sent / received transactions for an account / address
+- [ ] query sent / received list of transactions for an account / address
 - [ ] query transactions in a block
 
 ## Example
