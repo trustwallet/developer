@@ -4,6 +4,7 @@
 * [Wallet Core](wallet-core/wallet-core.md)
   * [Contributing](wallet-core/contributing.md)
   * [Adding Support for a New Blockchain](wallet-core/newblockchain.md)
+  * [RPC / API Requirements](wallet-core/rpc-requirements.md)
   * [Linux](wallet-core/linux.md)
   * [Releasing](wallet-core/releasing.md)
 * [Blockatlas](blockatlas/blockatlas.md)
