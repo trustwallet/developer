@@ -16,3 +16,5 @@
 * [Assets](assets/add_new_asset.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [Staking](platform/staking.md)
+* [Roadmap](roadmap/roadmap.md)
+  * [Blockchain Integration Status](roadmap/blockchain-status.md)
