@@ -14,7 +14,7 @@ We need API or RPC to:
 
 ## for Block Atlas: 
 
-At first, please read [Block Atlas Developer Guide](blockatlas/newblockchain.md), We need API or RPC to: 
+At first, please read [Block Atlas Developer Guide](https://developer.trustwallet.com/blockatlas/newblockchain), We need API or RPC to: 
 
 - [ ] query sent / received list of transactions for an account / address
 - [ ] query transactions in a block
