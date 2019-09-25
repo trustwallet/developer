@@ -4,7 +4,7 @@
 | Nano | In-Progress | Nano Team | Launched | ✅ | ✅ | Coin Transfer | None | 
 | FIO | In-Progress | Trust Team | Q1 2020 | ✅ |  | Coin Transfer / Payment Request | |
 | NEAR | In-Progress | NEAR Team | Late 2019 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
-| Solana | In-Progress | Solana Team |  | ✅ | ✅ | Coin Transfer / Smart Contract / Staking |
+| Solana | In-Progress | Solana Team | November 2019 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking |
 | Polkadot | Research |   | November 2019 |  |  | Coin Transfer / Smart Contract / Staking | |
 | TON | Research |  | November 2019 |  |  | Coin Transfer / Smart Contract / Staking | |
 | Filecoin | Research |  | March 2020 |  |  | Coin Transfer | |
