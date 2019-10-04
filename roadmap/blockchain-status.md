@@ -10,7 +10,6 @@
 | Libra | 🔬|  |  |  |  | Coin Transfer / Smart Contract | |
 | Algorand | ✅| Trust Team | Launched | ✅ | ✅ | Coin Transfer | None |
 
-
 Status:
 - 🔬 Research
 - 🏗 In-Progress 
