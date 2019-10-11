@@ -23,61 +23,6 @@ Create an issue in [Trust Platform](https://github.com/trustwallet/platform/issu
 ## Return Staking Data
 Trust Platform retrieve staking data from [blockatlas](https://github.com/trustwallet/blockatlas). Blockatlas is used as a common interface for querying data from different blockchains. To support staking you have to implement the following interfaces:
 
-### [Models](https://github.com/trustwallet/blockatlas/blob/master/pkg/blockatlas/staking.go)
-
-##### ValidatorPage
-```go
-type Amount string
-
-type StakingReward struct {
-  Annual float64 `json:"annual"`
-}
-
-type Validator struct {
-  ID            string        `json:"id"`
-  Status        bool          `json:"status"`
-  Reward        StakingReward `json:"reward"`
-  LockTime      int           `json:"locktime"`
-  MinimumAmount Amount        `json:"minimum_amount"`
-}
-
-type ValidatorPage []Validator
-```
-
-##### DelegationsPage
-```go
-type DelegationStatus string
-
-const (
-  DelegationStatusActive  DelegationStatus = "active"
-  DelegationStatusPending DelegationStatus = "pending"
-)
-
-type StakeValidatorInfo struct {
-  Name        string `json:"name"`
-  Description string `json:"description"`
-  Image       string `json:"image"`
-  Website     string `json:"website"`
-}
-
-type StakeValidator struct {
-  ID            string             `json:"id"`
-  Status        bool               `json:"status,omitempty"`
-  Info          StakeValidatorInfo `json:"info,omitempty"`
-  Reward        StakingReward      `json:"reward,omitempty"`
-  LockTime      int                `json:"locktime,omitempty"`
-  MinimumAmount Amount             `json:"minimum_amount,omitempty"`
-}
-
-type Delegation struct {
-  Delegator StakeValidator `json:"delegator"`
-
-  Value    string           `json:"value"`
-  Status   DelegationStatus `json:"status"`
-  Metadata interface{}      `json:"metadata,omitempty"`
-}
-
-type DelegationsPage []Delegation
 ```
 
 ### [Interface](https://github.com/trustwallet/blockatlas/blob/master/pkg/blockatlas/api.go)
@@ -90,7 +35,7 @@ type StakeAPI interface {
 }
 ```
 
-To active Staking in your blockchain, imeplement the `StakeAPI` interface into your blockchain API. eg: `blockatlas/platform/:blockchain/api.go`. `GetValidators` method has to return the list of available validators (plese check Step 5) and `getDelegatios` should return the list of current delegations.
+To active Staking in your blockchain, imeplement the `StakeAPI` interface into your blockchain API. eg: `blockatlas/platform/:blockchain/api.go`. `GetValidators` method has to return the list of available validators and `GetDelegations` should return the list of current delegations for a given address. You can check the returned models by each method [here](https://github.com/trustwallet/blockatlas/blob/master/pkg/blockatlas/staking.go).
 
 Please follow [tron](https://github.com/trustwallet/blockatlas/blob/master/platform/tron/api.go) and [cosmos](https://github.com/trustwallet/blockatlas/blob/master/platform/cosmos/api.go) implementations for more details.
 
