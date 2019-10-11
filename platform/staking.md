@@ -159,5 +159,5 @@ The above steps are summarized below as a checklist:
   * [ ] **Off chain smart contract call:** describe it with examples in your issue   
 * [ ] Implement RPC endpoints to communicate with nodes in your blockchain in [web-core](https://github.com/trustwallet/web-core) project.
   * [ ] Add unit and integration tests for all calls
-* [ ] Create a validators list
+* [ ] Create a validators list if necessary
 * [ ] Comment your issue with references to all required pull requests.
