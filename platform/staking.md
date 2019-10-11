@@ -42,7 +42,7 @@ Please follow [tron](https://github.com/trustwallet/blockatlas/blob/master/platf
 ## Signing
 If your blockchain implements staking natively, please describe all message types required to `delegate`, `withdraw funds` then open a pull request to [wallet-core](https://github.com/trustwallet/wallet-core) project. You have to include test cases with a correct message for each action. 
 
-If you blockchain uses a smart contract call on chain, please check if your implementation in wallet-core supports smart contract call. Please create a protobug message that encodes and simplifies the smart contract call. *Checkout [tron TRC20](https://github.com/trustwallet/wallet-core/blob/master/src/proto/Tron.proto) signing [implementation](https://github.com/trustwallet/wallet-core/blob/master/src/Tron/Signer.cpp) for example*. Include correct test cases for all call required to `delegate` and `withdraw funds`.
+If you blockchain uses a smart contract call on chain, please check if your implementation in wallet-core supports smart contract call. Please create a protobuf message that encodes and simplifies the smart contract call. *Checkout [tron TRC20](https://github.com/trustwallet/wallet-core/blob/master/src/proto/Tron.proto) signing [implementation](https://github.com/trustwallet/wallet-core/blob/master/src/Tron/Signer.cpp) for example*. Include correct test cases for all call required to `delegate` and `withdraw funds`.
 
 If your blockchain uses an off-chain smart contract, eg ETH, please describe it in your issue in Trust Platform with sample calls.
 
