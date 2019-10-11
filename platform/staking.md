@@ -6,7 +6,7 @@ integrate their staking solution. With TrustWallet, you'll have access to millio
 users to help you grow and secure your network.
 
 ## Step 1: Talk about your implementation
-Create an issue in [Trust Platform](https://github.com/trustwallet/web-core/tree/master/packages/rpc/src/cosmos) describing your poject. Please fill the following questions before proceding with your implementation:
+Create an issue in [Trust Platform](https://github.com/trustwallet/web-core/issues) describing your poject. Please fill the following questions before proceding with your implementation:
 
 1) Is your staking on or off-chain?
    > If it's offchain, please describe how it's implemented
