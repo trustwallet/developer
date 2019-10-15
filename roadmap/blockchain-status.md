@@ -1,5 +1,6 @@
 | Blockchain | Status | Responsible | Mainnet | Address | Signing | Features | RPC |
 | -          | -           | -      | -       | -       | -       | -       | -   |
+| Harmony | 🏗| Harmony Team | Launched | ✅ | ✅ | Coin Transfer | - | 
 | Nano | 🏗| Nano Team | Launched | ✅ | ✅ | Coin Transfer | None | 
 | FIO | 🏗| Trust Team | Q1 2020 | ✅ |  | Coin Transfer / Payment Request | |
 | NEAR | 🏗| NEAR Team | Late 2019 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
