@@ -18,7 +18,7 @@ After integrate into Trust Wallet, project should also provide timely support fo
 
 ## Blockchain definitions
 
-The first step to adding a blockchain is to define its configuration parameters. Add the definition to the `coins.json` file. Then run `tools/generate-files` to generate the C++ code from that. Add the corresponding definition to `TWCoinType.h`. After doing this add tests to `TWCoinTypeConfigTests.cpp` and `CoinTests.cpp`. Run the tests and make sure everything is passing before moving on to the next step. Create a commit with this change \(don't create a pull request yet\).
+The first step to adding a blockchain is to define its configuration parameters. Add the definition to the `coins.json` file. Then run `tools/generate-files` to generate the C++ code from that. Add the corresponding definition to `TWCoinType.h`. After this create tests in `tests/Blockchain/TWCoinTypeTests.cpp` (where `Blockchain` is the name of the blockchain), exactly as in other blockchains. Run the tests and make sure everything is passing before moving on to the next step. Create a commit with this change \(don't create a pull request yet\).
 
 ## C++ Implementation
 
@@ -95,6 +95,7 @@ The C interface, any Protobuf models, and integration tests should be third comm
 The above steps are summarized below as a checklist:
 
 * [ ] Add the coin definition to `coins.json` and `TWCoinType`.
+  * [ ] Create tests in `tests/Blockchain/TWCoinTypeTests.cpp`.
 * [ ] Implement functionality in C++. Put it in a subfolder of `src/`.
   * [ ] Address \(if necessary\).
   * [ ] Transaction \(if necessary\).
