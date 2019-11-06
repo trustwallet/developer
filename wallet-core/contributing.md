@@ -50,6 +50,7 @@ Is it not uncommon for a PR to accumulate commits and merges with time. The libr
 * Install Xcode
 * Install Xcode command line tools: `xcode-select --install`
 * Install other tools: `brew install cmake ninja boost autoconf automake libtool xcodegen clang-format`
+* Install cocoapods for iOS: `gem install cocoapods`
 * Install [Android Studio](https://developer.android.com/studio/index.html)
 * Install the [Android NDK](https://developer.android.com/ndk/guides/)
 
