@@ -38,7 +38,7 @@ The result is an array with the following structure:
 ```
 
 ### Sign Transaction
-After getting the user account for a specific network, you can sign a transaction using `trustProvider.signTransaction(network: number, transaction: any)` method:
+After getting the user account for a specific network, you can sign a transaction using `trustProvider.signTransaction({network: number, transaction: any})` method:
 
 ```javascript
 const network = 118; // Atom (SLIP-44)
@@ -70,7 +70,7 @@ accountNumber: "1035",
 };
 
 window.trustProvider
-  .signTransaction(network, tx)
+  .signTransaction({network: network, transaction: tx})
   .then(result => {
     // Returns transaction signed in json or encoded format
     console.log(result);
