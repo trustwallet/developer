@@ -14,6 +14,11 @@ https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
 https://link.trustwallet.com/activate_coin?coin_id=60
 
+### Stake coin:
+
+- `coin` slip44 index
+
+https://link.trustwallet.com/stake?coin=18
 
 ### Add custom token:
 
