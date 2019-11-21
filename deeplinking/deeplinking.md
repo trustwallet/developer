@@ -26,6 +26,17 @@ https://link.trustwallet.com/stake?coin=18
 
 https://link.trustwallet.com/redeem?code=abc123
 
+
+### Send Payment:
+
+- `coin` slip44 index
+- `token_id` optional. token identifier
+- `address` recepient address
+- `amount` payment amount
+- `memo` memo
+
+https://link.trustwallet.com/redeem?code=abc123
+
 ### Add custom token:
 
 - `token_id` token identifier on the blockchain. 
