@@ -20,6 +20,12 @@ https://link.trustwallet.com/activate_coin?coin_id=60
 
 https://link.trustwallet.com/stake?coin=18
 
+### Redeem Code:
+
+- `code` unique code
+
+https://link.trustwallet.com/redeem?code=abc123
+
 ### Add custom token:
 
 - `token_id` token identifier on the blockchain. 
