@@ -26,7 +26,6 @@ https://link.trustwallet.com/stake?coin=18
 
 https://link.trustwallet.com/redeem?code=abc123
 
-
 ### Send Payment:
 
 - `coin` slip44 index
