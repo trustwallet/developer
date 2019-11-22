@@ -3,7 +3,7 @@
 ## Usage 
 ### Open dapp browser with a specific url and network
 
-- `coin_id` - slip44 index
+- `coin` - slip44 index
 - `url` - website url
 
 https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
