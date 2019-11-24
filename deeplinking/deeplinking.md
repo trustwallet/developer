@@ -18,7 +18,7 @@ https://link.trustwallet.com/activate_coin?coin_id=60
 
 - `coin` slip44 index
 
-https://link.trustwallet.com/stake?coin=18
+https://link.trustwallet.com/stake?coin=118
 
 ### Redeem Code:
 
