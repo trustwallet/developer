@@ -23,6 +23,7 @@ https://link.trustwallet.com/stake?coin=118
 ### Redeem Code:
 
 - `code` unique code
+- `provider` provider url
 
 https://link.trustwallet.com/redeem?code=abc123
 
