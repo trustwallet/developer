@@ -3,7 +3,7 @@
 ## Usage 
 ### Open dapp browser with a specific url and network
 
-- `coin_id` - slip44 index
+- `coin` - slip44 index
 - `url` - website url
 
 https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
@@ -14,6 +14,29 @@ https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
 https://link.trustwallet.com/activate_coin?coin_id=60
 
+### Stake coin:
+
+- `coin` slip44 index
+
+https://link.trustwallet.com/stake?coin=118
+
+### Redeem Code:
+
+- `code` unique code
+- `provider` provider url
+
+https://link.trustwallet.com/redeem?code=abc123
+
+### Send Payment:
+
+- `coin` slip44 index
+- `token_id` Optional. Token identifier (as smart contrtact address or unique token ID)
+- `address` Recipient address
+- `amount` Optional. Payment amount
+- `memo` Optional. Memo
+- `data` Optional. Data
+
+https://link.trustwallet.com/send?coin=60&token_id= 0x6B175474E89094C44Da98b954EedeAC495271d0F&address=0x650b5e446edabad7eba7fa7bb2f6119b2630bfbb&amount=1&memo=test
 
 ### Add custom token:
 
