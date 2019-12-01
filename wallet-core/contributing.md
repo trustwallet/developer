@@ -54,7 +54,7 @@ Is it not uncommon for a PR to accumulate commits and merges with time. The libr
 * Install [Android Studio](https://developer.android.com/studio/index.html)
 * Install the [Android NDK](https://developer.android.com/ndk/guides/)
 
-If you are working on Linux please see [Linux](linux.md).
+If you are working on Linux please see the [build instractions](building.md).
 
 ## Project organization
 
@@ -73,11 +73,7 @@ This project has a number of different pieces. Each piece lives in its own subfo
 
 ## Building
 
-Use the `bootstrap.sh` script in the root folder to install dependencies, generate files, build, and test. The build pipeline uses CMake. If you add or rename files you need to re-run cmake: `cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug`. If you only change existing files and want to run the tests you only need to run make: `make -Cbuild tests && build/tests/tests tests`.
-
-If you change interface files, `coins.json`, or Protobuf files you need to regenerate code: `tools/generate-files`.
-
-If you'd rather use and IDE for building and debugging you can specify the `-G` option to cmake. For instance to use Xcode call `cmake -Bxcode -GXcode -DCMAKE_BUILD_TYPE=Debug` and use the generated project in the xcode folder.
+Please refer to [build instractions](building.md) for building the library locally.
 
 ## Testing
 
@@ -170,6 +166,6 @@ Wallet core follows the [LLVM Coding Standards](http://llvm.org/docs/CodingStand
 
 ## More
 
-* Building on [Linux](linux.md)
+* [Build instractions](building.md)
 * [Adding Support for a New Blockchain](newblockchain.md)
 * [Releasing](releasing.md)
