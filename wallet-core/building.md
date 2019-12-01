@@ -23,13 +23,31 @@ Wallet Core can be build inside the provided Docker image, or natively.
 
 ## Prerequisites
 
-Here are the required prerequisites.  You need to install and set them up (unless you already have them) on your dev machine (unless you work inside the Docker image).
+Here is the list of required prerequisites.
 
-* *CMake* version 3.12 or higher.
-* *Clang* version 7.0 or higher.
-* *Boost* version 1.66 or higher.
+### Prerequisites on MacOS
 
-Additionally, the following prerequisites are also needed, but they are managed by Wallet Core.  The script `tools/install-dependencies` downloads and compiles them.
+* CMake `brew install cmake`
+* Boost `brew install boost`
+* Xcode
+* Xcode command line tools: `xcode-select --install`
+* Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format`
+* Cocoapods for iOS: `sudo gem install cocoapods`
+* [Android Studio](https://developer.android.com/studio/index.html)
+* [Android NDK](https://developer.android.com/ndk/guides/)
+
+### Prerequisites on Linux
+
+* Various packages `sudo apt-get install autoconf git libcurl4-openssl-dev libicu-dev libssl-dev libtool ninja-build nodejs pkg-config unzip`
+* CLang
+* Ruby 2.6 (`rbenv` from https://github.com/rbenv/ruby-build, then `rbenv install 2.6.3`)
+* Boost (from https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz)
+* CMake (from https://github.com/Kitware/CMake/releases)
+* [Android Studio](https://developer.android.com/studio/index.html)
+
+### Managed Prerequisites
+
+Additionally, the following prerequisites are also needed, but they are managed by Wallet Core.  The script `tools/install-dependencies` downloads and compiles them (see below).
 
 * Google test
 * Check

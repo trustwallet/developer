@@ -45,17 +45,6 @@ Please follow these instructions when submitting a pull request \(PR\):
 
 Is it not uncommon for a PR to accumulate commits and merges with time. The library is in constant change. If your PR falls out of sync with the upstream master you need to rebase. We can't reliably review code that is spread over too many other changes to the codebase. Please use git's [interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History) and if necessary create a new PR.
 
-## Before you start
-
-* Install Xcode
-* Install Xcode command line tools: `xcode-select --install`
-* Install other tools: `brew install cmake ninja boost autoconf automake libtool xcodegen clang-format`
-* Install cocoapods for iOS: `gem install cocoapods`
-* Install [Android Studio](https://developer.android.com/studio/index.html)
-* Install the [Android NDK](https://developer.android.com/ndk/guides/)
-
-If you are working on Linux please see the [build instructions](building.md).
-
 ## Project organization
 
 This project has a number of different pieces. Each piece lives in its own subfolder.
@@ -71,7 +60,7 @@ This project has a number of different pieces. Each piece lives in its own subfo
 * The `tests` folder contains unit tests.
 * THe `tools` folder contains scripts to automate common tasks.
 
-## Building
+## Prerequisites and Building
 
 Please refer to [build instructions](building.md) for building the library locally.
 
