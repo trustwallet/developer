@@ -6,8 +6,8 @@ Find here intructions for building the Wallet Core library locally.
 
 The following *target platforms* are supported:
 
-* **iOS** -- Swift language is used by the library.
-* **Android** -- Kotlin language is used by the library.
+* **iOS** (Swift language is used)
+* **Android**
 
 The following *development platforms* are supported:
 

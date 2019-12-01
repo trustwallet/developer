@@ -54,7 +54,7 @@ Is it not uncommon for a PR to accumulate commits and merges with time. The libr
 * Install [Android Studio](https://developer.android.com/studio/index.html)
 * Install the [Android NDK](https://developer.android.com/ndk/guides/)
 
-If you are working on Linux please see the [build instractions](building.md).
+If you are working on Linux please see the [build instructions](building.md).
 
 ## Project organization
 
@@ -73,7 +73,7 @@ This project has a number of different pieces. Each piece lives in its own subfo
 
 ## Building
 
-Please refer to [build instractions](building.md) for building the library locally.
+Please refer to [build instructions](building.md) for building the library locally.
 
 ## Testing
 
@@ -166,6 +166,6 @@ Wallet core follows the [LLVM Coding Standards](http://llvm.org/docs/CodingStand
 
 ## More
 
-* [Build instractions](building.md)
+* [Build instructions](building.md)
 * [Adding Support for a New Blockchain](newblockchain.md)
 * [Releasing](releasing.md)
