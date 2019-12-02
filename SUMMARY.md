@@ -7,6 +7,7 @@
   * [Adding Support for a New Blockchain](wallet-core/newblockchain.md)
   * [RPC / API Requirements](wallet-core/rpc-requirements.md)
   * [Releasing](wallet-core/releasing.md)
+  * [WalletConsole utility](wallet-core/walletconsole.md)
 * [Blockatlas](blockatlas/blockatlas.md)
   * [Adding Support for a New Blockchain](blockatlas/newblockchain.md)
   * [Transaction Format](blockatlas/transaction-format.md)
