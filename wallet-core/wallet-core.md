@@ -28,7 +28,7 @@ Add this line to your Podfile and run `pod install`:
 pod 'TrustWalletCore'
 ```
 
-## Add your project below
+## Projects using Wallet Core -- Add yours too!
 
 - [Trust Wallet](https://trustwallet.com)
 - [coinpaprika](https://coinpaprika.com/)
