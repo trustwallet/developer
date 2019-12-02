@@ -2,10 +2,10 @@
 
 * [Get Started](README.md)
 * [Wallet Core](wallet-core/wallet-core.md)
+  * [Building](wallet-core/building.md)
   * [Contributing](wallet-core/contributing.md)
   * [Adding Support for a New Blockchain](wallet-core/newblockchain.md)
   * [RPC / API Requirements](wallet-core/rpc-requirements.md)
-  * [Linux](wallet-core/linux.md)
   * [Releasing](wallet-core/releasing.md)
   * [WalletConsole utility](wallet-core/walletconsole.md)
 * [Blockatlas](blockatlas/blockatlas.md)
