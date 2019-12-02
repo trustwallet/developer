@@ -69,9 +69,9 @@ Here are various sample usages.
 
 Create a new private key, derive a BTC address from it, write it to a file:
 
-    > coin bitcoin
+    >> coin bitcoin
     Set active coin to: bitcoin    Use 'coin' to change.  (name: 'bitcoin'  symbol: btc  numericalid: 0)
-    > newKey
+    newKey
     Result:  4e8c1773ce1ca447594fa23a445d9952236c7a15e96802b880aab4d918bdcfd9
     > addrPri #
     Result:  bc1qvjf93nc80f3fu7j2ehqv6xw6zqa5cny32hl90y
@@ -80,7 +80,7 @@ Create a new private key, derive a BTC address from it, write it to a file:
 
 Create a new private key, derive the public key from it, derive a BTC address from it:
 
-    > newKey
+    >> newKey
     Result:  ef8f76035c4d4dd29ed4bbe3fc7c0db45d81cd616f2ac8b038cb982bec2a63ad
     > pubPri #
     Result:  0381277ec943a6cd4033171da547bbe93585a8905fb3dad108e8e51e88a4e136ea
@@ -89,14 +89,14 @@ Create a new private key, derive the public key from it, derive a BTC address fr
 
 Check an ALGO address for validity:
 
-    > coin algo
+    >> coin algo
     Set active coin to: algorand    Use 'coin' to change.  (name: 'algorand'  symbol: algo  numericalid: 283)
     > addr LCSUSBOLNVT6BND6DWWGM4DLVUYJN3PGBT4T7LTCMDMKS7TR7FZAOHOVPE
     Address is a valid algorand address:  LCSUSBOLNVT6BND6DWWGM4DLVUYJN3PGBT4T7LTCMDMKS7TR7FZAOHOVPE
 
 Derive private keys using different BIP39 derivation paths, and create address from it:
 
-    > coin btc
+    >> coin btc
     Set active coin to: bitcoin    Use 'coin' to change.  (name: 'bitcoin'  symbol: btc  numericalid: 0)
     > dumpDP
     Result:  m/84'/0'/0'/0/0
@@ -115,7 +115,7 @@ Derive private keys using different BIP39 derivation paths, and create address f
 
 Derive several NANO addresses (BIP39):
 
-    > coin nano
+    >> coin nano
     Set active coin to: nano    Use 'coin' to change.  (name: 'nano'  symbol: nano  numericalid: 165)
     > dumpDP
     Result:  m/44'/165'/0'
@@ -130,7 +130,7 @@ Derive several NANO addresses (BIP39):
 
 Hex and Base64 encoding example:
 
-    > hex Hello
+    >> hex Hello
     Result:  48656c6c6f
     > base64Encode #
     Result:  SGVsbG8=
