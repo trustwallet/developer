@@ -28,6 +28,11 @@ Add this line to your Podfile and run `pod install`:
 pod 'TrustWalletCore'
 ```
 
+## WalletConsole utility
+
+An interactive command-line utility in included, called *WalletConsole*, for accessing key- and address management functionality of the library. 
+See [more details](walletconsole.md).
+
 ## Projects using Wallet Core -- Add yours too!
 
 - [Trust Wallet](https://trustwallet.com)
@@ -44,8 +49,3 @@ Thanks to all the people who contribute.
 ## License
 
 Trust Wallet Core is available under the MIT license. See the [LICENSE](https://github.com/trustwallet/wallet-core/blob/master/LICENSE) file for more info.
-
-## WalletConsole utility
-
-An interactive command-line utility in included, called *WalletConsole*, for accessing key- and address management functionality of the library. 
-See [more details](walletconsole.md).
