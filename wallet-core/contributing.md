@@ -21,6 +21,10 @@ Keep this in mind when adding to the library:
 * Use Protocol Buffers to represent models. C doesn't have good abstractions for variable-sized types.
 * Every time you modify the interface run the code generation tool and make sure the interface also makes sense in target languages.
 
+There is a [Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail) [project file](https://github.com/trustwallet/wallet-core/blob/master/wallet_core.srctrlprj) might help you explore all the code (after build and run `bootstrap.sh`).
+
+![](/media/sourcetrail-screenshot.png)
+
 ## Pull Requests
 
 Please follow these instructions when submitting a pull request \(PR\):
