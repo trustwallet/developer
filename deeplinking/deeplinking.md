@@ -44,6 +44,10 @@ https://link.trustwallet.com/send?coin=60&token_id= 0x6B175474E89094C44Da98b954E
 
 https://link.trustwallet.com/add_token?token_id=0x514910771af9ca656af840dff83e8264ecf986ca
 
+### Referral:
+
+https://link.trustwallet.com/referral
+
 #### Available domains links:
 
 - `https://link.trustwallet.com`
