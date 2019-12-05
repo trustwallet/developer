@@ -11,7 +11,7 @@ The following *target platforms* are supported:
 
 The following *development platforms* are supported:
 
-* **MacOS**: is the *primary* development platform, as it supports compiling for both target platforms.
+* **macOS**: is the *primary* development platform, as it supports compiling for both target platforms.
 * **Linux**: is partially supported as a development platform.
 
 ## Build Methods
@@ -25,7 +25,7 @@ Wallet Core can be build inside the provided Docker image, or natively.
 
 Here is the list of required prerequisites.
 
-### Prerequisites on MacOS
+### Prerequisites on macOS
 
 * CMake `brew install cmake`
 * Boost `brew install boost`
