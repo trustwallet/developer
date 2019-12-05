@@ -31,7 +31,7 @@ func main() {
 }
 ```
 
-5. Run `./main`
+5. Run `./main` and you will see the output: 
 
 ```shell
 ==> calling wallet core from go
