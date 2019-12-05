@@ -1,5 +1,7 @@
 # DApp submission and listing requirements
-- Upload DApp [logo](https://github.com/trustwallet/assets/tree/master/dapps)
+
+## DApp submission and listing requirements
+- Upload [logo](https://github.com/trustwallet/assets/tree/master/dapps)
 - Integrate [Deep Linking](https://developer.trustwallet.com/deeplinking)
 - Add [logo](https://trustwallet.com/press) as DApp supported wallet
 - Test DApp inside Trust Wallet on iOS and Android devices
