@@ -47,7 +47,11 @@ Token repository [https://github.com/trustwallet/assets](https://github.com/trus
   https://app.compound.finance/ => `app.compound.finance.png`
   https://kyberswap.com/ => `kyberswap.com.png`
 
-
+## dApp submission and listing requirements
+- Integrate [deep linking](https://developer.trustwallet.com/deeplinking) first
+- Add [logo](https://trustwallet.com/press) as dApp supported wallet
+- Test dApp inside Trust Wallet on iOS and Android devices
+- [Submit form for review](https://docs.google.com/forms/d/e/1FAIpQLSd5p9L78zKXIiu9E5yFRPf5UkvsLZ7TbUDLFBRIi1qMd8Td4A/viewform)
 ## Repository structure
 
 `blockchains` folder contains many subfolders and represents chains e.g. `ethereum`, `binance` ...
