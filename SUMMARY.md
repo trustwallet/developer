@@ -16,6 +16,7 @@
   * [DApp](wallet-connect/dapp.md)
 * [TrustProvider](trust-provider/trust-provider.md)
 * [Assets](assets/add_new_asset.md)
+  * [DApps](assets/dapps.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [Staking](platform/staking.md)
 * [Roadmap](roadmap/roadmap.md)
