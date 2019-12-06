@@ -31,9 +31,10 @@ func main() {
 }
 ```
 
-5. Run `./main` and you will see the output: 
+5. Run `./main` and you will see the output below:
 
 ```shell
 ==> calling wallet core from go
 <== mnemonic is valid:  true
 ```
+6. You might want to copy and run `main` outside of the docker container, make sure you have `libc++1` and `libc++abi1` installed in your host Ubuntu.
