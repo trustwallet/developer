@@ -1,6 +1,9 @@
 # Deep Linking
 
-## Usage 
+# Usage 
+
+## DApp Browser
+
 ### Open dapp browser with a specific url and network
 
 - `coin` - slip44 index
@@ -8,17 +11,14 @@
 
 https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
+## Payments
+
 ### Activate coin
 
 - `coin_id` - slip44 index
 
 https://link.trustwallet.com/activate_coin?coin_id=60
 
-### Stake coin:
-
-- `coin` slip44 index
-
-https://link.trustwallet.com/stake?coin=118
 
 ### Redeem Code:
 
@@ -47,6 +47,32 @@ https://link.trustwallet.com/add_token?token_id=0x514910771af9ca656af840dff83e82
 ### Referral:
 
 https://link.trustwallet.com/referral
+
+## Staking
+
+### Stake details:
+
+- `coin` slip44 index
+
+https://link.trustwallet.com/stake?coin=118
+
+### Stake / Delegate:
+
+- `coin` slip44 index
+
+https://link.trustwallet.com/stake_delegate?coin=118
+
+### Unstake / Undelegate:
+
+- `coin` slip44 index
+
+https://link.trustwallet.com/stake_undelegate?coin=118
+
+### Claim Rewards:
+
+- `coin` slip44 index
+
+https://link.trustwallet.com/stake_claim_rewards?coin=118
 
 #### Available domains links:
 
