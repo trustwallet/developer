@@ -7,10 +7,11 @@ If your server application (most likely on Linux) language supports [FFI](https:
 Here is a step by step example of [cgo](https://golang.org/cmd/cgo/), using Wallet Core docker image.
 
 1. Run `docker run -it trustwallet/wallet-core`
-2. The librabry is already built in this image  (Build instructions [here](building.md))  Note: may not be the most recent version.
-3. Install go: `apt-get update && apt-get install golang` 
+The librabry is already built in this image  (Build instructions [here](building.md))  Note: may not be the most recent version.
+
+2. Install go: `apt-get update && apt-get install golang` 
 (or download from here [go1.13.3](https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz), configure `GOROOT` and append `GOROOT/bin` to `PATH`).
-4. Save the sample code below to file called `main.go`
+3. Save the sample code below to file called `main.go`
 
 ```go
 package main
@@ -32,10 +33,11 @@ func main() {
 }
 ```
 
-5. Compile it by `go build -o main`
-6. Run `./main` and you will see the output: 
+4. Compile it by `go build -o main`
+5. Run `./main` and you will see the output below: 
 
 ```shell
 ==> calling wallet core from go
 <== mnemonic is valid:  true
 ```
+6. You might want to copy and run `main` outside of the docker container, make sure you have `libc++1` and `libc++abi1` installed in your host Ubuntu.
