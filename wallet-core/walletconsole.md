@@ -21,7 +21,14 @@ Result:  bc1q2kecrqfvzj7l6phet956whxkvathsvsgn7twav
 
 ## Starting
 
-The utility builds together with the library and can be started from: *build/walletconsole/walletconsole* .
+The utility builds together with the library and can be started from: `build/walletconsole/walletconsole` .
+See [build instructions](building.md).
+
+Walletconsole can be also executed 'off the shelf' using the Docker image:
+
+```shell
+docker run -i -t trustwallet/wallet-core /wallet-core/build/walletconsole/walletconsole
+```
 
 ## Commands
 

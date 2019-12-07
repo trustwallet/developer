@@ -58,30 +58,40 @@ Additionally, the following prerequisites are also needed, but they are managed 
 
 The full build can be triggered with one top-level script:
 
-    ./bootstrap.sh
+```shell
+./bootstrap.sh
+```
 
 Or, broken up in smaller steps:
 
-    ./tools/install-dependencies
+```shell
+./tools/install-dependencies
+```
 
 This script downloads and compiles some prerequisites.
 
-    ./tools/generate-files
+```shell
+./tools/generate-files
+```
 
 This script generates source files, coin- and protobuf files.  Needs to be re-run whenever `coins.json` or protobuf files are changes.
 
-    cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
-    make -Cbuild
+```shell
+cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
+make -Cbuild
+```
 
 Standard CMake and make commands for building the library.  The `cmake` command needs to be re-run whenever a new source file is added.
 
 After build, *unit tests* can be executed:
 
-    ./build/tests/tests tests --gtest_filter=*
+```shell
+./build/tests/tests tests --gtest_filter=*
+```
 
 If you'd rather use and IDE for building and debugging you can specify the `-G` option to cmake. For instance to use Xcode call `cmake -Bxcode -GXcode -DCMAKE_BUILD_TYPE=Debug` and use the generated project in the xcode folder.
 
-## Docker
+## Building inside Docker image
 
 Here are the instructions to build Wallet Core within the provided Docker image.
 
@@ -89,14 +99,33 @@ Prerequisite is a working Docker installation.
 
 The command for starting a new Docker container with the wallet-core image, and a shell within it:
 
-    docker run -i -t trustwallet/wallet-core /bin/bash
+```shell
+docker run -i -t trustwallet/wallet-core /bin/bash
+```
 
 Inside the container the build commands can be executed (as described above; note that install-dependencies is not necessary):
 
-    cd wallet-core
-    ./tools/generate-files
-    cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
-    make -Cbuild
+```shell
+cd wallet-core
+./tools/generate-files
+cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
+make -Cbuild
+```
+
+## Executing inside Docker image
+
+The Docker image also contains a pre-built, runnable version of the library, so it is possible to run it, 'toy around' with it without any building.
+*Note:* this may not be the most recent version!
+
+Unit tests and [wallet console utility](walletconsole.md) can be executed straight from this Docker image:
+
+```shell
+docker run -i -t trustwallet/wallet-core
+cd wallet-core
+./build/tests/tests tests
+./build/walletconsole/walletconsole
+exit
+```
 
 ## Linux
 

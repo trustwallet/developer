@@ -10,6 +10,8 @@ Trust Wallet Core is a cross-platform library that implements low-level cryptogr
 
 If you want to use wallet core in your project follow these instructions.
 
+For building, see [Build Instructions](building.md).
+
 #### Android
 
 Add this dependency to build.gradle:
