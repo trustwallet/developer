@@ -112,14 +112,15 @@ cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
 make -Cbuild
 ```
 
-## Pre-Built Docker image
+## Executing inside Docker image
 
-A Docker image with pre-built, runnable version is also available (note: this may not be the most recent version!).
+The Docker image also contains a pre-built, runnable version of the library, so it is possible to run it, 'toy around' with it without any building.
+*Note:* this may not be the most recent version!
 
 Unit tests and [wallet console utility](walletconsole.md) can be executed straight from this Docker image:
 
 ```shell
-docker run -i -t trustwallet/wallet-core-run
+docker run -i -t trustwallet/wallet-core
 cd wallet-core
 ./build/tests/tests tests
 ./build/walletconsole/walletconsole

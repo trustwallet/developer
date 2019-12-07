@@ -4,12 +4,13 @@ If your server application (most likely on Linux) language supports [FFI](https:
 
 ## Golang
 
-Here is a step by step example of [cgo](https://golang.org/cmd/cgo/), we may simplify this with a prebuilt binary docker image in the future.
+Here is a step by step example of [cgo](https://golang.org/cmd/cgo/), using Wallet Core docker image.
 
-1. Run `docker run -it trustwallet/wallet-core bash`
-2. Run `cd wallet-core` and then `./bootstrap.sh`
-2. Download and install [go1.13.3](https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz), configure `GOROOT` and append `GOROOT/bin` to `PATH`.
-3. Save the sample code below to file called `main.go` and run `go build -o main`
+1. Run `docker run -it trustwallet/wallet-core`
+2. The librabry is already built in this image  (Build instructions [here](building.md))  Note: may not be the most recent version.
+3. Install go: `apt-get update && apt-get install golang` 
+(or download from here [go1.13.3](https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz), configure `GOROOT` and append `GOROOT/bin` to `PATH`).
+4. Save the sample code below to file called `main.go`
 
 ```go
 package main
@@ -31,7 +32,8 @@ func main() {
 }
 ```
 
-5. Run `./main` and you will see the output: 
+5. Compile it by `go build -o main`
+6. Run `./main` and you will see the output: 
 
 ```shell
 ==> calling wallet core from go

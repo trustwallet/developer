@@ -58,5 +58,5 @@ In case of problems in the last step go to the [Sonatype](https://oss.sonatype.o
 
 ## Docker Hub
 
-We need to release a new prebuilt Docker image every time our dependencies change. To build the docker image(s), see `tools/docker-build`. Use `docker push` to upload to Docker Hub.
-
+We need to release a new prebuilt Docker image every time our dependencies or sources change.
+To build the docker image(s), see `tools/docker-build`. Use `docker push` to upload to Docker Hub.
