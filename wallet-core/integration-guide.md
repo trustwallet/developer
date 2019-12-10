@@ -8,7 +8,7 @@ The guide has the following outline:
 * [Wallet Operations Guide](wallet-core/wallet-operations.md).
 In this general guide we describe the basic wallet operations (*wallet creation*, *address derivation*, *transaction signing*) in detail, with some code examples.  This is recommended first.
 
-* [Sample iOS Wallet -- Step-by-step Guide](wallet-code/ios-guide.md).
+* Sample iOS Wallet -- Step-by-step Guide
 This is a walkthrough of a sample iOS wallet application.
 
 * [Server-Side GoLang Guide](wallet-core/server-side.md).

@@ -8,7 +8,7 @@
     * [Releasing](wallet-core/releasing.md)
   * [Integration Guide](wallet-core/integration-guide.md)
     * [Wallet Operations](wallet-core/wallet-operations.md)
-    * [iOS Wallet](wallet-code/ios-guide.md)
+    * iOS Wallet
     * [Server-Side](wallet-core/server-side.md)
   * Extending
     * [Contributing](wallet-core/contributing.md)

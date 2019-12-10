@@ -7,10 +7,9 @@ The covered basic operations are:
 * Wallet management
   * Creating a new multi-coin wallet
   * Importing a multi-coin wallet
-* Account address derivation (receiving)
-  * Generating the default address for a specific coin
-  * Generating an address using a custom derivation path
-  * Generating an address step-by-step, through private key and public key 
+* Address derivation (receiving)
+  * Generating the default address for a coin
+  * Generating an address using a custom derivation path (expert)
 * Transaction signing (sending)
   * Coin-specific transaction signing
   * Coin-independent method ('AnySigner')
@@ -43,7 +42,7 @@ Input parameter | Description
 *strength* | The strength of the secret seed.  Higher seed means more information content, longer recovery phrase.  Default value is **128**, but 256 is also possible.
 *passphrase* | Optional passphrase, used to encrypt the seed.  If specified, the wallet can be imported and opened only with the passphrase (Not to be confused with recovery phrase).
 
-### Importing a New Multi-Coin Wallet
+### Importing a Multi-Coin Wallet
 
 A previously created wallet can be imported using the recovery phrase.  Typical usecases for import are:
 * re-importing a wallet later, into a later installation, or
@@ -61,5 +60,40 @@ Input parameter | Description
 *mnemonic* | a.k.a. *recovery phrase*.  The string of several words that was used to create the wallet.
 *passphrase* | Optional passphrase, used to encrypt the seed.
 
----------------------------
-TODO: fill operations guide
+## Account Address Derivation
+
+Each coin needs a different account, with matching address.  Addresses are derived from the multi-coin wallet.
+Derivation is based on a *derivation path*, which is unique for each coin, but can have other parameters as well.
+Each coin has a default derivation path, such as `"m/84'/0'/0'/0/0"` for Bitcoin and `"m/44'/60'/0'/0/0"` for Ethereum.
+
+### Generating the Default Address for a Coin
+
+The simplest is to get the default address for a coin -- this requires no further inputs.
+The address is generated using the default derivation path of the coin.
+
+```swift
+let address = wallet.getAddressForCoin(coin: .ethereum)
+```
+
+For example, the default BTC address, derived for the wallet with the mnemonic shown above, with the default BTC derivation path (`m/84'/0'/0'/0/0`) is:
+`bc1qpsp72plnsqe6e2dvtsetxtww2cz36ztmfxghpd`.
+For Ethereum, this is `0xA3Dcd899C0f3832DFDFed9479a9d828c6A4EB2A7`.
+
+### Generating an Address Using a Custom Derivation Path (Expert)
+
+It is also possible to derive addresses using custom derivation paths.
+This can be done in two steps: first a derived private key is obtained, then an address from it.
+
+> **Warning**: use this only if you are well aware of the semantics of the derivation path used!
+
+> **Security Warning**: if secrets such as private keys are handled by the wallet, even if for a short time, handle with care!
+> Avoid any risk of leakage of secrets!
+
+```swift
+let key = wallet.getKey(derivationPath: "m/44'/60’/1’/0/0")
+let address = CoinType.ethereum.deriveAddress(privateKey: key)
+```
+
+For example, a second Ethereum address can be derived using the custom derivation path `”m/44'/60’/1’/0/0”` (note the 1 in the third position),
+yielding address `0x68eF4e5660620976a5968c7d7925753D3Cc40809`.
+
