@@ -27,7 +27,9 @@ In this guide we use small code examples from a Swift sample application, but th
 
 ### Multi-Coin Wallet
 
-The Multi-Coin Wallet is a structure allowing accounts for many coins, all controlled by a single recovery phrase.  It is a standard HD Wallet (Hierarchically Derived), employing the standard derivation schemes, interoperable with many other wallets (BIP39, BIP44).
+The Multi-Coin Wallet is a structure allowing accounts for many coins, all controlled by a single recovery phrase.
+It is a standard HD Wallet (Hierarchically Derived), employing the standard derivation schemes, interoperable with many other wallets:
+**BIP39** for recovery phrase, **BIP44**/**BIP84** for account derivation.
 
 ### Creating a New Multi-Coin Wallet
 
@@ -43,7 +45,7 @@ let wallet = HDWallet(strength: 128, passphrase: "")
 Input parameter | Description
 ---|---
 *strength* | The strength of the secret seed.  Higher seed means more information content, longer recovery phrase.  Default value is **128**, but 256 is also possible.
-*passphrase* | Optional passphrase, used to encrypt the seed.  If specified, the wallet can be imported and opened only with the passphrase (Not to be confused with recovery phrase).
+*passphrase* | Optional passphrase, used to scramble the seed.  If specified, the wallet can be imported and opened only with the passphrase (Not to be confused with recovery phrase).
 
 ### Importing a Multi-Coin Wallet
 
@@ -126,7 +128,7 @@ A simple Ethereum send transaction needs the following fields:
 
 Field | Sample value | Description
 ---|---|---
-chainID | 1 | Network selector, use 1 for mainnet
+chainID | 1 | Network selector, use 1 for mainnet (see https://chainid.network for more)
 nonce | 1 | The count of the number of outgoing transactions, starting with 0
 gasPrice | 3600000000 | The price to determine the amount of ether the transaction will cost
 gasLimit | 21000 | The maximum gas that is allowed to be spent to process the transaction
