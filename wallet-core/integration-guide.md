@@ -5,15 +5,15 @@ Wallet Core functionality can prove to be helpful in some backend-side projects 
   
 The guide has the following outline:
 
-* [Wallet Operations Guide](wallet-core/wallet-operations.md).
+* [Wallet Core Usage Guide](wallet-core-usage.md).
 In this general guide we describe the basic wallet operations (*wallet creation*, *address derivation*, *transaction signing*) in detail, with some code examples.  This is recommended first.
 
-* [iOS Integration Guide](wallet-core/ios-guide.md).
+* [iOS Integration Guide](ios-guide.md).
 This is a walkthrough of a sample iOS wallet application.
 
-* Android Integration Guide.
+* Android Integration Guide (soon).
 This is a walkthrough of a sample Android wallet application.
 
-* [Server-Side GoLang Guide](wallet-core/server-side.md).
+* [Server-Side GoLang Guide](server-side.md).
 Here we provide instructions on how to integrate Wallet Core into a *Go* languge backend-side project.
 

@@ -6,11 +6,10 @@
     * [Building](wallet-core/building.md)
     * [WalletConsole utility](wallet-core/walletconsole.md)
     * [Releasing](wallet-core/releasing.md)
-  * Building upon the library:
-    * [Integration Guide](wallet-core/integration-guide.md)
-    * [Wallet Operations](wallet-core/wallet-operations.md)
+  * [Building upon the library -- Integration Guide](wallet-core/integration-guide.md)
+    * [Usage Guide](wallet-core/wallet-core-usage.md)
     * [iOS Integration Guide](wallet-core/ios-guide.md)
-    * Android Integration Guide
+    * Android Integration Guide (soon)
     * [Server-Side](wallet-core/server-side.md)
   * Extending the library:
     * [Contributing](wallet-core/contributing.md)

@@ -1,7 +1,7 @@
 # iOS Integration Guide
 
 Wallet Core is available on the iOS platform, it comes with *Swift* bindings.
-In this guide we show how it can be used.
+In this guide we show how to use it.
 
 A sample application is available at: https://github.com/catenocrypt/sample-wallet-core .
 
@@ -29,7 +29,7 @@ pod install
 ## Code Examples
 
 In the following sections we show code examples for some common funcions.
-Please refer to the [Wallet Operations Guide](wallet-core/wallet-operations.md) for detailed explanations.
+Please refer to the [Wallet Usage Guide](wallet-core-usage.md) for detailed explanations.
 
 Accessing Wallet Core functionality requires one import statement:
 
@@ -50,7 +50,7 @@ let wallet = HDWallet(mnemonic: "ripple scissors kick mammal hire column oak aga
 ```
 
 
-## Account Address Derivation
+### Account Address Derivation
 
 Generating the Default Address for a Coin
 
@@ -68,7 +68,7 @@ let address = CoinType.ethereum.deriveAddress(privateKey: key)
 ```
 
 
-## Transaction Signing
+### Transaction Signing
 
 In general, when creating a new blockchain transaction, a wallet has to:
 

@@ -1,6 +1,6 @@
-# Wallet Operations Guide
+# Wallet Core Usage Guide
 
-We present here an overview of the basic wallet operations.  More detailed, language-specific samples are provided in step-by-step [guides](wallet-core/integration-guide.md).
+We present here an overview of the basic wallet operations.  Language-specific samples are provided in step-by-step [guides](integration-guide.md).
 
 The covered basic operations are:
 
@@ -20,7 +20,7 @@ Note: Wallet Core does not cover communication with blockchain networks (nodes):
 address derivation is covered, but address balance retrieval not; 
 transaction signing is covered, but broadcasting transactions to the network not.
 
-In this guide we use small code examples from a Swift sample application, but the focus is on the text.
+In this guide we use small code examples from a Swift sample application, but the focus is on the explanations.
 
 
 ## Wallet Management
