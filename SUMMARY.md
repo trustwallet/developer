@@ -9,7 +9,8 @@
   * Building upon the library:
     * [Integration Guide](wallet-core/integration-guide.md)
     * [Wallet Operations](wallet-core/wallet-operations.md)
-    * iOS Wallet
+    * [iOS Integration Guide](wallet-core/ios-guide.md)
+    * Android Integration Guide
     * [Server-Side](wallet-core/server-side.md)
   * Extending the library:
     * [Contributing](wallet-core/contributing.md)
