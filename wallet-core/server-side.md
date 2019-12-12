@@ -1,4 +1,4 @@
-# Server-side
+# Server-Side Guide
 
 If your server application (most likely on Linux) language supports [FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) to C, it is possible to call wallet core.
 
