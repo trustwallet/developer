@@ -136,10 +136,12 @@ to | &lt;address&gt; | The account the transaction is sent to, if empty, the tra
 value | 100000000 | The amount of ether to send
 data | | Could be an arbitrary message or function call to a contract or code to create a contract
 
+Several parameters, like the current nonce and gasPrice values can be obtained from Ethereum node RPC calls (see https://github.com/ethereum/wiki/wiki/JSON-RPC, e.g., *eth_gasPrice*).
+
 Code example to fill in the signer input parameters:
 
 ```swift
-let signerInput = TW_Ethereum_Proto_SigningInput.with {
+let signerInput = EthereumSigningInput.with {
     $0.chainID = Data(hexString: "01")!
     $0.gasPrice = Data(hexString: "d693a400")! // decimal 3600000000
     $0.gasLimit = Data(hexString: "5208")! // decimal 21000
@@ -168,7 +170,7 @@ Wallet Core also has a generic, coin-independent signer.  The transaction fields
 
 ```swift
 let transaction =  "{\"chainId\":\"AQ==\",\"gasPrice\":\"1pOkAA==\",\"gasLimit\":\"Ugg=\",\"toAddress\":\"" + dummyReceiverAddress + "\",\"amount\":\"A0i8paFgAA==\"}"
-let anySignerInput = TW_Any_Proto_SigningInput.with {
+let anySignerInput = AnySigningInput.with {
     $0.coinType = coin.rawValue
     $0.transaction = transaction
     $0.privateKey = secretPrivateKey.data.hexString
