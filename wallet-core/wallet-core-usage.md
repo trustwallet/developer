@@ -164,6 +164,66 @@ For more details on Ethereum transactions, check the Ethereum documentation.  A 
 * https://kauri.io/article/7e79b6932f8a41a4bcbbd194fd2fcc3a/v2/ethereum-101-part-4-accounts-transactions-and-messages
 * https://github.com/ethereumbook/ethereumbook/blob/develop/06transactions.asciidoc
 
+### Binance Chain (BNB) Transaction Signing
+
+Binance Chain is built upon [cosmos-sdk](https://github.com/cosmos/cosmos-sdk), instead of `Message`, transaction in Binance Chain is called `Order`, [Binance.proto](https://github.com/trustwallet/wallet-core/blob/master/src/proto/Binance.proto#L144) shows all the orders that Wallet Core currently supports.
+
+To sign a order, you need to use `BinanceSigningInput`: 
+
+Field | Sample value | Description
+---|---|---
+chainID | Binance-Chain-Nile | Network id, use Binance-Chain-Tigris for mainnet (see [node-info](https://dex.binance.org/api/v1/node-info) api)
+accountNumber | 51 | On chain account number. (see [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api)
+sequence | 437412 | Order sequence starting from 0, always plus 1 for new order from [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api
+source | 0 | [BEP10](https://github.com/binance-chain/BEPs/blob/master/BEP10.md) source id
+sendOrder | &lt;sendOrder&gt; | SendOrder contains `inputs` and `outputs`, see below sample code for more details
+
+A Swift sample code send order is shown below:
+
+```swift
+let privateKey = PrivateKey(data: Data(hexString: "95949f757db1f57ca94a5dff23314accbe7abee89597bf6a3c7382c84d7eb832")!)!
+let publicKey = privateKey.getPublicKeySecp256k1(compressed: true)
+
+let token = BinanceSendOrder.Token.with {
+    $0.denom = "BNB" // BNB or BEP2 token symbol
+    $0.amount = 1    // Amount, 1 BNB
+}
+
+// A.k.a from / sender
+let input = BinanceSendOrder.Input.with {
+    $0.address = CosmosAddress(hrp: .binance, publicKey: publicKey)!.keyHash
+    $0.coins = [token]
+}
+
+// A.k.a to / recipient
+let output = BinanceSendOrder.Output.with {
+    $0.address = CosmosAddress(string: "bnb1hlly02l6ahjsgxw9wlcswnlwdhg4xhx38yxpd5")!.keyHash
+    $0.coins = [token]
+}
+
+let signingInput = BinanceSigningInput.with {
+    $0.chainID = "Binance-Chain-Nile" // Testnet Chain id
+    $0.accountNumber = 0              // On chain account number
+    $0.sequence = 0                   // Sequence number
+    $0.source = 0                     // BEP10 source id
+    $0.privateKey = privateKey.data
+    $0.memo = ""
+    $0.sendOrder = BinanceSendOrder.with {
+        $0.inputs = [input]
+        $0.outputs = [output]
+    }
+}
+
+let data = BinanceSigner.sign(input: signingInput)
+// encoded order to broadcast
+print(data.encoded)
+```
+
+For more details please check the Binance Chain documentation:
+
+* https://docs.binance.org/encoding.html
+* https://docs.binance.org/api-reference/dex-api/paths.html#http-api
+
 ### Coin-Independent Signing ('AnySigner')
 
 Wallet Core also has a generic, coin-independent signer.  The transaction fields are provided in a JSON string, with the same content.  Since this is not strongly typed, its usage is not recommended.  We reproduce here one example (with Ethereum) nonetheless.
