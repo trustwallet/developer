@@ -14,47 +14,15 @@ Run `bootstrap.sh` then `tools/ios-release`. This will build, archive and upload
 
 ## Android
 
-### First Time
+Run `bootstrap.sh` then `tools/android-release`. This will build and upload to [Bintray](https://bintray.com/trust/wallet-core/com.trustwallet.wallet-core) and [JFrog](https://oss.jfrog.org/webapp/#/home).
 
-1. See [https://docs.gradle.org/current/userguide/signing\_plugin.html](https://docs.gradle.org/current/userguide/signing_plugin.html) to set up GPG signing.
-2. Get a OSSRH username and password, get added to the group ID.
-3. Install PGP Tools : `brew install gnupg`  -  [https://gpgtools.org/](https://gpgtools.org/)
-4. Create `~/.gradle/gradle.properties` and add your information from the previous steps:
-5. Generate GPG Key
-6. Send Key to the server using the installed tool GPG Keychain
-7. Generate the signing.keyId value:
+If you want to upload snapshot library version run `tools/android-release true` and it will upload artifact from last commit with `-SNAPSHOT` suffix.
 
-   ```text
-   $ gpg --list-keys --keyid-format short
-   ```
-
-8. Get the `.gpg` secret key that will be assigned to signing.secretKeyRingFile parameter:
-
-   ```text
-   $ gpg --export-secret-keys -o secring.gpg
-   ```
-
+You need to have this credentials as environment variables in order to upload to Bintray
 ```text
-# Note: both spellings of username and password are needed
-NEXUS_USERNAME=user
-NEXUS_PASSWORD=pass
-nexusUsername=user
-nexusPassword=pass
-
-signing.keyId=00000000
-signing.password=password
-signing.secretKeyRingFile=/Users/me/.gnupg/secring.gpg
-
-org.gradle.daemon=true
+BINTRAY_USER=user
+BINTRAY_KEY=key
 ```
-
-### Every Release
-
-1. Update the `VERSION_NAME` in `android/gradle.properties`.
-2. In the `android` folder run `./gradlew uploadArchive`.
-3. In the `android` folder run `./gradlew closeAndReleaseRepository`.
-
-In case of problems in the last step go to the [Sonatype](https://oss.sonatype.org/#stagingRepositories) webpage. Look for the staging library. It should be at the end of the list. Select it, and press "Close" button. Once it's closed select it an press "Release". Make sure to drop stale repositories so that the automatic release works in subsequent tries.
 
 ## Docker Hub
 
