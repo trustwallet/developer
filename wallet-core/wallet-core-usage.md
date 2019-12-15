@@ -222,6 +222,8 @@ let output = try BitcoinSigningOutput(unpackingAny: result.objects[0])
 print(output.encoded)
 ```
 
+Besides [orignal Bitcoin RPC](https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list), there are many other APIs / block explorer can get UTXO and broadcast raw transaction, like: insight api, trezor blockbook, blockchain com, blockchair api.
+
 ### Ethereum Transaction Signing
 
 A simple Ethereum send transaction needs the following fields:
