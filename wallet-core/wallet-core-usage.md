@@ -172,13 +172,11 @@ To sign a order, you need to use `BinanceSigningInput`:
 
 Field | Sample value | Description
 ---|---|---
-chainID | "Binance-Chain-Nile" | Network id, use "Binance-Chain-Tigris" for mainnet (see [node-info](https://dex.binance.org/api/v1/node-info) api)
+chainID | Binance-Chain-Nile | Network id, use Binance-Chain-Tigris for mainnet (see [node-info](https://dex.binance.org/api/v1/node-info) api)
 accountNumber | 51 | On chain account number. (see [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api)
 sequence | 437412 | Order sequence starting from 0, always plus 1 for new order from [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api
 source | 0 | [BEP10](https://github.com/binance-chain/BEPs/blob/master/BEP10.md) source id
 sendOrder | &lt;sendOrder&gt; | SendOrder contains `inputs` and `outputs`, see below sample code for more details
-
-Several parameters, like the current nonce and gasPrice values can be obtained from Ethereum node RPC calls (see https://github.com/ethereum/wiki/wiki/JSON-RPC, e.g., *eth_gasPrice*).
 
 A Swift sample code send order is shown below:
 
