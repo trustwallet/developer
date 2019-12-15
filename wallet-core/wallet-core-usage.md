@@ -122,6 +122,106 @@ In Wallet Core, signing input and output parameters are typically represented in
 
 A generic, coin-independent signer also exists (*AnySigner*), but its usage is recommended only in browser-based applications.
 
+### Bitcoin Transaction Signing
+
+Bitcoin is the first `UTXO` (Unspent Transaction Output) based cryptocurrency / blockchain, if you haven't read the documentation about Bitcoin, we highly recommend you to read [developer glossary](https://bitcoin.org/en/developer-glossary) and [raw transaction format](https://bitcoin.org/en/developer-reference#raw-transaction-format), these will help you understand how to sign a Bitcoin transaction. Wallet Core supports *Bitcoin*, *Bitcoin Cash*, *Zcash*, *Decred* and a few forks.
+
+The most important models in Swift are `BitcoinSigningInput` and `BitcoinUnspentTransaction`
+
+*BitcoinSigningInput*
+
+Field | Sample value | Description
+---|---|---
+hash_type | BitcoinSigHashType.all | *Bitcoin Cash* needs to `or` with `TitcoinSigHashType.fork` (see [Sighash](https://bitcoin.org/en/glossary/signature-hash) for more details)
+amount | 10000 | Amount (in satoshi) to send (value of new UTXO will be created)
+byteFee | 1 | Transaction fee is `byte_fee x transaction_size`, Wallet Core will calculate the fee for you by default
+toAddress | bc1q03h6k5lt6pzfjaanz5mlnmuc7aha2t3nkz7gh0 | Recipient address (Wallet Core will build lock script for you)
+changeAddress | 1AC4gh14wwZPULVPCdxUkgqbtPvC92PQPN | Address to receive changes, can be empty if you sweep a wallet
+privateKey | [Data(...), Data(...)] | Private keys for all the input UTXOs in this transaction
+scripts | [`script_hash`: Data(...)] | Redeem scripts indexed by script hash, usually for `P2SH`, `P2WPKH` or `P2WSH`
+utxo | [*BitcoinUnspentTransaction*] | All the input UTXOs, see below table for more details
+useMaxAmount | false | Consume all the input UTXOs, it will affect fee estimation and number of output
+coinType | 145 | [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) coin type, default is 0 / Bitcoin
+
+*BitcoinUnspentTransaction*
+
+Field | Sample value | Description
+---|---|---
+outPoint | *BitcoinOutPoint(hash:index:)* | Refer to a particular transaction output, consisting of a 32-byte TXID and a 4-byte output index number (vout)
+amount | 10000 | A value field for transferring zero or more satoshis
+script | 0x76a9146cfa0e96c34fce09c0e4e671fcd43338c14812e588ac | A script (ScriptPubKey) included in outputs which sets the conditions that must be fulfilled for those satoshis to be spent
+
+Here is the Swift sample code for signing a real world Bitcoin Cash [transaction](https://blockchair.com/bitcoin-cash/transaction/96ee20002b34e468f9d3c5ee54f6a8ddaa61c118889c4f35395c2cd93ba5bbb4)
+
+```swift
+let utxoTxId = Data(hexString: "050d00e2e18ef13969606f1ceee290d3f49bd940684ce39898159352952b8ce2")!
+let privateKey = PrivateKey(data: Data(hexString: "7fdafb9db5bc501f2096e7d13d331dc7a75d9594af3d251313ba8b6200f4e384")!)!
+let address = CoinType.bitcoinCash.deriveAddress(privateKey: privateKey)
+
+let utxo = BitcoinUnspentTransaction.with {
+    $0.outPoint.hash = Data(utxoTxId.reversed()) // reverse of UTXO tx id, Bitcoin internal expects network byte order
+    $0.outPoint.index = 2                        // outpoint index of this this UTXO
+    $0.outPoint.sequence = UINT32_MAX
+    $0.amount = 5151                             // value of this UTXO
+    $0.script = BitcoinScript.buildForAddress(address: address, coin: .bitcoinCash).data // Build lock script from address or public key hash
+}
+
+let input = BitcoinSigningInput.with {
+    $0.hashType = BitcoinSigHashType.all.rawValue | BitcoinSigHashType.fork.rawValue
+    $0.amount = 600
+    $0.byteFee = 1
+    $0.toAddress = "1Bp9U1ogV3A14FMvKbRJms7ctyso4Z4Tcx"
+    $0.changeAddress = "1FQc5LdgGHMHEN9nwkjmz6tWkxhPpxBvBU"
+    $0.utxo = [utxo]
+    $0.privateKey = [privateKey.data]
+}
+
+let result = BitcoinTransactionSigner(input: input).sign()
+guard result.success else { return }
+let output = try BitcoinSigningOutput(unpackingAny: result.objects[0])
+
+// encoded transaction to broadcast
+print(output.encoded)
+```
+It's worth to note that you can also calcuate fee and change manually (by using a `BitcoinTransactionPlan` struct)  
+Below is another real world Zcash [transparent transaction](https://explorer.zcha.in/transactions/ec9033381c1cc53ada837ef9981c03ead1c7c41700ff3a954389cfaddc949256) demonstrate this
+
+```swift
+let utxos = [
+    BitcoinUnspentTransaction.with {
+        $0.outPoint.hash = Data(hexString: "53685b8809efc50dd7d5cb0906b307a1b8aa5157baa5fc1bd6fe2d0344dd193a")!
+        $0.outPoint.index = 0
+        $0.outPoint.sequence = UINT32_MAX
+        $0.amount = 494000
+        $0.script = Data(hexString: "76a914f84c7f4dd3c3dc311676444fdead6e6d290d50e388ac")!
+    }
+]
+
+let input = BitcoinSigningInput.with {
+    $0.hashType = BitcoinSigHashType.all.rawValue
+    $0.amount = 488000
+    $0.toAddress = "t1QahNjDdibyE4EdYkawUSKBBcVTSqv64CS"
+    $0.coinType = CoinType.zcash.rawValue
+    $0.privateKey = [Data(hexString: "a9684f5bebd0e1208aae2e02bc9e9163bd1965ad23d8538644e1df8b99b99559")!]
+}
+
+let plan = BitcoinTransactionPlan.with {
+    $0.amount = 488000
+    $0.fee = 6000
+    $0.change = 0
+    // Sapling branch id
+    $0.branchID = Data(hexString: "0xbb09b876")!
+    $0.utxos = utxos
+}
+
+let result = ZcashTransactionSigner(input: input, plan: plan).sign()
+guard result.success else { return }
+let output = try BitcoinSigningOutput(unpackingAny: result.objects[0])
+
+// encoded transaction to broadcast
+print(output.encoded)
+```
+
 ### Ethereum Transaction Signing
 
 A simple Ethereum send transaction needs the following fields:
