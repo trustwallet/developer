@@ -8,4 +8,4 @@ node_modules
 .vscode/
 *~
 _book/
-
+*.swp
