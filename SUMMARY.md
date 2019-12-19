@@ -12,7 +12,7 @@
   * [Integration Guide](wallet-core/integration-guide.md)
     * [Usage Guide](wallet-core/wallet-core-usage.md)
     * [iOS Integration Guide](wallet-core/ios-guide.md)
-    * Android Integration Guide (soon)
+    * [Android Integration Guide](wallet-core/android-guide.md)
     * [Server-Side](wallet-core/server-side.md)
 * [Blockatlas](blockatlas/blockatlas.md)
   * [Adding Support for a New Blockchain](blockatlas/newblockchain.md)
