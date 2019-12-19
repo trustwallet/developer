@@ -2,19 +2,18 @@
 
 * [Get Started](README.md)
 * [Wallet Core](wallet-core/wallet-core.md)
-  * Using the library:
+  * [New Blockchain Support](wallet-core/newblockchain.md)
+    * [RPC / API Requirements](wallet-core/rpc-requirements.md)
+  * Developing the Library:
+    * [Contributing](wallet-core/contributing.md)
     * [Building](wallet-core/building.md)
     * [WalletConsole utility](wallet-core/walletconsole.md)
     * [Releasing](wallet-core/releasing.md)
-  * [Building upon the library -- Integration Guide](wallet-core/integration-guide.md)
+  * [Integration Guide](wallet-core/integration-guide.md)
     * [Usage Guide](wallet-core/wallet-core-usage.md)
     * [iOS Integration Guide](wallet-core/ios-guide.md)
     * Android Integration Guide (soon)
     * [Server-Side](wallet-core/server-side.md)
-  * Extending the library:
-    * [Contributing](wallet-core/contributing.md)
-    * [Adding Support for a New Blockchain](wallet-core/newblockchain.md)
-    * [RPC / API Requirements](wallet-core/rpc-requirements.md)
 * [Blockatlas](blockatlas/blockatlas.md)
   * [Adding Support for a New Blockchain](blockatlas/newblockchain.md)
   * [Transaction Format](blockatlas/transaction-format.md)
