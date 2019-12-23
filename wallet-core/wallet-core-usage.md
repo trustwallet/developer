@@ -10,9 +10,7 @@ The covered basic operations are:
 * Address derivation (receiving)
   * Generating the default address for a coin
   * Generating an address using a custom derivation path (expert)
-* Transaction signing (sending)
-  * Coin-specific transaction signing
-  * Coin-independent method ('AnySigner')
+* Transaction signing (e.g. for sending)
 
 For the examples we use *Bitcoin*, *Ethereum* and *Binance Coin* as sample coins/blockchains.
 
@@ -325,22 +323,5 @@ For more details please check the Binance Chain documentation:
 
 * https://docs.binance.org/encoding.html
 * https://docs.binance.org/api-reference/dex-api/paths.html#http-api
-
-### Coin-Independent Signing ('AnySigner')
-
-Wallet Core also has a generic, coin-independent signer.  The transaction fields are provided in a JSON string, with the same content.  Since this is not strongly typed, its usage is not recommended.  We reproduce here one example (with Ethereum) nonetheless.
-
-```swift
-let transaction =  "{\"chainId\":\"AQ==\",\"gasPrice\":\"1pOkAA==\",\"gasLimit\":\"Ugg=\",\"toAddress\":\"" + dummyReceiverAddress + "\",\"amount\":\"A0i8paFgAA==\"}"
-let anySignerInput = AnySigningInput.with {
-    $0.coinType = coin.rawValue
-    $0.transaction = transaction
-    $0.privateKey = secretPrivateKey.data.hexString
-}
-let anySignerOutput = AnySigner.sign(input: anySignerInput)
-if (anySignerOutput.success) {
-    print("Signed transaction data:", anySignerOutput.output)
-}
-```
 
 Consult the complete sample applications for more details.
