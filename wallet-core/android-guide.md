@@ -88,27 +88,3 @@ val signerOutput = EthereumSigner.sign(signerInput)
 println("Signed transaction: \n${signerOutput.encoded.toByteArray().toHexString()}")
 ```
 
-Coin-Independent Signing ('AnySigner')
-
-```kotlin
-val transaction = """
-{
-    "chainId": "$chainIdB64",
-    "gasPrice": "$gasPriceB64",
-    "gasLimit": "$gasLimitB64",
-    "toAddress": "$dummyReceiverAddress",
-    "amount": "$amountB64"
-}
-"""
-showLog("transaction: $transaction")
-
-val anySignerInput = Any.SigningInput.newBuilder().apply {
-    this.coinType = coin.value()
-    this.transaction = transaction
-    this.privateKey = secretPrivateKeyHex
-}.build()
-val anySignerOutput = AnySigner.sign(anySignerInput)
-if (anySignerOutput.success) {
-    println("Signed transaction data: \n${anySignerOutput.output}")
-}
-```

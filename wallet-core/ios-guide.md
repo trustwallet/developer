@@ -3,7 +3,7 @@
 Wallet Core is available on the iOS platform, it comes with *Swift* bindings.
 In this guide we show how to use it.
 
-A sample application is available at: https://github.com/catenocrypt/sample-wallet-core .
+A sample application is available at: https://github.com/trustwallet/wallet-core/tree/master/samples/ios .
 
 ## Prerequisites
 
@@ -91,19 +91,4 @@ let signerInput = EthereumSigningInput.with {
 }
 let signerOutput = EthereumSigner.sign(input: signerInput)
 print(" data:   ", signerOutput.encoded.hexString)
-```
-
-Coin-Independent Signing ('AnySigner')
-
-```swift
-let transaction =  "{\"chainId\":\"AQ==\",\"gasPrice\":\"1pOkAA==\",\"gasLimit\":\"Ugg=\",\"toAddress\":\"" + dummyReceiverAddress + "\",\"amount\":\"A0i8paFgAA==\"}"
-let anySignerInput = AnySigningInput.with {
-    $0.coinType = coin.rawValue
-    $0.transaction = transaction
-    $0.privateKey = secretPrivateKey.data.hexString
-}
-let anySignerOutput = AnySigner.sign(input: anySignerInput)
-if (anySignerOutput.success) {
-    print("Signed transaction data:", anySignerOutput.output)
-}
 ```

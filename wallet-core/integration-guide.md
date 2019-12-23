@@ -11,7 +11,7 @@ In this general guide we describe the basic wallet operations (*wallet creation*
 * [iOS Integration Guide](ios-guide.md).
 This is a walkthrough of a sample iOS wallet application.
 
-* Android Integration Guide (soon).
+* [Android Integration Guide](android-guide.md).
 This is a walkthrough of a sample Android wallet application.
 
 * [Server-Side GoLang Guide](server-side.md).
