@@ -62,7 +62,8 @@ This project has a number of different pieces. Each piece lives in its own subfo
 * The `swift` folder contains the generated Swift code and Xcode project.
 * The `trezor-crypto` folder contains a fork of [https://github.com/trezor/trezor-crypto/](https://github.com/trezor/trezor-crypto/) with modifications.
 * The `tests` folder contains unit tests.
-* THe `tools` folder contains scripts to automate common tasks.
+* The `tools` folder contains scripts to automate common tasks.
+* The `samples` folder contains sample applications.
 
 ## Prerequisites and Building
 
