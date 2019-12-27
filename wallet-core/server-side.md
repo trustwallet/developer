@@ -52,6 +52,7 @@ func TWDataGoBytes(d unsafe.Pointer) []byte {
 // Go byte[] -> C.TWData
 func TWDataCreateWithGoBytes(d []byte) unsafe.Pointer {
 	cBytes := C.CBytes(d)
+	defer C.free(unsafe.Pointer(cBytes))
 	data := C.TWDataCreateWithBytes((*C.uchar)(cBytes), C.ulong(len(d)))
 	return data
 }
