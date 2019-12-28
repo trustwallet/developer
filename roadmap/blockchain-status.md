@@ -2,7 +2,7 @@
 | -          | -           | -      | -       | -       | -       | -       | -   |
 | Cardano | 🏗| Trust Team  | Launched | ✅ |  | Coin Transfer / Smart Contract / Staking | |
 | Kusama | 🏗| Trust Team  | Launched | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
-| Polkadot | 🏗| Trust Team  | Q1 2022 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
+| Polkadot | 🏗| Trust Team  | Q1 2020 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
 | Solana | 🏗| Solana Team | Q1 2020 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking |
 | FIO | 🏗| Trust Team | Q1 2020 | ✅ |  | Coin Transfer / Payment Request | |
 | NEAR | 🏗| NEAR Team | Q1 2020 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
