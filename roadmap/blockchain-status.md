@@ -1,6 +1,6 @@
 | Blockchain | Status | Responsible | Mainnet | Address | Signing | Features | RPC |
 | -          | -           | -      | -       | -       | -       | -       | -   |
-| Cardano | 🏗| Trust Team  | Launched | ✅ |  | Coin Transfer / Smart Contract / Staking | |
+| Cardano | 🏗| Trust Team  | Launched | ✅ | ✅ | Coin Transfer (No Staking yet) | |
 | Kusama | 🏗| Trust Team  | Launched | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
 | Polkadot | 🏗| Trust Team  | Q1 2020 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
 | Solana | 🏗| Solana Team | Q1 2020 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking |
