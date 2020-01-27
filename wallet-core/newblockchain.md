@@ -40,7 +40,7 @@ Coverage must not decrease!  This is enforced automatically in the valiation of 
 
 ## Blockchain definitions
 
-The first step to adding a blockchain is to define its configuration parameters. Add the definition to the `coins.json` file, then execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `coins.json`. This will generate `Address`, `Signer`, sample proto file, C interface for Signer and corresponding tests
+The first step to add a blockchain is to define its coin configuration. Add the definition to the `coins.json` file, then execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `coins.json`. This will generate `Address`, `Signer`, sample proto file, C interface for Signer and corresponding tests.
 
 ## Definition tests, first commit
 
@@ -109,18 +109,17 @@ The above steps are summarized below as a checklist:
   * [ ] Signer.
 * [ ] Write unit tests. Put them in a subfolder of `tests/`.
   * [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file.
-  * [ ] Transaction signing tests, at least a mainnet transaction test.
+  * [ ] Transaction signing tests, at least one mainnet transaction test.
   * [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
 * [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
 * [ ] Implement C interface in `src/interface`.
-  * [ ] `TWAnyAddress.cpp` for address
+  * [ ] Support added coin type in `TWAnyAddress.cpp`.
   * [ ] Add tests for `TWAnyAddress` and `TWXxxSigner`
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
 * [ ] Extend central derivation and validation tests: make sure the following tests are extended with the new coin: `CoinAddressDerivationTests.cpp` and 
 `CoinAddressValidationTests.cpp`,
 `TWHRPTests.cpp`,
 `CoinAddressDerivationTests.kt`,
-`CoinType+Address.swift`,
 `CoinAddressDerivationTests.swift`.
 
 * [ ] Upload coin icon to [trustwallet/assets](https://github.com/trustwallet/assets/#how-to-add-asset) if necessary.
