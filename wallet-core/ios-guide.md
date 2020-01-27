@@ -17,7 +17,7 @@ A sample application is available at: https://github.com/trustwallet/wallet-core
 An easy way to add Wallet Core dependency to an iOS project is through *CocoaPods*, like this (the exact version may change in the future):
 
 ```
-  pod 'TrustWalletCore', '~> 0.12.30'
+  pod 'TrustWalletCore'
 ```
 
 The dependency can be installed simply by `pod install`:
