@@ -40,14 +40,7 @@ Coverage must not decrease!  This is enforced automatically in the valiation of 
 
 ## Blockchain definitions
 
-The first step to adding a blockchain is to define its configuration parameters. Add the definition to the `coins.json` file.
-Then run `tools/generate-files` to generate the C++ code from that.  Add the corresponding definition to `TWCoinType.h`.
-
-## Skeleton
-
-Scaffolding for a new coin is helped by a set of template files.
-Execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `coins.json`.  Check the generated files and their location.
-Usage of the templates is optional, but recommended.
+The first step to adding a blockchain is to define its configuration parameters. Add the definition to the `coins.json` file, then execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `coins.json`. This will generate `Address`, `Signer`, sample proto file, C interface for Signer and corresponding tests
 
 ## Definition tests, first commit
 
@@ -92,11 +85,11 @@ The C++ implementation with tests should be the second commit.
 
 ## C Interface
 
-Once you are satisfied with your C++ implementation write a C interface for it. The C interface needs to be as small as possible so that clients don't need to worry about implementation details. If you are implementing blockchain `Xxx` create a `TWXxxAddress.h` to handle addresses associated to the blockchain and `TWXxxSigner.h` to handle transaction signing.
+Once you are satisfied with your C++ implementation, time to write some tests for C interface, usually you don't need to change the generated C interfaces, those C interfaces are made as small as possible so that clients don't need to worry about implementation details. If you are implementing blockchain `Xxx`, handle and implement it first in `TWAnyAddress.h` before writing tests.
 
 Please make sure you catch all C++ exceptions in C implementation.
 
-Generate the idiomatic interface code by running `tools/generate-files`. If possible test the interface on Android, iOS and TypeScript. Optionally add integration test to each platform. This is required only if the interface is significantly different than the interface used for other blockchains.
+Generate the idiomatic interface code by running `tools/generate-files`. If possible test the interface on Android, iOS. Optionally add integration test to each platform. This is required only if the interface is significantly different than the interface used for other blockchains.
 
 The C interface, any Protobuf models, and integration tests should be third commit.
 
@@ -106,11 +99,10 @@ The above steps are summarized below as a checklist:
 
 * [ ] Coin Definition:
   * [ ] Add the coin definition to `coins.json`.
+  * [ ] Execute `codegen/bin/newcoin <coinid>`.
   * [ ] Execute `tools/generate-files` to generate coin-specific generated files.
-  * [ ] Extend `TWCoinType.h` and `TWBlockchain.h`.
   * [ ] Extend `src/Coin.cpp`.
-* [ ] Generate skeleton, using `codegen/bin/newcoin <coinid>`
-  * [ ] Create tests in `tests/X/TWCoinTypeTests.cpp`.
+  * [ ] Create tests in `tests/Xxx/TWCoinTypeTests.cpp`.
 * [ ] Implement functionality in C++. Put it in a subfolder of `src/`.
   * [ ] Address.
   * [ ] Transaction \(if necessary\).
@@ -120,9 +112,9 @@ The above steps are summarized below as a checklist:
   * [ ] Transaction signing tests, at least a mainnet transaction test.
   * [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
 * [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
-* [ ] Write C interface header in `include/TrustWalletCore` and implement the interface in `src/interface`.
-  * [ ] Address interface.
-  * [ ] Signing interface.
+* [ ] Implement C interface in `src/interface`.
+  * [ ] `TWAnyAddress.cpp` for address
+  * [ ] Add tests for `TWAnyAddress` and `TWXxxSigner`
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
 * [ ] Extend central derivation and validation tests: make sure the following tests are extended with the new coin: `CoinAddressDerivationTests.cpp` and 
 `CoinAddressValidationTests.cpp`,
