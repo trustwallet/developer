@@ -163,6 +163,32 @@ Method signatures:
 
 After implementation the observer API gets enabled (required for tx push notifications).
 
+### Stake integration
+
+#### `Platform` implementation
+
+To provider stake implementation, create a `/platform/<coin>/stake.go` file and implement the stake API methods:
+
+```
+// StakingAPI provides staking information
+type StakeAPI interface {
+	Platform
+	UndelegatedBalance(address string) (string, error)
+	GetDetails() StakingDetails
+	GetValidators() (ValidatorPage, error)
+	GetDelegations(address string) (DelegationsPage, error)
+}
+```
+
+#### `StakeAPI`
+
+`StakeAPI` can provider informations about delegation, validators, stake balance and staking detail, like annual reward and the minimum amount:
+
+ - `func (p *Platform) UndelegatedBalance(address string) (string, error)`
+ - `func (p *Platform) GetDetails() StakingDetails`
+ - `func (p *Platform) GetValidators() (ValidatorPage, error)`
+ - `func (p *Platform) GetDelegations(address string) (DelegationsPage, error)`
+
 ### Submitting the code
 
 #### Unit Test
