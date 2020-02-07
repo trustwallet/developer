@@ -1,4 +1,5 @@
-# Developer
+# Block Atlas Code Guide
+
 ## Code Style
 
 This repository use the [Uber Go Style Guide](https://github.com/uber-go/guide/blob/master/style.md), which documents
@@ -9,6 +10,7 @@ patterns and conventions used in Go code at Uber.
 All new implementations need to be cover from unit and integration tests. 
 
 ### Unit
+
 To run the unit tests: `make test`
 
 ### Integration

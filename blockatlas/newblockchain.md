@@ -32,7 +32,7 @@ Before starting development on Block Atlas integration, make sure that _all_ of 
 
 ### Structure
 
-This project is powered by Go, Gin Gonic and Viper.
+This project is powered by Go, Gin Gonic and Viper. 
 
 Try to use existing code of other coins as an example.
 
@@ -47,11 +47,16 @@ A library specific to your chain is not a necessary dependency.
 
 Add your coin to the end of `/coin/coins.yml`.
 
- - Field `trust` is the Trust Wallet coin handle
- - Field `sample` is an arbitrary address holding coins.
+- `id` - Coin ID.
+- `symbol` - Coin symbol.
+- `handle` - Coin handle, this is going to be your coin path, eg: `ethereum`:  `v1/ethereum/...`.
+- `name` - The coin name.
+- `decimals` - How many decimals your coin has.
+- `blockTime` - Time between two blocks.
+- `sampleAddress` - Arbitrary address holding coins.
    It is used to test the API.
 
-Then, run `go generate` inside the `/coin` directory.
+Then, run `make gen-coins` to re-generate the coin file.
 
 (Optional) Add your coin icon to the end at `/README.md`.
 
@@ -63,6 +68,8 @@ All coins have a `<coin>.api` key pointing to the URL that provides your blockch
 Add your default config, like hosts and api keys, at `/config.yml`.
 
 ### API client
+
+For each Blockchain implementation, we have one platform, some platforms can be useful for other blockchains, like BTC, LTC, BHC, DASH, DOGE. You can find these implementations inside the `platform` package.
 
 Create a `platform/<coin>/client.go` file with a `Client` struct.
 The only exported properties are "constructor"-like parameters.
@@ -90,23 +97,12 @@ They will be used in other files later.
 
 `/platform/<your_coin>/model.go` contains the data models returned by `client.go` above.
 
+Take care when unmarshalling (Go's term for deserializing) currency amounts. We never do floating point operations on currencies but operate on base 10 string representations instead. Use any of these data types in your model. 
 
-// TODO GENERATE COIN FILE
+To make conversions from decimals numbers to satoshi/wei you can use the numbers package inside `pkg/numbers`.
 
-Take care when unmarshalling (Go's term for deserializing) currency amounts. We never do floating point operations on currencies but operate on base 10 string representations instead. Use any of these data types in your model:
+The Blockatlas use `blockatlas.Amount` object to return value, this object is a type string. Internally, it carries an integer string of smallest units.
 
-// TODO
-
- - `json.Number`: Decimal with an _unknown_ number of digits right to the decimal separator.
- - `blockatlas.Amount`: Integer of smallest units (e.g. Satoshi, Wei)
- - `blockatlas.Amount`: Decimal that gets converted to the amount in smallest units by removing the decimal separator and truncating leading zeros. The number of digits right to the decimal separator must be static. (`012.300` (coins) => `12300` (smallest unit), `0.001` => `1`)
- - `string`: Custom non-decimal format.
-
-
-Side notes:
-
- - `blockatlas.Amount` internally carries an integer string of smallest units.
- - `json.Number` and `blockatlas.Amount` do not care if your decimal is wrapped in a string or not. (`12.23` vs `"12.23"`)
 
 #### Normalizing chain data
 
@@ -117,15 +113,7 @@ Define `Normalize*` functions in `api.go` that convert from `model.go` types to 
 
 ##### Transaction metadata types
 
-`Tx` can express different transaction types:
-
- - __Transfer__: A transfer of the currency native to the chain.
-   e.g. BTC on Bitcoin, ETH on Ethereum
- - __NativeTokenTransfer__: A transfer of a token defined in a native contract.
-   e.g. TRC10 tokens on Tron
- - __TokenTransfer__: A transfer of a token expressed by a smart contract.
-   e.g. ERC-20 tokens on Ethereum
- - __ContractCall__: A smart contract call with unspecified effects.
+`Tx` can express different transaction types, for my details see the [Transaction Format guide](transaction-format.md)
 
 ### Base integration
 
@@ -133,7 +121,7 @@ Define `Normalize*` functions in `api.go` that convert from `model.go` types to 
 
 Every coin implements the `blockatlas.Platform` and some `blockatlas.*API` interfaces.
 
-Create a `/platform/<coin>/api.go` file and implement `Init() & Coin()` like this:
+Create a `/platform/<coin>/api.go` file and implement the `blockatlas.Platform` methods, `Init() & Coin()` like this:
 
 ```
 type Platform struct {
@@ -164,13 +152,45 @@ After implementation, a `GET /v1/<coin>/<address>` route gets created.
 
 #### `BlockAPI` 
 
-`BlockAPI` can tell the chain height and get blocks by their number.
-Method signatures:
+`BlockAPI` can tell the chain height and get blocks by their number. Method signatures:
 
  - `func (p *Platform) CurrentBlockNumber() (int64, error)`
  - `func (p *Platform) GetBlockByNumber(num int64) (*blockatlas.Block, error)`
 
 After implementation the observer API gets enabled (required for tx push notifications).
+
+#### `TokenTxAPI` 
+
+`TokenTxAPI` provides token transaction lookups. Method signatures:
+
+- `GetTokenTxsByAddress(address, token string) (TxPage, error)`
+
+#### `TokenAPI` 
+`TokenAPI` provides token lookups. Method signatures:
+
+- `GetTokenListByAddress(address string) (TokenPage, error)`
+
+#### `AddressAPI ` 
+`AddressAPI ` provides AddressAPI AddressAPI. Method signatures:
+
+- `	GetAddressesFromXpub(xpub string) ([]string, error)`
+
+#### `CollectionAPI ` 
+`AddressAPI ` provides custom HTTP routes. Method signatures:
+
+- `GetCollections(owner string) (CollectionPage, error)`
+- `GetCollectibles(owner, collectibleID string) (CollectiblePage, error)`
+
+#### `NamingServiceAPI ` 
+`NamingServiceAPI ` provides public name service domains HTTP routes. Method signatures:
+
+- `	Lookup(coins []uint64, name string) ([]Resolved, error)`
+
+#### `CustomAPI ` 
+`CustomAPI ` provides a custom public name service domains HTTP. Method signatures:
+
+- `	RegisterRoutes(router gin.IRouter)`
+
 
 ### Stake integration
 
@@ -197,6 +217,7 @@ type StakeAPI interface {
  - `func (p *Platform) GetDetails() StakingDetails`
  - `func (p *Platform) GetValidators() (ValidatorPage, error)`
  - `func (p *Platform) GetDelegations(address string) (DelegationsPage, error)`
+
 
 ### Submitting the code
 

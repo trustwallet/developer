@@ -14,8 +14,12 @@ All types of the transaction have the same [base](#base) format, and we can diff
 - `date` - Time in Unix format at which a transaction is mined.
 - `block` - Block number at which transaction is included.
 - `memo` - Message included with a transaction.
+- `inputs ` - Input addresses for UTXO platforms.
+- `outputs ` - Output addresses for UTXO platforms.
+- `sequence` - Transaction nonce or sequence.
 - `status` - [Transaction status](#transaction-status).
 - `direction` - [Transaction direction](#transaction-direction).
+
 
 ##### Transaction Status:
 - `completed` - Completed and settled in the ledger.
@@ -42,7 +46,6 @@ e.g:
    "memo": "",
    "status": "completed"
 }
-
 ```
 
 
