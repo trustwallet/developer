@@ -11,7 +11,7 @@ A list of supported coins can be found in the config file.
 
 While we are happy about any new coin integrations we cannot immediately accept every request. To keep our high security and reliability standards, every integration must be approved by the Trust Wallet team first.
 
-Pull requests other than coin integrations are always welcome. You can contact the Trust Wallet team over [TODO].
+Pull requests other than coin integrations are always welcome. You can contact the Trust Wallet team over [community](http://community.trustwallet.com/).
 
 To integrate an approved coin with Block Atlas, please follow this guide.
 
@@ -23,8 +23,8 @@ Before starting development on Block Atlas integration, make sure that _all_ of 
    Integrate UTXO-based coins with BlockBook instead.
  - You are _NOT_ integrating a _token_ that runs on top of another blockchain (ERC-20, TRX10, ...)
  - Your coin is either
-    1) supported by [_wallet-core_](https://github.com/trustwallet/wallet-core) OR
-    2) a ready-for-review PR for wallet-core has been submitted
+	- supported by [_wallet-core_](https://github.com/trustwallet/wallet-core) 
+ 	- OR a ready-for-review PR for wallet-core has been submitted
  - Your coin has a public JSON-RPC or HTTP API.
  - Said API supports querying a list of transactions by address
  - Your coin is registered with [SLIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
@@ -32,7 +32,7 @@ Before starting development on Block Atlas integration, make sure that _all_ of 
 
 ### Structure
 
-This project is powered by Go, Gin Gonic and Viper.
+This project is powered by Go, Gin Gonic and Viper. 
 
 Try to use existing code of other coins as an example.
 
@@ -45,12 +45,18 @@ A library specific to your chain is not a necessary dependency.
 
 #### Metadata
 
-Add your coin to the end of `/coins.yml`.
- - Field `trust` is the Trust Wallet coin handle
- - Field `sample` is an arbitrary address holding coins.
+Add your coin to the end of `/coin/coins.yml`.
+
+- `id` - Coin ID.
+- `symbol` - Coin symbol.
+- `handle` - Coin handle, this is going to be your coin path, eg: `ethereum`:  `v1/ethereum/...`.
+- `name` - The coin name.
+- `decimals` - How many decimals your coin has.
+- `blockTime` - Time between two blocks.
+- `sampleAddress` - Arbitrary address holding coins.
    It is used to test the API.
 
-Then, run `go generate` inside the `/coin` directory.
+Then, run `make gen-coins` to re-generate the coin file.
 
 (Optional) Add your coin icon to the end at `/README.md`.
 
@@ -59,9 +65,11 @@ Then, run `go generate` inside the `/coin` directory.
 The config specifies how to reach your blockchain.
 All coins have a `<coin>.api` key pointing to the URL that provides your blockchain API.
 
-Add your default config at `/cmd/config.go` and `/config.yml`.
+Add your default config, like hosts and api keys, at `/config.yml`.
 
 ### API client
+
+For each Blockchain implementation, we have one platform, some platforms can be useful for other blockchains, like BTC, LTC, BHC, DASH, DOGE. You can find these implementations inside the `platform` package.
 
 Create a `platform/<coin>/client.go` file with a `Client` struct.
 The only exported properties are "constructor"-like parameters.
@@ -70,34 +78,31 @@ For example, a client using JSON-RPC might look like this:
 
 ```
 type Client struct {
-	BaseURL   string
-	rpcClient jsonrpc.RPCClient
+	blockatlas.Request
 }
 
 func (c *Client) Init() {
-	c.rpcClient = jsonrpc.NewClient(c.BaseURL)
+	p.client = Client{blockatlas.InitClient(viper.GetString("ethereum.api"))}
 }
 ```
 
 Depending on your required feature set you'll need to expose these methods:
- - `Client.GetTxsOfAddress()`
- - `Client.CurrentBlockNumber()` & `Client.GetBlockByNumber()`
 
-They will be used in `api.go` later.
+ - `client.GetTxsOfAddress(address string)`
+ - `client.CurrentBlockNumber(num int64)` & `client.GetBlockByNumber()`
+
+They will be used in other files later.
 
 #### Coin-specific models
 
-`/platform/<yourcoin>/model.go` contains the data models returned by `client.go` above.
+`/platform/<your_coin>/model.go` contains the data models returned by `client.go` above.
 
-Take care when unmarshalling (Go's term for deserializing) currency amounts. We never do floating point operations on currencies but operate on base 10 string representations instead. Use any of these data types in your model:
- - `json.Number`: Decimal with an _unknown_ number of digits right to the decimal separator.
- - `models.Amount`: Integer of smallest units (e.g. Satoshi, Wei)
- - `models.Amount`: Decimal that gets converted to the amount in smallest units by removing the decimal separator and truncating leading zeros. The number of digits right to the decimal separator must be static. (`012.300` (coins) => `12300` (smallest unit), `0.001` => `1`)
- - `string`: Custom non-decimal format.
+Take care when unmarshalling (Go's term for deserializing) currency amounts. We never do floating point operations on currencies but operate on base 10 string representations instead. Use any of these data types in your model. 
 
-Side notes:
- - `models.Amount` internally carries an integer string of smallest units.
- - `json.Number` and `models.Amount` do not care if your decimal is wrapped in a string or not. (`12.23` vs `"12.23"`)
+To make conversions from decimals numbers to satoshi/wei you can use the numbers package inside `pkg/numbers`.
+
+The Blockatlas use `blockatlas.Amount` object to return value, this object is a type string. Internally, it carries an integer string of smallest units.
+
 
 #### Normalizing chain data
 
@@ -108,15 +113,7 @@ Define `Normalize*` functions in `api.go` that convert from `model.go` types to 
 
 ##### Transaction metadata types
 
-`Tx` can express different transaction types:
-
- - __Transfer__: A transfer of the currency native to the chain.
-   e.g. BTC on Bitcoin, ETH on Ethereum
- - __NativeTokenTransfer__: A transfer of a token defined in a native contract.
-   e.g. TRC10 tokens on Tron
- - __TokenTransfer__: A transfer of a token expressed by a smart contract.
-   e.g. ERC-20 tokens on Ethereum
- - __ContractCall__: A smart contract call with unspecified effects.
+`Tx` can express different transaction types, for my details see the [Transaction Format guide](transaction-format.md)
 
 ### Base integration
 
@@ -124,7 +121,7 @@ Define `Normalize*` functions in `api.go` that convert from `model.go` types to 
 
 Every coin implements the `blockatlas.Platform` and some `blockatlas.*API` interfaces.
 
-Create a `/platform/<coin>/api.go` file and implement `Init() & Coin()` like this:
+Create a `/platform/<coin>/api.go` file and implement the `blockatlas.Platform` methods, `Init() & Coin()` like this:
 
 ```
 type Platform struct {
@@ -132,13 +129,13 @@ type Platform struct {
 }
 
 func (p *Platform) Init() error {
-	p.client.BaseURL = viper.GetString("nimiq.api")
-	p.client.Init()
-	return nil
+	p.client = Client{blockatlas.InitClient(viper.GetString("ethereum.api"))}
+	p.client.Headers["X-APIKEY"] = viper.GetString("ethereum.key")
 }
 
+
 func (p *Platform) Coin() coin.Coin {
-	return coin.Coins[coin.NIM]
+	return coin.Coins[coin.ETH]
 }
 ```
 
@@ -155,13 +152,45 @@ After implementation, a `GET /v1/<coin>/<address>` route gets created.
 
 #### `BlockAPI` 
 
-`BlockAPI` can tell the chain height and get blocks by their number.
-Method signatures:
+`BlockAPI` can tell the chain height and get blocks by their number. Method signatures:
 
  - `func (p *Platform) CurrentBlockNumber() (int64, error)`
  - `func (p *Platform) GetBlockByNumber(num int64) (*blockatlas.Block, error)`
 
 After implementation the observer API gets enabled (required for tx push notifications).
+
+#### `TokenTxAPI` 
+
+`TokenTxAPI` provides token transaction lookups. Method signatures:
+
+- `GetTokenTxsByAddress(address, token string) (TxPage, error)`
+
+#### `TokenAPI` 
+`TokenAPI` provides token lookups. Method signatures:
+
+- `GetTokenListByAddress(address string) (TokenPage, error)`
+
+#### `AddressAPI ` 
+`AddressAPI ` provides AddressAPI AddressAPI. Method signatures:
+
+- `	GetAddressesFromXpub(xpub string) ([]string, error)`
+
+#### `CollectionAPI ` 
+`AddressAPI ` provides custom HTTP routes. Method signatures:
+
+- `GetCollections(owner string) (CollectionPage, error)`
+- `GetCollectibles(owner, collectibleID string) (CollectiblePage, error)`
+
+#### `NamingServiceAPI ` 
+`NamingServiceAPI ` provides public name service domains HTTP routes. Method signatures:
+
+- `	Lookup(coins []uint64, name string) ([]Resolved, error)`
+
+#### `CustomAPI ` 
+`CustomAPI ` provides a custom public name service domains HTTP. Method signatures:
+
+- `	RegisterRoutes(router gin.IRouter)`
+
 
 ### Stake integration
 
@@ -189,22 +218,14 @@ type StakeAPI interface {
  - `func (p *Platform) GetValidators() (ValidatorPage, error)`
  - `func (p *Platform) GetDelegations(address string) (DelegationsPage, error)`
 
+
 ### Submitting the code
 
 #### Unit Test
 
-Write a test at `/platform/<yourcoin>/api_test.go` to ensure correct normalization.
+Write a test at `/platform/<your_coin>/api_test.go` to ensure correct normalization.
 Try reading and normalizing a sample API response (copy paste output of REST client).
 
-Where there's a need to access the `coin.Coins` map in tests context, the map has to be initialized 
-by loading coins and their configuration from the yml file. 
-That's to make sure the map won't be empty when running tests.
-
-```go
-func initCoins() {
-	coin.Load("../../coins.yml")
-}
-```
 
 ### Pull Request
 

@@ -2,25 +2,37 @@
 
 ## Transactions
 
+All types of the transaction have the same [base](#base) format, and we can differ the actions using the [meta](#meta) object.
+
 ### Base
 
-`id` - Transaction hash
+- `id` - Transaction hash.
+- `from` - Transaction original sender.
+- `to` - Transaction original recipient.
+- `fee` - Transaction fee.
+- `coin` - Coin index from [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md).
+- `date` - Time in Unix format at which a transaction is mined.
+- `block` - Block number at which transaction is included.
+- `memo` - Message included with a transaction.
+- `inputs ` - Input addresses for UTXO platforms.
+- `outputs ` - Output addresses for UTXO platforms.
+- `sequence` - Transaction nonce or sequence.
+- `status` - [Transaction status](#transaction-status).
+- `direction` - [Transaction direction](#transaction-direction).
 
-`from` - Transaction original sender
 
-`to` - Transaction original recipient
+##### Transaction Status:
+- `completed` - Completed and settled in the ledger.
+- `pending` - Pending in the mempool.
+- `error` - Smart contract failed to execute transaction or failed for any reason in the ledger.
 
-`fee` - Transaction fee
+##### Transaction Direction:
+- `outgoing` - The address owner is the sender of the transaction.
+- `incoming` - The address owner is the receiver of the transaction.
+- `yourself` - The address owner sends a transaction to yourself.
 
-`coin` - Coin index from [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
 
-`date` - Time in Unix format at which a transaction is mined
-
-`block` - Block number at which transaction is included
-
-`memo` - Message included with a transaction
-
-`status` - [Transaction status](#transaction-status)
+e.g:
 
 ```
 {
@@ -34,10 +46,25 @@
    "memo": "",
    "status": "completed"
 }
-
 ```
 
-### Transfer
+
+## Meta
+
+### Types 
+Meta actions to specify a type of transfer.
+
+- [`transfer`](#transfer) - Basic transaction transfer from native currency platform.
+- [`token_transfer`](#token_transfer) - Transfer of native tokens (Stellar Tokens/TRC10).
+- [`native_token_transfer`](#native_token_transfer) - Transfer of non-native tokens (ERC20/TRC20).
+- [`collectible_transfer`](#collectible_transfer) - NFT tokens transfer (ERC721/ERC1155).
+- [`token_swap`](#token_swap) - Exchange of two different tokens.
+- [`contract_call`](#contract_call) - Transaction from a contract execution/call.
+- [`any_action`](#any_action) - Generic action, can be used for stake like delegate, undeelegate and claim rewards action.
+
+
+### Examples:
+#### Transfer
 
 Type: `transfer`
 
@@ -53,7 +80,7 @@ Type: `transfer`
 }
 ```
 
-### Token Transfer
+####  Token Transfer
 
 Type: `token_transfer`
 
@@ -72,7 +99,7 @@ Type: `token_transfer`
 }
 ```
 
-### Native Token Transfer
+####  Native Token Transfer
 
 Type: `native_token_transfer`
 
@@ -89,7 +116,7 @@ Type: `native_token_transfer`
 }
 ```
 
-### Collectible Transfer
+####  Collectible Transfer
 
 Type: `collectible_transfer`
 
@@ -106,7 +133,7 @@ Type: `collectible_transfer`
 }
 ```
 
-### Token Swap
+####  Token Swap
 
 Type: `token_swap`
 
@@ -132,7 +159,22 @@ Type: `token_swap`
 }
 ```
 
-### Any Action
+####  Contract Call
+
+Type: `contract_call`
+
+```
+{
+    "type": "contract_call",
+    "metadata": {
+       "input": "0xfffdefefed",  
+       "value": "1800000000000000000"
+    }
+}
+```
+
+
+####  Any Action
 
 Type: `any_action`
 
@@ -152,55 +194,92 @@ Type: `any_action`
 }
 ```
 
-#### Keys
+##### Keys and Titles
+Keys mostly used to provide localized version on the clients by key.
 
-- `place_order` - Placer Order
-- `cancel_order` - Cancel order
-- `issue_token` - Issue Token
-- `burn_token` - Burn Token
-- `mint_token` - Mint Token
-- `approve_token` - Approve Token
+- `place_order`: Placer Order.
+- `cancel_order`: Cancel Order.
+- `issue_token`: Issue Token.
+- `burn_token`: Burn Token.
+- `mint_token`: Mint Token.
+- `approve_token`: Approve Token.
+- `stake_delegate`: Stake Delegate.
+- `stake_claim_rewards`: Stake Claim Rewards.
 
-will continue... Keys mostly used to provide localized version on the clients by key
-
-#### Transaction Status
-- `completed` - completed and settled in the ledger
-- `pending` - pending in the mempool
-- `error` - smart contract failed to execute transaction or failed for any reason in the ledger
 
 ## Staking
 
 ### Validators
 
+- `id` - Validator address.
+- `status` - [Validator status](#validator-status).
+- `info` - Details about the validator.
+	- `name` - Validator name.
+	- `description` - Validator description.
+	- `image` - Validator image to show on the client.
+	- `website` - Validator website. 
+- `details` - Stake details.
+	- `reward` - Estimate percent reward.
+		- `annual` - Estimate percent reward per year.
+	- `locktime` - Estimate percent reward.
+	- `minimum_amount ` - Estimate percent reward.
+	- `type ` - [Validator status](#validator-status).
+
+##### Validator Status:
+- `active` - Validator is active for stake.
+- `pending` - Validator is pending for stake.
+
+##### Validator Type:
+- `auto` - The address owner is staking only holding the coin.
+- `delegate` - The owner needs to delegate your balance.
+	
+e.g:
+
 ```json
 {
-   "name":"Polychain Labs",
-   "description":"Secure staking with Polychain Labs, the most experienced institutional grade staking team.",
-   "status":"online/offline",
-   "uptime": 100,
-   "rate": 0.2,
-   "info":{
-      "website":"https://google.com",
-      "image":"https://google.com/placeholder.png"
-   },
-   "address":"cosmosvaloper14k4pzckkre6uxxyd2lnhnpp8sngys9m6hl6ml7",
-   "pubkey":"cosmosvalconspub1zcjduepquhlqdhjw4qp2c2t6qh5z7tfk52qc72623f0etc8f3n7hy8uuh25ql34fvu"
+  "id": "cosmosvaloper1fhr7e04ct0zslmkzqt9smakg3sxrdve6ulclj2",
+  "status": true,
+  "info": {
+    "name": "POS Bakerz",
+    "description": "POS Bakerz is a staking company operating secure and efficient nodes for different Proof-of-Stake cryptocurrencies such as Cosmos Network, Tezos, IRISnet, Terra Money and others.",
+    "image": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/cosmos/validators/assets/cosmosvaloper1fhr7e04ct0zslmkzqt9smakg3sxrdve6ulclj2/logo.png",
+    "website": "https://posbakerz.com/"
+  },
+  "details": {
+    "reward": {
+      "annual": 7.318467221273478
+    },
+    "locktime": 1814400,
+    "minimum_amount": "0",
+    "type": "delegate"
+  }
 }
 ```
 
 ## Token
 
-## Base
 
-`name` - Token name
+- `name` - Token name
+- `symbol` - Token symbol
+- `decimals` - Number of decimal places
+- `tokenID` - Token unique id on the chain. e.g. (Dai token id on Ethereum - 0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359)
+- `coin` - Coin index from [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+- `type` - [Token type](#token-type).
 
-`symbol` - Token symbol
+##### Token Type:
+- `ERC20` - ERC20 token.
+- `BEP2` - BEP2 token.
+- `TRC10` - TRC10 token.
+- `ETC20` - ETC20 token.
+- `POA20` - POA20 token.
+- `TRC20` - TRC20 token.
+- `CLO20` - CLO20 token.
+- `G020` - G020 token.
+- `WAN20` - WAN20 token.
+- `TT20` - TT20 token.
 
-`decimals` - Number of decimal places
 
-`tokenID` - Token unique id on the chain. e.g. (Dai token id on Ethereum - 0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359)
-
-`coin` - Coin index from [SLIP-44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+e.g:
 
 ```json
 {
@@ -208,6 +287,8 @@ will continue... Keys mostly used to provide localized version on the clients by
    "symbol": "GIV",
    "decimals": 8,
    "tokenID": "GIV-94E",
-   "coin": 714
+   "coin": 714,
+   "type": "BEP2"
 }
 ```
+
