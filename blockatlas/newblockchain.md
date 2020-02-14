@@ -121,7 +121,7 @@ Define `Normalize*` functions in `api.go` that convert from `model.go` types to 
 
 Every coin implements the `blockatlas.Platform` and some `blockatlas.*API` interfaces.
 
-Create a `/platform/<coin>/api.go` file and implement the `blockatlas.Platform` methods, `Init() & Coin()` like this:
+Create a `/platform/<coin>/base.go` file and implement the `blockatlas.Platform` methods, `Init() & Coin()` like this:
 
 ```
 type Platform struct {
@@ -143,8 +143,9 @@ Then, link your platform at `/platform/registry.go`.
 
 #### `TxAPI`
 
-`TxAPI` can query transactions of an address.
-Method signature:
+`TxAPI` can query transactions of an address. Needs to be implemented inside `/platform/<coin>/transaction.go`.
+
+_Method signatures_:
 
  - `func (p *Platform) GetTxsByAddress(address string) (blockatlas.TxPage, error)`
 
@@ -152,7 +153,9 @@ After implementation, a `GET /v1/<coin>/<address>` route gets created.
 
 #### `BlockAPI` 
 
-`BlockAPI` can tell the chain height and get blocks by their number. Method signatures:
+`BlockAPI` can tell the chain height and get blocks by their number. Needs to be implemented inside `/platform/<coin>/block.go`.
+
+_Method signatures_:
 
  - `func (p *Platform) CurrentBlockNumber() (int64, error)`
  - `func (p *Platform) GetBlockByNumber(num int64) (*blockatlas.Block, error)`
@@ -160,34 +163,45 @@ After implementation, a `GET /v1/<coin>/<address>` route gets created.
 After implementation the observer API gets enabled (required for tx push notifications).
 
 #### `TokenTxAPI` 
+`TokenTxAPI` provides token transaction lookups. Needs to be implemented inside `/platform/<coin>/transaction.go`. 
 
-`TokenTxAPI` provides token transaction lookups. Method signatures:
+_Method signatures_:
 
 - `GetTokenTxsByAddress(address, token string) (TxPage, error)`
 
 #### `TokenAPI` 
-`TokenAPI` provides token lookups. Method signatures:
+`TokenAPI` provides token lookups. Needs to be implemented inside `/platform/<coin>/token`.
+
+_Method signatures_:
 
 - `GetTokenListByAddress(address string) (TokenPage, error)`
 
 #### `AddressAPI ` 
-`AddressAPI ` provides AddressAPI AddressAPI. Method signatures:
+`AddressAPI ` provides an AddressAPI to fetch addresses for an account.  Needs to be implemented inside `/platform/<coin>/base.go`.
+
+_Method signatures_:
 
 - `	GetAddressesFromXpub(xpub string) ([]string, error)`
 
 #### `CollectionAPI ` 
-`AddressAPI ` provides custom HTTP routes. Method signatures:
+`AddressAPI ` provides custom HTTP routes.  Needs to be implemented inside `/platform/<coin>/collection.go`.
+
+_Method signatures_:
 
 - `GetCollections(owner string) (CollectionPage, error)`
 - `GetCollectibles(owner, collectibleID string) (CollectiblePage, error)`
 
 #### `NamingServiceAPI ` 
-`NamingServiceAPI ` provides public name service domains HTTP routes. Method signatures:
+`NamingServiceAPI ` provides public name service domains HTTP routes. Needs to be implemented inside `/platform/<coin>/domain.go`.
+
+_Method signatures_:
 
 - `	Lookup(coins []uint64, name string) ([]Resolved, error)`
 
 #### `CustomAPI ` 
-`CustomAPI ` provides a custom public name service domains HTTP. Method signatures:
+`CustomAPI ` provides a custom public name service domains HTTP. Needs to be implemented inside `/platform/<coin>/custom.go`.
+
+_Method signatures_:
 
 - `	RegisterRoutes(router gin.IRouter)`
 
@@ -223,7 +237,7 @@ type StakeAPI interface {
 
 #### Unit Test
 
-Write a test at `/platform/<your_coin>/api_test.go` to ensure correct normalization.
+Write a test at `/platform/<your_coin>/<api>_test.go` to ensure correct normalization.
 Try reading and normalizing a sample API response (copy paste output of REST client).
 
 
