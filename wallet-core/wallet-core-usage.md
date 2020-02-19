@@ -285,18 +285,18 @@ let token = BinanceSendOrder.Token.with {
 }
 
 // A.k.a from / sender
-let input = BinanceSendOrder.Input.with {
+let orderInput = BinanceSendOrder.Input.with {
     $0.address = CosmosAddress(hrp: .binance, publicKey: publicKey)!.keyHash
     $0.coins = [token]
 }
 
 // A.k.a to / recipient
-let output = BinanceSendOrder.Output.with {
+let orderOutput = BinanceSendOrder.Output.with {
     $0.address = CosmosAddress(string: "bnb1hlly02l6ahjsgxw9wlcswnlwdhg4xhx38yxpd5")!.keyHash
     $0.coins = [token]
 }
 
-let signingInput = BinanceSigningInput.with {
+let input = BinanceSigningInput.with {
     $0.chainID = "Binance-Chain-Nile" // Testnet Chain id
     $0.accountNumber = 0              // On chain account number
     $0.sequence = 0                   // Sequence number
@@ -304,14 +304,14 @@ let signingInput = BinanceSigningInput.with {
     $0.privateKey = privateKey.data
     $0.memo = ""
     $0.sendOrder = BinanceSendOrder.with {
-        $0.inputs = [input]
-        $0.outputs = [output]
+        $0.inputs = [orderInput]
+        $0.outputs = [orderOutput]
     }
 }
 
-let data: BinanceSigningOutput = AnySigner.sign(input: signingInput, coin: .binance)
+let output: BinanceSigningOutput = AnySigner.sign(input: input, coin: .binance)
 // encoded order to broadcast
-print(data.encoded)
+print(output.encoded)
 ```
 
 For more details please check the Binance Chain documentation:
