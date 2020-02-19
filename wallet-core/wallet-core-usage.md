@@ -174,10 +174,8 @@ let input = BitcoinSigningInput.with {
     $0.privateKey = [privateKey.data]
 }
 
-let result = BitcoinTransactionSigner(input: input).sign()
-guard result.success else { return }
-let output = try BitcoinSigningOutput(unpackingAny: result.objects[0])
-
+let output: BitcoinSigningOutput = AnySigner.sign(input: input, coin: .bitcoinCash)
+guard output.error.isEmpty else { return }
 // encoded transaction to broadcast
 print(output.encoded)
 ```
@@ -201,20 +199,17 @@ let input = BitcoinSigningInput.with {
     $0.toAddress = "t1QahNjDdibyE4EdYkawUSKBBcVTSqv64CS"
     $0.coinType = CoinType.zcash.rawValue
     $0.privateKey = [Data(hexString: "a9684f5bebd0e1208aae2e02bc9e9163bd1965ad23d8538644e1df8b99b99559")!]
+    $0.plan = BitcoinTransactionPlan.with {
+        $0.amount = 488000
+        $0.fee = 6000
+        $0.change = 0
+        // Sapling branch id
+        $0.branchID = Data(hexString: "0xbb09b876")!
+        $0.utxos = utxos
+    }
 }
 
-let plan = BitcoinTransactionPlan.with {
-    $0.amount = 488000
-    $0.fee = 6000
-    $0.change = 0
-    // Sapling branch id
-    $0.branchID = Data(hexString: "0xbb09b876")!
-    $0.utxos = utxos
-}
-
-let result = ZcashTransactionSigner(input: input, plan: plan).sign()
-guard result.success else { return }
-let output = try BitcoinSigningOutput(unpackingAny: result.objects[0])
+let output: BitcoinSigningOutput = AnySigner.sign(input: input, coin: .zcash)
 
 // encoded transaction to broadcast
 print(output.encoded)
@@ -241,7 +236,7 @@ Several parameters, like the current nonce and gasPrice values can be obtained f
 Code example to fill in the signer input parameters:
 
 ```swift
-let signerInput = EthereumSigningInput.with {
+let input = EthereumSigningInput.with {
     $0.chainID = Data(hexString: "01")!
     $0.gasPrice = Data(hexString: "d693a400")! // decimal 3600000000
     $0.gasLimit = Data(hexString: "5208")! // decimal 21000
@@ -254,8 +249,8 @@ let signerInput = EthereumSigningInput.with {
 Then Signer is invoked, and the signed and encoded output retrieved:
 
 ```swift
-let signerOutput = EthereumSigner.sign(input: signerInput)
-print(" data:   ", signerOutput.encoded.hexString)
+let output: EthereumSigningOutput = AnySigner.sign(input: input, coin: .ethereum)
+print(" data:   ", output.encoded.hexString)
 ```
 
 For more details on Ethereum transactions, check the Ethereum documentation.  A few resources are here:
@@ -314,7 +309,7 @@ let signingInput = BinanceSigningInput.with {
     }
 }
 
-let data = BinanceSigner.sign(input: signingInput)
+let data: BinanceSigningOutput = AnySigner.sign(input: signingInput, coin: .binance)
 // encoded order to broadcast
 print(data.encoded)
 ```

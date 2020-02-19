@@ -85,7 +85,7 @@ The C++ implementation with tests should be the second commit.
 
 ## C Interface
 
-Once you are satisfied with your C++ implementation, time to write some tests for C interface, usually you don't need to change the generated C interfaces, those C interfaces are made as small as possible so that clients don't need to worry about implementation details. If you are implementing blockchain `Xxx`, handle and implement it first in `TWAnyAddress.h` before writing tests.
+Once you are satisfied with your C++ implementation, time to write some tests for C interface, usually you don't need to change the generated C interfaces, those C interfaces are made as small as possible so that clients don't need to worry about implementation details. If you are implementing blockchain `Xxx`, handle and implement it first in `TWAnyAddress.h` and `TWAnySigner.h` before writing tests.
 
 Please make sure you catch all C++ exceptions in C implementation.
 
@@ -114,7 +114,8 @@ The above steps are summarized below as a checklist:
 * [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
 * [ ] Implement C interface in `src/interface`.
   * [ ] Support added coin type in `TWAnyAddress.cpp`.
-  * [ ] Add tests for `TWAnyAddress` and `TWXxxSigner`
+  * [ ] Support added coin type in `TWAnySigner.cpp`.
+  * [ ] Add tests for `TWAnyAddress` and `TWAnySigner`
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
 * [ ] Extend central derivation and validation tests: make sure the following tests are extended with the new coin: `CoinAddressDerivationTests.cpp` and 
 `CoinAddressValidationTests.cpp`,
