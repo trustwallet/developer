@@ -84,7 +84,7 @@ val signerInput = Ethereum.SigningInput.newBuilder().apply {
     this.amount = BigInteger("0348bca5a16000", 16).toByteString()
     this.privateKey = ByteString.copyFrom(secretPrivateKey.data())
 }.build()
-val signerOutput = EthereumSigner.sign(signerInput)
+val output = AnySigner.sign(signerInput, CoinType.ETHEREUM, Ethereum.SigningOutput.parser())
 println("Signed transaction: \n${signerOutput.encoded.toByteArray().toHexString()}")
 ```
 

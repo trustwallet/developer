@@ -89,6 +89,6 @@ let signerInput = EthereumSigningInput.with {
     $0.amount = Data(hexString: "0348bca5a16000")!
     $0.privateKey = wallet.getKeyForCoin(coin: .ethereum).data
 }
-let signerOutput = EthereumSigner.sign(input: signerInput)
-print(" data:   ", signerOutput.encoded.hexString)
+let output: EthereumSigningOutput = AnySigner.sign(input: signerInput, coin: .ethereum)
+print(" data:   ", output.encoded.hexString)
 ```
