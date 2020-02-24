@@ -7,7 +7,6 @@
 | NEAR | 🏗| NEAR Team | Q1 2020 | ✅ | ✅ | Coin Transfer / Smart Contract / Staking | |
 | Filecoin | 🏗| Trust Team | Q1 2020 | ✅ | ✅ | Coin Transfer | |
 | TON | 🏗| Trust Team | Q2 2020 | ✅ |  | Coin Transfer / Smart Contract / Staking | |
-| Nervos | 🔬|  |  |  |  | Coin Transfer / Smart Contract | |
 | Libra | 🔬|  |  |  |  | Coin Transfer / Smart Contract | |
 | Harmony | ✅| Harmony Team | Launched | ✅ | ✅ | Coin Transfer |  | 
 | Nano | ✅| Nano Team | Launched | ✅ | ✅ | Coin Transfer | None | 
