@@ -38,15 +38,23 @@ It helps to pick an existing coin, and refer to its implementation.  Try to pick
 Note that unit **tests** are crucial in ensuring quality needed for multi-coin support.  Functionality here can be well unit-tested, so don't ignore them.
 Coverage must not decrease!  This is enforced automatically in the valiation of the pull requests.
 
-## Blockchain definitions
+## Blockchain definition
 
-The first step to add a blockchain is to define its coin configuration. Add the definition to the `coins.json` file, then execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `coins.json`. This will generate `Address`, `Signer`, sample proto file, C interface for Signer and corresponding tests.
+The first step to add a blockchain is to define its coin configuration. Add the definition to the `coins.json` file.  
+
+## Skeleton generation
+
+Execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `coins.json`. This will generate skeleton `Address`, `Signer`, `Entry` classes, proto file, C interface for Signer and corresponding tests.
+
+Run `tools/generate-files` to generate message proto files.
+
+Run `cmake` to include the new files in the build (`cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug`), and build the project.
 
 ## Definition tests, first commit
 
 Review tests in `tests/X/TWCoinTypeTests.cpp` (where `X` is the name of the blockchain), exactly as in other blockchains.
 Run the tests and make sure everything is passing before moving on to the next step. 
-Create a commit with this change \(don't create a pull request yet\).
+You should reate a commit with this change, \(but don't create a pull request yet\).
 
 *Note:* don't forget to add new files to git.
 *Note:* don't forget to re-run `cmake` before building, to include new files in the build.
@@ -58,7 +66,14 @@ Implement the required functionality in C++. The code should be placed in the `s
 Don't just dump an existing codebase in the repo. The code needs to follow the code style and use existing hashing and cryptographic functionality if possible.
 Adding new dependencies is something we want to avoid at all costs. We want to keep the codebase and the binary library as small as possible.
 
+
 If you do need to add a new cryptographic function or other building block please do so as a separate PR from the blockchain implementation.
+
+### Entry point for coin functionality
+
+The `Entry` class should be kept minimal, it should have no logic, just call into relevant Address, Signer, etc. classes.
+
+Include the new coin Entry class in the list of coin dispatchers, in `src/Coin.cpp` (an include, a new instance in the list of dispatcher instances).
 
 ### Address encoding/decoding
 
@@ -81,7 +96,7 @@ For an example of this have a look at Binance's [Signer.h](https://github.com/tr
 
 The tests should be put in `tests/X` where `X` is the name of the blockchain. All C++ code needs to be unit tested.
 
-The C++ implementation with tests should be the second commit.
+The C++ implementation with tests should be a separate commit.
 
 ## C Interface
 
@@ -89,9 +104,9 @@ Once you are satisfied with your C++ implementation, time to write some tests fo
 
 Please make sure you catch all C++ exceptions in C implementation.
 
-Generate the idiomatic interface code by running `tools/generate-files`. If possible test the interface on Android, iOS. Optionally add integration test to each platform. This is required only if the interface is significantly different than the interface used for other blockchains.
+If possible test the interface on Android, iOS. Optionally add integration test to each platform. This is required only if the interface is significantly different than the interface used for other blockchains.
 
-The C interface, any Protobuf models, and integration tests should be third commit.
+The C interface, any Protobuf models, and integration tests should be a separate commit.
 
 ## Blockchain checklist
 
@@ -100,10 +115,11 @@ The above steps are summarized below as a checklist:
 * [ ] Coin Definition:
   * [ ] Add the coin definition to `coins.json`.
   * [ ] Execute `codegen/bin/newcoin <coinid>`.
-  * [ ] Execute `tools/generate-files` to generate coin-specific generated files.
-  * [ ] Extend `src/Coin.cpp`.
+  * [ ] Execute `tools/generate-files`.
+  * [ ] Add coin dispatcher to `src/Coin.cpp`.
   * [ ] Create tests in `tests/Xxx/TWCoinTypeTests.cpp`.
 * [ ] Implement functionality in C++. Put it in a subfolder of `src/`.
+  * [ ] Entry.
   * [ ] Address.
   * [ ] Transaction \(if necessary\).
   * [ ] Signer.
@@ -113,8 +129,6 @@ The above steps are summarized below as a checklist:
   * [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
 * [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
 * [ ] Implement C interface in `src/interface`.
-  * [ ] Support added coin type in `TWAnyAddress.cpp`.
-  * [ ] Support added coin type in `TWAnySigner.cpp`.
   * [ ] Add tests for `TWAnyAddress` and `TWAnySigner`
 * [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
 * [ ] Extend central derivation and validation tests: make sure the following tests are extended with the new coin: `CoinAddressDerivationTests.cpp` and 
