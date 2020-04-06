@@ -3,7 +3,7 @@
 Wallet Core is available on the iOS platform, it comes with *Swift* bindings.
 In this guide we show how to use it.
 
-A sample application is available at: https://github.com/trustwallet/wallet-core/tree/master/samples/ios .
+A sample application is available at: https://github.com/trustwallet/wallet-core/tree/master/samples/osx .
 
 ## Prerequisites
 
