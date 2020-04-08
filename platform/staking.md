@@ -91,7 +91,7 @@ Please implement and document all RPC methods required for staking in your block
 
     * Minimum 3 validators required to support staking on TrustWallet platform.
 
-After you finish your all 5 steps, please comment the issue on [trust platform](https://github.com/trustwallet/platform) describing
+After you finish your all 5 steps, please comment the issue on [blockatlas](https://github.com/trustwallet/blockatlas) describing
 all steps and their respective pull requests. Happy coding!
 
 # CheckList
