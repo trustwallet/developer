@@ -152,15 +152,15 @@ script | 0x76a9146cfa0e96c34fce09c0e4e671fcd43338c14812e588ac | A script (Script
 Here is the Swift sample code for signing a real world Bitcoin Cash [transaction](https://blockchair.com/bitcoin-cash/transaction/96ee20002b34e468f9d3c5ee54f6a8ddaa61c118889c4f35395c2cd93ba5bbb4)
 
 ```swift
-let utxoTxId = Data(hexString: "050d00e2e18ef13969606f1ceee290d3f49bd940684ce39898159352952b8ce2")!
+let utxoTxId = Data(hexString: "050d00e2e18ef13969606f1ceee290d3f49bd940684ce39898159352952b8ce2")! // latest utxo for sender, "txid" field from blockbook utxo api: https://github.com/trezor/blockbook/blob/master/docs/api.md#get-utxo
 let privateKey = PrivateKey(data: Data(hexString: "7fdafb9db5bc501f2096e7d13d331dc7a75d9594af3d251313ba8b6200f4e384")!)!
 let address = CoinType.bitcoinCash.deriveAddress(privateKey: privateKey)
 
 let utxo = BitcoinUnspentTransaction.with {
     $0.outPoint.hash = Data(utxoTxId.reversed()) // reverse of UTXO tx id, Bitcoin internal expects network byte order
-    $0.outPoint.index = 2                        // outpoint index of this this UTXO
+    $0.outPoint.index = 2                        // outpoint index of this this UTXO, "vout" field from blockbook utxo api
     $0.outPoint.sequence = UINT32_MAX
-    $0.amount = 5151                             // value of this UTXO
+    $0.amount = 5151                             // value of this UTXO, "value" field from blockbook utxo api
     $0.script = BitcoinScript.buildForAddress(address: address, coin: .bitcoinCash).data // Build lock script from address or public key hash
 }
 
@@ -169,7 +169,7 @@ let input = BitcoinSigningInput.with {
     $0.amount = 600
     $0.byteFee = 1
     $0.toAddress = "1Bp9U1ogV3A14FMvKbRJms7ctyso4Z4Tcx"
-    $0.changeAddress = "1FQc5LdgGHMHEN9nwkjmz6tWkxhPpxBvBU"
+    $0.changeAddress = "1FQc5LdgGHMHEN9nwkjmz6tWkxhPpxBvBU" // can be same sender address
     $0.utxo = [utxo]
     $0.privateKey = [privateKey.data]
 }
