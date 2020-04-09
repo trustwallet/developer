@@ -7,10 +7,8 @@ __Supported Coins__
 <a href="https://binance.com/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png" width="32" /></a>
 <a href="https://ethereum.org/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" width="32" /></a>
 <a href="https://cosmos.network/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/cosmos/info/logo.png" width="32" /></a>
-
-
-### Demo
-Checkout the demo [here](https://wallet-connect.trustwallet.com/)
+<a href="https://tezos.com/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/tezos/info/logo.png" width="32" /></a>
+<a href="https://nano.org" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/nano/info/logo.png" width="32" /></a>
 
 ## Getting started
 To use Trust's WalletConnect's implementation, you just need install two packages:
