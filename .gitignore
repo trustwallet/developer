@@ -9,3 +9,4 @@ node_modules
 *~
 _book/
 *.swp
+.DS_Store
