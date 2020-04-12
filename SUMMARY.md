@@ -20,6 +20,7 @@
 * [Trust SDK](trust-sdk/trust-sdk.md)
   * [TrustSDK iOS](trust-sdk/trust-sdk-ios.md)
   * TrustSDK Android (coming soon...)
+  * TrustSDK Web (coming soon...)
 * [WalletConnect](wallet-connect/wallet-connect.md)
   * [DApp](wallet-connect/dapp.md)
 * [Assets](assets/add_new_asset.md)
