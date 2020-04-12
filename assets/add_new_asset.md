@@ -33,6 +33,7 @@ Token repository [https://github.com/trustwallet/assets](https://github.com/trus
 1. Prepare image [requirements](#image-requirements)
 2. Get familiar with [folder strcture](#repository-structure), will give you understanding where asset image should be placed
 3. [Add asset guide](#how-to-add-asset)
+4. Pay a [Pull Reqest Fee](assets/merging-fee.md)
 
 ## Image Requirements
 - file extension: `png`. Uppercase `PNG` considered invalid.
