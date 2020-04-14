@@ -93,7 +93,7 @@ If you'd rather use and IDE for building and debugging you can specify the `-G` 
 
 ## Building inside Docker image
 
-Here are the instructions to build Wallet Core with the provided `Dockerfile` (for security reason, you should always build docker image by yourself).
+Here are the instructions to build Wallet Core with the provided `Dockerfile`.
 
 Prerequisite is a working Docker installation.
 
