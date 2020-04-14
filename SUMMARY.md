@@ -21,6 +21,7 @@
   * [DApp](wallet-connect/dapp.md)
 * [Assets](assets/add_new_asset.md)
   * [DApps](assets/add-dapp.md)
+  * [Pull Request Fee](assets/pr-fee.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [Staking](platform/staking.md)
 * [Roadmap](roadmap/roadmap.md)

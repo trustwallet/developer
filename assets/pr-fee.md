@@ -1,6 +1,6 @@
 # Pull Request Fee -- FAQ
 
-**Someone is asking for cypto payment for merging my Pull Request.  Is this a scam?**
+**Someone is asking for cypto payment for processing my Pull Request.  Is this a scam?**
 
 Always be cautious when someone asks you for payment.
 Check that there is a description about it under Trust Wallet Developers' doucmentation (this page).
@@ -20,7 +20,7 @@ We were partly insipred by [Token Curated Registry](https://medium.com/@tokencur
 
 **What do I have to pay attention to?**
 
-* Double check the [contribution guidelines](assets/add_new_asset.md), to minimize the risk of your PR being rejected.
+* Double check the [contribution guidelines](/add_new_asset), to minimize the risk of your PR being rejected.
 * Make sure to set the correct memo on your transfer.
 
 **How does a Fee fit with Open Source?**
