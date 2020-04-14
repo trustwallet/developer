@@ -16,9 +16,9 @@ The following *development platforms* are supported:
 
 ## Build Methods
 
-Wallet Core can be build inside the provided Docker image, or natively.
+Wallet Core can be build inside a Docker image, or natively.
 
-* Inside **Docker** image:  This way is easier to get the prerequisites, as they are all inside the provided Docker image.  However, all building has to be done inside the Docker image.
+* Inside **Docker** image:  This way is easier to get the prerequisites, as they are all inside a Docker image. However, all building has to be done inside the Docker image.
 * Natively, in your dev OS (macOS, Linux).
 
 ## Prerequisites
@@ -93,14 +93,20 @@ If you'd rather use and IDE for building and debugging you can specify the `-G` 
 
 ## Building inside Docker image
 
-Here are the instructions to build Wallet Core within the provided Docker image.
+Here are the instructions to build Wallet Core with the provided `Dockerfile`.
 
 Prerequisite is a working Docker installation.
 
-The command for starting a new Docker container with the wallet-core image, and a shell within it:
+The command for building the Docker image:
 
 ```shell
-docker run -i -t trustwallet/wallet-core /bin/bash
+docker build docker/wallet-core --tag wallet-core-dev
+```
+
+Then launch the container:
+
+```shell
+docker run -i -t wallet-core-dev /bin/bash
 ```
 
 Inside the container the build commands can be executed (as described above; note that install-dependencies is not necessary):

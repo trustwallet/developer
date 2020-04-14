@@ -6,7 +6,7 @@ The TrustSDK lets you sign Ethereum transactions and messages so that you can bu
 
 ## Demo
 
-![Sign Message and Transaction](https://github.com/trustwallet/TrustSDK-iOS/blob/master/docs/demo.gif)
+![Sign Message and Transaction](https://raw.githubusercontent.com/trustwallet/TrustSDK-iOS/master/docs/demo.gif)
 
 ## Installation
 
@@ -26,7 +26,7 @@ Follow the next steps to configure `TrustSDK` in your app.
 
 Open Xcode an click on your project. Go to the 'Info' tab and expand the 'URL Types' group. Click on the **+** button to add a new scheme. Enter a custom scheme name in **'URL Scemes'**.
 
-![Adding a scheme](docs/scheme.png)
+![Adding a scheme](https://raw.githubusercontent.com/trustwallet/TrustSDK-iOS/master/docs/scheme.png)
 
 ### Initialization
 
