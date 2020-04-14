@@ -1,4 +1,4 @@
-# Merge Fee -- FAQ
+# Pull Request Fee -- FAQ
 
 **Someone is asking for cypto payment for merging my Pull Request.  Is this a scam?**
 
@@ -14,9 +14,16 @@ We are committed to supporting the tokens used by our users.
 But supporting so many assets has a high cost, in terms of running the infrastructure, ensuring continuous integrations,
 handling a massive number of requests to the assets info, etc. A lot of spam/scam coins also find us.
 
-We have introduced this crypto contribution in order to filter down requests, so we have more time to handle genuine ones.
+We have introduced this crypto contribution in order to filter requests, so we have more time to handle genuine ones.
 
-**How  dare you ask for money in the case of an Open Source project?**
+We were partly insipred by [Token Curated Registry](https://medium.com/@tokencuratedregistry/a-simple-overview-of-token-curated-registries-84e2b7b19a06).
+
+**What do I have to pay attention to?**
+
+* Double check the [contribution guidelines](assets/add_new_asset.md), to minimize the risk of your PR being rejected.
+* Make sure to set the correct memo on your transfer.
+
+**How does a Fee fit with Open Source?**
 
 We believe in the power of open-source software, and essential parts of Trust Wallet are open source to contribute to the community
 ([Wallet-Core](https://developer.trustwallet.com/wallet-core), [Blockatlas](https://developer.trustwallet.com/blockatlas)).
@@ -43,21 +50,14 @@ when there is no action on it is difficult for the GitHub app.)
 
 When the `merge-fee-bot` detects payment, it automatically places an Accept review on the PR.
 This is a precondition for merge.
-But merging is not automatic, it is done by the maintainers.
-
-**I just need to make an urgent fix / just change existing info / etc. -- Can you do it without a payment?**
-
-In justified cases, we may waive the payment requirement.
-Make sure to communicate the justification clearly in the PR.
+But merging is currently not automatic, it is done by the maintainers.
 
 **I have forgot to set a memo in my transfer**
 
-We warned you not to forget!
-But if you did, don't worry -- write down this fact in a comment in the PR, together with the TX hash, and we will check manually.
+You know crypto, how transactions are final and irreversible.  We warned, provided QR code with memo, sorry.
+Pay again with correct memo.
 
 **If you decide not to merge my PR, do I get my payment back?**
 
-It depends on the situation.
-If the PR has to be repeated for some technical reason, the payment can be reused for the second PR.
-If the rejection is due to some mutually agreed reason, we send the payment back.
-
+If a PR is rejected, it must have a reason.  Double check the contribution guide before paying.
+The fee is for processing a pull request, not necessarily merging it.
