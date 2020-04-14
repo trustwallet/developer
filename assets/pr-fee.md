@@ -1,6 +1,6 @@
 # Pull Request Fee -- FAQ
 
-**Someone is asking for cypto payment for merging my Pull Request.  Is this a scam?**
+**Someone is asking for cypto payment for processing my Pull Request.  Is this a scam?**
 
 Always be cautious when someone asks you for payment.
 Check that there is a description about it under Trust Wallet Developers' doucmentation (this page).

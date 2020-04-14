@@ -20,7 +20,7 @@ Token repository [https://github.com/trustwallet/assets](https://github.com/trus
 
 4. [coins](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) integrated in [Wallet Core](https://developer.trustwallet.com/wallet-core)
 
-5. DApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com and bookmarks icons. [read requirments](/assets/dapps)
+5. DApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com and bookmarks icons. [read requirments](assets/add-dapp.md)
 
 6. Staking validators info available on [Trust Wallet Staking Platform](https://github.com/trustwallet/developer/blob/master/platform/staking.md)
 
@@ -33,7 +33,7 @@ Token repository [https://github.com/trustwallet/assets](https://github.com/trus
 1. Prepare image [requirements](#image-requirements)
 2. Get familiar with [folder strcture](#repository-structure), will give you understanding where asset image should be placed
 3. [Add asset guide](#how-to-add-asset)
-4. Pay a [Pull Reqest Fee](assets/merging-fee.md)
+4. Pay a [Pull Reqest Fee](assets/pr-fee.md)
 
 ## Image Requirements
 - file extension: `png`. Uppercase `PNG` considered invalid.
