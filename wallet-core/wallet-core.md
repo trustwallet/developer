@@ -24,6 +24,7 @@ and see the platform-specifc guides for
 ## Projects using Wallet Core -- Add yours too!
 
 - [Trust Wallet](https://trustwallet.com)
+- Binance TSS Server
 - [coinpaprika](https://coinpaprika.com/)
 - [IFWallet](https://www.ifwallet.com/)
 - [Alice](https://www.alicedapp.com/)
