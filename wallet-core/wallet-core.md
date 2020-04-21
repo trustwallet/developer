@@ -26,6 +26,8 @@ and see the platform-specifc guides for
 - [Trust Wallet](https://trustwallet.com)
 - [coinpaprika](https://coinpaprika.com/)
 - [IFWallet](https://www.ifwallet.com/)
+- [Alice](https://www.alicedapp.com/)
+- [Crypto.com](https://crypto.com/)
 
 
 ## Contributing
