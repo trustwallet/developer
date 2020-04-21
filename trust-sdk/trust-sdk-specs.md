@@ -1,6 +1,6 @@
 ## URL Specifications
 
-TrustSDK works by calling deeplinks between apps, this document describes URL formats for each command. Due to the SDK high customization provided by TrustSDK, clients and wallets can adapt adapt the URL to it's own needs. 
+TrustSDK works by calling deeplinks between apps, this document describes URL formats for each command. Due to the SDK high customization provided by TrustSDK, clients and wallets can adapt the URLs to their own needs. 
 
 All commands follow the URL format below:
 
