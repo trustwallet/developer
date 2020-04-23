@@ -1,6 +1,6 @@
 ## URL Specifications
 
-TrustSDK works by calling deeplinks between apps, this document describes URL formats for each command. Due to the SDK high customization provided by TrustSDK, clients and wallets can adapt the URLs to their own needs. 
+TrustSDK works by calling deeplinks between apps, this document describes URL formats for each command. TrustSDK is highly customizable, clients and wallets can adapt the URLs to their own needs. 
 
 All commands follow the URL format below:
 
@@ -18,16 +18,16 @@ Where:
 
 ### Sign
 
-Sign command is used to sign and broadcast transactions following [wallet-core](/wallet-core/wallet-core.md) protobuf models encoded in base64.
+Sign command is used to sign and broadcast transactions leveraging [wallet core](/wallet-core/wallet-core.md) protobuf models (encoded in base64).
 
 #### Command
 * Command: `sdk_sign`
 * Parameters:
   * `coin`: BIP44 coin code
-  * `data`: wallet-core protobuf model binary encoded in base64
-  * `send`: flag that indicates if the wallet should broadcast the transaction. Possible values: `true`, `false`.
+  * `data`: wallet core protobuf model binary encoded in base64
+  * `send`: flag that indicates if the wallet should broadcast the transaction. Valid values: `true`, `false`.
   * `meta`: transaction metadata. This attribute is optional and encoded as a dictionary. Check how it's encoded in [Dictionary Encoding](#dictionary-encoding).
-    * `meta.__name`: transaction metadata type. Possible values: `dApp`
+    * `meta.__name`: transaction metadata type. Valid values: `dapp`
     * `meta.name`: dapp name
     * `meta.url`: dap url encoded
 
@@ -59,7 +59,7 @@ lrzEHpAAIAmoB0Yegc2ZqxtkSkXlYo_TEg4eBrjopGUj9ySxJh6JlfToGqR7yNKzV8cD_yN_jVR5YrVa
 
 #### Command
 
-* Command: `sdk_sign`
+* Command: `sdk_get_accounts`
 * Parameters:
   * `coins`: BIP44 code array encoded as URL params. Check how it's encoded in [Dictionary Encoding](#dictionary-encoding).
 
