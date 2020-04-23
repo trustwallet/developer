@@ -18,6 +18,7 @@
   * [Adding Support for a New Blockchain](blockatlas/newblockchain.md)
   * [Transaction Format](blockatlas/transaction-format.md)
 * [Trust SDK](trust-sdk/trust-sdk.md)
+  * [URL Specifications](trust-sdk/trust-sdk-specs.md)
   * [TrustSDK iOS](trust-sdk/trust-sdk-ios.md)
   * TrustSDK Android (coming soon...)
   * TrustSDK Web (coming soon...)
