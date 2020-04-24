@@ -240,10 +240,10 @@ e.g:
   "id": "cosmosvaloper1fhr7e04ct0zslmkzqt9smakg3sxrdve6ulclj2",
   "status": true,
   "info": {
-    "name": "POS Bakerz",
-    "description": "POS Bakerz is a staking company operating secure and efficient nodes for different Proof-of-Stake cryptocurrencies such as Cosmos Network, Tezos, IRISnet, Terra Money and others.",
+    "name": "Stakin",
+    "description": "Your Trusted Crypto Rewards",
     "image": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/cosmos/validators/assets/cosmosvaloper1fhr7e04ct0zslmkzqt9smakg3sxrdve6ulclj2/logo.png",
-    "website": "https://posbakerz.com/"
+    "website": "https://stakin.com"
   },
   "details": {
     "reward": {
