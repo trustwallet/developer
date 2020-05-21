@@ -74,6 +74,21 @@ https://link.trustwallet.com/stake_undelegate?coin=118
 
 https://link.trustwallet.com/stake_claim_rewards?coin=118
 
+## Exchange
+
+### Open Swap:
+
+- `pair` trading pair
+
+https://link.trustwallet.com/swap?pair=ETH_DAI
+
+### Open Exchange:
+
+- `pair` trading pair
+
+https://link.trustwallet.com/swap?pair=RUNE-B1A_BNB
+
+
 #### Available domains links:
 
 - `https://link.trustwallet.com`
