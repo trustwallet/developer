@@ -86,7 +86,7 @@ https://link.trustwallet.com/swap?pair=ETH_DAI
 
 - `pair` trading pair
 
-https://link.trustwallet.com/swap?pair=RUNE-B1A_BNB
+https://link.trustwallet.com/exchange?pair=RUNE-B1A_BNB
 
 
 #### Available domains links:
