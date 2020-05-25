@@ -95,7 +95,6 @@ https://link.trustwallet.com/exchange?pair=RUNE-B1A_BNB
 
 https://link.trustwallet.com/send?coin=60&token_id=0x6B175474E89094C44Da98b954EedeAC495271d0F
 
-
 ### Open Buy Market
 
 - `coin` slip44 index
