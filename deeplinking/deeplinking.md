@@ -88,6 +88,23 @@ https://link.trustwallet.com/swap?pair=ETH_DAI
 
 https://link.trustwallet.com/exchange?pair=RUNE-B1A_BNB
 
+### Open Buy Crypto
+
+- `coin` slip44 index
+- `token_id` Optional. Token identifier (as smart contrtact address or unique token ID)
+
+https://link.trustwallet.com/buy?coin=60&token_id=0x6B175474E89094C44Da98b954EedeAC495271d0F
+
+### Open Market Info
+
+- `coin` slip44 index
+- `token_id` Optional. Token identifier (as smart contrtact address or unique token ID)
+
+https://link.trustwallet.com/market?coin=60&token_id=0x6B175474E89094C44Da98b954EedeAC495271d0F
+
+### Open Notifications
+
+https://link.trustwallet.com/notifications
 
 #### Available domains links:
 
