@@ -29,6 +29,4 @@
   * [Pull Request Fee](assets/pr-fee.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [Staking](platform/staking.md)
-* [Blockchain Integration Status](integration-status/index.md)
-  * [Wallet Core](integration-status/wallet-core.md)
-  * [BlockAtlas](integration-status/blockatlas.md)
+* [Blockchain Integration Status](integration-status/integration-status.md)
