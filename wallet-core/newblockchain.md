@@ -4,22 +4,22 @@ If you haven't, first read the [guide to contributing](contributing.md). It cont
 
 ## Blockchains, Coins and Tokens
 
-* If you are interested in adding a new Token (e.g. ERC20): in this case no code changes are needed, see the [Assets](../assets/add_new_asset.md) section.
+* If you are interested in adding a new Token, e.g. ERC20, in this case no code changes are needed, see the [Assets](../assets/add_new_asset.md) section for more details. 
 * For new coins you need to implement address handling and signing functionality in wallet-core (described in this section).  For new coins on already supported blockchains, or variations of already supported blockchains, please consider proper reuse of existing implementation.
 
 ## Integration Criteria
 
-The Trust Wallet development team is always striving to add more blockchains that will be essential for developers and wallet users. We choose blockchains carefully that will have the biggest impact for our community.
+The Trust Wallet development team is always striving to add more blockchains that will be essential for developers and wallet users. We choose blockchains carefully based on the impact they will have for our community. 
 
-In general: 
+The general integration criteria is as follows: 
 
-- The blockchain has launched mainnet and stably run at least 3 ~ 6 months without any major security incidents.
+- The blockchain has launched mainnet and has stably run for at least 3 ~ 6 months without major security incidents.
 - The blockchain has extensive public documentation and tools available for developers to use.
 - The native coin is listed in the top 30 coins on CoinMarketCap.
 - The project needs to provide API/JSON-RPC access to the node with a load balancing setup for private use, see detail requirements [here](https://developer.trustwallet.com/wallet-core/rpc-requirements).
 - The native coin is tradable on major exchanges.
 
-After integrate into Trust Wallet, project should also provide timely support for any urgent matters.
+After integrating into Trust Wallet projects are expected to provide timely support for any urgent matters.
 
 ## Overview
 
