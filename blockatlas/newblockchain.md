@@ -11,9 +11,9 @@ A list of supported coins can be found in the config file.
 
 While we are happy about any new coin integrations we cannot immediately accept every request. To keep our high security and reliability standards, every integration must be approved by the Trust Wallet team first.
 
-Pull requests other than coin integrations are always welcome. You can contact the Trust Wallet team over [community](http://community.trustwallet.com/).
+Pull requests other than coin integrations are always welcome. You can contact the Trust Wallet team through our [community site](http://community.trustwallet.com/).
 
-To integrate an approved coin with Block Atlas, please follow this guide.
+To integrate an approved coin with Block Atlas, please follow this guide:
 
 ### Requirements
 
