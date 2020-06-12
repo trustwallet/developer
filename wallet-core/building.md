@@ -1,4 +1,4 @@
-# Building
+# Building and Testing
 
 Find here instructions for building the Wallet Core library locally.
 
@@ -137,3 +137,23 @@ exit
 
 Building on Linux is possible, but not fully supported, it requires some extra work. If you have access to macOS we highly recommend developing on that platform.  Using the Docker image is also recommended.
 Otherwise, the prerequisites have to be installed manually.
+
+## Unit tests with Coverage
+
+Coverage info can be seen in the GitHub [CI builds](https://codecov.io/gh/trustwallet/wallet-core),
+but can be generated locally as well.
+
+Steps for running unit tests with coverage measurement, and creating report locally:
+
+```bash
+cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCODE_COVERAGE=ON
+make -Cbuild -j12 tests
+find . -name "*.gcda" -exec rm {} \;
+./build/tests/tests tests --gtest_filter=*
+rm -rf coverage.info coverage/
+tools/coverage html
+```
+
+See also 
+[tools/coverage](https://github.com/trustwallet/wallet-core/blob/master/tools/coverage) and
+[linux-ci.yml](https://github.com/trustwallet/wallet-core/blob/master/.github/workflows/linux-ci.yml).
