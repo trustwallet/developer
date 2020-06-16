@@ -22,7 +22,7 @@ Token repository [https://github.com/trustwallet/assets](https://github.com/trus
 
 5. DApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com and bookmarks icons. [read requirments](assets/add-dapp.md)
 
-6. Staking validators info available on [Trust Wallet Staking Platform](https://github.com/trustwallet/developer/blob/master/platform/staking.md)
+6. Staking validators info available on [Trust Wallet Staking Platform](staking.md)
 
 7. Coming soon: token info, token price
 
@@ -33,7 +33,7 @@ Token repository [https://github.com/trustwallet/assets](https://github.com/trus
 1. Prepare image [requirements](#image-requirements)
 2. Get familiar with [folder strcture](#repository-structure), will give you understanding where asset image should be placed
 3. [Add asset guide](#how-to-add-asset)
-4. Pay a [Pull Reqest Fee](assets/pr-fee.md)
+4. Pay a [Pull Reqest Fee](add_new_asset/pr-fee.md)
 
 ## Image Requirements
 - file extension: `png`. Uppercase `PNG` considered invalid.
@@ -95,8 +95,7 @@ Token repository [https://github.com/trustwallet/assets](https://github.com/trus
 ```
 
 
-## Common uploads
-Uploading:
+### Common uploads
 1. Ethereum ERC20 [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
 2. Binance DEX BEP2 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
 3. TRON TRC10, TRC20 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
