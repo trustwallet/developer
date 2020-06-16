@@ -116,3 +116,13 @@ https://link.trustwallet.com/notifications
 slip44 index - https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 
 
+## WalletConnect
+
+### Connect to a WalletConnect session
+
+https://link.trustwallet.com/wc?uri=wc:d520bb81-33d6-4f57-a1b9-e5f82d206280@1?bridge=https%3A%2F%2Fbridge.walletconnect.org&key=b2bd05b4cbea936e25318bf930cd64664b733e242ac17e56213c40256f6e11a2
+
+#### Available domains links:
+
+- `https://link.trustwallet.com`
+- `trust://`
