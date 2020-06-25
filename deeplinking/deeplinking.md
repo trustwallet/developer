@@ -4,7 +4,8 @@
 
 ## DApp Browser
 
-### Open dapp browser with a specific url and network
+### Open dapp browser with a specific url and network (Android Only)
+> Due to Apple restrictions, the browser was removed from the iOS app.
 
 - `coin` - slip44 index
 - `url` - website url
