@@ -121,7 +121,7 @@ slip44 index - https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 
 ### Connect to a WalletConnect session
 
-https://link.trustwallet.com/wc?uri=wc:d520bb81-33d6-4f57-a1b9-e5f82d206280@1?bridge=https%3A%2F%2Fbridge.walletconnect.org&key=b2bd05b4cbea936e25318bf930cd64664b733e242ac17e56213c40256f6e11a2
+https://link.trustwallet.com/wc?uri=wc%3Aca1fccc0-f4d1-46c2-90b7-c07fce1c0cae%401%3Fbridge%3Dhttps%253A%252F%252Fbridge.walletconnect.org%26key%3Da413d90751839c7628873557c718fd73fcedc5e8e8c07cfecaefc0d3a178b1d8
 
 #### Available domains links:
 
