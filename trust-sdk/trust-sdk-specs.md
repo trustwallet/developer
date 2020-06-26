@@ -4,9 +4,7 @@ TrustSDK works by calling deeplinks between apps, this document describes URL fo
 
 All commands follow the URL format below:
 
-```shell
-[scheme]://[command]?[params]&[app]&[id]&[callback]
-```
+`[scheme]://[command]?[params]&[app]&[id]&[callback]`
 
 Where: 
 * `[scheme]` is the wallet's deeplink scheme. Default to `trust`
