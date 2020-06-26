@@ -62,7 +62,7 @@ https://link.trustwallet.com/stake?coin=118
 - `coin` slip44 index
 - `id` validator / delegator to be selected. Optional
 
-https://link.trustwallet.com/stake_delegate?coin=118?id=
+https://link.trustwallet.com/stake_delegate?coin=118&id=cosmosvaloper156gqf9837u7d4c4678yt3rl4ls9c5vuursrrzf
 
 ### Unstake / Undelegate:
 
