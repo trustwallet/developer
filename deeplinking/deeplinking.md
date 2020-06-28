@@ -42,8 +42,9 @@ https://link.trustwallet.com/send?coin=60&token_id=0x6B175474E89094C44Da98b954Ee
 ### Add custom token:
 
 - `token_id` token identifier on the blockchain. 
+- `coin` Optional. slip44 index of supported asset (ETH, ETC, POA, GO, CLO, WAN, VET, TOMO, THUNDERTOKEN)
 
-https://link.trustwallet.com/add_token?token_id=0x514910771af9ca656af840dff83e8264ecf986ca
+https://link.trustwallet.com/add_token?token_id=0x514910771af9ca656af840dff83e8264ecf986ca&coin=60
 
 ### Referral:
 
