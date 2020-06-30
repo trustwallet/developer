@@ -31,7 +31,7 @@ https://link.trustwallet.com/redeem?code=abc123
 ### Send Payment:
 
 - `coin` slip44 index
-- `token_id` Optional. Token identifier (as smart contrtact address or unique token ID)
+- `token_id` Optional. Token identifier (as smart contract address or unique token ID)
 - `address` Recipient address
 - `amount` Optional. Payment amount
 - `memo` Optional. Memo
