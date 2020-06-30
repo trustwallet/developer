@@ -16,9 +16,9 @@ https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
 ### Activate coin
 
-- `coin_id` - slip44 index
+- `coin` - slip44 index
 
-https://link.trustwallet.com/activate_coin?coin_id=60
+https://link.trustwallet.com/activate_coin?coin=60
 
 
 ### Redeem Code:
