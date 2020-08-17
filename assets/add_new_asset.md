@@ -289,7 +289,7 @@ The checks fail if something is wrong, like to logo is too large or an Ethereum 
 Checks the exact error message in the build to find out.
 
 ### Why is there a merge conflict in my pull request?
-A merge conflict happens if the same file has been modified in the pull request, but also in the master branch since the fork was created.  With assets repo, this typically caused by using a fork that was created long ago.
+A merge conflict happens if the same file has been modified in the pull request, and also in the master branch since the fork was created.  With assets repo, this typically caused by using a fork that was created long ago.
 The simplest solution in this case is to delete your pull request, delete your fork, create a new fork, and create a new PR.  Alternatively, a merge conflict can be resolved using git command line, but Git skills are required.
 A pull request can also happen when overriding an existing logo.
 
