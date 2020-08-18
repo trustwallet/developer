@@ -7,7 +7,7 @@ is a comprehensive, up-to-date collection of information about several thousands
 [Trust Wallet](https://trustwallet.com) uses token logos from this source, alongside a number of [other projects](#used-in-projects).
 
 The repository contains token info from several blockchains, info on dApps, staking validators, etc.
-For every token a logo and optional additional information is available (such data not available on-chain).
+For every token a logo and optional additional information is available (such data is not available on-chain).
 
 Such a large collection can be maintained only through a community effort, so _contributions are welcome_,
 primarily from token projects.
@@ -22,7 +22,7 @@ Here is a quick starter summary for the most common use case.
 
 For **adding an ERC20 token**:
 - fork the Github repository
-- prepare a logo file, according to the [rules](#image-requirements) below, but must importantly:  PNG format, max. pixel size of 512x512 and file size of 100kB.
+- prepare a logo file, according to the [rules](#image-requirements) below, but must importantly:  PNG format, max. pixel size of 512x512 and max. file size of 100kB.
 - add/upload the logo file named `logo.png` to the folder `blockchains/ethereum/assets/<contract>`,
 where the last part is the token contract address in [_checksum format_](#checksum-format), such as
 `blockchains/ethereum/assets/0x1234567461d3f8Db7496581774Bd869C83D51c93/logo.png`.
