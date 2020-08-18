@@ -3,11 +3,11 @@
 ## Overview
 The Trust Wallet Token Repository 
 [https://github.com/trustwallet/assets](https://github.com/trustwallet/assets)
-is a comprehensive, up-to-date collection of information about a several thousands (!) of crypto tokens.
+is a comprehensive, up-to-date collection of information about several thousands (!) of crypto tokens.
 [Trust Wallet](https://trustwallet.com) uses token logos from this source, alongside a number of [other projects](#used-in-projects).
 
 The repository contains token info from several blockchains, info on dApps, staking validators, etc.
-For tokens logos and optional additional information are available (data not available on-chain).
+For every token a logo and optional additional information is available (such data not available on-chain).
 
 Such a large collection can be maintained only through a community effort, so _contributions are welcome_,
 primarily from token projects.
@@ -22,10 +22,7 @@ Here is a quick starter summary for the most common use case.
 
 For **adding an ERC20 token**:
 - fork the Github repository
-- prepare a logo file, according to the
-[rules](#image-requirements)
- below, but must importantly:
-PNG format, max. size of 512x512 pixels and 100kB.
+- prepare a logo file, according to the [rules](#image-requirements) below, but must importantly:  PNG format, max. pixel size of 512x512 and file size of 100kB.
 - add/upload the logo file named `logo.png` to the folder `blockchains/ethereum/assets/<contract>`,
 where the last part is the token contract address in [_checksum format_](#checksum-format), such as
 `blockchains/ethereum/assets/0x1234567461d3f8Db7496581774Bd869C83D51c93/logo.png`.
@@ -40,14 +37,14 @@ where the last part is the token contract address in [_checksum format_](#checks
 The token repository contains the following collections:
 
 1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md), ERC223 tokens on Ethereum compatible networks such as:
-  - [Ethereum (ETH)](https://ethereum.org/)
-  - [Ethereum Classic (ETC)](https://ethereumclassic.org/)
-  - [POA Network (POA)](https://poa.network/)
-  - [TomoChain (TOMO)](https://tomochain.com/)
-  - [GoChain (GO)](https://gochain.io/)
-  - [Wanchain (WAN)](https://wanchain.org/)
-  - [Callisto Network (CLO)](https://callisto.network/)
-  - [Thunder Token (TT)](https://thundercore.com/)
+   [Ethereum (ETH)](https://ethereum.org/),
+   [Ethereum Classic (ETC)](https://ethereumclassic.org/),
+   [POA Network (POA)](https://poa.network/),
+   [TomoChain (TOMO)](https://tomochain.com/),
+   [GoChain (GO)](https://gochain.io/),
+   [Wanchain (WAN)](https://wanchain.org/),
+   [Callisto Network (CLO)](https://callisto.network/),
+   [Thunder Token (TT)](https://thundercore.com/), etc.
 
 2. [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) 
    [BEP8](https://github.com/binance-chain/BEPs/blob/master/BEP8.md)
@@ -55,15 +52,15 @@ The token repository contains the following collections:
 
 3. [TRC10, TRC20](https://developers.tron.network/docs/trc10-token) tokens on TRON blockchain
 
-4. dApp images available in `Browser` section in Trust Wallet and at https://dapps.trustwallet.com and bookmarks icons. [read requirements](#dApp-image-naming-requirements). Also you can submit dApp to our list [read more](#dApp-subbmition-and-listing-requirements)
+4. dApp images available in `Browser` section in Trust Wallet, and bookmarks icons. [Read requirements](#dapp-image-naming-requirements). Also you can submit dApp to our list [read more](#dapp-submission-and-listing-requirements).
 
-5. Staking validators info, such as name, image, validator id, website url. [Supported staking coins](https://trustwallet.com/staking/). [Read requirements](#Staking-validators-requirements)
+5. Staking validators info, such as name, image, validator id, website url. [Supported staking coins](https://trustwallet.com/staking/). [Read requirements](#staking-validators-requirements).
 
 6. Crypto price providers map: [CoinMarketCap](https://github.com/trustwallet/assets/blob/master/pricing/coinmarketcap/mapping.json)
 
 7. Token and coin info
 
-8. Smart contract deprecation/upgrade [read more](#Update-or-remove-existing-asset)
+8. Smart contract deprecation/upgrade. [Read more](#update-and-remove-an-existing-asset).
 
 ### Repository structure
 
@@ -74,7 +71,7 @@ The `assets` subfolder contains token folders named by smart contract address,
 in [checksum format](#checksum-format) for Ethereum like networks.  
 This folder should contain the `logo.png` image file.
 
-For other networks the address must be specified as it was originated on the chain, e.g TRON TRC10: `1002000`, TRON TRC20: `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t` etc ...
+For other networks the address must be specified as it was originated on the chain, e.g TRON TRC10: `1002000`, TRON TRC20: `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t` etc. 
 
 The `info` folder contains a `logo.png` that represents the coin image.
 
@@ -148,9 +145,9 @@ Or [convert Ethereum address to Checksum address](https://piyolab.github.io/sush
 
 #### Add new asset
 
-1. Prepare asset, look at [image requirements](#image-requirements), [dapp requirements](#dApp-image-naming-requirments)  
+1. Prepare asset, look at [image requirements](#image-requirements), [dapp requirements](#dapp-image-naming-requirements). 
 2. Get familiar with our [folder structure](#repository-structure), it will give you an understanding where assets should be placed
-3. [Add asset guide](#how-to-add-asset)
+3. [Add asset guide](#how-to-add-files)
 4. Pay the merge [fee](#fee)
 
 #### Update and remove an existing asset
@@ -158,9 +155,10 @@ Or [convert Ethereum address to Checksum address](https://piyolab.github.io/sush
 Whenever you updating or deleting an asset on behalf of the asset owner or just found outdated information, please provide a link to the source saying about changes. That will help to speed up the review process.
 
 This instruction wil be helpfull if you want to:
+
 1. Update information about the smart contract
 
-2. (Deprecate)[#What-is-smart-contract-deprecation] or update contract address
+2. [Deprecate](#what-is-smart-contract-deprecation) or update contract address
 
 Smart contract address update procedure:
 
@@ -197,12 +195,13 @@ Smart contract address update procedure:
 - [Submit form for review](https://docs.google.com/forms/d/e/1FAIpQLSd5p9L78zKXIiu9E5yFRPf5UkvsLZ7TbUDLFBRIi1qMd8Td4A/viewform)
 
 ### Staking validators requirements
-#### General requirements
+
 1. Add validator basic information to the bottom of the list, see example for: [Kava](https://github.com/trustwallet/assets/tree/master/blockchains/kava/validators/list.json), [Cosmos](https://github.com/trustwallet/assets/tree/master/blockchains/cosmos/validators/list.json), [Tezos](https://github.com/trustwallet/assets/tree/master/blockchains/tezos/validators/list.json), [Tron](https://github.com/trustwallet/assets/tree/master/blockchains/tron/validators/list.json), [Solana](https://github.com/trustwallet/assets/tree/master/blockchains/solana/validators/list.json), [Harmony](https://github.com/trustwallet/assets/tree/master/blockchains/harmony/validators/list.json)
 2. Add validator logo image to `blockchains/<chain>/validators/assets/<validator_address>/logo.png` [see images requirements](#image-requirements)
 3. Check chain [specific](#validators-specific-requirements) requirements.
 
 ### Common uploads
+
 Uploading:
 1. Ethereum ERC20 [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
 2. Binance DEX BEP2, BEP8 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
@@ -213,15 +212,15 @@ Uploading:
 7. Add TRON TRC10 ID or TRC20 owner contract address to allowlist [](https://github.com/trustwallet/assets/tree/master/blockchains/tron/allowlist.json)
 
 
-### How To Add Files to the Repo
+### How To Add Files
 If you are not familiar with GitHub or Git, the process of adding new tokens may look complicated at first glance, but it consists of only a few steps, and is not very complicated.
 
 #### Basics, Prerequisites
 
-The assets repository is maintained in GitHub, the largest hosting for open source projects.
+The assets repository is maintained in [GitHub](https://github.com), the largest hosting for open source projects.
 You need a GitHub account to interact with it.
 
-To do changes in the assets repository, you need to create a personal copy called _fork_.
+To do changes in the assets repository, you need to create a personal copy called a _fork_.
 
 Once the changes are prepared inside the fork, you need to create a _pull request_ to the main repository.
 Upon review the maintainers will accept your pull request, and the changes will be incorporated.
@@ -278,7 +277,7 @@ See the [fee FAQ](pr-fee.md)
 Contributions in a pull request are verified by an automated build.
 The checks fail if something is wrong, like to logo is too large or an Ethereum contract is not in
 [checksum format](#checksum-format).
-Checks the exact error message in the build to find out.
+Checks the exact error message in the build to find out the problem.
 
 ### Why is there a merge conflict in my pull request?
 A merge conflict happens if the same file has been modified in the pull request, and also in the master branch since the fork was created.  With assets repo, this typically caused by using a fork that was created long ago.
