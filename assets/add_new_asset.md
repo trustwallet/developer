@@ -80,7 +80,7 @@ The `info` folder contains a `logo.png` that represents the coin image.
 
 The `validators` folder contains folders: `assets` same structure as above and `list.json` information about validators. 
 
-The `blacklist.json` and `whitelist.json` files you may find in folders like `tron`, `ethereum` but not limited to, contain list of approved tokens and banned tokens.  Trust Wallet will never list blacklisted tokens, and only whitelisted tokens are shown in the token search results.
+The `denylist.json` and `allowlist.json`, present in some chain folders like `ethereum` and `binance`, contain list of approved tokens and banned tokens.  Trust Wallet will never show denylisted tokens, and only allowlisted tokens are shown in the token search results.
 
 #### Checksum format
 For Ethereum like networks, contract folders must be named according to the so-called **Checksum Format**, with mixed lowercase and uppercase letters, such as `0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359`.
@@ -100,12 +100,12 @@ Or [convert Ethereum address to Checksum address](https://piyolab.github.io/sush
 │   │   └──assets
 │   │   │  └──0x0a2D9370cF74Da3FD3dF5d764e394Ca8205C50B6 // address folder
 │   │   │     └──logo.png  // token logo
-|   |   |     └──info.json // optional token info
+|   |   |     └──info.json  // optional token info
 │   │   └──info
-│   │   │  └──logo.png  // chain coin logo
-|   |   │  └──info.json // chain coin info
-│   │   └──whitelist.json // allow list for tokens
-│   │   └──blacklist.json // deny list for tokens
+│   │   │  └──logo.png   // chain coin logo
+|   |   │  └──info.json  // chain coin info
+│   │   └──allowlist.json  // list of accepted tokens
+│   │   └──denylist.json  // list of blocked tokens
 |   |
 |   └──binance
 │   │   └──assets
@@ -180,7 +180,7 @@ Smart contract address update procedure:
 - File extension: `png`. Uppercase `PNG` is considered invalid.
 - File name：`logo.png`, all lowercase.
 - Dimension: `256 x 256 pixels` or `512 x 512 pixels`.
-- Background: preferably transparent (should fit dark mode as well; black logos need light border/background).
+- Background: preferably transparent (should fit dark mode as well; deny logos need light border/background).
 - File size: maximum 100kB.  Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
 
 ### dApp image naming requirements
@@ -217,8 +217,8 @@ Uploading:
 3. TRON TRC10, TRC20 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
 4. Add Cosmos validator image [](https://github.com/trustwallet/assets/tree/master/blockchains/cosmos/validators)
 5. Add Tezos validator info [](https://github.com/trustwallet/assets/tree/master/blockchains/tezos/validators/list.json)
-6. Add Ethereum contract address to blacklist [](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/blacklist.json)
-7. Add TRON TRC10 ID or TRC20 owner contract address to whitelist [](https://github.com/trustwallet/assets/tree/master/blockchains/tron/whitelist.json)
+6. Add Ethereum contract address to denylist [](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/denylist.json)
+7. Add TRON TRC10 ID or TRC20 owner contract address to allowlist [](https://github.com/trustwallet/assets/tree/master/blockchains/tron/allowlist.json)
 
 
 ### How To Add Files to the Repo
@@ -301,7 +301,7 @@ Both clients, Android and iOS keep old image cache for up to a few days. In orde
 
 ### What is smart contract deprecation?
 A process of removing smart contract information such as (token logo and info) from this repository.
-Removed contract address will be added to the blacklist and, as a result, will no longer be present in token search results inside the TW app.
+Removed contract address will be added to the denylist and, as a result, will no longer be present in token search results inside the TW app.
 Why would you want to do this ?.
 You are contract owner or just good samaritan who noticed contract to be no longer "active" and was an upgrade and abandoned by owning organization, involved in a scam, mimicking by its name or/and symbol a real contract. All facts must be supported with a link to any resource proving these statements.
 
@@ -323,5 +323,5 @@ You are contract owner or just good samaritan who noticed contract to be no long
 ## Disclaimer
 Trust Wallet team allows anyone to submit new assets to this repository. However, this does not mean that we are in direct partnership with all of the projects.
 
-Trust Wallet team will blacklist projects that are deemed as scam or fraudulent after careful review.
+Trust Wallet team will reject projects that are deemed as scam or fraudulent after careful review.
 Trust Wallet team reserves the right to change the terms of asset submissions at any time due to changing market conditions, risk of fraud, or any other factors we deem relevant.
