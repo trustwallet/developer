@@ -200,15 +200,7 @@ Smart contract address update procedure:
 #### General requirements
 1. Add validator basic information to the bottom of the list, see example for: [Kava](https://github.com/trustwallet/assets/tree/master/blockchains/kava/validators/list.json), [Cosmos](https://github.com/trustwallet/assets/tree/master/blockchains/cosmos/validators/list.json), [Tezos](https://github.com/trustwallet/assets/tree/master/blockchains/tezos/validators/list.json), [Tron](https://github.com/trustwallet/assets/tree/master/blockchains/tron/validators/list.json), [Solana](https://github.com/trustwallet/assets/tree/master/blockchains/solana/validators/list.json), [Harmony](https://github.com/trustwallet/assets/tree/master/blockchains/harmony/validators/list.json)
 2. Add validator logo image to `blockchains/<chain>/validators/assets/<validator_address>/logo.png` [see images requirements](#image-requirements)
-3. Check chain [specific](#validators-specific-requirements) requirements 
-
-#### Validators specific requirements
-##### Tezos
-We utilize [Baking Bad API](https://baking-bad.org/docs/api) to collect and update existing bakers list.
-To remain in validators list:
-1. Baker must accept minimum `0` XTZ for delegation
-2. Baker must payout regularly
-3. Baker must maintain available staking capacity (subject to temporary removal from the list when capacity reached below 0)
+3. Check chain [specific](#validators-specific-requirements) requirements.
 
 ### Common uploads
 Uploading:
