@@ -24,6 +24,7 @@
 * [Assets](assets/add_new_asset.md)
   * [Pull Request Fee](assets/pr-fee.md)
   * [For Developers](assets/for-developers.md)
+  * [Universal Asset ID](assets/universal_asset_id.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [Staking](platform/staking.md)
 * [Blockchain Integration Status](integration-status/integration-status.md)
