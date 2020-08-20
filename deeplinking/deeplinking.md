@@ -41,7 +41,7 @@ https://link.trustwallet.com/send?asset=c60_t0x6B175474E89094C44Da98b954EedeAC49
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/add_token?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
+https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
 
 ### Referral:
 
