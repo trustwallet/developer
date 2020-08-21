@@ -1,25 +1,47 @@
-# Deep Linking
-
-# Usage 
+# Deeplinking
 
 ## DApp Browser
 
-### Open dapp browser with a specific url and network (Android Only)
-> Due to Apple restrictions, the browser was removed from the iOS app.
+Open dapp browser with a specific url and network (Android Only).
 
-- `coin` - slip44 index
-- `url` - website url
+> Due to Apple restrictions, browser was removed from the iOS app.
+
+- `coin` slip44 index
+- `url` website url
 
 https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
-## Payments
+## Assets
 
 ### Activate coin
 
-- `coin` - slip44 index
+- `coin` slip44 index
 
 https://link.trustwallet.com/activate_coin?coin=60
+	
+### Open coin
 
+- `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+
+https://link.trustwallet.com/open_coin?asset=c60
+
+
+### Add asset
+
+- `asset` asset in [UAI format](/assets/universal_asset_id.md) 
+
+https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
+
+
+### Add token (deprecated)
+Use **Add asset**
+
+- `token_id` ERC20 token address
+
+https://link.trustwallet.com/add_token?token_id=0x514910771af9ca656af840dff83e8264ecf986ca
+
+## Payment
 
 ### Redeem Code:
 
@@ -30,21 +52,15 @@ https://link.trustwallet.com/redeem?code=abc123
 
 ### Send Payment:
 
-- `coin` slip44 index
-- `token_id` Optional. Token identifier (as smart contract address or unique token ID)
+- `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 - `address` Recipient address
 - `amount` Optional. Payment amount
 - `memo` Optional. Memo
 - `data` Optional. Data
 
-https://link.trustwallet.com/send?coin=60&token_id=0x6B175474E89094C44Da98b954EedeAC495271d0F&address=0x650b5e446edabad7eba7fa7bb2f6119b2630bfbb&amount=1&memo=test
-
-### Add custom token:
-
-- `coin` slip44 index
-- `token_id` token identifier on the blockchain. 
-
-https://link.trustwallet.com/add_token?coin=60&token_id=0x514910771af9ca656af840dff83e8264ecf986ca
+https://link.trustwallet.com/send?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&address=0x650b5e446edabad7eba7fa7bb2f6119b2630bfbb&amount=1&memo=test
 
 ### Referral:
 
@@ -81,29 +97,33 @@ https://link.trustwallet.com/stake_claim_rewards?coin=118
 
 ### Open Swap:
 
-- `pair` trading pair
+- `from` asset in [UAI format](/assets/universal_asset_id.md)
+- `to` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/swap?pair=ETH_DAI
+https://link.trustwallet.com/swap?from=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&to=c60
 
 ### Open Exchange:
 
-- `pair` trading pair
+- `from` asset in [UAI format](/assets/universal_asset_id.md)
+- `to` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/exchange?pair=RUNE-B1A_BNB
+https://link.trustwallet.com/exchange?from=c714_tRUNE-B1A&to=c714
 
 ### Open Buy Crypto
 
-- `coin` slip44 index
-- `token_id` Optional. Token identifier (as smart contrtact address or unique token ID)
+- `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 
-https://link.trustwallet.com/buy?coin=60&token_id=0x6B175474E89094C44Da98b954EedeAC495271d0F
+https://link.trustwallet.com/buy?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
 
 ### Open Market Info
 
-- `coin` slip44 index
-- `token_id` Optional. Token identifier (as smart contrtact address or unique token ID)
+- `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 
-https://link.trustwallet.com/market?coin=60&token_id=0x6B175474E89094C44Da98b954EedeAC495271d0F
+https://link.trustwallet.com/market?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
 
 ### Open Notifications
 
