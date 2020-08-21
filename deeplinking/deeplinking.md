@@ -4,21 +4,44 @@
 
 Open dapp browser with a specific url and network (Android Only).
 
-> Due to Apple restrictions, the browser was removed from the iOS app.
+> Due to Apple restrictions, browser was removed from the iOS app.
 
-- `coin` - slip44 index
-- `url` - website url
+- `coin` slip44 index
+- `url` website url
 
 https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
-## Payments
+## Assets
 
 ### Activate coin
 
-- `coin` - slip44 index
+- `coin` slip44 index
 
 https://link.trustwallet.com/activate_coin?coin=60
+	
+### Open coin
 
+- `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+
+https://link.trustwallet.com/open_coin?asset=c60
+
+
+### Add asset
+
+- `asset` asset in [UAI format](/assets/universal_asset_id.md) 
+
+https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
+
+
+### Add token (deprecated)
+Use **Add asset**
+
+- `token_id` ERC20 token address
+
+https://link.trustwallet.com/add_token?token_id=0x514910771af9ca656af840dff83e8264ecf986ca
+
+## Payment
 
 ### Redeem Code:
 
@@ -30,18 +53,14 @@ https://link.trustwallet.com/redeem?code=abc123
 ### Send Payment:
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 - `address` Recipient address
 - `amount` Optional. Payment amount
 - `memo` Optional. Memo
 - `data` Optional. Data
 
 https://link.trustwallet.com/send?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&address=0x650b5e446edabad7eba7fa7bb2f6119b2630bfbb&amount=1&memo=test
-
-### Add custom token:
-
-- `asset` asset in [UAI format](/assets/universal_asset_id.md)
-
-https://link.trustwallet.com/add_token?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
 
 ### Referral:
 
@@ -93,12 +112,16 @@ https://link.trustwallet.com/exchange?from=c714_tRUNE-B1A&to=c714
 ### Open Buy Crypto
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 
 https://link.trustwallet.com/buy?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
 
 ### Open Market Info
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `coin` slip44 index (deprecated, use `asset`)
+- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 
 https://link.trustwallet.com/market?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
 
