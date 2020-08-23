@@ -22,7 +22,6 @@ https://link.trustwallet.com/activate_coin?coin=60
 ### Open coin
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
-- `coin` slip44 index (deprecated, use `asset`)
 
 https://link.trustwallet.com/open_coin?asset=c60
 
@@ -32,14 +31,6 @@ https://link.trustwallet.com/open_coin?asset=c60
 - `asset` asset in [UAI format](/assets/universal_asset_id.md) 
 
 https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
-
-
-### Add token (deprecated)
-Use **Add asset**
-
-- `token_id` ERC20 token address
-
-https://link.trustwallet.com/add_token?token_id=0x514910771af9ca656af840dff83e8264ecf986ca
 
 ## Payment
 
@@ -53,8 +44,6 @@ https://link.trustwallet.com/redeem?code=abc123
 ### Send Payment:
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
-- `coin` slip44 index (deprecated, use `asset`)
-- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 - `address` Recipient address
 - `amount` Optional. Payment amount
 - `memo` Optional. Memo
@@ -112,16 +101,12 @@ https://link.trustwallet.com/exchange?from=c714_tRUNE-B1A&to=c714
 ### Open Buy Crypto
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
-- `coin` slip44 index (deprecated, use `asset`)
-- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 
 https://link.trustwallet.com/buy?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
 
 ### Open Market Info
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
-- `coin` slip44 index (deprecated, use `asset`)
-- `token_id` Optional. token unique identifier (deprecated, use `asset`)
 
 https://link.trustwallet.com/market?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
 
