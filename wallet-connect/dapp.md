@@ -1,27 +1,30 @@
 # DApp Integration
 
-Trust extends WalletConnect with aditional methods to support multi-chain **dApps**. Currently, you can get accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/coins.md).
+Trust extends WalletConnect with aditional methods to support multi-chain **dApps**. Currently, you can get accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/coins.md) implements `signJSON` method in wallet core
 
 __Supported Coins__
 
-<a href="https://binance.com/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/binance/info/logo.png" width="32" /></a>
-<a href="https://ethereum.org/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png" width="32" /></a>
-<a href="https://cosmos.network/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/cosmos/info/logo.png" width="32" /></a>
-<a href="https://tezos.com/" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/tezos/info/logo.png" width="32" /></a>
-<a href="https://nano.org" target="_blank"><img src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/nano/info/logo.png" width="32" /></a>
+- Binance Chain
+- Ethereum and forks
+- Cosmos, Kava and other sdk based chains
+- Tezos
+- Nano
+- Filecoin (until mainnet)
 
 ## Getting started
-To use Trust's WalletConnect's implementation, you just need install two packages:
+
+To use Trust's additional methods, you just need install:
 
 ```bash
-npm install --save @walletconnect/qrcode-modal @trustwallet/walletconnect
+npm install --save @walletconnect/qrcode-modal @walletconnect/walletconnect
 ```
 
 ### Initiate Connection
+
 Before you can sign transactions, you have to initiate a connection to a WalletConnect bridge server, and handle all possible states:
 
 ```javascript
-import WalletConnect from "@trustwallet/walletconnect";
+import WalletConnect from "@walletconnect/walletconnect";
 import WalletConnectQRCodeModal from "@walletconnect/qrcode-modal";
 
 // Create a walletConnector
@@ -74,11 +77,17 @@ walletConnector.on("disconnect", (error, payload) => {
 ```
 
 ### Get Accounts
+
 Once you have `walletconnect client` set up, you will be able to get the user's accounts:
 
 ```javascript
+
+const request = walletConnector._formatRequest({
+    method: 'get_accounts',
+});
+
 walletConnector
-  .getAccounts()
+  ._sendCallRequest(request)
   .then(result => {
     // Returns the accounts
     console.log(result);
@@ -100,7 +109,8 @@ The result is an array with the following structure:
 ```
 
 ### Sign Transaction
-Once you have the account list, you will be able sign a transaction:
+
+Once you have the account list, you will be able to sign a transaction:
 
 ```javascript
 const network = 118; // Atom (SLIP-44)
@@ -131,8 +141,18 @@ accountNumber: "1035",
   }
 };
 
+const request = walletConnector._formatRequest({
+    method: 'trust_signTransaction',
+    params: [
+        {
+            network,
+            transaction: JSON.stringify(tx),
+        },
+    ],
+});
+
 walletConnector
-  .trustSignTransaction(network, tx)
+  ._sendCallRequest(request)
   .then(result => {
     // Returns transaction signed in json or encoded format
     console.log(result);
