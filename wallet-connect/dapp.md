@@ -102,7 +102,7 @@ The result is an array with following structure:
 
 ### Sign Transaction
 
-Once you have the account list, you will be able to sign a transaction:
+Once you have the account list, you will be able to sign a transaction, please note that the json structure is based on [WalletCore's proto messages](https://github.com/trustwallet/wallet-core/tree/master/src/proto), we suggest using `protobuf.js` or [@trustwallet/wallet-core](https://github.com/trustwallet/wallet-core/packages/294430) to generate it properly.
 
 ```javascript
 const network = 118; // Atom (SLIP-44)
@@ -156,7 +156,37 @@ connector
 ```
 
 The result can be either a string JSON or an HEX encoded string. For Atom, the result is JSON:
-```javascript
-"{\"tx\":{\"fee\":{\"amount\":[{\"amount\":\"5000\",\"denom\":\"uatom\"}],\"gas\":\"200000\"},\"memo\":\"\",\"msg\":[{\"type\":\"cosmos-sdk/MsgSend\",\"value\":{\"amount\":[{\"amount\":\"100000\",\"denom\":\"uatom\"}],\"from_address\":\"cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0\",\"to_address\":\"cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa\"}}],\"signatures\":[{\"pub_key\":{\"type\":\"tendermint/PubKeySecp256k1\",\"value\":\"A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7\"},\"signature\":\"m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A==\"}],\"type\":\"cosmos-sdk/MsgSend\"}}"
+
+```json
+{
+    "tx": {
+        "fee": {
+            "amount": [{
+                "amount": "5000",
+                "denom": "uatom"
+            }],
+            "gas": "200000"
+        },
+        "memo": "",
+        "msg": [{
+            "type": "cosmos-sdk/MsgSend",
+            "value": {
+                "amount": [{
+                    "amount": "100000",
+                    "denom": "uatom"
+                }],
+                "from_address": "cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0",
+                "to_address": "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa"
+            }
+        }],
+        "signatures": [{
+            "pub_key": {
+                "type": "tendermint/PubKeySecp256k1",
+                "value": "A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7"
+            },
+            "signature": "m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A=="
+        }],
+        "type": "cosmos-sdk/MsgSend"
+    }
+}
 ```
-> **REMEMBER:** You have to provide the json structure based on [WalletCore's proto messages](https://github.com/trustwallet/wallet-core/tree/master/src/proto). Please check the repository for more details.
