@@ -1,6 +1,6 @@
 # DApp Integration
 
-Trust extends WalletConnect with aditional methods to support multi-chain **dApps**. Currently, you can get accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/coins.md) implements `signJSON` method in wallet core
+Trust extends WalletConnect with aditional methods to support multi-chain **dApps**. Currently, you can get all accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/coins.md) implements `signJSON` method in wallet core
 
 __Supported Coins__
 
@@ -13,52 +13,44 @@ __Supported Coins__
 
 ## Getting started
 
-To use Trust's additional methods, you just need install:
+To use Trust additional methods, you just need to install:
 
 ```bash
-npm install --save @walletconnect/qrcode-modal @walletconnect/walletconnect
+npm install --save @walletconnect/client @walletconnect/qrcode-modal
 ```
 
 ### Initiate Connection
 
 Before you can sign transactions, you have to initiate a connection to a WalletConnect bridge server, and handle all possible states:
+(code snippet below is copied from https://docs.walletconnect.org/quick-start/dapps/client#initiate-connection)
 
 ```javascript
-import WalletConnect from "@walletconnect/walletconnect";
-import WalletConnectQRCodeModal from "@walletconnect/qrcode-modal";
+import WalletConnect from "@walletconnect/client";
+import QRCodeModal from "@walletconnect/qrcode-modal";
 
-// Create a walletConnector
-const walletConnector = new WalletConnect({
-  bridge: "https://bridge.walletconnect.org" // Required
+// Create a connector
+const connector = new WalletConnect({
+  bridge: "https://bridge.walletconnect.org", // Required
+  qrcodeModal: QRCodeModal,
 });
 
 // Check if connection is already established
-if (!walletConnector.connected) {
+if (!connector.connected) {
   // create new session
-  walletConnector.createSession().then(() => {
-    // get uri for QR Code modal
-    const uri = walletConnector.uri;
-    // display QR Code modal
-    WalletConnectQRCodeModal.open(uri, () => {
-      console.log("QR Code Modal closed");
-    });
-  });
+  connector.createSession();
 }
 
 // Subscribe to connection events
-walletConnector.on("connect", (error, payload) => {
+connector.on("connect", (error, payload) => {
   if (error) {
     throw error;
   }
-
-  // Close QR Code Modal
-  WalletConnectQRCodeModal.close();
 
   // Get provided accounts and chainId
   const { accounts, chainId } = payload.params[0];
 });
 
-walletConnector.on("session_update", (error, payload) => {
+connector.on("session_update", (error, payload) => {
   if (error) {
     throw error;
   }
@@ -67,26 +59,26 @@ walletConnector.on("session_update", (error, payload) => {
   const { accounts, chainId } = payload.params[0];
 });
 
-walletConnector.on("disconnect", (error, payload) => {
+connector.on("disconnect", (error, payload) => {
   if (error) {
     throw error;
   }
 
-  // Delete walletConnector
+  // Delete connector
 });
 ```
 
 ### Get Accounts
 
-Once you have `walletconnect client` set up, you will be able to get the user's accounts:
+Once you have `walletconnect client` set up, you will be able to get user's accounts:
 
 ```javascript
 
-const request = walletConnector._formatRequest({
+const request = connector._formatRequest({
     method: 'get_accounts',
 });
 
-walletConnector
+connector
   ._sendCallRequest(request)
   .then(result => {
     // Returns the accounts
@@ -98,7 +90,7 @@ walletConnector
   });
 ```
 
-The result is an array with the following structure:
+The result is an array with following structure:
 ```javascript
 [
   {
@@ -141,7 +133,7 @@ accountNumber: "1035",
   }
 };
 
-const request = walletConnector._formatRequest({
+const request = connector._formatRequest({
     method: 'trust_signTransaction',
     params: [
         {
@@ -151,7 +143,7 @@ const request = walletConnector._formatRequest({
     ],
 });
 
-walletConnector
+connector
   ._sendCallRequest(request)
   .then(result => {
     // Returns transaction signed in json or encoded format
