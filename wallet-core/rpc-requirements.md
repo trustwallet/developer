@@ -1,6 +1,6 @@
 # RPC / API Requirements
 
-Trust Wallet is a light client wallet, which means it needs to get data / information from remote nodes (either light nodes or full nodes). In order to integrate your blockchain into Trust Wallet smoothly, you must also fulfill RPC / API requirements. We list all needed APIs or RPCs plus an example below for your reference.
+Trust Wallet is a light client wallet, which means it needs to get data / information from remote nodes (either light nodes or full nodes). In order to integrate your blockchain into Trust Wallet smoothly, you must also fulfill RPC / API requirements. We list all needed APIs or RPCs plus an example below for your reference, alternatively [Rosetta](https://www.rosetta-api.org/) Data API is also welcomed.
 
 ## for Trust Wallet: 
 
