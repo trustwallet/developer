@@ -12,7 +12,7 @@ If you want to use wallet core in your project follow these instructions:
 
 * For building locally, or using Docker image, see the [Build Instructions](building.md).
 * For trying out, e.g. testing key management and address derivation, see the [WalletConsole utility](walletconsole.md).
-* If you want to include Wallet Core in your project, see the [Integration Guides](intefration-guide.md).
+* If you want to include Wallet Core in your project, see the [Integration Guides](integration-guide.md).
 Start with the overview of the most common wallet operations ([Usage Guide](wallet-core-usage.md)),
 and see the platform-specifc guides for 
 [iOS](ios-guide.md) and
@@ -24,7 +24,11 @@ and see the platform-specifc guides for
 - [Trust Wallet](https://trustwallet.com)
 - [coinpaprika](https://coinpaprika.com/)
 - [IFWallet](https://www.ifwallet.com/)
-
+- [Alice](https://www.alicedapp.com/)
+- [Crypto.com](https://crypto.com)
+- [Frontier](https://frontier.xyz/)
+- [Belco](https://www.belcobtm.com/)
+- [Pumapay](https://pumapay.io/)
 
 ## Contributing
 
