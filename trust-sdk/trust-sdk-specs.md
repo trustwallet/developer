@@ -9,10 +9,21 @@ All commands follow the URL format below:
 Where: 
 * `[scheme]` is the wallet's deeplink scheme. Default to `trust`
 * `[command]` is the command to be executed
-* `[params]` is the command parameters encoded as url query items.
+* `[params]` is the command parameters encoded as url query items
 * `[id]` is the unique command id. The value is later used to resolve the callback for the command. Can be any incrementing integer.
 * `[app]` callback URL scheme. 
 * `[callback]`callback path. Default is `sgn_sign_result`
+
+Trust will open following URL format if command is succeeded:
+
+`[app]://[callback]?[id]&[params]`
+
+Where: 
+* `[params]` is the response parameters, see `Parameters` section below for each command
+
+Error response format:
+
+`[app]://[callback]?[id]&error=[error type]&message=[error message]`
 
 ### Get Accounts
 
@@ -89,8 +100,9 @@ This command is the simplified version of `sdk_sign`, it accepts a simple `Trans
   * `coin`: BIP44 coin code
   * `to`: recipient address
   * `amount`: amount in human-readable (unit) format
-  * `action`: flag that indicates if the wallet should broadcast the transaction. Valid values: `send`, `sign`.
-  * `token_id`: (Optional) token id, follows standard of unique identifier on the blockhain as smart contract address or asset ID
+  * `action`: default is `transfer`, other action type like `trade` or `delegate` will be implemented in the future
+  * `confirm_type`: `send` or `sign` flag that indicates if the wallet should broadcast the transaction
+  * `asset`: (Optional) universal asset id, see https://developer.trustwallet.com/add_new_asset/universal_asset_id
   * `from`: (Optional) specifies which account/address to send
   * `nonce`: (Optional) Custom nonce or sequence
   * `fee_price`: (Optional) fee price in smallest unit
@@ -100,12 +112,15 @@ This command is the simplified version of `sdk_sign`, it accepts a simple `Trans
 ##### Example
 
 ```shell
-trust://sdk_transaction?coin=60&to=0x1b38BC1D3a7B2a370425f70CedaCa8119ac24576&meta=0xa9059cbb0000000000000000000000000F36f148D6FdEaCD6c765F8f59D4074109E311f0c0000000000000000000000000000000000000000000000000000000000000001&token_id=token&nonce=447&fee_price=2112000000&fee_limit=21000&amount=0.001&action=send&callback=sdk_sign_result&id=1
+trust://sdk_transaction?action=transfer&asset=c1001_t0x514910771af9ca656af840dff83e8264ecf986ca&
+to=0x514910771af9ca656af840dff83e8264ecf986ca&amount=0.01&app=sample_app&callback=sdk_sign_result&
+confirm_type=send&nonce=2&from=0xF36f148D6FdEaCD6c765F8f59D4074109E311f0c&meta=memo&fee_limit=1&
+fee_price=1&id=1
 ```
 
 #### Response
 * Parameters:
-  * `data`: transaction signed as hex string or transaction hash if `action` is `send`
+  * `data`: transaction signed as hex string or transaction hash if `confirm_type` is `send`
 
 ##### Example
 
