@@ -7,12 +7,12 @@ All commands follow the URL format below:
 `[scheme]://[command]?[params]&[app]&[id]&[callback]`
 
 Where: 
-* `[scheme]` is the wallet's deeplink scheme. Default to `trust`
-* `[command]` is the command to be executed
-* `[params]` is the command parameters encoded as url query items
+* `[scheme]` is the wallet's deeplink scheme. Default is `trust`.
+* `[command]` is the command to be executed.
+* `[params]` is the command parameters encoded as url query items.
 * `[id]` is the unique command id. The value is later used to resolve the callback for the command. Can be any incrementing integer.
-* `[app]` callback URL scheme. 
-* `[callback]`callback path. Default is `sgn_sign_result`
+* `[app]` callback URL scheme.
+* `[callback]`callback path. Default is `sgn_sign_result`.
 
 Trust will open following URL format if command is succeeded:
 
@@ -24,6 +24,8 @@ Where:
 Error response format:
 
 `[app]://[callback]?[id]&error=[error type]&message=[error message]`
+
+pleaes refer to [Error Handling](#error-handling) for more details.
 
 ### Get Accounts
 
@@ -57,13 +59,13 @@ This command is used to sign and broadcast transactions leveraging [wallet core]
 #### Command
 * Command: `sdk_sign`
 * Parameters:
-  * `coin`: BIP44 coin code
-  * `data`: wallet core protobuf model binary encoded in base64
+  * `coin`: BIP44 coin code.
+  * `data`: wallet core protobuf model binary encoded in base64.
   * `send`: flag that indicates if the wallet should broadcast the transaction. Valid values: `true`, `false`.
   * `meta`: transaction metadata. This attribute is optional and encoded as a dictionary. Check how it's encoded in [Dictionary Encoding](#dictionary-encoding).
-    * `meta.__name`: transaction metadata type. Valid values: `dapp`
-    * `meta.name`: dapp name
-    * `meta.url`: dap url encoded
+    * `meta.__name`: transaction metadata type. Valid values: `dapp`.
+    * `meta.name`: dapp name.
+    * `meta.url`: dap url encoded.
 
 ##### Example
 
@@ -77,8 +79,8 @@ NzNBYTRFMzE5MkU4OWI2MDkwREQ3MzEyMhQAAAAAAAAAAAAAAAAAAFrzEHpAAA&meta.__name=dapp
 
 #### Response
 * Parameters:
-  * `coin`: BIP44 coin code
-  * `data`: transaction signed as base64 or the transaction hash if `send` is `true`
+  * `coin`: BIP44 coin code.
+  * `data`: transaction signed as base64 or the transaction hash if `send` is `true`.
 
 ##### Example
 
@@ -97,16 +99,16 @@ This command is the simplified version of `sdk_sign`, it accepts a simple `Trans
 
 * Command: `sdk_transaction`
 * Parameters:
-  * `asset`: universal asset id, see https://developer.trustwallet.com/add_new_asset/universal_asset_id
-  * `to`: recipient address
-  * `amount`: amount in human-readable (unit) format
-  * `action`: default is `transfer`, other action type like `trade` or `delegate` will be implemented in the future
-  * `confirm_type`: `send` or `sign` flag that indicates if the wallet should broadcast the transaction
-  * `from`: (Optional) specifies which account/address to send
-  * `nonce`: (Optional) Custom nonce or sequence
-  * `fee_price`: (Optional) fee price in smallest unit
-  * `fee_limit`: (Optional) fee limit in smallest unit
-  * `meta`: (Optional) transaction data in hex format, Memo or Destination tag
+  * `asset`: universal asset id, see https://developer.trustwallet.com/add_new_asset/universal_asset_id.
+  * `to`: recipient address.
+  * `amount`: amount in human-readable (unit) format.
+  * `action`: default is `transfer`, other action type like `trade` or `delegate` will be implemented in the future.
+  * `confirm_type`: `send` or `sign` flag that indicates if the wallet should broadcast the transaction.
+  * `from`: (Optional) specifies which account/address to send.
+  * `nonce`: (Optional) Custom nonce or sequence.
+  * `fee_price`: (Optional) fee price in smallest unit.
+  * `fee_limit`: (Optional) fee limit in smallest unit.
+  * `meta`: (Optional) transaction data in hex format, Memo or Destination tag.
 
 ##### Example
 
@@ -119,8 +121,8 @@ fee_price=1&id=1
 
 #### Response
 * Parameters:
-  * `action`: request action, see above command parameters for more detail
-  * `data`: transaction signed as hex string or transaction hash if `confirm_type` is `send`
+  * `action`: requested action, see above command parameters for more detail.
+  * `data`: transaction signed as hex string or transaction hash if `confirm_type` is `send`.
 
 ##### Example
 
@@ -145,7 +147,7 @@ sampleapp://sdk_sign_message?coin=60&data=4fe61e1a9fb1d18a78977ad1e9611e8c546d54
 
 #### Response
 * Parameters:
-  * `signature`: hex encoded signature
+  * `signature`: hex encoded signature.
 
 ```shell
 trustsdk://sdk_sign_result?id=1&signature=fa9b5e05f9e27b882c00baf7f62efe517089904fe593c7206b713aecc633a9605875b17d9c10205f2855e99ece7b0bfe50b3bee604b4d38f96517abdc8fd8a061b
@@ -156,15 +158,15 @@ trustsdk://sdk_sign_result?id=1&signature=fa9b5e05f9e27b882c00baf7f62efe51708990
 Command may fail for any reason. To handle command failure, TrustSDK has some predefined errors handled automatically:
 
 * Error types:
-  * `not_initialized`: The SDK war not itialized properly
-  * `coin_not_supported`: coin is not supported for the command
-  * `invalid_response`: the response from wallet was in a invalid format
-  * `rejected_by_user`: the command was rejected by the user
-  * `sign_error`: sign failed
-  * `unknown`: unknown error
+  * `not_initialized`: The SDK war not itialized properly.
+  * `coin_not_supported`: coin is not supported for the command.
+  * `invalid_response`: the response from wallet was in a invalid format.
+  * `rejected_by_user`: the command was rejected by the user.
+  * `sign_error`: sign failed.
+  * `unknown`: unknown error.
 
 * Parameters:
-  * `error`: error type
+  * `error`: error type.
   * `message`: error message (optional).
 
 ### Dictionary Encoding
