@@ -97,12 +97,11 @@ This command is the simplified version of `sdk_sign`, it accepts a simple `Trans
 
 * Command: `sdk_transaction`
 * Parameters:
-  * `coin`: BIP44 coin code
+  * `asset`: universal asset id, see https://developer.trustwallet.com/add_new_asset/universal_asset_id
   * `to`: recipient address
   * `amount`: amount in human-readable (unit) format
   * `action`: default is `transfer`, other action type like `trade` or `delegate` will be implemented in the future
   * `confirm_type`: `send` or `sign` flag that indicates if the wallet should broadcast the transaction
-  * `asset`: (Optional) universal asset id, see https://developer.trustwallet.com/add_new_asset/universal_asset_id
   * `from`: (Optional) specifies which account/address to send
   * `nonce`: (Optional) Custom nonce or sequence
   * `fee_price`: (Optional) fee price in smallest unit
@@ -120,6 +119,7 @@ fee_price=1&id=1
 
 #### Response
 * Parameters:
+  * `action`: request action, see above command parameters for more detail
   * `data`: transaction signed as hex string or transaction hash if `confirm_type` is `send`
 
 ##### Example
