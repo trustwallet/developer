@@ -12,7 +12,7 @@ Where:
 * `[params]` is the command parameters encoded as url query items.
 * `[id]` is the unique command id. The value is later used to resolve the callback for the command. Can be any incrementing integer.
 * `[app]` callback URL scheme.
-* `[callback]`callback path. Default is `sgn_sign_result`.
+* `[callback]`callback path. Default is `sdk_sign_result`.
 
 Trust will open following URL format if command is succeeded:
 
