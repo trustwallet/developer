@@ -14,7 +14,7 @@ primarily from token projects.
 
 Please note that __new tokens are not accepted__,
 the projects have to be sound, with information available, and __non-minimal circulation__
-(for limit details see https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863#how-to-get-approved).
+(for limit details see https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863).
 
 <center><img src='https://raw.githubusercontent.com/trustwallet/assets/master/media/trust-wallet.png'></center>
 
@@ -26,7 +26,7 @@ Here is a quick starter summary for the most common use case.
 
 For **adding an ERC20 token**:
 - fork the Github repository
-- prepare a logo file, according to the [rules](#image-requirements) below, but must importantly:  PNG format, max. pixel size of 512x512 and max. file size of 100kB.
+- prepare a logo file, according to the [rules](#image-requirements) below, but must importantly:  PNG format, recommended pixel size of 256x256, max. 512x512, and max. file size of 100kB.
 - add/upload the logo file named `logo.png` to the folder `blockchains/ethereum/assets/<contract>`,
 where the last part is the token contract address in [_checksum format_](#checksum-format), such as
 `blockchains/ethereum/assets/0x1234567461d3f8Db7496581774Bd869C83D51c93/logo.png`.
