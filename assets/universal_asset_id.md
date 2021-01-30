@@ -21,3 +21,5 @@ UAI unique identifier of the asset, it's blockchain agnostic and provides abilit
 - BUSD (Binance Chain): `c714_tBUSD-BD1`
 - USDT (Tron): `c195_tTR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t`
 - DAI (Smart Chain): `c10000714_t0x6B175474E89094C44Da98b954EedeAC495271d0F`
+
+Template: `c{coin}_t{token_id}`
