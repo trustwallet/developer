@@ -182,7 +182,7 @@ Smart contract address update procedure:
 - File extension: `png`. Uppercase `PNG` is considered invalid.
 - File name：`logo.png`, all lowercase.
 - Dimension: `256 x 256 pixels` or `512 x 512 pixels`.
-- Background: preferably transparent (should fit dark mode as well; deny logos need light border/background).
+- Background: Avoid transparency, set background as your brand color or white by default otherwise your token image wont look good on white/dark theme design.
 - File size: maximum 100kB.  Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
 
 ### dApp image naming requirements
@@ -193,6 +193,7 @@ Smart contract address update procedure:
 
 ### dApp submission and listing requirements
 - Upload [logo](https://github.com/trustwallet/assets/tree/master/dapps)
+– Make sure you follow rules for image requirements.
 - Integrate [deep linking](https://developer.trustwallet.com/deeplinking)
 - Add [logo](https://trustwallet.com/press) as dApp supported wallet
 - Test dApp inside Trust Wallet on iOS and Android devices
