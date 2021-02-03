@@ -305,8 +305,17 @@ You are contract owner or just good samaritan who noticed contract to be no long
 ## How to use it? (For Developers)
 --> [For developers](for-developers.md)
 
+## Token Status
+
+`active` - Active and functional token. 
+`spam` - Token is irrelevant or inappropriate and sent on the distribtued to a large number of recipients.
+`scam` - Token has been used in dishonest scheme or a fraud
+`abandoned` - Very low usage (less than 100 token transfers a year), migrated to the new contract, no longer active, 
+
+No longer active
 
 ## Used in Projects
+
 - [Trust Wallet](https://trustwallet.com) - [iOS](https://itunes.apple.com/us/app/trust-ethereum-wallet/id1288339409) and [Android](https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp)
 - [0x Tracker](https://0xtracker.com) - The 0x Protocol Trade Explorer and news aggregator.
 - [Uniswap](https://uniswap.exchange) - Uniswap is a protocol for automated token exchange on Ethereum.
@@ -314,7 +323,6 @@ You are contract owner or just good samaritan who noticed contract to be no long
 - [Aragon](https://aragon.org/) − Aragon is platform and network for decentralized organizations.
 - [SpiderDEX](https://www.spiderdex.com) - Decentralized exchange for crypto collectibles.
 - [Zerion](https://zerion.io) — A simple interface to decentralized finance.
-
 
 ## Disclaimer
 Trust Wallet team allows anyone to submit new assets to this repository. However, this does not mean that we are in direct partnership with all of the projects.
