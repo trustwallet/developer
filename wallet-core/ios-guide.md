@@ -34,7 +34,7 @@ Please refer to the [Wallet Usage Guide](wallet-core-usage.md) for detailed expl
 Accessing Wallet Core functionality requires one import statement:
 
 ```swift
-import TrustWalletCore
+import WalletCore
 ```
 
 ### Wallet Management
