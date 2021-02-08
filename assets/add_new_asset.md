@@ -198,6 +198,23 @@ The `info.json` file contains basic information about the token/project.  It has
 - `explorer`: URL of the token explorer page
 - `id`: the id/contract/address of the token, same as the subfolder name
 
+Sample `info.json`:
+
+```
+{
+    "name": "Trust Wallet Token",
+    "website": "https://trustwallet.com",
+    "description": "Utility token to increase adoption of cryptocurrency.",
+    "explorer": "https://explorer.binance.org/asset/TWT-8C2",
+    "research": "https://research.binance.com/en/projects/trustwallet",
+    "type": "BEP2",
+    "symbol": "TWT",
+    "decimals": 8,
+    "status": "active",
+    "id": "TWT-8C2"
+}
+```
+
 ### dApp image naming requirements
 - [Folder for upload](https://github.com/trustwallet/assets/tree/master/dapps)
 - `<subdomain>.<domain_name>.png` e.g:
