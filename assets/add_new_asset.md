@@ -30,6 +30,7 @@ For **adding an ERC20 token**:
 - add/upload the logo file named `logo.png` to the folder `blockchains/ethereum/assets/<contract>`,
 where the last part is the token contract address in [_checksum format_](#checksum-format), such as
 `blockchains/ethereum/assets/0x1234567461d3f8Db7496581774Bd869C83D51c93/logo.png`.
+- Create `info.json` file with info about the token/project
 - Create a PR to the main repo
 - Pay the processing fee
 
@@ -73,7 +74,7 @@ The `blockchains` folder contains several subfolders corresponding to blockchain
 
 The `assets` subfolder contains token folders named by smart contract address,
 in [checksum format](#checksum-format) for Ethereum like networks.  
-This folder should contain the `logo.png` image file.
+This folder should contain the `logo.png` image file, and the `info.json` file.
 
 For other networks the address must be specified as it was originated on the chain, e.g TRON TRC10: `1002000`, TRON TRC20: `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t` etc. 
 
@@ -184,6 +185,35 @@ Smart contract address update procedure:
 - Dimension: `256 x 256 pixels` or `512 x 512 pixels`.
 - Background: Avoid transparency, set background as your brand color or white by default otherwise your token image wont look good on white/dark theme design.
 - File size: maximum 100kB.  Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
+
+### Info.json Contents
+
+The `info.json` file contains basic information about the token/project.  It has fields:
+- `name`: name of the token
+- `type`: such as ERC20, BEP2, BEP20, TRC20, TRC10, ...
+- `symbol`: the token symbol
+- `decimals`: number of decimal digits used in the amounts (e.g. 18 for ETH)
+- `description`: a few sentence summary of the token/project
+- `website`: project web site
+- `explorer`: URL of the token explorer page
+- `id`: the id/contract/address of the token, same as the subfolder name
+
+Sample `info.json`:
+
+```
+{
+    "name": "Trust Wallet Token",
+    "website": "https://trustwallet.com",
+    "description": "Utility token to increase adoption of cryptocurrency.",
+    "explorer": "https://explorer.binance.org/asset/TWT-8C2",
+    "research": "https://research.binance.com/en/projects/trustwallet",
+    "type": "BEP2",
+    "symbol": "TWT",
+    "decimals": 8,
+    "status": "active",
+    "id": "TWT-8C2"
+}
+```
 
 ### dApp image naming requirements
 - [Folder for upload](https://github.com/trustwallet/assets/tree/master/dapps)
