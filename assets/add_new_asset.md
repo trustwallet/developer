@@ -198,8 +198,6 @@ The `info.json` file contains basic information about the token/project.  It has
 - `explorer`: URL of the token explorer page
 - `id`: the id/contract/address of the token, same as the subfolder name
 
-Additional optional fields: `white_paper`, `source_code`, `socials`.
-
 ### dApp image naming requirements
 - [Folder for upload](https://github.com/trustwallet/assets/tree/master/dapps)
 - `<subdomain>.<domain_name>.png` e.g:
