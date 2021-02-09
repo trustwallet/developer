@@ -15,7 +15,7 @@ The general integration criteria is as follows:
 
 - The blockchain has launched mainnet and has stably run for at least 3 ~ 6 months without major security incidents.
 - The blockchain has extensive public documentation and tools available for developers to use.
-- The native coin is listed in the top 30 coins on CoinMarketCap and proposal gets approved on [https://voting.trustwallet.com].
+- The native coin is listed in the top 30 coins on CoinMarketCap and proposal gets approved on [https://governance.trustwallet.com].
 - The project needs to provide API/JSON-RPC access to the node with a load balancing setup for private use, see detail requirements [here](https://developer.trustwallet.com/wallet-core/rpc-requirements).
 - The native coin is tradable on major exchanges.
 
