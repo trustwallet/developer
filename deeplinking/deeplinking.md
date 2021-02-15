@@ -2,14 +2,19 @@
 
 ## DApp Browser
 
-Open dapp browser with a specific url and network (Android Only).
-
-> Due to Apple restrictions, browser was removed from the iOS app.
+Open dapp browser with a specific url and network.
 
 - `coin` slip44 index
 - `url` website url
 
 https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
+
+## Enable DApp Browser of iOS app
+
+Due to Apple restrictions, browser not enabled after install in the iOS app.
+Use the following link to enable it:
+
+https://link.trustwallet.com/browser_enable
 
 ## Assets
 
