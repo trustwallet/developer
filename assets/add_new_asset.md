@@ -338,8 +338,11 @@ You are contract owner or just good samaritan who noticed contract to be no long
 ## Token Status
 
 `active` - Token meets the standard requirements in terms of holders (2,500) and transactions (5,000). 
+
 `spam` - Token that is distribtued to a large number of recepients that have no inherent value.
+
 `scam` - Token has been verified as a dishonest scheme or fraud.
+
 `abandoned` - Token with very low activity (below 100 token transfers a year), migrated to mainnet or to a new contract.
 
 No longer active
