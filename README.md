@@ -10,5 +10,5 @@ Welcome to the Trust Wallet developer documentation. Here you can find documenta
 * [Deep Linking](deeplinking/deeplinking.md)
 * [Staking](platform/staking.md)
 * [Dapps](dapps/listing-guide.md)
-* 
+
 Want to discuss more? join our [Trust Developers chat](https://t.me/trust_developers) on Telegram.
