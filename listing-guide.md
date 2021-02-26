@@ -14,12 +14,12 @@ Missing out on just any one part of the optimization and application process wil
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
 
-- Optimization of your DApp for the Trust Wallet browser
-- Optimization of your DApp for desktop users
-- Uploading of required logo assets
-- Application to join the Trust Wallet DApp listing
-- Hosting a Trust Wallet AMA session
-- Creating a Barn of Trust staking vault
+- [ ] Optimization of your DApp for the Trust Wallet browser
+- [ ] Optimization of your DApp for desktop users
+- [ ] Uploading of required logo assets
+- [ ] Application to join the Trust Wallet DApp listing
+- [ ] Hosting a Trust Wallet AMA session
+- [ ] Creating a Barn of Trust staking vault
 
 Only by following closely the clearly defined instructions and recommendations will your DApp be able to join the list after careful scrutiny from the Trust Wallet team.
 
