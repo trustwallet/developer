@@ -18,12 +18,6 @@ https://link.trustwallet.com/browser_enable
 
 ## Assets
 
-### Activate coin
-
-- `coin` slip44 index
-
-https://link.trustwallet.com/activate_coin?coin=60
-	
 ### Open coin
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
@@ -32,6 +26,8 @@ https://link.trustwallet.com/open_coin?asset=c60
 
 
 ### Add asset
+
+Asset will be added to local storage and will show up on the wallet screen.
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md) 
 
@@ -118,6 +114,10 @@ https://link.trustwallet.com/market?asset=c60_t0x6B175474E89094C44Da98b954EedeAC
 ### Open Notifications
 
 https://link.trustwallet.com/notifications
+
+### Open Price alerts
+
+https://link.trustwallet.com/alerts
 
 #### Available domains links:
 
