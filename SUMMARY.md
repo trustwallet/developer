@@ -27,4 +27,5 @@
   * [Universal Asset ID](assets/universal_asset_id.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [Staking](platform/staking.md)
+* [DApps](dapps/listing-guide.md)
 * [Blockchain Integration Status](integration-status/integration-status.md)
