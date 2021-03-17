@@ -9,7 +9,7 @@ Missing out on just any one part of the optimization and application process wil
 
 1. [Optimization](dapps/mobile-optimize.md)
 2. [Upload Assets (involves nominal fee)](https://developer.trustwallet.com/add_new_asset#dapp-image-naming-requirements)
-3. Application Form
+3. [Application Form](https://trustwallet.com/submit-dapp)
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
 
@@ -43,7 +43,7 @@ Some basic information is also required on your DApp project as part of the subm
 - Your DApp name for the listing
 - The URL of your DApp for listing
 
-### Pull request fee
+### Pull Request Fee
 
 Pull requests made to Trust Wall repositories have an associated fee to pay in either TWT or BNB. Due to the number of tokens, coins, and projects supported by Trust Wallet, a large number of requests are made that must be processed.
 
@@ -51,7 +51,46 @@ Contributing a fee filters spam requests and ensures that there is more time to 
 
 More details are available on the [pull request fee](https://developer.trustwallet.com/add_new_asset/pr-fee) that explain how this fits in with Trust Wallet’s open-source ethos. 
 
-### Support and questions
+### Applying for the Trust Wallet Dapp Listing
+
+Adding your DApp to the official Trust Wallet listing provides users with a guarantee of the quality and service provided by your DApp. Not every project that is submitted to the listing is approved. *Upon review, a member of the Trust Wallet team will reach out with additional information or follow up questions if necessary*.
+ 
+Trust Wallet is proud of the standards set in place to ensure that only the best projects are presented. Once you’ve applied, a member of the Trust Wallet team will reach out should we feel your app is a good candidate based on UX, mobile optimization, responsiveness, value proposition relative to other apps, etc.
+ 
+The aim of the Trust Wallet DApp Directory is twofold: 
+
+1. It empowers users to discover high-quality DApps within Trust Wallet. 
+2. It allows developers to showcase their work to millions of users as part of a developed and supported ecosystem.
+
+#### Curation Guidelines
+
+Dapp listing submissions are considered on a case-by-case basis. While there isn’t a strict formula that dictates which apps we decide to list, the safety and experience of our users are of the utmost importance to us. For that reason,  the DApp Directory is curated with the following set of guidelines:
+
+ - We believe the DApp ecosystem should be open and allow for the expression of diverse ideas and opinions. Dapp submissions with content or behavior that fails to meet a “common sense” bar for respecting different ideas or users will be rejected.
+ - Attempts to misrepresent or otherwise deceive the listing and review process will result in your DApp being rejected or delisted from the directory.
+ - Stronger consideration will be given to Dapps that demonstrate a unique value proposition relative to other existing/popular apps
+ - Good design is a critical component to increasing the accessibility of crypto and Defi. We look for Dapps that scale gracefully across screen sizes and devices, and appropriate management of complex user flows through thoughtful UI 
+
+Before submitting your DApp and filling out the submission form, you should ensure that your DApp is fully compliant with our submission criteria.
+
+You are responsible for the use of ad networks, analytics services, and third-party SDKs used within your DApp, so review and choose them carefully.
+
+#### Safety and Security
+
+Trust Wallet users require confidence that using Dapps won’t jeopardize their funds, personal information, or device security.
+
+Additionally, DApps that contain malware are strictly prohibited. This includes any functionality that seeks to gain or provide unauthorized access or control to a user’s device.
+
+#### Objectionable and misleading content
+
+Trust Wallet will reject any DApp submitted for listing that contains or promotes spam, violence, pornography, fake news, or other inappropriate content not suitable for a decentralized application.
+
+#### Legal & Business
+
+Ensure that your DApp is compliant with all relevant laws and regulations where you plan on making it available. DApps that encourage or solicit criminal or reckless behavior will not be tolerated and may result in notifying law enforcement. 
+
+
+### Support and Questions
 
 Should you at any point find yourself with questions about any of the processes laid out in this guide, then don’t hesitate to get in touch at the [Trust Wallet Community](https://community.trustwallet.com/).
 
