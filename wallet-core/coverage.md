@@ -20,10 +20,12 @@ Detailed coverage report can be generated locally.  It includes file and line-le
 
 Steps:
 
+- Run `tools/generate-file` to make sure new added files are generated
+
 - Run `cmake`, to enable coverage measurement
 
 ```shell
-cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
+cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCODE_COVERAGE=ON
 ```
 
 - Build tests
@@ -36,7 +38,7 @@ make -Cbuild -j12 tests TrezorCryptoTests
 - Cleanup any old coverage files, and run unit tests
 
 ```shell
-find . -name "*.gcda" -exec rm \{\} \;
+find . -name "*.gcda" -exec rm {} \;
 ./build/trezor-crypto/crypto/tests/TrezorCryptoTests
 ./build/tests/tests tests --gtest_output=xml
 ```
@@ -46,5 +48,14 @@ find . -name "*.gcda" -exec rm \{\} \;
 ```shell
 ./tools/coverage html
 ```
+
+if you see genhtml (from lcov) error on macOS like below:
+
+```shell
+c++filt: Unknown command line argument '--no-strip-underscores'.  Try: '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++filt --help'
+c++filt: Did you mean '--no-strip-underscore'?
+genhtml: ERROR: c++filt output not as expected (0 vs 11) lines
+```
+please patch `genhtml` (for example /usr/local/Cellar/lcov/1.15/libexec/bin/), change `--no-strip-underscores` to `--no-strip-underscore`
 
 Open the generated `coverage/index.html` to view the report.
