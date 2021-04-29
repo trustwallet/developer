@@ -27,4 +27,6 @@
   * [For Developers](assets/for-developers.md)
   * [Universal Asset ID](assets/universal_asset_id.md)
 * [Deep Linking](deeplinking/deeplinking.md)
-* [DApps](dapps/listing-guide.md)
+* DApps
+  * [Listing Guide](dapps/listing-guide.md)
+  * [Debugging](dapps/debugging.md)
