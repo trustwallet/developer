@@ -331,10 +331,6 @@ Removed contract address will be added to the denylist and, as a result, will no
 Why would you want to do this ?.
 You are contract owner or just good samaritan who noticed contract to be no longer "active" and was an upgrade and abandoned by owning organization, involved in a scam, mimicking by its name or/and symbol a real contract. All facts must be supported with a link to any resource proving these statements.
 
-
-## How to use it? (For Developers)
---> [For developers](for-developers.md)
-
 ## Token Status
 
 `active` - Token meets the standard requirements in terms of holders (2,500) and transactions (5,000). 
