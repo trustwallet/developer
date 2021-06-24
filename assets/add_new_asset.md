@@ -188,7 +188,9 @@ Smart contract address update procedure:
 
 ### Info.json Contents
 
-The `info.json` file contains basic information about the token/project.  It has fields:
+The `info.json` file contains basic information about the token/project.
+
+It has following required fields:
 - `name`: name of the token
 - `type`: such as ERC20, BEP2, BEP20, TRC20, TRC10, ...
 - `symbol`: the token symbol
@@ -198,6 +200,14 @@ The `info.json` file contains basic information about the token/project.  It has
 - `explorer`: URL of the token explorer page
 - `id`: the id/contract/address of the token, same as the subfolder name
 
+And optionally:
+- `links`: Optional array with `name`/`url` pairs, for social media links, documentation, etc.
+List of currently supported types:
+`github`, `whitepaper`, `twitter`, `telegram`, `telegram_news`, `medium`, `discord`, `reddit`, `facebook`, `youtube`, `coinmarketcap`, `coingecko`, `blog`, `forum`, `docs`, `source_code`.
+Note: the `socials` section is no longer used.
+
+If in doubt about fields, look around / search in existing info.json files.
+
 Sample `info.json`:
 
 ```
@@ -206,12 +216,25 @@ Sample `info.json`:
     "website": "https://trustwallet.com",
     "description": "Utility token to increase adoption of cryptocurrency.",
     "explorer": "https://explorer.binance.org/asset/TWT-8C2",
-    "research": "https://research.binance.com/en/projects/trustwallet",
     "type": "BEP2",
     "symbol": "TWT",
     "decimals": 8,
     "status": "active",
     "id": "TWT-8C2"
+    "links": [
+        {
+            "name": "github",
+            "url": "https://github.com/trustwallet/"
+        },
+        {
+            "name": "twitter",
+            "url": "https://twitter.com/TrustWalletApp"
+        },
+        {
+            "name": "reddit",
+            "url": "https://reddit.com/r/trustapp"
+        }
+    ]
 }
 ```
 
