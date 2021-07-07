@@ -18,7 +18,6 @@
 * [Blockatlas](blockatlas/blockatlas.md)
   * [Adding Support for a New Blockchain](blockatlas/newblockchain.md)
   * [Transaction Format](blockatlas/transaction-format.md)
-* [Trust SDK](trust-sdk/trust-sdk.md)
   * [URL Specifications](trust-sdk/trust-sdk-specs.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
   * [DApp](wallet-connect/dapp.md)
