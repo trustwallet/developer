@@ -182,11 +182,12 @@ Smart contract address update procedure:
 - File location: must be placed in the correct folder and subfolder within the [folder structure](#repository-structure).
 - File name：`logo.png`, all lowercase.  Extension: `png` (uppercase `PNG` is considered invalid).
 - Dimension: recommended `256 x 256 pixels`, maximum `512 x 512 pixels`, aspect ratio should be 1:1.
-- File size: maximum 100kB.  Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
 - Edges and background:
 - Logos are displayed cropped to a circular mask, a circle fitting in the square shape.  Thus the corners of the logo image will not be visible.  The logo should fit in the circle, but also fill it as much as it possible, i.e. there should not be unused spaces on the sides/top/bottom.
-- Logos should look OK with white/lighgray background as well as on black/darkgray background (night mode).  Avoid using transparency, as the color beneath the transparent layer is chnaging (light or dark).  For dark themed logos use white contour lines to make sure they stand out on dark background as well.
+- Logos should look OK with white/lighgray background as well as on black/darkgray background (night mode).  For dark themed logos use white contour lines to make sure they stand out on dark background as well.
+- Avoid using transparency inside the logo, as the color beneath the transparent layer is changing (light or dark).  Use transparency only outside of the logo.
 - It is recommended to use the [Assets web app](https://assets.trustwallet.com) ([guide](https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957)), as it shows a preview of the logo with both light and dark background and circular cropping.
+- File size: maximum 100kB.  Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
 
 ### Info.json Contents
 
