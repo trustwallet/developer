@@ -201,6 +201,7 @@ It has following required fields:
 - `description`: a few sentence summary of the token/project
 - `website`: project web site
 - `explorer`: URL of the token explorer page
+- `status`: `"active"`
 - `id`: the id/contract/address of the token, same as the subfolder name
 - `links`: Array with `name`/`url` pairs, for social media links, documentation, etc.
 List of currently supported types:
