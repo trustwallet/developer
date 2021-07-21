@@ -356,7 +356,7 @@ You are contract owner or just good samaritan who noticed contract to be no long
 
 ## Token Status
 
-`active` - Token meets the standard requirements in terms of holders (2,500) and transactions (5,000). 
+`active` - Token meets the standard requirements in circulation (number of holders and transactions).
 
 `spam` - Token that is distribtued to a large number of recepients that have no inherent value or has been verified as a dishonest scheme or fraud.
 
