@@ -180,10 +180,13 @@ Smart contract address update procedure:
 
 ### Image Requirements
 - File location: must be placed in the correct folder and subfolder within the [folder structure](#repository-structure).
-- File extension: `png`. Uppercase `PNG` is considered invalid.
-- File name：`logo.png`, all lowercase.
-- Dimension: `256 x 256 pixels` or `512 x 512 pixels`.
-- Background: Avoid transparency, set background as your brand color or white by default otherwise your token image wont look good on white/dark theme design.
+- File name：`logo.png`, all lowercase.  Extension: `png` (uppercase `PNG` is considered invalid).
+- Dimension: recommended `256 x 256 pixels`, maximum `512 x 512 pixels`, aspect ratio should be 1:1.
+- Edges and background:
+- Logos are displayed cropped to a circular mask, a circle fitting in the square shape.  Thus the corners of the logo image will not be visible.  The logo should fit in the circle, but also fill it as much as it possible, i.e. there should not be unused spaces on the sides/top/bottom.
+- Logos should look OK with white/lighgray background as well as on black/darkgray background (night mode).  For dark themed logos use white contour lines to make sure they stand out on dark background as well.
+- Avoid using transparency inside the logo, as the color beneath the transparent layer is changing (light or dark).  Use transparency only outside of the logo.
+- It is recommended to use the [Assets web app](https://assets.trustwallet.com) ([guide](https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957)), as it shows a preview of the logo with both light and dark background and circular cropping.
 - File size: maximum 100kB.  Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
 
 ### Info.json Contents
@@ -198,10 +201,9 @@ It has following required fields:
 - `description`: a few sentence summary of the token/project
 - `website`: project web site
 - `explorer`: URL of the token explorer page
+- `status`: `"active"`
 - `id`: the id/contract/address of the token, same as the subfolder name
-
-And optionally:
-- `links`: Optional array with `name`/`url` pairs, for social media links, documentation, etc.
+- `links`: Array with `name`/`url` pairs, for social media links, documentation, etc.
 List of currently supported types:
 `github`, `whitepaper`, `twitter`, `telegram`, `telegram_news`, `medium`, `discord`, `reddit`, `facebook`, `youtube`, `coinmarketcap`, `coingecko`, `blog`, `forum`, `docs`, `source_code`.
 Note: the `socials` section is no longer used.
@@ -282,6 +284,22 @@ To do changes in the assets repository, you need to create a personal copy calle
 
 Once the changes are prepared inside the fork, you need to create a _pull request_ to the main repository.
 Upon review the maintainers will accept your pull request, and the changes will be incorporated.
+
+#### Adding files using Assets App
+
+A new token can be submitted using the Assets application.
+See also: https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957
+
+1. Open the assets web app:   [https://assets.trustwallet.com]( https://assets.trustwallet.com)
+2. Press the Log in with Github button.  If not yet logged in (in the current browser session), you need to log in to Github
+3. First time you will need to authorize the Assets app to access your Github account.
+4. The application should be now loaded
+5. Upload the logo file.
+6. Fill the token contract.  For some tokens (Erc20) some fields are auto-filled (symbol, decimals, etc.).
+7. Fill in additional fields, symbol, decimals, description, links, etc.
+8. Press the Check button.
+9. If all is OK, press the Create Pull Request button.  A PR will be created.
+
 
 #### Adding files using GitHub web page
 1. Proceed to [https://github.com/trustwallet/assets](https://github.com/trustwallet/assets)
