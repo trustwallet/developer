@@ -27,7 +27,6 @@
   * [FAQ](assets/faq.md)
   * [Repository Details](assets/repository_details.md)
 * [Deep Linking](deeplinking/deeplinking.md)
-* DApps
-  * [Listing Guide](dapps/listing-guide.md)
+* [DApps](dapps/listing-guide.md)
   * [Optimizing your DApp for Trust Wallet DApp Browser](dapps/mobile-optimize.md)
   * [Debugging](dapps/debugging.md)
