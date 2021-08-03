@@ -49,8 +49,10 @@ Pull requests made to Trust Wall repositories have an associated fee to pay in e
 
 Contributing a fee filters spam requests and ensures that there is more time to handle genuine submissions.
 
-More details are available on the [pull request fee](https://developer.trustwallet.com/add_new_asset/pr-fee) that explain how this fits in with Trust Wallet’s open-source ethos. 
-
+More details are available on the [pull request fee](https://developer.trustwallet.com/add_new_asset/pr-fee) that explain how this fits in with Trust Wallet’s open-source ethos.
+  
+**NOTE:** Paying the fee does not guarantee that your asset will be listed in the repository.
+ 
 ### Applying for the Trust Wallet Dapp Listing
 
 Adding your DApp to the official Trust Wallet listing provides users with a guarantee of the quality and service provided by your DApp. Not every project that is submitted to the listing is approved. *Upon review, a member of the Trust Wallet team will reach out with additional information or follow up questions if necessary*.
