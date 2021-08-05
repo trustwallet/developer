@@ -22,7 +22,7 @@ the projects have to be sound, with information available, and __non-minimal cir
   <thead>
     <tr>
       <th align="center">
-        :information_source: NOTE
+        ⚠️ NOTE
       </th>
     </tr>
   </thead>
@@ -32,7 +32,7 @@ the projects have to be sound, with information available, and __non-minimal cir
       <td>
         <ul>
           <li>All assets are <a href="#disclaimer">subject to review before</a> being approved; so-called "meme tokens", spammy, or assets identified as fradulent in nature will not be merged into the repository</li>
-          <li>Payment of the <a href="pr-fee.md">Pull Request Fee</a> does not guarantee your asset will be approved</li>
+          <li>Payment of the <a href="pr-fee.md">Pull Request Fee</a> does not guarantee your asset will be approved. Fee is non-refundable</li>
         </ul>
       </td>
     </tr>
