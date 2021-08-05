@@ -43,19 +43,15 @@ the projects have to be sound, with information available, and __non-minimal cir
 ## Contribution Quick Start
 
 Details of the [repository structure](#repository-details) and 
-[contribution guidelines](#contribution-guidelines) are listed below.
+[contribution guidelines](repository_details.md#contribution-guidelines) are listed below.
 Here is a quick starter summary for the most common use case.
 
 For **adding an ERC20 token**:
-- fork the Github repository
-- prepare a logo file, according to the [rules](#image-requirements) below, but must importantly:  PNG format, recommended pixel size of 256x256, max. 512x512, and max. file size of 100kB.
-- add/upload the logo file named `logo.png` to the folder `blockchains/ethereum/assets/<contract>`,
-where the last part is the token contract address in [_checksum format_](#checksum-format), such as
-`blockchains/ethereum/assets/0x1234567461d3f8Db7496581774Bd869C83D51c93/logo.png`.
-- Create `info.json` file with info about the token/project
-- Create a PR to the main repo
+- Ensure your asset meets the our [general guidelines](#disclaimer)
+- Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information
 - Pay the processing fee
 
+Adding a DApp logo or other type of asset? Check our [contribution guidelines](repository_details.md#contribution-guidelines).
 
 ## Used in Projects
 
