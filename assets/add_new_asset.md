@@ -1,5 +1,7 @@
 # Trust Wallet Assets Info
 
+<center><img src='https://trustwallet.com/assets/images/media/assets/horizontal_blue.png' height="200"></center>
+
 ## Overview
 The Trust Wallet Token Repository 
 [https://github.com/trustwallet/assets](https://github.com/trustwallet/assets)
@@ -16,7 +18,27 @@ Please note that __new tokens are not accepted__,
 the projects have to be sound, with information available, and __non-minimal circulation__
 (for limit details see https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863).
 
-<center><img src='https://trustwallet.com/assets/images/media/assets/horizontal_blue.png' height="200"></center>
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="center">
+        :information_source: Information
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li>All assets are <a href="#disclaimer">subject to review before</a> being approved; so-called "meme tokens", spammy, or assets identified as fradulent in nature will not be merged into the repository</li>
+          <li>Payment of the <a href="pr-fee.md">Pull Request Fee</a> does not guarantee your asset will be approved</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Contribution Quick Start
 
