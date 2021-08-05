@@ -22,7 +22,7 @@ the projects have to be sound, with information available, and __non-minimal cir
   <thead>
     <tr>
       <th align="center">
-        :information_source: Information
+        :information_source: NOTE
       </th>
     </tr>
   </thead>
