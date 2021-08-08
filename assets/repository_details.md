@@ -5,30 +5,27 @@
 The token repository contains the following collections:
 
 1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md), ERC223 tokens on Ethereum compatible networks such as:
-   [Ethereum (ETH)](https://ethereum.org/),
-   [Ethereum Classic (ETC)](https://ethereumclassic.org/),
-   [POA Network (POA)](https://poa.network/),
-   [TomoChain (TOMO)](https://tomochain.com/),
-   [GoChain (GO)](https://gochain.io/),
-   [Wanchain (WAN)](https://wanchain.org/),
-   [Callisto Network (CLO)](https://callisto.network/),
-   [Thunder Token (TT)](https://thundercore.com/), etc.
-
-2. [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) 
-   [BEP8](https://github.com/binance-chain/BEPs/blob/master/BEP8.md)
-   Binance DEX tokens (native marketplace on Binance Chain)
-
-3. [TRC10, TRC20](https://developers.tron.network/docs/trc10-token) tokens on TRON blockchain
-
-4. dApp images available in `Browser` section in Trust Wallet, and bookmarks icons. [Read requirements](#dapp-image-naming-requirements). Also you can submit dApp to our list [read more](#dapp-submission-and-listing-requirements).
-
-5. Staking validators info, such as name, image, validator id, website url. [Supported staking coins](https://trustwallet.com/staking/). [Read requirements](#staking-validators-requirements).
-
-6. Crypto price providers map: [CoinMarketCap](https://github.com/trustwallet/assets/blob/master/pricing/coinmarketcap/mapping.json)
-
-7. Token and coin info
-
-8. Smart contract deprecation/upgrade. [Read more](#update-and-remove-an-existing-asset).
+   - [Ethereum (ETH)](https://ethereum.org/)
+   - [Ethereum Classic (ETC)](https://ethereumclassic.org/)
+   - [POA Network (POA)](https://poa.network/)
+   - [TomoChain (TOMO)](https://tomochain.com/)
+   - [GoChain (GO)](https://gochain.io/)
+   - [Wanchain (WAN)](https://wanchain.org/)
+   - [Callisto Network (CLO)](https://callisto.network/)
+   - [Thunder Token (TT)](https://thundercore.com/), etc.
+2. Binance DEX tokens (native marketplace on Binance Chain)
+   - [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md)
+   - [BEP8](https://github.com/binance-chain/BEPs/blob/master/BEP8.md)
+3. Tokens on TRON blockchain [(TRC10, TRC20)](https://developers.tron.network/docs/trc10-token)
+4. DApp logos displayed in `Browser` section of the Trust Wallet app, and bookmarks icons
+   - [Image naming requirements](#dapp-image-naming-requirements)
+   - [Request listing in Trust Wallet DApp Browser](#dapp-submission-and-listing-requirements)
+6. Staking validators information, such as name: `image`, `validator_id`, `website_url`
+   - [Supported staking coins](https://trustwallet.com/staking/)
+   - [Read requirements](#staking-validators-requirements).
+7. Crypto price providers map: [CoinMarketCap](https://github.com/trustwallet/assets/blob/master/pricing/coinmarketcap/mapping.json)
+8. Token and coin information
+9. Smart contract deprecation/upgrade. [Read more](#update-and-remove-an-existing-asset)
 
 ### Repository structure
 
@@ -221,9 +218,8 @@ Sample `info.json`:
 2. Add validator logo image to `blockchains/<chain>/validators/assets/<validator_address>/logo.png` [see images requirements](#image-requirements)
 3. Check chain [specific](#validators-specific-requirements) requirements.
 
-### Common uploads
+### Common Uploads
 
-Uploading:
 1. Ethereum ERC20 [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
 2. Binance DEX BEP2, BEP8 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
 3. TRON TRC10, TRC20 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
@@ -245,45 +241,6 @@ To do changes in the assets repository, you need to create a personal copy calle
 
 Once the changes are prepared inside the fork, you need to create a _pull request_ to the main repository.
 Upon review the maintainers will accept your pull request, and the changes will be incorporated.
-
-#### Adding files using GitHub web page
-1. Proceed to [https://github.com/trustwallet/assets](https://github.com/trustwallet/assets)
-2. Press on `Fork` in the top right corner, wait for process to complete.
-   Note: if you already have a fork, it should be updated: easiest is to remove the fork and create it afresh.
-3. Navigate to desire chain folder you want to add asset
-4. Prepare on your local drive a folder corresponding to the token cortact.
-5. Copy the logo image as `logo.png` into the folder (and optional info file).
-6. Simply drag and drop the folder to active window
-7. In `Commit changes` box:
-  - `Add files via upload` add meaningfull comment what you adding to the repo
-  - optional: In `Add an optional extended description` write a comment about upload
-  - optional: adjust fork branch name
-8. Click on `Propose changes`
-9. Press on `Create pull request`
-
-#### Adding files using GitHub Desktop application
-The steps are similar to using the web page, but the desktop app has more control for overwriting the files, branching, pushing.
-
-#### Adding files using command-line
-1. Fork the repository to your own GitHub account
-2. Clone fork and create new branch:
-
-```bash
-git clone git@github.com:YOUR_HANDLE/assets.git
-cd assets
-git checkout -b <branch_name>
-```
-
-3. Add asset to appropriate directory, the [folder strcture](#repository-structure) documentation will help you
-4. Commit and push to your fork
-
-```bash
-git add -A
-git commit -m “Add <token_name>”
-git push origin <branch_name>
-```
-
-5. From your repo clone page make a new PR (pull request)
 
 ## Token Status
 
