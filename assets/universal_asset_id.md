@@ -15,7 +15,6 @@ UAI unique identifier of the asset, it's blockchain agnostic and provides abilit
 - Ethereum: `c60`
 - Binance Chain `c714`
 - Polkadot 'c354'
-- 
 
 ### Tokens:
 
