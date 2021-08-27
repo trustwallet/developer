@@ -59,3 +59,6 @@ Yes. Crypto transactions are final and irreversible.  As such, payments with mis
 **If you decide not to merge my PR, do I get my payment back?**
 
 The pull request fee is non-refundable and covers the processing only; payment is not a guarantee that your pull request will be merged. Please consult the contribution guidelines prior to paying the fee.
+
+**Do I need to pay the PR fee again to make updates to my submission?**
+If your asset is already accepted into the repository, subsequent updates will require payment of the fee to cover processing your changes. This includes changes made for name changs, logo changes, rebranding etc.
