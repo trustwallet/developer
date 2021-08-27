@@ -23,6 +23,7 @@
 * [WalletConnect](wallet-connect/wallet-connect.md)
   * [DApp](wallet-connect/dapp.md)
 * [Assets](assets/assets_overview.md)
+  * [Requirements](assets/requirements.md)
   * [Pull Request Fee](assets/pr-fee.md)
   * [FAQ](assets/faq.md)
   * [Repository Details](assets/repository_details.md)
