@@ -22,7 +22,7 @@
   * [Universal Asset ID](blockatlas/universal_asset_id.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
   * [DApp](wallet-connect/dapp.md)
-* [Assets](assets/add_new_asset.md)
+* [Assets](assets/assets_overview.md)
   * [Pull Request Fee](assets/pr-fee.md)
   * [FAQ](assets/faq.md)
   * [Repository Details](assets/repository_details.md)
