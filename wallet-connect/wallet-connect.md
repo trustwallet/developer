@@ -1,102 +1,247 @@
 # WalletConnect
 
-[WalletConnect](https://walletconnect.org/) Swift SDK, implements 1.0.0 websocket based protocol. 
+[WalletConnect](https://walletconnect.org/) is an open source protocol for connecting dApps to mobile wallets with QR code scanning or deep linking, basically it's a websocket JSON-RPC channel.
 
-Demo video: 
+There are two common ways to integrate: Standalone Client and Web3Model (Web3 Provider)
 
-[![How to Use WalletConnect to Trade on Binance DEX](https://img.youtube.com/vi/kI6UiqudBng/0.jpg)](https://www.youtube.com/watch?v=kI6UiqudBng)
+## Standalone Client
 
-Features:
+Trust extends WalletConnect 1.x with aditional JSON-RPC methods to support multi-chain **dApps**. Currently, you can get all accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/registry.md) implements `signJSON` method in wallet core.
 
-- [x] Connect and disconnect
-- [x] Approve / Reject / Kill session
-- [x] Approve and reject ethereum transactions `eth_sign` / `personal_sign` / `eth_sendTransaction`
-- [x] Approve and reject binance dex orders `bnb_sign`
-- [x] Sign Transactions `trust_sign` (full documentation [here](/wallet-connect/dapp.md))
+__Supported Coins__
 
-## Example
+- Binance Chain
+- Ethereum and forks
+- Cosmos, Kava and other sdk based chains
+- Tezos
+- Nano
+- Filecoin
+- Harmony
+- Solana
+- Zilliqa
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+### Installation
 
-## Installation
-
-WalletConnect is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'WalletConnect', git: 'git@github.com:trustwallet/wallet-connect-swift.git', branch: 'master'
+```bash
+npm install --save @walletconnect/client @walletconnect/qrcode-modal
 ```
 
-## Usage
+### Initiate Connection
 
-parse session from scanned QR code:
+Before you can sign transactions, you have to initiate a connection to a WalletConnect bridge server, and handle all possible states:
 
-```swift
-let string = "wc:..."
-guard let session = WCSession.from(string: string) else {
-    // invalid session
-    return
+```javascript
+import WalletConnect from "@walletconnect/client";
+import QRCodeModal from "@walletconnect/qrcode-modal";
+
+// Create a connector
+const connector = new WalletConnect({
+  bridge: "https://bridge.walletconnect.org", // Required
+  qrcodeModal: QRCodeModal,
+});
+
+// Check if connection is already established
+if (!connector.connected) {
+  // create new session
+  connector.createSession();
 }
-// handle session
+
+// Subscribe to connection events
+connector.on("connect", (error, payload) => {
+  if (error) {
+    throw error;
+  }
+
+  // Get provided accounts and chainId
+  const { accounts, chainId } = payload.params[0];
+});
+
+connector.on("session_update", (error, payload) => {
+  if (error) {
+    throw error;
+  }
+
+  // Get updated accounts and chainId
+  const { accounts, chainId } = payload.params[0];
+});
+
+connector.on("disconnect", (error, payload) => {
+  if (error) {
+    throw error;
+  }
+
+  // Delete connector
+});
 ```
 
-configure and handle incoming message:
+code snippet above is copied from https://docs.walletconnect.org/quick-start/dapps/client#initiate-connection, please check out the original link for standard methods.
 
-```swift
-let interactor = WCInteractor(session: session, meta: clientMeta)
-interactor.onSessionRequest = { [weak self] (id, peer) in
-    // ask for user consent
-}
+### Get multiple chain accounts from Trust
 
-interactor.onDisconnect = { [weak self] (error) in
-    // handle disconnect
-}
+Once you have `walletconnect client` set up, you will be able to get user's accounts:
 
-interactor.onEthSign = { [weak self] (id, params) in
-    // handle eth_sign and personal_sign
-}
+```javascript
+const request = connector._formatRequest({
+    method: 'get_accounts',
+});
 
-interactor.onEthSendTransaction = { [weak self] (id, transaction) in
-    // handle eth_sendTransaction
-}
+connector
+  ._sendCallRequest(request)
+  .then(result => {
+    // Returns the accounts
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
 
-interactor.onBnbSign = { [weak self] (id, order) in
-    // handle bnb_sign
-}
+The result is an array with following structure:
+```javascript
+[
+  {
+    network: number,
+    address: string
+  }
+]
+```
 
-interactor.onTrustSignTransaction = { [weak self] (id, transaction) in
-    // handle trust_signTransaction
+### Sign multi chain transaction
+
+Once you have the account list, you will be able to sign a transaction, please note that the json structure is based on [WalletCore's proto messages](https://github.com/trustwallet/wallet-core/tree/master/src/proto), we suggest using `protobuf.js` or [@trustwallet/wallet-core](https://github.com/trustwallet/wallet-core/packages/294430) to generate it properly.
+
+```javascript
+const network = 118; // Atom (SLIP-44)
+const account = accounts.find((account) => account.network === network);
+// Transaction structure based on Trust's protobuf messages.
+const tx = {
+accountNumber: "1035",
+  chainId: "cosmoshub-2",
+  fee: {
+    amounts: [
+      {
+        denom: "uatom",
+        amount: "5000"
+      }
+    ],
+    gas: "200000"
+  },
+  sequence: "40",
+  sendCoinsMessage: {
+    fromAddress: account.address,
+    toAddress: "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa",
+    amounts: [
+      {
+        denom: "uatom",
+        amount: "100000"
+      }
+    ]
+  }
+};
+
+const request = connector._formatRequest({
+    method: 'trust_signTransaction',
+    params: [
+        {
+            network,
+            transaction: JSON.stringify(tx),
+        },
+    ],
+});
+
+connector
+  ._sendCallRequest(request)
+  .then(result => {
+    // Returns transaction signed in json or encoded format
+    console.log(result);
+  })
+  .catch(error => {
+    // Error returned when rejected
+    console.error(error);
+  });
+```
+
+The result can be either a string JSON or an HEX encoded string. For Atom, the result is JSON:
+
+```json
+{
+    "tx": {
+        "fee": {
+            "amount": [{
+                "amount": "5000",
+                "denom": "uatom"
+            }],
+            "gas": "200000"
+        },
+        "memo": "",
+        "msg": [{
+            "type": "cosmos-sdk/MsgSend",
+            "value": {
+                "amount": [{
+                    "amount": "100000",
+                    "denom": "uatom"
+                }],
+                "from_address": "cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0",
+                "to_address": "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa"
+            }
+        }],
+        "signatures": [{
+            "pub_key": {
+                "type": "tendermint/PubKeySecp256k1",
+                "value": "A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7"
+            },
+            "signature": "m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A=="
+        }],
+        "type": "cosmos-sdk/MsgSend"
+    }
 }
 ```
 
-approve session
+## Web3Modal
 
-```swift
-interactor.approveSession(accounts: accounts, chainId: chainId).done {
-    print("<== approveSession done")
-}.cauterize()
+[Web3Modal](https://github.com/Web3Modal/web3modal) is an easy-to-use library to help developers add support for multiple providers (including WalletConnect) in their apps with a simple customizable configuration.
+
+### Installation
+
+```bash
+npm install --save web3modal web3 @walletconnect/web3-provider
 ```
 
-approve request
+### Customize chain id
 
-```swift
-interactor.approveRequest(id: id, result: result.hexString).done {
-    print("<== approveRequest done")
-}.cauterize()
+Sample code for configuring WalletConnect with Binance Smart Chain
+
+```js
+import Web3 from "web3";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3Modal from "web3modal";
+
+// set chain id and rpc mapping in provider options
+const providerOptions = {
+  walletconnect: {
+    package: WalletConnectProvider,
+    options: {
+      rpc: {
+        56: 'https://bsc-dataseed1.binance.org'
+      },
+      chainId: 56
+    }
+  }
+}
+
+const web3Modal = new Web3Modal({
+  network: "mainnet", // optional
+  cacheProvider: true, // optional
+  providerOptions // required
+});
+
+const provider = await web3Modal.connect();
+await web3Modal.toggleModal();
+
+// regular web3 provider methods
+const newWeb3 = new Web3(provider);
+const accounts = await newWeb3.eth.getAccounts();
+
+console.log(accounts);
 ```
-
-approve binance dex orders
-
-```swift
-interactor?.approveBnbOrder(id: id, signed: signed).done({ confirm in
-    print("<== approveBnbOrder", confirm)
-}).cauterize()
-```
-
-## Author
-
-hewigovens
-
-## License
-
-WalletConnect is available under the MIT license. See the LICENSE file for more info.
