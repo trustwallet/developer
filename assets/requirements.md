@@ -25,7 +25,33 @@ Before submitting an asset to this repository, we recommend you have the followi
     "symbol": "BUSD",
     "decimals": 18,
     "status": "active",
-    "id": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
+    "id": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "links": [
+        {
+            "name": "github",
+            "url": "https://github.com/binance-chain/"
+        },
+        {
+            "name": "twitter",
+            "url": "https://twitter.com/binance_dex"
+        },
+        {
+            "name": "blog",
+            "url": "https://binance.org/en/blog/"
+        },
+        {
+            "name": "telegram",
+            "url": "https://t.me/BinanceDEXchange"
+        },
+        {
+            "name": "coinmarketcap",
+            "url": "https://coinmarketcap.com/currencies/binance-usd/"
+        },
+        {
+            "name": "coingecko",
+            "url": "https://coingecko.com/en/coins/binance-usd/"
+        }
+    ]
 }
 ```
  - Checksum address (for ERC20 and BEP20 tokens)
