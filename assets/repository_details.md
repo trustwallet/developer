@@ -180,7 +180,7 @@ Sample `info.json`:
     "symbol": "TWT",
     "decimals": 8,
     "status": "active",
-    "id": "TWT-8C2"
+    "id": "TWT-8C2",
     "links": [
         {
             "name": "github",
