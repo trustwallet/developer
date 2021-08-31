@@ -60,10 +60,10 @@ Before submitting an asset to this repository, we recommend you have the followi
 ## Supported Blockchains
 This guide is for adding a logo for the following Trust Wallet supported blockchains:
 
- - [Ethereum ERC20 token](assets/blockchains/ethereum/assets)
- - [Binance BEP2 token](assets/blockchains/binance/assets)
- - [Smart Chain BEP20 token](assets/blockchains/smartchain/assets)
- - [TRON TRC10, TRC20 token](assets/blockchains/tron/assets)
+ - [Ethereum ERC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
+ - [Binance BEP2 token](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
+ - [Smart Chain BEP20 token](https://github.com/trustwallet/assets/tree/master/blockchains/smartchain/assets)
+ - [TRON TRC10, TRC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
 
 ## Listing Acceptance Guidelines
 The following criteria will be considered before an asset is accepted into the repository. Note that meeting all these criteria does not guarantee a submission will be accepted, the team reserves the right to reject projects deemed spammy, fraudulent, or otherwise low value.
