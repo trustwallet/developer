@@ -48,7 +48,7 @@ For **adding an token**:
 - [ ] Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information
 - [ ] Pay the [processing fee](pr-fee.md)
 
-Adding a DApp logo or other type of asset? Check the [DApps](../dapps/listing-guide) section or [contribution guidelines](repository_details.md#contribution-guidelines).
+Adding a DApp logo or other type of asset? Check the [DApps](listing-guide) section or [contribution guidelines](repository_details.md#contribution-guidelines).
 
 ### Fee
 Due to an increasing number of pull request (and proportional checking & merging effort),
