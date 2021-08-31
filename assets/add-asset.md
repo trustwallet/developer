@@ -37,6 +37,12 @@ primarily from token projects.
 
 
 ## Contribution Checklist
+This guide is for adding a logo for the following Trust Wallet supported blockchains:
+
+ - [Ethereum ERC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
+ - [Binance BEP2 token](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
+ - [Smart Chain BEP20 token](https://github.com/trustwallet/assets/tree/master/blockchains/smartchain/assets)
+ - [TRON TRC10, TRC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
 
 For **adding an token**:
 - [ ] Ensure your asset meets the our [reqirements](requirements.md)
@@ -44,16 +50,6 @@ For **adding an token**:
 - [ ] Pay the [processing fee](pr-fee.md)
 
 Adding a DApp logo or other type of asset? Check our [contribution guidelines](repository_details.md#contribution-guidelines).
-
-## Used in Projects
-
-- [Trust Wallet](https://trustwallet.com) - [iOS](https://itunes.apple.com/us/app/trust-ethereum-wallet/id1288339409) and [Android](https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp)
-- [0x Tracker](https://0xtracker.com) - The 0x Protocol Trade Explorer and news aggregator.
-- [Uniswap](https://uniswap.exchange) - Uniswap is a protocol for automated token exchange on Ethereum.
-- [LinkDrop](https://linkdrop.io/) - A customer acquisition platform for DApps. The easiest crypto onboarding.
-- [Aragon](https://aragon.org/) − Aragon is platform and network for decentralized organizations.
-- [SpiderDEX](https://www.spiderdex.com) - Decentralized exchange for crypto collectibles.
-- [Zerion](https://zerion.io) — A simple interface to decentralized finance.
 
 ### Fee
 Due to an increasing number of pull request (and proportional checking & merging effort),
