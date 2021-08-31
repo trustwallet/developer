@@ -14,10 +14,6 @@ For every token a logo and optional additional information is available (such da
 Such a large collection can be maintained only through a community effort, so _additions are welcome_,
 primarily from token projects.
 
-Please note that __new tokens are not accepted__,
-the projects have to be sound, with information available, and __non-minimal circulation__
-(for limit details see https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863).
-
 <table width="100%">
   <thead>
     <tr>
@@ -40,16 +36,12 @@ the projects have to be sound, with information available, and __non-minimal cir
 </table>
 
 
-## Contribution Quick Start
+## Contribution Checklist
 
-Details of the [repository structure](#repository-details) and 
-[contribution guidelines](repository_details.md#contribution-guidelines) are listed below.
-Here is a quick starter summary for the most common use case.
-
-For **adding an ERC20 token**:
-- Ensure your asset meets the our [general guidelines](#disclaimer)
-- Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information
-- Pay the processing fee
+For **adding an token**:
+- [ ] Ensure your asset meets the our [reqirements](requirements.md)
+- [ ] Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information
+- [ ] Pay the [processing fee](pr-fee.md)
 
 Adding a DApp logo or other type of asset? Check our [contribution guidelines](repository_details.md#contribution-guidelines).
 
