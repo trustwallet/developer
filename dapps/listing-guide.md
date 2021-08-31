@@ -25,7 +25,7 @@ Only by following closely the clearly defined instructions and recommendations w
 ### Technical Requirements & Preperation
 Optimizing your application will require checking off a series of key areas noted in the following optimization sections. Some technical preparation will however be required whenever assets are added to the Trust Wallet GitHub repo.
 
-Therefore, it is required that you have a GitHub account to interact with the repo and submit your DApp for listing. Before uploading any image files, you must make sure they meet the following requirements:
+Therefore, it is required that you have a [GitHub](https://github.com) account to interact with the [Assets repo](https://github.com/trustwallet/assets) and submit your DApp logo for listing. Before uploading any image files, you must make sure they meet the following requirements:
 
 - File Extension: `png`
   - Uppercase `PNG` is considered invalid
