@@ -8,7 +8,7 @@ By improving the functionality of your project and its overall optimization, you
 Missing out on just any one part of the optimization and application process will ultimately lead to an unsuccessful application. The journey involves rounds of:
 
 1. [Optimization](dapps/mobile-optimize.md)
-2. [Upload Assets via Github Pull Request (involves nominal fee)](#technical-requirements-and-preperation)
+2. [Upload Assets via Github Pull Request (involves nominal fee)](#technical-requirements-and-preperationn)
 3. [Application Form](https://trustwallet.com/submit-dapp)
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
