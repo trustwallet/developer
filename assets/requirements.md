@@ -74,3 +74,4 @@ The following criteria will be considered before an asset is accepted into the r
  - No plagiarized content from other projects or companies. Copying names or logos are strictly prohibited.
  - Token should be listed on price tracking sites like CoinmarketCap
  - Detailed Token Information
+ - Minimum 5,000 token holders and 10,000 transactions (**Airdrop tokens excluded**). This requirement is subject for review based on the project.
