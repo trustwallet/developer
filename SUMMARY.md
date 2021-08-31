@@ -20,7 +20,7 @@
   * [Transaction Format](blockatlas/transaction-format.md)
   * [Universal Asset ID](blockatlas/universal_asset_id.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
-* [Assets](assets/add-assets.md)
+* [Assets](assets/add-asset.md)
   * [Requirements](assets/requirements.md)
   * [Pull Request Fee](assets/pr-fee.md)
   * [FAQ](assets/faq.md)
