@@ -8,7 +8,7 @@ By improving the functionality of your project and its overall optimization, you
 Missing out on just any one part of the optimization and application process will ultimately lead to an unsuccessful application. The journey involves rounds of:
 
 1. [Optimization](dapps/mobile-optimize.md)
-2. [Upload Assets via Github Pull Request (involves nominal fee)](#technical-requirements--preperation)
+2. [Upload Assets via Github Pull Request (involves nominal fee)](#technical-requirements-and-preperation)
 3. [Application Form](https://trustwallet.com/submit-dapp)
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
@@ -22,7 +22,7 @@ The whole process can be divided into these key stages, along with some recommen
 
 Only by following closely the clearly defined instructions and recommendations will your DApp be able to join the list after careful scrutiny from the Trust Wallet team.
 
-### Technical Requirements & Preperation
+### Technical Requirements and Preperation
 Optimizing your application will require checking off a series of key areas noted in the following optimization sections. Some technical preparation will however be required whenever assets are added to the Trust Wallet GitHub repo.
 
 Therefore, it is required that you have a [GitHub](https://github.com) account to interact with the [Assets repo](https://github.com/trustwallet/assets) and submit your DApp logo for listing. Before uploading any image files, you must make sure they meet the following requirements:
