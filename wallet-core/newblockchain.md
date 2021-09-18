@@ -40,11 +40,11 @@ Coverage must not decrease!  This is enforced automatically in the valiation of 
 
 ## Blockchain definition
 
-The first step to add a blockchain is to define its coin configuration. Add the definition to the `coins.json` file.  
+The first step to add a blockchain is to define its coin configuration. Add the definition to the `registry.json` file.
 
 ## Skeleton generation
 
-Execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `coins.json`. This will generate skeleton `Address`, `Signer`, `Entry` classes, proto file, C interface for Signer and corresponding tests.
+Execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `registry.json`. This will generate skeleton `Address`, `Signer`, `Entry` classes, proto file, C interface for Signer and corresponding tests.
 
 Run `tools/generate-files` to generate message proto files.
 
@@ -113,7 +113,7 @@ The C interface, any Protobuf models, and integration tests should be a separate
 The above steps are summarized below as a checklist:
 
 * [ ] Coin Definition:
-  * [ ] Add the coin definition to `coins.json`.
+  * [ ] Add the coin definition to `registry.json`.
   * [ ] Execute `codegen/bin/newcoin <coinid>`.
   * [ ] Execute `tools/generate-files`.
   * [ ] Add coin dispatcher to `src/Coin.cpp`.
@@ -143,7 +143,7 @@ The above steps are summarized below as a checklist:
 
 If you're adding a Bitcoin fork, you might not neeed to implement new Address or Signer class, please complete this checklist before you submit a pull request:
 
-- [ ] Derive address according to definition in `coins.json`, `p2pkh` address for `bip44` or native `bech32` segwit address for `bip84`.
+- [ ] Derive address according to definition in `registry.json`, `p2pkh` address for `bip44` or native `bech32` segwit address for `bip84`.
 - [ ] Check [SLIP-0132 :Registered HD version bytes](https://github.com/satoshilabs/slips/blob/master/slip-0132.md).
 - [ ] Check fee preference, use static fee or not, Trust will use fee that can be confirmed with in 2 blocks.
 - [ ] Add tests to validate all possible addresses, `p2pkh`, `p2sh` and `bech32`.

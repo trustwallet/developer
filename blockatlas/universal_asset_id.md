@@ -4,7 +4,7 @@ UAI unique identifier of the asset, it's blockchain agnostic and provides abilit
 
 ## Params:
 
-- `c` - coin (required), for most coins it uses [slip 44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) conventions, There is some exceptions that it's using [coinId](https://github.com/trustwallet/wallet-core/blob/master/coins.json#L1472) based on Wallet Core config
+- `c` - coin (required), for most coins it uses [slip 44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) conventions, There is some exceptions that it's using [coinId](https://github.com/trustwallet/wallet-core/blob/master/registry.json#L1472) based on Wallet Core config
 - `t` - token (optional), following standard of unique identifier on the blockhain as smart contract address or asset ID
 
 ## Examples:
