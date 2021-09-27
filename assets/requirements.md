@@ -23,7 +23,8 @@ Before submitting an asset to this repository, we recommend you have the followi
       - `website`: project web site
       - `explorer`: URL of the token explorer page
       - `id`: the id/contract/address of the token, same as the subfolder name
-      - `links`: "links": [
+      - `links`: 
+        "links": [
         {
             "name": "github",
             "url": "https://github.com/trustwallet/"
