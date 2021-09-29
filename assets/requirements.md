@@ -24,7 +24,6 @@ Before submitting an asset to this repository, we recommend you have the followi
       - `explorer`: URL of the token explorer page
       - `id`: the id/contract/address of the token, same as the subfolder name
       - `links`:  
-      -  
         "links": [
         {
             "name": "github",
