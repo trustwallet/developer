@@ -25,18 +25,18 @@ Before submitting an asset to this repository, we recommend you have the followi
       - `id`: the id/contract/address of the token, same as the subfolder name
       - `links`:  
         "links": [
-        {
-            "name": "github",
-            "url": "https://github.com/trustwallet/"
-        },
-        {
-            "name": "twitter",
-            "url": "https://twitter.com/TrustWalletApp"
-        },
-        {
-            "name": "reddit",
-            "url": "https://reddit.com/r/trustapp"
-        }
+        {. 
+            "name": "github",  
+            "url": "https://github.com/trustwallet/". 
+        },  
+        {  
+            "name": "twitter",  
+            "url": "https://twitter.com/TrustWalletApp"  
+        },  
+        {. 
+            "name": "reddit",  
+            "url": "https://reddit.com/r/trustapp"  
+        }  
     ]
 }
  - Checksum address (for ERC20 and BEP20 tokens)
