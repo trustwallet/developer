@@ -25,6 +25,7 @@
   * [Requirements](assets/requirements.md)
   * [Pull Request Fee](assets/pr-fee.md)
   * [FAQ](assets/faq.md)
+  * [Repository Details](assets/repository_details.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [DApps](dapps/listing-guide.md)
   * [Optimizing your DApp for Trust Wallet DApp Browser](dapps/mobile-optimize.md)
