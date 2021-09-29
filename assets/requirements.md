@@ -24,7 +24,7 @@ Before submitting an asset to this repository, we recommend you have the followi
       - `explorer`: URL of the token explorer page
       - `id`: the id/contract/address of the token, same as the subfolder name
       - `links`:  
-       <p>  "links": [  
+        "links": [  
         {  
                "name": "github",    
                "url": "https://github.com/trustwallet/"   
@@ -34,7 +34,7 @@ Before submitting an asset to this repository, we recommend you have the followi
                "url": "https://twitter.com/TrustWalletApp"    
         },    
         {   
-               "name": "reddit",    
+             <p>  "name": "reddit",    
                "url": "https://reddit.com/r/trustapp"    
         }   
   ]  
