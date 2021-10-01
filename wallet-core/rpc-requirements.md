@@ -1,6 +1,6 @@
 # RPC / API Requirements
 
-Trust Wallet is a light client wallet, which means it needs to get data / information from remote nodes (either light nodes or full nodes). In order to integrate your blockchain into Trust Wallet smoothly, you must also fulfill RPC / API requirements. We list all needed APIs or RPCs plus an example below for your reference, alternatively [Rosetta](https://www.rosetta-api.org/) Data API is also welcomed.
+Trust Wallet is a light client wallet, which means it needs to get data / information from remote nodes (either light nodes or full nodes). In order to integrate your blockchain into Trust Wallet smoothly, you must also fulfill RPC / API requirements. We list all needed APIs or RPCs plus an example below for your reference.
 
 ## for Trust Wallet: 
 
@@ -12,11 +12,10 @@ We need API or RPC to:
 - [ ] query blockchain status (block height etc)
 - [ ] send raw transaction
 
-## for Block Atlas: 
+## for Backend: 
 
-At first, please read [Block Atlas Developer Guide](https://developer.trustwallet.com/blockatlas/newblockchain), We need API or RPC to: 
+Used to create transaction list index and notify users about incoming/outgoing transactions.
 
-- [ ] query sent / received list of transactions for an account / address
 - [ ] query transactions in a block
 
 ## Example
