@@ -26,7 +26,7 @@ We were partly insipred by [Token Curated Registry](https://medium.com/@tokencur
 **How does a Fee fit with Open Source?**
 
 We believe in the power of open-source software, and essential parts of Trust Wallet are open source to contribute to the community
-([Wallet-Core](https://developer.trustwallet.com/wallet-core), [Blockatlas](https://developer.trustwallet.com/blockatlas)).
+([Wallet-Core](https://developer.trustwallet.com/wallet-core).
 But Trust Wallet is a branded product and running its backend infrastructure, support, marketing, etc. 
 Has costs (done by a non-volunteer based team).
 
