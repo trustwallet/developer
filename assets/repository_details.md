@@ -1,40 +1,3 @@
-# Trust Wallet Assets Info
-
-## Overview
-The Trust Wallet Token Repository 
-[https://github.com/trustwallet/assets](https://github.com/trustwallet/assets)
-is a comprehensive, up-to-date collection of information about several thousands (!) of crypto tokens.
-[Trust Wallet](https://trustwallet.com) uses token logos from this source, alongside a number of [other projects](#used-in-projects).
-
-The repository contains token info from several blockchains, info on dApps, staking validators, etc.
-For every token a logo and optional additional information is available (such data is not available on-chain).
-
-Such a large collection can be maintained only through a community effort, so _additions are welcome_,
-primarily from token projects.
-
-Please note that __new tokens are not accepted__,
-the projects have to be sound, with information available, and __non-minimal circulation__
-(for limit details see https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863).
-
-<center><img src='https://raw.githubusercontent.com/trustwallet/assets/master/media/trust-wallet.png'></center>
-
-## Contribution Quick Start
-
-Details of the [repository structure](#repository-details) and 
-[contribution guidelines](#contribution-guidelines) are listed below.
-Here is a quick starter summary for the most common use case.
-
-For **adding an ERC20 token**:
-- fork the Github repository
-- prepare a logo file, according to the [rules](#image-requirements) below, but must importantly:  PNG format, recommended pixel size of 256x256, max. 512x512, and max. file size of 100kB.
-- add/upload the logo file named `logo.png` to the folder `blockchains/ethereum/assets/<contract>`,
-where the last part is the token contract address in [_checksum format_](#checksum-format), such as
-`blockchains/ethereum/assets/0x1234567461d3f8Db7496581774Bd869C83D51c93/logo.png`.
-- Create `info.json` file with info about the token/project
-- Create a PR to the main repo
-- Pay the processing fee
-
-
 ## Repository Details
 
 ### Collections
@@ -42,30 +5,27 @@ where the last part is the token contract address in [_checksum format_](#checks
 The token repository contains the following collections:
 
 1. [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md), ERC223 tokens on Ethereum compatible networks such as:
-   [Ethereum (ETH)](https://ethereum.org/),
-   [Ethereum Classic (ETC)](https://ethereumclassic.org/),
-   [POA Network (POA)](https://poa.network/),
-   [TomoChain (TOMO)](https://tomochain.com/),
-   [GoChain (GO)](https://gochain.io/),
-   [Wanchain (WAN)](https://wanchain.org/),
-   [Callisto Network (CLO)](https://callisto.network/),
-   [Thunder Token (TT)](https://thundercore.com/), etc.
-
-2. [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md) 
-   [BEP8](https://github.com/binance-chain/BEPs/blob/master/BEP8.md)
-   Binance DEX tokens (native marketplace on Binance Chain)
-
-3. [TRC10, TRC20](https://developers.tron.network/docs/trc10-token) tokens on TRON blockchain
-
-4. dApp images available in `Browser` section in Trust Wallet, and bookmarks icons. [Read requirements](#dapp-image-naming-requirements). Also you can submit dApp to our list [read more](#dapp-submission-and-listing-requirements).
-
-5. Staking validators info, such as name, image, validator id, website url. [Supported staking coins](https://trustwallet.com/staking/). [Read requirements](#staking-validators-requirements).
-
-6. Crypto price providers map: [CoinMarketCap](https://github.com/trustwallet/assets/blob/master/pricing/coinmarketcap/mapping.json)
-
-7. Token and coin info
-
-8. Smart contract deprecation/upgrade. [Read more](#update-and-remove-an-existing-asset).
+   - [Ethereum (ETH)](https://ethereum.org/)
+   - [Ethereum Classic (ETC)](https://ethereumclassic.org/)
+   - [POA Network (POA)](https://poa.network/)
+   - [TomoChain (TOMO)](https://tomochain.com/)
+   - [GoChain (GO)](https://gochain.io/)
+   - [Wanchain (WAN)](https://wanchain.org/)
+   - [Callisto Network (CLO)](https://callisto.network/)
+   - [Thunder Token (TT)](https://thundercore.com/), etc.
+2. Binance DEX tokens (native marketplace on Binance Chain)
+   - [BEP2](https://github.com/binance-chain/BEPs/blob/master/BEP2.md)
+   - [BEP8](https://github.com/binance-chain/BEPs/blob/master/BEP8.md)
+3. Tokens on TRON blockchain [(TRC10, TRC20)](https://developers.tron.network/docs/trc10-token)
+4. DApp logos displayed in `Browser` section of the Trust Wallet app, and bookmarks icons
+   - [Image naming requirements](#dapp-image-naming-requirements)
+   - [Request listing in Trust Wallet DApp Browser](#dapp-submission-and-listing-requirements)
+6. Staking validators information, such as name: `image`, `validator_id`, `website_url`
+   - [Supported staking coins](https://trustwallet.com/staking/)
+   - [Read requirements](#staking-validators-requirements).
+7. Crypto price providers map: [CoinMarketCap](https://github.com/trustwallet/assets/blob/master/pricing/coinmarketcap/mapping.json)
+8. Token and coin information
+9. Smart contract deprecation/upgrade. [Read more](#update-and-remove-an-existing-asset)
 
 ### Repository structure
 
@@ -222,7 +182,7 @@ Sample `info.json`:
     "symbol": "TWT",
     "decimals": 8,
     "status": "active",
-    "id": "TWT-8C2"
+    "id": "TWT-8C2",
     "links": [
         {
             "name": "github",
@@ -260,9 +220,8 @@ Sample `info.json`:
 2. Add validator logo image to `blockchains/<chain>/validators/assets/<validator_address>/logo.png` [see images requirements](#image-requirements)
 3. Check chain [specific](#validators-specific-requirements) requirements.
 
-### Common uploads
+### Common Uploads
 
-Uploading:
 1. Ethereum ERC20 [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
 2. Binance DEX BEP2, BEP8 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
 3. TRON TRC10, TRC20 token [token folder](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
@@ -285,115 +244,12 @@ To do changes in the assets repository, you need to create a personal copy calle
 Once the changes are prepared inside the fork, you need to create a _pull request_ to the main repository.
 Upon review the maintainers will accept your pull request, and the changes will be incorporated.
 
-#### Adding files using Assets App
-
-A new token can be submitted using the Assets application.
-See also: https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957
-
-1. Open the assets web app:   [https://assets.trustwallet.com]( https://assets.trustwallet.com)
-2. Press the Log in with Github button.  If not yet logged in (in the current browser session), you need to log in to Github
-3. First time you will need to authorize the Assets app to access your Github account.
-4. The application should be now loaded
-5. Upload the logo file.
-6. Fill the token contract.  For some tokens (Erc20) some fields are auto-filled (symbol, decimals, etc.).
-7. Fill in additional fields, symbol, decimals, description, links, etc.
-8. Press the Check button.
-9. If all is OK, press the Create Pull Request button.  A PR will be created.
-
-
-#### Adding files using GitHub web page
-1. Proceed to [https://github.com/trustwallet/assets](https://github.com/trustwallet/assets)
-2. Press on `Fork` in the top right corner, wait for process to complete.
-   Note: if you already have a fork, it should be updated: easiest is to remove the fork and create it afresh.
-3. Navigate to desire chain folder you want to add asset
-4. Prepare on your local drive a folder corresponding to the token cortact.
-5. Copy the logo image as `logo.png` into the folder (and optional info file).
-6. Simply drag and drop the folder to active window
-7. In `Commit changes` box:
-  - `Add files via upload` add meaningfull comment what you adding to the repo
-  - optional: In `Add an optional extended description` write a comment about upload
-  - optional: adjust fork branch name
-8. Click on `Propose changes`
-9. Press on `Create pull request`
-
-#### Adding files using GitHub Desktop application
-The steps are similar to using the web page, but the desktop app has more control for overwriting the files, branching, pushing.
-
-#### Adding files using command-line
-1. Fork the repository to your own GitHub account
-2. Clone fork and create new branch:
-
-```bash
-git clone git@github.com:YOUR_HANDLE/assets.git
-cd assets
-git checkout -b <branch_name>
-```
-
-3. Add asset to appropriate directory, the [folder strcture](#repository-structure) documentation will help you
-4. Commit and push to your fork
-
-```bash
-git add -A
-git commit -m “Add <token_name>”
-git push origin <branch_name>
-```
-
-5. From your repo clone page make a new PR (pull request)
-
-### Fee
-Due to an increasing number of pull request (and proportional checking & merging effort),
-a modest fee is required for processing a pull request, payable in cryptocurrency.
-Follow the instructions in the pull request for completing the fee payment.
-
-See the [fee FAQ](pr-fee.md)
-
-
-## FAQ
-### Why is the build on my pull request red?
-Contributions in a pull request are verified by an automated build.
-The checks fail if something is wrong, like to logo is too large or an Ethereum contract is not in
-[checksum format](#checksum-format).
-Checks the exact error message in the build to find out the problem.
-
-### Why is there a merge conflict in my pull request?
-A merge conflict happens if the same file has been modified in the pull request, and also in the master branch since the fork was created.  With assets repo, this typically caused by using a fork that was created long ago.
-The simplest solution in this case is to delete your pull request, delete your fork, create a new fork, and create a new PR.  Alternatively, a merge conflict can be resolved using git command line, but Git skills are required.
-A pull request can also happen when overriding an existing logo.
-
-### Why I don't see my token in search after PR was merged?
-After PR was merged, it may take some time, but not longer than one hour, until search will show the new logo.
-
-### Why do I still see old logo in Trust Wallet after uploaded new one?
-Both clients, Android and iOS keep old image cache for up to a few days. In order to see changes immediately, reinstall Trust Wallet. But as always, make sure you have a backup of all your wallets.
-
-### What is smart contract deprecation?
-A process of removing smart contract information such as (token logo and info) from this repository.
-Removed contract address will be added to the denylist and, as a result, will no longer be present in token search results inside the TW app.
-Why would you want to do this ?.
-You are contract owner or just good samaritan who noticed contract to be no longer "active" and was an upgrade and abandoned by owning organization, involved in a scam, mimicking by its name or/and symbol a real contract. All facts must be supported with a link to any resource proving these statements.
-
 ## Token Status
 
-`active` - Token meets the standard requirements in terms of holders (2,500) and transactions (5,000). 
+`active` - Token meets the standard requirements in circulation (number of holders and transactions).
 
 `spam` - Token that is distribtued to a large number of recepients that have no inherent value or has been verified as a dishonest scheme or fraud.
 
 `abandoned` - Token with very low activity (below 100 token transfers a year), migrated to mainnet or to a new contract.
 
 No longer active
-
-## Used in Projects
-
-- [Trust Wallet](https://trustwallet.com) - [iOS](https://itunes.apple.com/us/app/trust-ethereum-wallet/id1288339409) and [Android](https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp)
-- [0x Tracker](https://0xtracker.com) - The 0x Protocol Trade Explorer and news aggregator.
-- [Uniswap](https://uniswap.exchange) - Uniswap is a protocol for automated token exchange on Ethereum.
-- [LinkDrop](https://linkdrop.io/) - A customer acquisition platform for DApps. The easiest crypto onboarding.
-- [Aragon](https://aragon.org/) − Aragon is platform and network for decentralized organizations.
-- [SpiderDEX](https://www.spiderdex.com) - Decentralized exchange for crypto collectibles.
-- [Zerion](https://zerion.io) — A simple interface to decentralized finance.
-
-## Disclaimer
-Trust Wallet team allows anyone to submit new assets to this repository. However, this does not mean that we are in direct partnership with all of the projects.
-
-Trust Wallet team will reject projects that are deemed as scam or fraudulent after careful review.
-Trust Wallet team reserves the right to change the terms of asset submissions at any time due to changing market conditions, risk of fraud, or any other factors we deem relevant.

@@ -81,10 +81,13 @@ val signerInput = Ethereum.SigningInput.newBuilder().apply {
     this.gasPrice = BigInteger("d693a400", 16).toByteString() // decimal 3600000000
     this.gasLimit = BigInteger("5208", 16).toByteString()     // decimal 21000
     this.toAddress = dummyReceiverAddress
-    this.amount = BigInteger("0348bca5a16000", 16).toByteString()
+    this.transaction = Ethereum.Transaction.newBuilder().apply {
+       this.transfer = Ethereum.Transaction.Transfer.newBuilder().apply {
+           this.amount = BigInteger("0348bca5a16000", 16).toByteString()
+       }.build()
+    }.build()
     this.privateKey = ByteString.copyFrom(secretPrivateKey.data())
 }.build()
 val output = AnySigner.sign(signerInput, CoinType.ETHEREUM, Ethereum.SigningOutput.parser())
 println("Signed transaction: \n${signerOutput.encoded.toByteArray().toHexString()}")
 ```
-

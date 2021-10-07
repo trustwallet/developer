@@ -46,7 +46,7 @@ let wallet = HDWallet(strength: 128, passphrase: "")
 ```
 
 ```swift
-let wallet = HDWallet(mnemonic: "ripple scissors kick mammal hire column oak again sun offer wealth tomorrow wagon turn fatal", passphrase: "")
+let wallet = HDWallet(mnemonic: "ripple scissors kick mammal hire column oak again sun offer wealth tomorrow wagon turn fatal", passphrase: "")!
 ```
 
 
@@ -86,7 +86,11 @@ let signerInput = EthereumSigningInput.with {
     $0.gasPrice = Data(hexString: "d693a400")! // decimal 3600000000
     $0.gasLimit = Data(hexString: "5208")! // decimal 21000
     $0.toAddress = "0xC37054b3b48C3317082E7ba872d7753D13da4986"
-    $0.amount = Data(hexString: "0348bca5a16000")!
+    $0.transaction = EthereumTransaction.with {
+       $0.transfer = EthereumTransaction.Transfer.with {
+           $0.amount = Data(hexString: "0348bca5a16000")!
+       }
+     }
     $0.privateKey = wallet.getKeyForCoin(coin: .ethereum).data
 }
 let output: EthereumSigningOutput = AnySigner.sign(input: signerInput, coin: .ethereum)

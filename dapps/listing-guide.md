@@ -8,7 +8,7 @@ By improving the functionality of your project and its overall optimization, you
 Missing out on just any one part of the optimization and application process will ultimately lead to an unsuccessful application. The journey involves rounds of:
 
 1. [Optimization](dapps/mobile-optimize.md)
-2. [Upload Assets (involves nominal fee)](https://developer.trustwallet.com/add_new_asset#dapp-image-naming-requirements)
+2. [Upload Assets via Github Pull Request (involves nominal fee)](#technical-requirements-and-preperation)
 3. [Application Form](https://trustwallet.com/submit-dapp)
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
@@ -22,10 +22,10 @@ The whole process can be divided into these key stages, along with some recommen
 
 Only by following closely the clearly defined instructions and recommendations will your DApp be able to join the list after careful scrutiny from the Trust Wallet team.
 
-### Technical Requirements & Preperation
+### Technical Requirements and Preperation
 Optimizing your application will require checking off a series of key areas noted in the following optimization sections. Some technical preparation will however be required whenever assets are added to the Trust Wallet GitHub repo.
 
-Therefore, it is required that you have a GitHub account to interact with the repo and submit your DApp for listing. Before uploading any image files, you must make sure they meet the following requirements:
+Therefore, it is required that you have a [GitHub](https://github.com) account to interact with the [Assets repo](https://github.com/trustwallet/assets) and submit your DApp logo for listing. Before uploading any image files, you must make sure they meet the following requirements:
 
 - File Extension: `png`
   - Uppercase `PNG` is considered invalid
@@ -49,8 +49,10 @@ Pull requests made to Trust Wall repositories have an associated fee to pay in e
 
 Contributing a fee filters spam requests and ensures that there is more time to handle genuine submissions.
 
-More details are available on the [pull request fee](https://developer.trustwallet.com/add_new_asset/pr-fee) that explain how this fits in with Trust Wallet’s open-source ethos. 
-
+More details are available on the [pull request fee](./assets/pr-fee) that explain how this fits in with Trust Wallet’s open-source ethos.
+  
+**NOTE:** Paying the fee does not guarantee that your asset will be listed in the repository.
+ 
 ### Applying for the Trust Wallet Dapp Listing
 
 Adding your DApp to the official Trust Wallet listing provides users with a guarantee of the quality and service provided by your DApp. Not every project that is submitted to the listing is approved. *Upon review, a member of the Trust Wallet team will reach out with additional information or follow up questions if necessary*.

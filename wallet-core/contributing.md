@@ -119,7 +119,7 @@ Since C interface doesn't know how to handle C++ exception, we should catch all 
 
 ## Coin definition
 
-The wallet core code generator also parses coin configuration defined in `coins.json`, the generated code will locate at `src/Generated/Coins.cpp`.
+The wallet core code generator also parses coin configuration defined in `registry.json`, the generated code will locate at `src/Generated/Coins.cpp`.
 
 ```json
 {
