@@ -20,7 +20,7 @@ We were partly insipred by [Token Curated Registry](https://medium.com/@tokencur
 
 **What do I have to pay attention to?**
 
-* Double check the [contribution guidelines](assets/add_new_asset.md), to minimize the risk of your PR being rejected.
+* Double check the [contribution guidelines](assets/new-asset.md), to minimize the risk of your PR being rejected.
 * Make sure to set the correct memo on your transfer.
 
 **How does a Fee fit with Open Source?**
