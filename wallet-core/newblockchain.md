@@ -4,7 +4,7 @@ If you haven't, first read the [guide to contributing](contributing.md). It cont
 
 ## Blockchains, Coins and Tokens
 
-* If you are interested in adding a new Token, e.g. ERC20, in this case no code changes are needed, see the [Assets](../assets/add_new_asset.md) section for more details. 
+* If you are interested in adding a new Token, e.g. ERC20, in this case no code changes are needed, see the [Assets](../assets/new_asset.md) section for more details. 
 * For new coins you need to implement address handling and signing functionality in wallet-core (described in this section).  For new coins on already supported blockchains, or variations of already supported blockchains, please consider proper reuse of existing implementation.
 
 ## Integration Criteria
