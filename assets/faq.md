@@ -22,5 +22,5 @@ Removed contract address will be added to the denylist and, as a result, will no
 Why would you want to do this ?.
 You are contract owner or just good samaritan who noticed contract to be no longer "active" and was an upgrade and abandoned by owning organization, involved in a scam, mimicking by its name or/and symbol a real contract. All facts must be supported with a link to any resource proving these statements.
 
-### Why the price is not displayed on CoinMarketCap?
+### Why token price is not displayed in the app?
 Your contract should be displayed on the CoinMarketCap page, if there is no your contract on the page CoinMarketCap we cannot make an association between the token address and CoinMarketCap ID. In this case, contact the team CoinMarketCap and make a request to add an address token.
