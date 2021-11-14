@@ -23,6 +23,6 @@ Why would you want to do this ?.
 You are contract owner or just good samaritan who noticed contract to be no longer "active" and was an upgrade and abandoned by owning organization, involved in a scam, mimicking by its name or/and symbol a real contract. All facts must be supported with a link to any resource proving these statements.
 
 ### Why isn't my token's price displaying in the app?
-Token prices will only show up within Trust Wallet if the CoinMarketCap (CMC) listing has the correct contract address associated with it. You can submit changes to your CMC listing via their online form. Once an asset's contract address has been added to it's CMC listing, and the asset has enough transaction volume, pricing data will automatically appear in Trust Wallet.
+Token prices will only show up within Trust Wallet if the CoinMarketCap (CMC) listing has the correct contract address associated with it. You can submit changes to your CMC listing via their [online form](https://support.coinmarketcap.com/hc/en-us/requests/new). Once an asset's contract address has been added to it's CMC listing, and the asset has enough transaction volume, pricing data will automatically appear in Trust Wallet.
 
 Note: submitting an asset to the Trust Wallet repository does not guarantee that can pricing data can or will be associated by CMC. Please review CMC's listing criteria [here](https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria).
