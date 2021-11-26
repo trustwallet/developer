@@ -62,4 +62,4 @@ The pull request fee is non-refundable and covers the processing only; payment i
 
 **Do I need to pay the PR fee again to make updates to my submission?**
 
-If your asset is already accepted into the repository, subsequent updates will require payment of the fee to cover processing your changes. This includes changes made for name changs, logo changes, rebranding etc.
+If your asset is already accepted into the repository, subsequent updates will require payment of the fee to cover processing your changes. This includes changes made for name changes, logo changes, rebranding etc.
