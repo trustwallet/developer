@@ -167,6 +167,9 @@ It has following required fields:
 List of currently supported types:
 `github`, `whitepaper`, `twitter`, `telegram`, `telegram_news`, `medium`, `discord`, `reddit`, `facebook`, `youtube`, `coinmarketcap`, `coingecko`, `blog`, `forum`, `docs`, `source_code`.
 Note: the `socials` section is no longer used.
+- `tags`: Assigning these tags to tokens helps place them on appropriate token menus and ensures your token is evaluated correctly in conditions.
+List of currently supported tags: 
+`stablecoin`, `wrapped`, `synthetics`, `nft`, `governance`, `defi`, `staking`, `staking-native`, `privacy`, `nsfw`, `binance-peg`, `deflationary`, `memes`, `gamefi`.
 
 If in doubt about fields, look around / search in existing info.json files.
 
@@ -197,6 +200,9 @@ Sample `info.json`:
             "url": "https://reddit.com/r/trustapp"
         }
     ]
+ "tags": [
+         "governance"
+     ]
 }
 ```
 
