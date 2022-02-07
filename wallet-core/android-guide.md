@@ -12,10 +12,29 @@ A sample application is available at: https://github.com/trustwallet/wallet-core
 
 ## Adding Library Dependency
 
+Android releases are hosted on [GitHub packages](https://github.com/trustwallet/wallet-core/packages/700258), please checkout [this installation guide](https://docs.github.com/en/packages/guides/configuring-gradle-for-use-with-github-packages#installing-a-package), you need to add GitHub access token to install it.
+
 Add this dependency to build.gradle:
-```
+
+```groovy
 dependencies {
-    implementation "com.trustwallet:wallet-core:0.12.31"
+    implementation "com.trustwallet:wallet-core:<latest_tag>"
+}
+```
+
+Add `maven` and `credentials` (local properties or system environment variables)
+
+```groovy
+allprojects {
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/trustwallet/wallet-core")
+            credentials {
+                username = project.findProperty("gpr.user") as String?: System.getenv("GITHUB_USER")
+                password = project.findProperty("gpr.key") as String?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
 ```
 
@@ -77,16 +96,16 @@ Code example to fill in signer input parameters, perform signing, and retrieve e
 
 ```kotlin
 val signerInput = Ethereum.SigningInput.newBuilder().apply {
-    this.chainId = ByteString.copyFrom(BigInteger("01").toByteArray())
-    this.gasPrice = BigInteger("d693a400", 16).toByteString() // decimal 3600000000
-    this.gasLimit = BigInteger("5208", 16).toByteString()     // decimal 21000
-    this.toAddress = dummyReceiverAddress
-    this.transaction = Ethereum.Transaction.newBuilder().apply {
-       this.transfer = Ethereum.Transaction.Transfer.newBuilder().apply {
-           this.amount = BigInteger("0348bca5a16000", 16).toByteString()
+    chainId = ByteString.copyFrom(BigInteger("01").toByteArray())
+    gasPrice = BigInteger("d693a400", 16).toByteString() // decimal 3600000000
+    gasLimit = BigInteger("5208", 16).toByteString()     // decimal 21000
+    toAddress = dummyReceiverAddress
+    transaction = Ethereum.Transaction.newBuilder().apply {
+       transfer = Ethereum.Transaction.Transfer.newBuilder().apply {
+           amount = BigInteger("0348bca5a16000", 16).toByteString()
        }.build()
     }.build()
-    this.privateKey = ByteString.copyFrom(secretPrivateKey.data())
+    privateKey = ByteString.copyFrom(secretPrivateKey.data())
 }.build()
 val output = AnySigner.sign(signerInput, CoinType.ETHEREUM, Ethereum.SigningOutput.parser())
 println("Signed transaction: \n${signerOutput.encoded.toByteArray().toHexString()}")

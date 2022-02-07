@@ -26,6 +26,27 @@ The dependency can be installed simply by `pod install`:
 pod install
 ```
 
+SPM is also supported, download latest `Package.swift` from [GitHub Releases](https://github.com/trustwallet/wallet-core/releases) and put it in a local `WalletCore` folder.
+
+Add this line to the `dependencies` parameter in your `Package.swift`:
+
+```swift
+.package(name: "WalletCore", path: "../WalletCore"),
+```
+
+Or add remote url + `master` branch, it points to recent (not always latest) binary release.
+
+```swift
+.package(name: "WalletCore", url: "https://github.com/trustwallet/wallet-core", .branchItem("master")),
+```
+
+Then add libraries to target's `dependencies`: 
+
+```swift
+.product(name: "WalletCore", package: "WalletCore"),
+.product(name: "SwiftProtobuf", package: "WalletCore"),
+```
+
 ## Code Examples
 
 In the following sections we show code examples for some common funcions.
@@ -90,7 +111,7 @@ let signerInput = EthereumSigningInput.with {
        $0.transfer = EthereumTransaction.Transfer.with {
            $0.amount = Data(hexString: "0348bca5a16000")!
        }
-     }
+    }
     $0.privateKey = wallet.getKeyForCoin(coin: .ethereum).data
 }
 let output: EthereumSigningOutput = AnySigner.sign(input: signerInput, coin: .ethereum)
