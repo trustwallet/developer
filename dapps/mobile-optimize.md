@@ -1,15 +1,15 @@
-# Optimizing Your Dapp for the Trust Wallet DApp Browser
+# Optimizing Your Dapp for the Trust Wallet
 
-Users of the Trust Wallet app enjoy the ease and experience of accessing their wallets, assets, and DApps all at the same time. This is made possible through the Trust Wallet DApp browser. Without needing to swap between apps, users can trade and browse in a fluid, uninterrupted experience.
+Users of the Trust Wallet app enjoy the ease and experience of accessing their wallets, assets, and DApps all at the same time. This is made possible through the Trust Wallet DApp browser and WalletConnect. Without needing to swap between apps, users can trade and browse in a fluid, uninterrupted experience.
 
-Optimizing your DApp for the Trust Wallet browser is an integral part of making sure your project is up to scratch for listing. We recommend that you take a considerable amount of time to ensure fully that your app has at least the basic levels of optimization laid out below.
+Optimizing your DApp for the Trust Wallet is an integral part of making sure your project is up to scratch for listing. We recommend that you take a considerable amount of time to ensure fully that your app has at least the basic levels of optimization laid out below.
 
 ## Preparing your DApp for Trust Wallet
 
 The Trust Wallet App currently offers the following functionality:
 
 - A Web3 browser for interacting with decentralized applications
-- A range of tools to provide a seamless connection between the DApps and the user on the Binance Smart Chain,  Ethereum network, ETC, CLO, Thunder, Tomo, and POA
+- A range of tools to provide a seamless connection between the DApps and the user on the Ethereum, BNB Smart Chain, Polygon, Optimism, Arbitrum, Avalanche, Fantom, Gnosis Chain and a few more EVM compatible Networks (Cronos, ETC, CLO, Thunder, Tomo).
 - A fully optimized, integrated interface experience for mobile users
 
 There are simple steps for blockchain developers to implement to take full advantage of these key features. Most are basic tips but none can be missed out.
@@ -20,9 +20,9 @@ Familiarity with MetaMask puts you off to a good start in terms of optimizing or
 
 ## Create a UI that Is mobile-friendly
 
-It can’t be forgotten that Trust Wallet is accessed by two groups of people: those using the app on [Android](https://trustwallet.com/referral) and those using an iOS device (in [TestFlight](https://community.trustwallet.com/t/how-to-use-the-dapp-browser-on-ios/69390)). Your project must be developed to have a mobile-friendly UI as the Trust Wallet inbuilt browser is the primary point of access for the majority of our users.
+It can’t be forgotten that Trust Wallet is accessed by two groups of people: those using the app on [Android](https://trustwallet.com/referral) and those using an iOS device. Your project must be developed to have a mobile-friendly UI as the Trust Wallet inbuilt browser is the primary point of access for the majority of our users.
 
-iOS users require the latest build of any DApp to be uploaded to TestFlight before they can access it. UI/UX design needs to also be considered in your mobile design to provide the best in-wallet experience.
+iOS users require the latest build from Apple App Store. UI/UX design needs to also be considered in your mobile design to provide the best in-wallet experience.
 
 ## Master Web3
 
@@ -30,7 +30,14 @@ Web3 is incredibly powerful for developing DApps and outlining their interaction
 
 All DApps should be [EIP1193](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1193.md) (Ethereum Improvement Protocol 1193) compatible. This allows for a high degree of wallet interoperability when exposing an API through JavaScript objects in the Ethereum DApp.
 
-If you have decided upon using MetaMask as your dev tool, do not forget their [decision](https://medium.com/metamask/no-longer-injecting-web3-js-4a899ad6e59e) to stop injecting the web.js API. This will seriously affect the degree of compatibility between your DApp and the Trust Wallet browser without proper planning.
+If you have decided upon using MetaMask as your dev tool, do not forget their [Provider Migration Guide](https://docs.metamask.io/guide/provider-migration.html). This will seriously affect the degree of compatibility between your DApp and the Trust Wallet browser without proper planning.
+
+Consider including an explicit Trust Wallet icon or button in your DApp. This will help Trust Wallet users connect to your DApp for the first time. 
+
+Recommended steps to improve the user experience when a user clicks or taps the Trust Wallet icon:
+
+1. Verify that the DApp is open in desktop browsers or no `window.ethereum` -> Display the WalletConnect pairing popup
+2. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the 'window.ethereum'  directly.
 
 ## Test your DApp on both iOS and Android
 
