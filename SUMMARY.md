@@ -25,5 +25,5 @@
   * [Universal Asset ID](assets/universal_asset_id.md)
 * [Deep Linking](deeplinking/deeplinking.md)
 * [DApps](dapps/listing-guide.md)
-  * [Optimizing your DApp for Trust Wallet DApp Browser](dapps/mobile-optimize.md)
+  * [Optimizing your DApp for Trust Wallet](dapps/mobile-optimize.md)
   * [Debugging](dapps/debugging.md)
