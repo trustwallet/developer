@@ -161,11 +161,11 @@ let utxo = BitcoinUnspentTransaction.with {
     $0.outPoint.index = 2                        // outpoint index of this this UTXO, "vout" field from blockbook utxo api
     $0.outPoint.sequence = UINT32_MAX
     $0.amount = 5151                             // value of this UTXO, "value" field from blockbook utxo api
-    $0.script = BitcoinScript.buildForAddress(address: address, coin: .bitcoinCash).data // Build lock script from address or public key hash
+    $0.script = BitcoinScript.lockScriptForAddress(address: address, coin: .bitcoinCash).data // Build lock script from address or public key hash
 }
 
 let input = BitcoinSigningInput.with {
-    $0.hashType = BitcoinSigHashType.all.rawValue | BitcoinSigHashType.fork.rawValue
+    $0.hashType = BitcoinScript.hashTypeForCoin(coinType: .bitcoinCash)
     $0.amount = 600
     $0.byteFee = 1
     $0.toAddress = "1Bp9U1ogV3A14FMvKbRJms7ctyso4Z4Tcx"
