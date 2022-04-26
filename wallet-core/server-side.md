@@ -96,3 +96,13 @@ func main() {
 <== bitcoin address:  bc1qw29x4hrt6tahz4jvuhzrq6y5el3spqt499zuay
 ```
 6. You might want to copy and run `main` outside of the docker container, make sure you have `libc++1` and `libc++abi1` installed in your host Ubuntu.
+
+## Node.js
+
+1. Install from NPM or GPR
+
+```shell
+npm install @trustwallet/wallet-core
+```
+
+2. Check [tests](https://github.com/trustwallet/wallet-core/tree/master/wasm/tests) for API usage

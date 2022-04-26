@@ -8,6 +8,7 @@ The following *target platforms* are supported:
 
 * **iOS** (Swift language is used)
 * **Android**
+* **Wasm** (Emscripten)
 
 The following *development platforms* are supported:
 
@@ -31,14 +32,14 @@ Here is the list of required prerequisites.
 * Boost `brew install boost`
 * Xcode
 * Xcode command line tools: `xcode-select --install`
-* Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format`
+* Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format ccache`
 * Cocoapods for iOS: `sudo gem install cocoapods`
 * [Android Studio](https://developer.android.com/studio/index.html)
 * [Android NDK](https://developer.android.com/ndk/guides/)
 
 ### Prerequisites on Linux
 
-* Various packages `sudo apt-get install autoconf git libcurl4-openssl-dev libicu-dev libssl-dev libtool ninja-build nodejs pkg-config unzip`
+* Various packages `sudo apt-get install autoconf git libcurl4-openssl-dev libicu-dev libssl-dev libtool ninja-build nodejs pkg-config unzip ccache`
 * CLang
 * Ruby 2.6 (`rbenv` from https://github.com/rbenv/ruby-build, then `rbenv install 2.6.3`)
 * Boost (from https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz)
@@ -90,6 +91,33 @@ After build, *unit tests* can be executed:
 ```
 
 If you'd rather use and IDE for building and debugging you can specify the `-G` option to cmake. For instance to use Xcode call `cmake -Bxcode -GXcode -DCMAKE_BUILD_TYPE=Debug` and use the generated project in the xcode folder.
+
+### Wasm building
+
+Install [Emscripten SDK](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html) (emsdk):
+
+```shell
+`tools/install-wasm-dependencies`
+```
+
+Activate `emsdk`:
+
+```shell
+`source emsdk/emsdk_env.sh`
+```
+
+Build Wasm:
+
+```shell
+tools/wasm-build
+```
+
+Run Wasm tests:
+```shell
+cd wasm
+npm install && npm run copy:wasm && npm run build
+npm run test
+```
 
 ## Building inside Docker image
 
