@@ -119,37 +119,52 @@ Since C interface doesn't know how to handle C++ exception, we should catch all 
 
 ## Coin definition
 
-The wallet core code generator also parses coin configuration defined in `registry.json`, the generated code will locate at `src/Generated/Coins.cpp`.
+The wallet core code generator also parses coin configuration defined in `registry.json`, the generated code will be located at `src/Generated/Coins.cpp`.
+See the documentation of the fields here: https://github.com/trustwallet/wallet-core/blob/master/docs/registry-fields.md.
+
+Example:
 
 ```json
 {
-    "id": "bitcoin",                                            // coin id
-    "name": "Bitcoin",                                          // coin name
-    "symbol": "BTC",                                            // coin symbol
-    "decimals": 8,                                              // minimum currency unit, e.g. a satoshi is 0.00000001 ฿
-    "blockchain": "Bitcoin",                                    // blockchain type
-    "derivationPath": "m/84'/0'/0'/0/0",                        // default path for derivating private key from a mnemonic
-    "curve": "secp256k1",                                       // elliptic curve used in Bitcoin's public key cryptography
-    "publicKeyType": "secp256k1",                               // public key type
-    "p2pkhPrefix": 0,                                           // [optional] pay-to-pubkey hash address prefix
-    "p2shPrefix": 5,                                            // [optional] pay-to-script hash address prefix
-    "hrp": "bc",                                                // [optional] human readable part for bech32 address
-    "publicKeyHasher": "sha256ripemd",                          // [optional] xpub / xprv fingerprint hasher
-    "base58Hasher": "sha256d",                                  // [optional] xpub / xprv base58 hasher, base58(hasher(hd node data))
-    "xpub": "zpub",                                             // [optional] hd version bytes defined in slip-0132
-    "xprv": "zprv",                                             // [optional] hd version bytes defined in slip-0132
+    "id": "bitcoin",
+    "name": "Bitcoin",
+    "coinId": 0,
+    "symbol": "BTC",
+    "decimals": 8,
+    "blockchain": "Bitcoin",
+    "derivation": [
+      {
+        "name": "segwit",
+        "path": "m/84'/0'/0'/0/0",
+        "xpub": "zpub",
+        "xprv": "zprv"
+      },
+      {
+        "name": "legacy",
+        "path": "m/44'/0'/0'/0/0",
+        "xpub": "xpub",
+        "xprv": "xprv"
+      }
+    ],
+    "curve": "secp256k1",
+    "publicKeyType": "secp256k1",
+    "p2pkhPrefix": 0,
+    "p2shPrefix": 5,
+    "hrp": "bc",
+    "publicKeyHasher": "sha256ripemd",
+    "base58Hasher": "sha256d",
     "explorer": {
-        "url": "https://blockchair.com",                        // block explorer
-        "txPath": "/bitcoin/transaction/",                      // path to view transaction detail
-        "accountPath": "/bitcoin/address/",                     // path to view account / address detail
-        "sampleTx": "0607f62530b68cfcc91c57a1702841dd399a899d0eecda8e31ecca3f52f01df2", // [optional] sample transaction id
-        "sampleAccount": "17A16QmavnUfCW11DAApiJxp7ARnxN5pGX"                           // [optional] sample account / address
+      "url": "https://blockchair.com",
+      "txPath": "/bitcoin/transaction/",
+      "accountPath": "/bitcoin/address/",
+      "sampleTx": "0607f62530b68cfcc91c57a1702841dd399a899d0eecda8e31ecca3f52f01df2",
+      "sampleAccount": "17A16QmavnUfCW11DAApiJxp7ARnxN5pGX"
     },
     "info": {
-        "url": "https://ethereum.org", // project homepage
-        "client": "https://github.com/ethereum/go-ethereum", // rpc node to query balance, utxo, send transactions
-        "clientPublic": "https://mainnet.infura.io", // public rpc/api node to query balance, utxo, send transactions
-        "clientPuclicDocs": "https://github.com/ethereum/wiki/wiki/JSON-RPC" // API Reference
+      "url": "https://bitcoin.org",
+      "source": "https://github.com/trezor/blockbook",
+      "rpc": "",
+      "documentation": "https://github.com/trezor/blockbook/blob/master/docs/api.md"
     }
 }
 ```
