@@ -41,6 +41,9 @@ Coverage must not decrease!  This is enforced automatically in the valiation of 
 ## Blockchain definition
 
 The first step to add a blockchain is to define its coin configuration. Add the definition to the `registry.json` file.
+Consult a similar blockchain (or simply copy & modify).
+
+The fields are documented here: https://github.com/trustwallet/wallet-core/blob/master/docs/registry-fields.md.
 
 ## Skeleton generation
 

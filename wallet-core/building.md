@@ -74,7 +74,7 @@ This script downloads and compiles some prerequisites.
 ./tools/generate-files
 ```
 
-This script generates source files, coin- and protobuf files.  Needs to be re-run whenever `registry.json` or protobuf files are changes.
+This script generates source files, coin- and protobuf files.  Needs to be re-run whenever `registry.json` or protobuf files are changed.
 
 ```shell
 cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
