@@ -22,10 +22,10 @@ Steps:
 
 - Run `tools/generate-file` to make sure new added files are generated
 
-- Run `cmake`, to enable coverage measurement
+- Run `cmake` with `-DCODE_COVERAGE=ON` to enable coverage measurement
 
 ```shell
-cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCODE_COVERAGE=ON
+cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCODE_COVERAGE=ON
 ```
 
 - Build tests
@@ -56,6 +56,10 @@ c++filt: Unknown command line argument '--no-strip-underscores'.  Try: '/Applica
 c++filt: Did you mean '--no-strip-underscore'?
 genhtml: ERROR: c++filt output not as expected (0 vs 11) lines
 ```
-please patch `genhtml` (for example /usr/local/Cellar/lcov/1.15/libexec/bin/), change `--no-strip-underscores` to `--no-strip-underscore`
+please upgrade `lcov` to min. `1.16`, or patch `genhtml` (for example /usr/local/Cellar/lcov/1.15/libexec/bin/), change `--no-strip-underscores` to `--no-strip-underscore`
 
 Open the generated `coverage/index.html` to view the report.
+
+See also
+[tools/coverage](https://github.com/trustwallet/wallet-core/blob/master/tools/coverage) and
+[linux-ci.yml](https://github.com/trustwallet/wallet-core/blob/master/.github/workflows/linux-ci.yml)
