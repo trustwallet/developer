@@ -167,20 +167,5 @@ Otherwise, the prerequisites have to be installed manually.
 
 ## Unit tests with Coverage
 
-Coverage info can be seen in the GitHub [CI builds](https://codecov.io/gh/trustwallet/wallet-core),
-but can be generated locally as well.
-
-Steps for running unit tests with coverage measurement, and creating report locally:
-
-```bash
-cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCODE_COVERAGE=ON
-make -Cbuild -j12 tests
-find . -name "*.gcda" -exec rm {} \;
-rm -rf coverage.info coverage/
-./build/tests/tests tests --gtest_filter=*
-tools/coverage html
-```
-
-See also 
-[tools/coverage](https://github.com/trustwallet/wallet-core/blob/master/tools/coverage) and
-[linux-ci.yml](https://github.com/trustwallet/wallet-core/blob/master/.github/workflows/linux-ci.yml).
+For executing tests locally with coverage measurement, some extra `cmake` settings are needed;
+see [section on coverage instructions](coverage.md).
