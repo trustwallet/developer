@@ -29,7 +29,8 @@ Therefore, it is required that you have a [GitHub](https://github.com) account t
 
 - File Extension: `png`
   - Uppercase `PNG` is considered invalid
-- File Name：logo.pngSize: 256px by 256px
+- File Name：logo.png
+- Size: 256px by 256px
 - Background: Avoid transparency. White is preferred to fit in with app white/dark theme designs.
 - File size: maximum 100kB. Tip: optimize your image size using a simple drag-and-drop online service such as tinypng.Your logo’s file name must also meet the following criteria: <subdomain>.<domain_name>.png 
   - For example: https://app.compound.finance/ => app.compound.finance.png
