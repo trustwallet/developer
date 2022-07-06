@@ -50,7 +50,7 @@ Pull requests made to Trust Wall repositories have an associated fee to pay in e
 
 Contributing a fee filters spam requests and ensures that there is more time to handle genuine submissions.
 
-More details are available on the [pull request fee](./assets/pr-fee) that explain how this fits in with Trust Wallet’s open-source ethos.
+More details are available on the [pull request fee](../assets/pr-fee.md) that explain how this fits in with Trust Wallet’s open-source ethos.
   
 **NOTE:** Paying the fee does not guarantee that your asset will be listed in the repository.
  
