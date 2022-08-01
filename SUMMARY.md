@@ -4,6 +4,7 @@
 * [Wallet Core](wallet-core/wallet-core.md)
   * [New Blockchain Support](wallet-core/newblockchain.md)
     * [RPC / API Requirements](wallet-core/rpc-requirements.md)
+    * [New EVM Chain](wallet-core/newevmchain.md)
   * Developing the Library
     * [Contributing](wallet-core/contributing.md)
     * [Building](wallet-core/building.md)
