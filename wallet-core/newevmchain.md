@@ -29,6 +29,7 @@ swift/Tests/CoinAddressDerivationTests.swift
 - Run `tools/generate-files` to update generated sources.
 - Build the project, execute unit tests (see [building.md]).
 ```
+cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
 make -Cbuild -j12 tests
 ./build/tests/tests tests
 ```
