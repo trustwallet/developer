@@ -5,7 +5,7 @@ For more complex chain integrations, see [newblockchain.md].
 
 ## Prerequisties / Needed information
 
-- ETH `ChainID`.  EVM chains have a unique ChainID, such as `8217`.
+- `ChainID`.  EVM chains have a unique ChainID, such as `8217`.
 - `Derivation path` used.  Most EVM chains use Ethereum derivation path, `"m/44'/60'/0'/0/0"` (but not all).
 - `CoinID`.  Most EVM chains do not have a SLIP 44 CoinID, but some do.
 
@@ -20,7 +20,7 @@ For more complex chain integrations, see [newblockchain.md].
 - Discard changes in `include/TrustWalletCore/TWBlockchain.h` and `src/Coin.cpp`, no need for new blockchain type.
 - Check the test file `tests/X/TWCoinTypeTests.cpp` (`X` is the name of the blockchain).
 - There are some test cases test derivation for all coins.  Extend these with the new chain.
-If the new chain reuses Eth address, it can reuse the Eth case in the switch statements.
+If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
 ```
 tests/CoinAddressDerivationTests.cpp
 android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/CoinAddressDerivationTests.kt
