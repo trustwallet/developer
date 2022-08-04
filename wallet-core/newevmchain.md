@@ -1,7 +1,7 @@
 # Adding an EVM Chain
 
 Adding support for a new fully EVM-compatible chain to Wallet Core requires only a few changes, follow the steps here.
-For more complex chain integrations, see [newblockchain.md].
+For more complex chain integrations, see [general new blockchain docs](newblockchain.md).
 
 ## Prerequisties / Needed information
 
@@ -11,14 +11,14 @@ For more complex chain integrations, see [newblockchain.md].
 
 ## Steps
 
-- Start with an up-to-date workspace (more info: [contributing.md]).
+- Start with an up-to-date workspace ([more info](contributing.md)).
 - Add chain information to `registry.json`. Some notable fields:
--- blockchain: "Ethereum",
--- coinId: Should be set to: `10000000 + chainID`, such as `10008217`. If coinID is available, use that.
+  - blockchain: "Ethereum",
+  - coinId: Should be set to: `10000000 + chainID`, such as `10008217`. If own coinID is available, use that.
 - Run `codegen/bin/newcoin <chain>` to generate template source files.  
 - For EVM chains we will only need the `tests/<Chain>/TWCoinTypeTests.cpp` test file, discard all the other new files.
-- Discard changes in `include/TrustWalletCore/TWBlockchain.h` and `src/Coin.cpp`, no need for new blockchain type.
-- Check the test file `tests/X/TWCoinTypeTests.cpp` (`X` is the name of the blockchain).
+- Discard changes in `include/TrustWalletCore/TWBlockchain.h` and `src/Coin.cpp` (no need for new blockchain type).
+- Check the test file `tests/<Chain>/TWCoinTypeTests.cpp`.
 - There are some test cases test derivation for all coins.  Extend these with the new chain.
 If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
 ```
@@ -27,7 +27,7 @@ android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/CoinAddres
 swift/Tests/CoinAddressDerivationTests.swift
 ```
 - Run `tools/generate-files` to update generated sources.
-- Build the project, execute unit tests (see [building.md]).
+- Build the project, execute unit tests (see [building](building.md)).
 ```
 cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
 make -Cbuild -j12 tests
@@ -35,6 +35,6 @@ make -Cbuild -j12 tests
 ```
 - If all is fine, create a PR with the changes.
 
-## Some Examples:
-- https://github.com/trustwallet/wallet-core/pull/2307
-- https://github.com/trustwallet/wallet-core/pull/2157
+## Some Sample PRs:
+- [github.com/trustwallet/wallet-core/pull/2307](https://github.com/trustwallet/wallet-core/pull/2307)
+- [github.com/trustwallet/wallet-core/pull/2157](https://github.com/trustwallet/wallet-core/pull/2157)
