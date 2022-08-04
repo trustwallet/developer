@@ -44,7 +44,7 @@ This guide is for adding a logo for the following Trust Wallet supported blockch
  - [TRON TRC10, TRC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
 
 For **adding an token**:
-- [ ] Ensure your asset meets the our [reqirements](requirements.md)
+- [ ] Ensure your asset meets our [reqirements](requirements.md)
 - [ ] Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information
 - [ ] Pay the [processing fee](pr-fee.md)
 
