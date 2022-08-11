@@ -32,13 +32,13 @@ All Ethereum DApps should be [EIP1193](https://github.com/ethereum/EIPs/blob/mas
 
 If you have decided upon using MetaMask as your dev tool, do not forget their [Provider Migration Guide](https://docs.metamask.io/guide/provider-migration.html). This will seriously affect the degree of compatibility between your DApp and the Trust Wallet browser without proper planning.
 
-For Solana integration the best way would be to use the official [Wallet Provider](https://github.com/solana-labs/wallet-adapter) which supports Trust Wallet and include it as the connection point to your DApp.
+For Solana integration the best way would be to use the official [Wallet Adapter](https://github.com/solana-labs/wallet-adapter) which supports Trust Wallet and include it as the connection point to your DApp.
 
 Consider including an explicit Trust Wallet icon or button in your DApp. This will help Trust Wallet users connect to your DApp for the first time. 
 
 Recommended steps to improve the user experience when a user clicks or taps the Trust Wallet icon:
 
-1. Verify that the DApp is open in desktop browsers or no `trustwallet.ethereum`/`trustwallet.solana` -> Display the WalletConnect pairing popup
+1. Verify that the DApp is open in desktop browsers or no `window.trustwallet.ethereum`/`window.trustwallet.solana` -> Display the WalletConnect pairing popup
 2. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `trustwallet.ethereum`/`trustwallet.solana`  directly.
 
 ## Test your DApp on both iOS and Android
