@@ -39,7 +39,7 @@ Consider including an explicit Trust Wallet icon or button in your DApp. This wi
 Recommended steps to improve the user experience when a user clicks or taps the Trust Wallet icon:
 
 1. Verify that the DApp is open in desktop browsers or no `window.trustwallet.ethereum`/`window.trustwallet.solana` -> Display the WalletConnect pairing popup
-2. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `trustwallet.ethereum`/`trustwallet.solana`  directly.
+2. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `window.trustwallet.ethereum`/`window.trustwallet.solana`  directly.
 
 ## Test your DApp on both iOS and Android
 
