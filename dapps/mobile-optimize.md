@@ -14,7 +14,7 @@ The Trust Wallet App currently offers the following functionality:
 
 There are simple steps for blockchain developers to implement to take full advantage of these key features. Most are basic tips but none can be missed out.
 
-## Metamask/Phantom is a good place to start for an EVM compatible DApp
+## Metamask/Phantom is a good place to start
 
 Familiarity with MetaMask interaction for Ethereum DApps or Phantom for Solana puts you off to a good start in terms of optimizing or developing a DApps for Trust Wallet. The web3 development process is the same when using MetaMask/Phantom as a dev tool. It’s our recommended choice for DApp development and gives you a quick, golden rule to use: if it works well with MetaMask or Phantom, it works well with Trust Wallet.
 
