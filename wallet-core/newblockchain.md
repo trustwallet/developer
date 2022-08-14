@@ -12,6 +12,8 @@ If you haven't, first read the [guide to contributing](contributing.md). It cont
 
 The Trust Wallet development team is always striving to add more blockchains that will be essential for developers and wallet users. We choose blockchains carefully based on the impact they will have for our community. 
 
+Please keep in mind that Wallet Core is open source and used in many other projects besides Trust Wallet, so adding it to Wallet Core is a prerequisite but not a sufficient condition for adding it to Trust Wallet.
+
 The general integration criteria is as follows: 
 
 - The blockchain has launched mainnet and has stably run for at least 3 ~ 6 months without major security incidents.
