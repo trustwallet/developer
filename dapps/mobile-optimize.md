@@ -9,14 +9,14 @@ Optimizing your DApp for the Trust Wallet is an integral part of making sure you
 The Trust Wallet App currently offers the following functionality:
 
 - A Web3 browser for interacting with decentralized applications
-- A range of tools to provide a seamless connection between the DApps and the user on the Ethereum, Solana, BNB Smart Chain, Polygon, Optimism, Arbitrum, Avalanche, Fantom, Gnosis Chain and many more EVM compatible Networks (Cronos, ETC, CLO, Thunder, Tomo, etc.).
+- A range of tools to provide a seamless connection between the DApps and the user on the Ethereum, Solana, Cosmos, BNB Smart Chain, Polygon, Osmosis, EVMOS and many more EVM and Cosmos compatible networks.
 - A fully optimized, integrated interface experience for mobile users
 
 There are simple steps for blockchain developers to implement to take full advantage of these key features. Most are basic tips but none can be missed out.
 
-## Metamask/Phantom is a good place to start
+## Metamask/Phantom/Keplr is a good place to start
 
-Familiarity with MetaMask interaction for Ethereum DApps or Phantom for Solana puts you off to a good start in terms of optimizing or developing a DApps for Trust Wallet. The web3 development process is the same when using MetaMask/Phantom as a dev tool. It’s our recommended choice for DApp development and gives you a quick, golden rule to use: if it works well with MetaMask or Phantom, it works well with Trust Wallet.
+Familiarity with MetaMask interaction for Ethereum DApps, Phantom for Solana or Keplr for Cosmos puts you off to a good start in terms of optimizing or developing a DApps for Trust Wallet. The web3 development process is the same when using MetaMask/Phantom/Keplr as a dev tool. It’s our recommended choice for DApp development and gives you a quick, golden rule to use: if it works well with MetaMask, Phantom or Keplr, it works well with Trust Wallet.
 
 ## Create a UI that Is mobile-friendly
 
@@ -26,20 +26,20 @@ iOS users require the latest build from Apple App Store. UI/UX design needs to a
 
 ## Master Web3
 
-Web3 is incredibly powerful for developing DApps and outlining their interactions with Ethereum or Solana nodes. The most up-to-date Web3 open-source [Ethereum JavaScript library](https://github.com/ethers-io/ethers.js/) or [Solana JavaScript library](https://solana-labs.github.io/solana-web3.js/modules.html) needs to be implemented for your DApp to be well optimized for the Trust Wallet browser.
-
 All Ethereum DApps should be [EIP1193](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1193.md) (Ethereum Improvement Protocol 1193) compatible. This allows for a high degree of wallet interoperability when exposing an API through JavaScript objects in the Ethereum DApp.
 
 If you have decided upon using MetaMask as your dev tool, do not forget their [Provider Migration Guide](https://docs.metamask.io/guide/provider-migration.html). This will seriously affect the degree of compatibility between your DApp and the Trust Wallet browser without proper planning.
 
 For Solana integration the best way would be to use the official [Wallet Adapter](https://github.com/solana-labs/wallet-adapter) which supports Trust Wallet and include it as the connection point to your DApp.
 
+For Cosmos you can refer to the official [Keplr guide](https://docs.keplr.app/api/), just make sure to use `window.trustwallet.cosmos` instead of `window.keplr`.
+
 Consider including an explicit Trust Wallet icon or button in your DApp. This will help Trust Wallet users connect to your DApp for the first time. 
 
 Recommended steps to improve the user experience when a user clicks or taps the Trust Wallet icon:
 
-1. Verify that the DApp is open in desktop browsers or no `window.trustwallet.ethereum`/`window.trustwallet.solana` -> Display the WalletConnect pairing popup
-2. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `window.trustwallet.ethereum`/`window.trustwallet.solana`  directly.
+1. Verify that the DApp is open in desktop browsers or no `window.trustwallet.ethereum`/`window.trustwallet.solana/window.trustwallet.cosmos` -> Display the WalletConnect pairing popup
+2. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `window.trustwallet.ethereum`/`window.trustwallet.solana/window.trustwallet.cosmos`  directly.
 
 ## Test your DApp on both iOS and Android
 
