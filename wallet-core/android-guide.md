@@ -12,7 +12,13 @@ A sample application is available at: https://github.com/trustwallet/wallet-core
 
 ## Adding Library Dependency
 
-Android releases are hosted on [GitHub packages](https://github.com/trustwallet/wallet-core/packages/700258), please checkout [this installation guide](https://docs.github.com/en/packages/guides/configuring-gradle-for-use-with-github-packages#installing-a-package), you need to add GitHub access token to install it.
+Android releases are hosted on [GitHub packages](https://github.com/trustwallet/wallet-core/packages/700258), It needs authentication to download packages, please checkout [this guide from GitHub](https://docs.github.com/en/packages/guides/configuring-gradle-for-use-with-github-packages#installing-a-package) for more details.
+
+We recommend to create a non-expiring and readonly token for accessing GitHub packages, and add it to `local.properties` of your Android Studio project locally.
+
+Generate a token [here](https://github.com/settings/tokens):
+
+![](/media/github-packages-token.png)
 
 Add this dependency to build.gradle:
 
@@ -22,16 +28,25 @@ dependencies {
 }
 ```
 
-Add `maven` and `credentials` (local properties or system environment variables)
+Add `maven` and `credentials` (`local.properties` for local or system environment variables CI)
 
 ```groovy
+
+Properties properties = new Properties()
+File localProps = new File(rootDir.absolutePath, "local.properties")
+if (localProps.exists()) {
+    properties.load(localProps.newDataInputStream())
+} else {
+    println "local.properties not found"
+}
+
 allprojects {
     repositories {
         maven {
             url = uri("https://maven.pkg.github.com/trustwallet/wallet-core")
             credentials {
-                username = project.findProperty("gpr.user") as String?: System.getenv("GITHUB_USER")
-                password = project.findProperty("gpr.key") as String?: System.getenv("GITHUB_TOKEN")
+                username = properties.getProperty("gpr.user") as String?: System.getenv("GITHUB_USER")
+                password = properties.getProperty("gpr.key") as String?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
