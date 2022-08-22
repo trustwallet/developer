@@ -170,7 +170,9 @@ Otherwise, the prerequisites have to be installed manually.
 For executing tests locally with coverage measurement, some extra `cmake` settings are needed;
 see [section on coverage instructions](coverage.md).
 
-## CMake options
+## All CMake options
+
+We enable these options on CI: `-DCMAKE_BUILD_TYPE=Debug -DTW_UNITY_BUILD=ON -DTW_CODE_COVERAGE=ON -DTW_ENABLE_CLANG_TIDY=ON -DTW_CLANG_ASAN=ON`
 
 | Name                  | Description                                                                               | How to enable it           | Notes                                                                                                                                                              |
 |-----------------------|-------------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
