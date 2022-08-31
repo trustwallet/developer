@@ -1,6 +1,28 @@
 # Frequently Asked Questions
 
-## Does Wallet Core support WIF?
+## General
+
+### Does Wallet Core support Windows?
+
+We don't support Windows officially, the community has a fork for Windows, you can find it [here](https://github.com/kaetemi/wallet-core-windows).
+
+### Does Wallet Core support Dart / Flutter?
+
+We don't support it officially, the community has a fork for Dart / Flutter, you can find it [here](https://github.com/weishirongzhen/flutter_trust_wallet_core)
+
+### Does Wallet Core support React Native?
+
+### I can't install Wallet Core for my Android project!
+
+A: Take a look at `Adding Library Dependency` section in [Android Integration Guide](android-guide.md), we have detailed instructions for installing the package.
+
+### Is there any HTTP API to use Trust Wallet service?
+
+A: Nope.
+
+## API
+
+### Does Wallet Core support WIF?
 
 A: No, Here are some reasons: 
 
@@ -8,34 +30,30 @@ A: No, Here are some reasons:
 - It's cumbersome to support different prefix byte for all networks (mainly Bitcoin and forks)
 - Hex string encoding is a more widely used format.
 
-## How to create `HDWallet` from private key?
+### How to create `HDWallet` from private key?
 
-## How to query the balance / tokens of an address?
+### Where do I find transaction signing examples?
 
-## How to send signed transaction?
+## Blockchain
 
-## Does Wallet Core support Windows?
+### How to query the balance / tokens of an address?
 
-## Does Wallet Core support Dart / Flutter?
+### How to send signed transaction? 
 
-## Does Wallet Core support React Native?
+### Bitcoin signing error :Invalid transaction. Error: bad-txns-inputs-missingorspent
 
-## I can't install Wallet Core for my Android project!
+### Does it support Bitcoin / Ethereum testnet? 
 
-A: Take a look at `Adding Library Dependency` section in [Android Integration Guide](android-guide.md), we have detailed instructions for installing the package.
+Wallet Core doesn't support any testnet in general:
 
-## How to generate legacy Bitcoin address?
+- no testnet network entry in `registry.json`
+- no method to generate testnet address for Bitcoin etc.
+- extra maintenance effort and we always require mainnet transaction signing test.
 
-## Where do I find transaction signing examples?
+But for some networks like Ethereum, the testnet just has a different chain id, you can specify chain id when you signing a transaction.
 
-## Bitcoin signing error :Invalid transaction. Error: bad-txns-inputs-missingorspent
+### How to generate legacy Bitcoin address?
 
-## Does it support ERC20 / BEP20?
+### Does it support ERC20 / BEP20?
 
-## Does it support Bitcoin / Ethereum testnet? 
-
-## Different Polkadot address derived from same secret phrase.
-
-## Is there any HTTP API to use Trust Wallet service?
-
-A: Nope.
+### Different Polkadot address derived from same secret phrase.
