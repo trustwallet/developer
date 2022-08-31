@@ -4,7 +4,11 @@
 
 ### Does Wallet Core support Windows?
 
+We don't support Windows officially, the community has a fork for Windows, you can find it [here](https://github.com/kaetemi/wallet-core-windows).
+
 ### Does Wallet Core support Dart / Flutter?
+
+We don't support it officially, the community has a fork for Dart / Flutter, you can find it [here](https://github.com/weishirongzhen/flutter_trust_wallet_core)
 
 ### Does Wallet Core support React Native?
 
