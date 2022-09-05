@@ -89,6 +89,12 @@ After build, *unit tests* can be executed:
 ./build/tests/tests tests --gtest_filter=*
 ```
 
+The generate-cmake-make-test steps are also available together in this script:
+
+```shell
+./tools/build-and-test
+```
+
 If you'd rather use and IDE for building and debugging you can specify the `-G` option to cmake. For instance to use Xcode call `cmake -Bxcode -GXcode -DCMAKE_BUILD_TYPE=Debug` and use the generated project in the xcode folder.
 
 ### Wasm building
@@ -141,8 +147,7 @@ Inside the container the build commands can be executed (as described above; not
 ```shell
 cd wallet-core
 ./tools/generate-files
-cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
-make -Cbuild
+./tools/build-and-test
 ```
 
 ## Executing inside Docker image
