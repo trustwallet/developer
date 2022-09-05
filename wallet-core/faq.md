@@ -67,6 +67,8 @@ For instance, you can use [`eth_sendRawTransaction`](https://ethereum.org/en/dev
 
 ### Bitcoin signing error :Invalid transaction. Error: bad-txns-inputs-missingorspent
 
+A: Usually this error means the node can't find the unspent transaction (UTXO) you are trying to spend, you can check if the transaction hash is correct, Bitcoin implementation in Wallet Core expects the transaction id is network byte order (big endian), you can try to reverse the bytes of the transaction hash.
+
 ### Does it support Bitcoin / Ethereum testnet?
 
 A: Wallet Core doesn't support any testnet in general:
@@ -78,6 +80,8 @@ A: Wallet Core doesn't support any testnet in general:
 But for some networks like Ethereum, the testnet just has a different chain id, you can specify chain id when you signing a transaction.
 
 ### How to generate legacy Bitcoin address?
+
+A: `AnyAddress` generates SegWit address by default for Bitcoin, Wallet Core offers another class `BitcoinAddress` for legacy address, you can see all the methods [here](https://github.com/trustwallet/wallet-core/blob/master/include/TrustWalletCore/TWBitcoinAddress.h).
 
 ### Does it support ERC20 / BEP20?
 
