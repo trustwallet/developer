@@ -89,7 +89,7 @@ After build, *unit tests* can be executed:
 ./build/tests/tests tests --gtest_filter=*
 ```
 
-The generate-cmake-make-test steps are also available together in this script:
+The generate-cmake-make-test steps are also available together in one script:
 
 ```shell
 ./tools/build-and-test
@@ -146,7 +146,6 @@ Inside the container the build commands can be executed (as described above; not
 
 ```shell
 cd wallet-core
-./tools/generate-files
 ./tools/build-and-test
 ```
 

@@ -21,16 +21,19 @@ For more complex chain integrations, see [general new blockchain docs](newblockc
 - Check the test file `tests/<Chain>/TWCoinTypeTests.cpp`.
 - There are some test cases test derivation for all coins.  Extend these with the new chain.
 If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
+
 ```
 tests/CoinAddressDerivationTests.cpp
 android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/CoinAddressDerivationTests.kt
 swift/Tests/CoinAddressDerivationTests.swift
 ```
-- Run `tools/generate-files` to update generated sources.
-- Build the project, execute unit tests (see [building](building.md)).
+
+- Update generated sources, build the project, execute unit tests (see [building](building.md)):
+
 ```
 ./tools/build-and-test
 ```
+
 - If all is fine, create a PR with the changes.
 
 ## Some Sample PRs:
