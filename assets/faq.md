@@ -2,7 +2,7 @@
 ### Why is the build on my pull request red?
 Contributions in a pull request are verified by an automated build.
 The checks fail if something is wrong, like to logo is too large or an Ethereum contract is not in
-[checksum format]([#checksum-format](https://piyolab.github.io/sushiether/RunScrapboxCode/?web3=1.0.0-beta.33&code=https://scrapbox.io/api/code/sushiether/web3.js_-_Ethereum_のアドレスをチェックサム付きアドレスに変換する/demo.js)).
+[checksum format]([#checksum-format](https://piyolab.github.io/sushiether/RunScrapboxCode/?web3=1.0.0-beta.33&code=https://scrapbox.io/api/code/sushiether/web3.js_-_Ethereum_のアドレスをチェックサム付きアドレスに変換する/demo.js).
 Checks the exact error message in the build to find out the problem.
 
 ### Why is there a merge conflict in my pull request?
