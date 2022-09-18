@@ -16,7 +16,7 @@
     * [iOS Integration Guide](wallet-core/ios-guide.md)
     * [Android Integration Guide](wallet-core/android-guide.md)
     * [Server-Side](wallet-core/server-side.md)
-  * [References]
+  * References
     * [Swift API Reference](https://trustwallet.github.io/docc/documentation/walletcore/)
   * [FAQ](wallet-core/faq.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
