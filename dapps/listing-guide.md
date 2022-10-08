@@ -22,7 +22,7 @@ The whole process can be divided into these key stages, along with some recommen
 
 Only by following closely the clearly defined instructions and recommendations will your DApp be able to join the list after careful scrutiny from the Trust Wallet team.
 
-### Technical Requirements and Preperation
+### Technical Requirements and Preparation
 Optimizing your application will require checking off a series of key areas noted in the following optimization sections. Some technical preparation will however be required whenever assets are added to the Trust Wallet GitHub repo.
 
 Therefore, it is required that you have a [GitHub](https://github.com) account to interact with the [Assets repo](https://github.com/trustwallet/assets) and submit your DApp logo for listing. Before uploading any image files, you must make sure they meet the following requirements:
@@ -32,7 +32,7 @@ Therefore, it is required that you have a [GitHub](https://github.com) account t
 - File Name：logo.png
 - Size: 256px by 256px
 - Background: Avoid transparency. White is preferred to fit in with app white/dark theme designs.
-- File size: maximum 100kB. Tip: optimize your image size using a simple drag-and-drop online service such as tinypng.Your logo’s file name must also meet the following criteria: <subdomain>.<domain_name>.png 
+- File size: maximum 100kB. Tip: optimize your image size using a simple drag-and-drop online service such as tinypng. Your logo’s file name must also meet the following criteria: <subdomain>.<domain_name>.png 
   - For example: https://app.compound.finance/ => app.compound.finance.png
     https://kyberswap.com/ => kyberswap.com.png
 
@@ -50,7 +50,7 @@ Pull requests made to Trust Wall repositories have an associated fee to pay in e
 
 Contributing a fee filters spam requests and ensures that there is more time to handle genuine submissions.
 
-More details are available on the [pull request fee](../assets/pr-fee.md) that explain how this fits in with Trust Wallet’s open-source ethos.
+More details are available on the [pull request fee](../assets/pr-fee.md) that explains how this fits in with Trust Wallet’s open-source ethos.
   
 **NOTE:** Paying the fee does not guarantee that your asset will be listed in the repository.
  
