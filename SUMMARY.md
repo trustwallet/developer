@@ -28,7 +28,9 @@
   * [Repository Details](assets/repository_details.md)
   * [Universal Asset ID](assets/universal_asset_id.md)
 * [Deep Linking](deeplinking/deeplinking.md)
-* [DApps](dapps/listing-guide.md)
-  * [Optimizing your DApp for Trust Wallet](dapps/mobile-optimize.md)
+* dApps
+  * [A Complete Guide to Listing your dApp with Trust Wallet](dapps/listing-guide.md)
+  * [Optimizing your dApp for Trust Wallet](dapps/mobile-optimize.md)
   * [Debugging](dapps/debugging.md)
-  * [A Complete Guide to Listing your DApp with Trust Wallet](dapps/listing-guide.md)
+* Trust Wallet Browser Extension
+  * [Adding the Trust Wallet Browser Extension to Your dApp](extension-wallet/extension-guide.md) 
