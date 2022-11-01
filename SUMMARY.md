@@ -31,3 +31,4 @@
 * [DApps](dapps/listing-guide.md)
   * [Optimizing your DApp for Trust Wallet](dapps/mobile-optimize.md)
   * [Debugging](dapps/debugging.md)
+  * [A Complete Guide to Listing your DApp with Trust Wallet](dapps/listing-guide.md)
