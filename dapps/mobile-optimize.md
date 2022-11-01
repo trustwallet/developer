@@ -54,3 +54,7 @@ It may be that you have issues with the TrustWeb3Provider while optimizing your 
 ## Implement deep links
 
 There is no native support for Web3 in iOS or Android mobile browsers. Your DApp’s links must be [deep links](deeplinking/deeplinking.md) that combine numerous steps into one simple, easy click. Without them, users will need to follow tedious and long chains of links that greatly impact the user experience.
+
+## References
+
+Web3 is incredibly powerful for developing DApps and outlining their interactions with Ethereum or Solana nodes. The most up-to-date Web3 open-source [Ethereum JavaScript library](https://github.com/ethers-io/ethers.js/) or [Solana JavaScript library](https://solana-labs.github.io/solana-web3.js/modules.html) needs to be implemented for your DApp to be well optimized for the Trust Wallet browser.
