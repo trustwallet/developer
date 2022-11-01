@@ -49,11 +49,11 @@ Let’s walk through the different Pancakeswap options.
 
 Pancakeswap has a straightforward “Connect Wallet” button that you can see on their homepage here:
 
-![Pancakeswap Connect Wallet button](media/pancakeswap-navbar.png)
+![Pancakeswap Connect Wallet button](../media/pancakeswap-navbar.png)
 
 When you click on “Connect Wallet”, a modal pops up:
 
-![Pancakeswap Wallet Modal](media/pancakeswap-wallet-modal.png)
+![Pancakeswap Wallet Modal](../media/pancakeswap-wallet-modal.png)
 
 In the Pancakeswap frontend repo, you can see the button in `ConnectWalletButton.tsx`:
 
