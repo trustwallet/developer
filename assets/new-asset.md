@@ -63,7 +63,7 @@ The steps for adding a new token through Asset App.
 ![](/media/assetapp.png)
 
 - Log in to your **GitHub account**. If you have not yet logged in (using the current browser), it is compulsory to log in to your GitHub account.
-<center><img src='https://github.com/trustwallet/developer/blob/master/media/gitassetapp.png'></center>
+![](/media/gitassetapp.png)
 
 - If you are logging in for the first time you will need to authorize the Assets app to access your GitHub account
 - Upload the logo file.
