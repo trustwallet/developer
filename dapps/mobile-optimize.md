@@ -9,14 +9,14 @@ Optimizing your DApp for the Trust Wallet is an integral part of making sure you
 The Trust Wallet App currently offers the following functionality:
 
 - A Web3 browser for interacting with decentralized applications
-- A range of tools to provide a seamless connection between the DApps and the user on the Ethereum, Solana, Cosmos, BNB Smart Chain, Polygon, Osmosis, EVMOS and many more EVM and Cosmos compatible networks.
+- A range of tools to provide a seamless connection between the DApps and the user on the Ethereum, Solana, Cosmos, BNB Smart Chain, Polygon, Osmosis, EVMOS, Aptos and many more EVM and Cosmos compatible networks.
 - A fully optimized, integrated interface experience for mobile users
 
 There are simple steps for blockchain developers to implement to take full advantage of these key features. Most are basic tips but none can be missed out.
 
-## Metamask/Phantom/Keplr is a good place to start
+## Metamask/Phantom/Keplr/Petra is a good place to start
 
-Familiarity with MetaMask interaction for Ethereum DApps, Phantom for Solana or Keplr for Cosmos puts you off to a good start in terms of optimizing or developing a DApps for Trust Wallet. The web3 development process is the same when using MetaMask/Phantom/Keplr as a dev tool. It’s our recommended choice for DApp development and gives you a quick, golden rule to use: if it works well with MetaMask, Phantom or Keplr, it works well with Trust Wallet.
+Familiarity with MetaMask interaction for Ethereum DApps, Phantom for Solana, Keplr for Cosmos or Petra for Aptos puts you off to a good start in terms of optimizing or developing a DApps for Trust Wallet. The web3 development process is the same when using MetaMask/Phantom/Keplr/Petra as a dev tool. It’s our recommended choice for DApp development and gives you a quick, golden rule to use: if it works well with MetaMask, Phantom, Keplr or Petra it works well with Trust Wallet.
 
 ## Create a UI that Is mobile-friendly
 
@@ -34,13 +34,15 @@ For Solana integration the best way would be to use the official [Wallet Adapter
 
 For Cosmos you can refer to the official [Keplr guide](https://docs.keplr.app/api/), just make sure to use `window.trustwallet.cosmos` instead of `window.keplr`.
 
+For Aptos please follow the official [Petra guide](https://petra.app/docs/sending-a-transaction). `window.trustwallet.aptos` is also preferred over `window.aptos`, although both will work.
+
 Consider including an explicit Trust Wallet icon or button in your DApp. This will help Trust Wallet users connect to your DApp for the first time. 
 
 Recommended steps to improve the user experience when a user clicks or taps the Trust Wallet icon:
 
 1. Check [How to Identify Trust Provider](https://github.com/trustwallet/trust-web3-provider#how-to-identify-trust-provider) guide.
-2. Verify that the DApp is open in desktop browsers or no `window.trustwallet.ethereum`/`window.trustwallet.solana/window.trustwallet.cosmos` -> Display the WalletConnect pairing popup
-3. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `window.trustwallet.ethereum`/`window.trustwallet.solana/window.trustwallet.cosmos`  directly.
+2. Verify that the DApp is open in desktop browsers or no `window.trustwallet.(ethereum/solana/cosmos/aptos)` -> Display the WalletConnect pairing popup
+3. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `window.trustwallet.(ethereum/solana/cosmos/aptos)`  directly.
 
 ## Test your DApp on both iOS and Android
 
