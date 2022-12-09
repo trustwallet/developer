@@ -35,6 +35,7 @@ Here is the list of required prerequisites.
 * Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format ccache cocoapods`
 * [Android Studio](https://developer.android.com/studio/index.html)
 * [Android NDK](https://developer.android.com/ndk/guides/)
+* Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 
 ### Prerequisites on Linux
 
@@ -44,6 +45,7 @@ Here is the list of required prerequisites.
 * Boost (from https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz)
 * CMake (from https://github.com/Kitware/CMake/releases)
 * [Android Studio](https://developer.android.com/studio/index.html)
+* Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 
 ### Managed Prerequisites
 
@@ -65,7 +67,14 @@ The full build can be triggered with one top-level script:
 Or, broken up in smaller steps:
 
 ```shell
+## Linux
+./tools/install-sys-dependencies-linux
+
+## MacOS
+./tools/install-sys-dependencies-mac
+
 ./tools/install-dependencies
+./tools/install-rust-dependencies
 ```
 
 This script downloads and compiles some prerequisites.
