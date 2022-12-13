@@ -4,23 +4,23 @@ Find here instructions for building the Wallet Core library locally.
 
 ## Platforms
 
-The following *target platforms* are supported:
+The following _target platforms_ are supported:
 
-* **iOS** (Swift language is used)
-* **Android**
-* **Wasm** (Emscripten)
+- **iOS** (Swift language is used)
+- **Android**
+- **Wasm** (Emscripten)
 
-The following *development platforms* are supported:
+The following _development platforms_ are supported:
 
-* **macOS**: is the *primary* development platform, as it supports compiling for both target platforms.
-* **Linux**: is partially supported as a development platform.
+- **macOS**: is the _primary_ development platform, as it supports compiling for both target platforms.
+- **Linux**: is supported as a development platform if you only need to build C++ and Wasm targets.
 
 ## Build Methods
 
 Wallet Core can be build inside a Docker image, or natively.
 
-* Inside **Docker** image:  This way is easier to get the prerequisites, as they are all inside a Docker image. However, all building has to be done inside the Docker image.
-* Natively, in your dev OS (macOS, Linux).
+- Inside **Docker** image: This way is easier to get the prerequisites, as they are all inside a Docker image. However, all building has to be done inside the Docker image.
+- Natively, in your dev OS (macOS, Linux).
 
 ## Prerequisites
 
@@ -28,33 +28,35 @@ Here is the list of required prerequisites.
 
 ### Prerequisites on macOS
 
-* CMake `brew install cmake`
-* Boost `brew install boost`
-* Xcode
-* Xcode command line tools: `xcode-select --install`
-* Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format ccache cocoapods`
-* [Android Studio](https://developer.android.com/studio/index.html)
-* [Android NDK](https://developer.android.com/ndk/guides/)
-* Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- CMake `brew install cmake`
+- Boost `brew install boost`
+- Xcode
+- Xcode command line tools: `xcode-select --install`
+- Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format ccache cocoapods`
+- [Android Studio](https://developer.android.com/studio/index.html)
+- [Android NDK](https://developer.android.com/ndk/guides/)
+- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 
 ### Prerequisites on Linux
 
-* Various packages `sudo apt-get install autoconf git libcurl4-openssl-dev libicu-dev libssl-dev libtool ninja-build nodejs pkg-config unzip ccache`
-* CLang
-* Ruby 2.6 (`rbenv` from https://github.com/rbenv/ruby-build, then `rbenv install 2.6.3`)
-* Boost (from https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz)
-* CMake (from https://github.com/Kitware/CMake/releases)
-* [Android Studio](https://developer.android.com/studio/index.html)
-* Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+Ubuntu as a example:
+
+- Various essential packages `sudo apt-get install build-essential libtool autoconf pkg-config ninja-build ccache`
+- Clang `sudo apt-get install clang-14 llvm-14 libc++-dev libc++abi-dev`
+- Ruby `sudo apt-get install ruby-full`
+- Boost `sudo apt-get install libboost-all-dev`
+- CMake `sudo apt-get install cmake` or (from https://github.com/Kitware/CMake/releases)
+- [Android Studio](https://developer.android.com/studio/index.html)
+- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 
 ### Managed Prerequisites
 
-Additionally, the following prerequisites are also needed, but they are managed by Wallet Core.  The script `tools/install-dependencies` downloads and compiles them (see below).
+Additionally, the following prerequisites are also needed, but they are managed by Wallet Core. The script `tools/install-dependencies` downloads and compiles them (see below).
 
-* Google test
-* Check
-* Json
-* Protobuf
+- Google test (gtest)
+- libcheck
+- nolhmann json
+- Protobuf
 
 ## Full Build
 
@@ -83,16 +85,16 @@ This script downloads and compiles some prerequisites.
 ./tools/generate-files
 ```
 
-This script generates source files, coin- and protobuf files.  Needs to be re-run whenever `registry.json` or protobuf files are changed.
+This script generates source files, coin- and protobuf files. Needs to be re-run whenever `registry.json` or protobuf files are changed.
 
 ```shell
 cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
 make -Cbuild
 ```
 
-Standard CMake and make commands for building the library.  The `cmake` command needs to be re-run whenever a new source file is added.
+Standard CMake and make commands for building the library. The `cmake` command needs to be re-run whenever a new source file is added.
 
-After build, *unit tests* can be executed:
+After build, _unit tests_ can be executed:
 
 ```shell
 ./build/tests/tests tests --gtest_filter=*
@@ -127,6 +129,7 @@ tools/wasm-build
 ```
 
 Run Wasm tests:
+
 ```shell
 cd wasm
 npm install && npm run copy:wasm && npm run build
@@ -161,7 +164,7 @@ cd wallet-core
 ## Executing inside Docker image
 
 The Docker image also contains a pre-built, runnable version of the library, so it is possible to run it, 'toy around' with it without any building.
-*Note:* this may not be the most recent version!
+_Note:_ this may not be the most recent version!
 
 Unit tests and [wallet console utility](walletconsole.md) can be executed straight from this Docker image:
 
@@ -175,8 +178,8 @@ exit
 
 ## Linux
 
-Building on Linux is possible, but not fully supported, it requires some extra work. If you have access to macOS we highly recommend developing on that platform.  Using the Docker image is also recommended.
-Otherwise, the prerequisites have to be installed manually.
+Building on Linux is possible, it requires some extra work. If you have access to macOS we highly recommend developing on that platform. Using the Docker image is also recommended.
+Otherwise, the prerequisites have to be installed manually. We recommend using Ubuntu 22.04 LTS, same as [Wallet Core CI](https://github.com/trustwallet/wallet-core/blob/master/.github/workflows/linux-ci.yml).
 
 ## Unit tests with Coverage
 
@@ -188,7 +191,7 @@ see [section on coverage instructions](coverage.md).
 We enable these options on CI: `-DCMAKE_BUILD_TYPE=Debug -DTW_UNITY_BUILD=ON -DTW_CODE_COVERAGE=ON -DTW_ENABLE_CLANG_TIDY=ON -DTW_CLANG_ASAN=ON`
 
 | Name                  | Description                                                                               | How to enable it           | Notes                                                                                                                                                              |
-|-----------------------|-------------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | ----------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | TW_IDE_CLION          | Specify that your IDE is CLion, way to enable coverage is different on CLion              | -DTW_IDE_CLION=ON          | Do not enable multiple IDE options at the same time<br>Off by default                                                                                              |
 | TW_IDE_VSCODE         | Specify that your IDE is vscode, way to use PVS-studio is different on VSCode             | -DTW_IDE_VSCODE=ON         | Do not enable multiple IDE options at the same time<br>Off by default                                                                                              |
 | TW_UNITY_BUILD        | Specify that you want to use UNITY BUILD in the project, use it in order to build faster. | -DTW_UNITY_BUILD=ON        | To be used for CI environment.<br>Off by default                                                                                                                   |
