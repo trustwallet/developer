@@ -23,7 +23,7 @@ For more complex chain integrations, see [general new blockchain docs](newblockc
 If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
 
 ```
-tests/CoinAddressDerivationTests.cpp
+tests/common/CoinAddressDerivationTests.cpp
 android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/CoinAddressDerivationTests.kt
 swift/Tests/CoinAddressDerivationTests.swift
 ```
