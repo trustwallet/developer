@@ -28,7 +28,7 @@ After integrating into Trust Wallet projects are expected to provide timely supp
 
 Adding support for a new coin consists of these steps:
 
-* Add **coin definition** -- contains basic parameters of the new coin, several definition source files are gneerated from the definitions
+* Add **coin definition** -- contains basic parameters of the new coin, several definition source files are generated from the definitions
 * Extend a few **central files**.  There are a few central source files that need to be extended (some definitions, dispatching logic to coin implementations).
 * **C++ implementation** of **address** handling and **signing** functionality.  Optionally protobuf definitions might be needed for more complex parameters.
 * **Unit tests** for coin definitions, and address and signing functionality
