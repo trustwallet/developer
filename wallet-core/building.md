@@ -32,6 +32,7 @@ Here is the list of required prerequisites.
 - Boost `brew install boost`
 - Xcode
 - Xcode command line tools: `xcode-select --install`
+- Ruby `brew install ruby`
 - Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format ccache cocoapods`
 - [Android Studio](https://developer.android.com/studio/index.html)
 - [Android NDK](https://developer.android.com/ndk/guides/)
