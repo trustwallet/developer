@@ -7,18 +7,16 @@ For more complex chain integrations, see [general new blockchain docs](newblockc
 
 - `ChainID`.  EVM chains have a unique ChainID, such as `8217`.
 - `Derivation path` used.  Most EVM chains use Ethereum derivation path, `"m/44'/60'/0'/0/0"` (but not all).
-- `CoinID`.  Most EVM chains do not have a SLIP 44 CoinID, but some do.
+- `CoinID`.  Most EVM chains do not have a SLIP 44 CoinID, but some do. We'll see below what to use if one is not available.
 
 ## Steps
 
 - Start with an up-to-date workspace ([more info](contributing.md)).
 - Add chain information to `registry.json`. Some notable fields:
   - blockchain: "Ethereum",
-  - coinId: Should be set to: `10000000 + chainID`, such as `10008217`. If own coinID is available, use that.
-- Run `codegen/bin/newcoin <chain>` to generate template source files.  
-- For EVM chains we will only need the `tests/<Chain>/TWCoinTypeTests.cpp` test file, discard all the other new files.
-- Discard changes in `include/TrustWalletCore/TWBlockchain.h` and `src/Coin.cpp` (no need for new blockchain type).
-- Check the test file `tests/<Chain>/TWCoinTypeTests.cpp`.
+  - coinId: If own coinID is available, use that. Otherwise, use: `10000000 + chainID`, such as `10008217`.
+- Run `codegen/bin/newevmchain <chain>` to generate template source files, where <chain> is the chain `id` from registry.
+- The result will be a new line in `TWCoinType.h` and a new test file `tests/<Chain>/TWCoinTypeTests.cpp`.
 - There are some test cases test derivation for all coins.  Extend these with the new chain.
 If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
 
