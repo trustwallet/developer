@@ -5,7 +5,7 @@ We are committed to supporting the tokens used by our users, but supporting mill
 We have introduced this crypto contribution in order to filter requests, so we have more time to handle genuine ones.
 We were partly inspired by Token Curated Registry.
  
-A fee of 700TWT or 5BNB is required for each Pull Request, you will see the message from the merge-fee-bot with details about the payment. Make sure to double-check the https://developer.trustwallet.com/assets/requirements to minimize the risk of your PR being rejected.
+A fee of 500TWT or 5BNB is required for each Pull Request, you will see the message from the merge-fee-bot with details about the payment. Make sure to double-check the https://developer.trustwallet.com/assets/requirements to minimize the risk of your PR being rejected.
 
 ## Why the payment?**
  
