@@ -18,7 +18,7 @@
     * [Server-Side](wallet-core/server-side.md)
   * References
     * [Swift API Reference](https://trustwallet.github.io/docc/documentation/walletcore/)
-    * [Kotlin API Reference](https://trustwallet.github.io/dokka/-wallet-core/wallet.core.jni/index.html)
+    * [Kotlin API Reference](https://trustwallet.github.io/dokka/)
   * [FAQ](wallet-core/faq.md)
 * [WalletConnect](wallet-connect/wallet-connect.md)
 * [Assets](assets/)
