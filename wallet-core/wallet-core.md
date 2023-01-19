@@ -22,6 +22,7 @@ and see the platform-specifc guides for
 ## API Doc
 
 iOS wallet-core api documentation is available [here](https://trustwallet.github.io/docc/documentation/walletcore/).
+
 Kotlin wallet-core api documentation is available [here](https://trustwallet.github.io/dokka/-wallet-core/wallet.core.jni/index.html).
 
 ## Projects using Wallet Core -- Add yours here too!
