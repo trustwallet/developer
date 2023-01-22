@@ -78,7 +78,7 @@ Due to an increasing number of pull request (and proportional checking & merging
 a modest fee is required for processing a pull request, payable in cryptocurrency.
 Follow the instructions in the pull request for completing the fee payment.
 
-A fee of **700TWT or 5BNB** is required for each Pull Request, you will see the message from the merge-fee-bot with details about the payment. **Make sure to double-check the https://developer.trustwallet.com/assets/requirements, to minimize the risk of your PR being rejected.
+A fee of **500TWT or 5BNB** is required for each Pull Request, you will see the message from the merge-fee-bot with details about the payment. **Make sure to double-check the https://developer.trustwallet.com/assets/requirements, to minimize the risk of your PR being rejected.
 
 For more details about the payment fee for your assets, see https://developer.trustwallet.com/assets/pr-fee 
 See also the [fee FAQ](pr-fee.md)
