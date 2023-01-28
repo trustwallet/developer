@@ -40,7 +40,7 @@ Here is the list of required prerequisites.
 
 ### Prerequisites on Linux
 
-Ubuntu as a example:
+Ubuntu as an example:
 
 - Various essential packages `sudo apt-get install build-essential libtool autoconf pkg-config ninja-build ccache`
 - Clang `sudo apt-get install clang-14 llvm-14 libc++-dev libc++abi-dev`
