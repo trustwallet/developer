@@ -65,7 +65,7 @@ A: Wallet Core doesn't provide this feature yet, it also differs from chain to c
 
 For instance, you can use [`eth_sendRawTransaction`](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction) to send a signed raw transaction to Ethereum or EVM compatible chain.
 
-### Bitcoin signing error :Invalid transaction. Error: bad-txns-inputs-missingorspent
+### Bitcoin signing error: Invalid transaction. Error: bad-txns-inputs-missingorspent
 
 A: Usually this error means the node can't find the unspent transaction (UTXO) you are trying to spend, you can check if the transaction hash is correct, Bitcoin implementation in Wallet Core expects the transaction id is network byte order (big endian), you can try to reverse the bytes of the transaction hash.
 
@@ -77,7 +77,7 @@ A: Wallet Core doesn't support any testnet in general:
 -   no method to generate testnet address for Bitcoin etc.
 -   extra maintenance effort and we always require mainnet transaction signing test.
 
-But for some networks like Ethereum, the testnet just has a different chain id, you can specify chain id when you signing a transaction.
+But for some networks like Ethereum, the testnet just has a different chain id, you can specify chain id when you sign a transaction.
 
 ### How to generate legacy Bitcoin address?
 
