@@ -17,7 +17,7 @@ Start with the overview of the most common wallet operations ([Usage Guide](wall
 and see the platform-specifc guides for 
 [iOS](ios-guide.md) and
 [Android](android-guide.md).
-* We have a [FAQ](faq.md) list may already answer some of your questions.
+* We have a [FAQ](faq.md) list that may already answer some of your questions.
 
 ## Projects using Wallet Core -- Add yours here too!
 
