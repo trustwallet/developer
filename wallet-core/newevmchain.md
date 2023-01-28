@@ -3,7 +3,7 @@
 Adding support for a new fully EVM-compatible chain to Wallet Core requires only a few changes, follow the steps here.
 For more complex chain integrations, see [general new blockchain docs](newblockchain.md).
 
-## Prerequisties / Needed information
+## Prerequisites / Needed information
 
 - `ChainID`.  EVM chains have a unique ChainID, such as `8217`.
 - `Derivation path` used.  Most EVM chains use Ethereum derivation path, `"m/44'/60'/0'/0/0"` (but not all).
