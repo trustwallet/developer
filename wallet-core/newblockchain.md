@@ -39,7 +39,7 @@ Adding support for a new coin consists of these steps:
 It helps to pick an existing coin, and refer to its implementation.  Try to pick an existing coin that is similar to the new one, and check how/where is it implemented, tested, etc.
 
 Note that unit **tests** are crucial in ensuring quality needed for multi-coin support.  Functionality here can be well unit-tested, so don't ignore them.
-Coverage must not decrease!  This is enforced automatically in the valiation of the pull requests.
+Coverage must not decrease!  This is enforced automatically in the validation of the pull requests.
 
 ## Blockchain definition
 
@@ -60,7 +60,7 @@ Run `cmake` to include the new files in the build (`cmake -H. -Bbuild -DCMAKE_BU
 
 Review tests in `tests/X/TWCoinTypeTests.cpp` (where `X` is the name of the blockchain), exactly as in other blockchains.
 Run the tests and make sure everything is passing before moving on to the next step. 
-You should reate a commit with this change, \(but don't create a pull request yet\).
+You should create a commit with this change, \(but don't create a pull request yet\).
 
 *Note:* don't forget to add new files to git.
 *Note:* don't forget to re-run `cmake` before building, to include new files in the build.
@@ -147,11 +147,11 @@ The above steps are summarized below as a checklist:
 
 ### Bitcoin forks checklist
 
-If you're adding a Bitcoin fork, you might not neeed to implement new Address or Signer class, please complete this checklist before you submit a pull request:
+If you're adding a Bitcoin fork, you might not need to implement new Address or Signer class, please complete this checklist before you submit a pull request:
 
 - [ ] Derive address according to definition in `registry.json`, `p2pkh` address for `bip44` or native `bech32` segwit address for `bip84`.
 - [ ] Check [SLIP-0132 :Registered HD version bytes](https://github.com/satoshilabs/slips/blob/master/slip-0132.md).
-- [ ] Check fee preference, use static fee or not, Trust will use fee that can be confirmed with in 2 blocks.
+- [ ] Check fee preference, use static fee or not, Trust will use fee that can be confirmed within 2 blocks.
 - [ ] Add tests to validate all possible addresses, `p2pkh`, `p2sh` and `bech32`.
 - [ ] Add tests to derive `xpub` / `xprv` and cross check the values with other wallets, like ledger or trezor.
 - [ ] Add tests to derive address from `xpub` at random index.
