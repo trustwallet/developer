@@ -79,7 +79,7 @@ For example, the default BTC address, derived for the wallet with the mnemonic s
 `bc1qpsp72plnsqe6e2dvtsetxtww2cz36ztmfxghpd`.
 For Ethereum, this is `0xA3Dcd899C0f3832DFDFed9479a9d828c6A4EB2A7`.
 
-Here is the sample code fort obtaining the default address for different coins:
+Here is the sample code for obtaining the default address for different coins:
 
 ```swift
 let addressBTC = wallet.getAddressForCoin(coin: .bitcoin)
@@ -158,7 +158,7 @@ let address = CoinType.bitcoinCash.deriveAddress(privateKey: privateKey)
 
 let utxo = BitcoinUnspentTransaction.with {
     $0.outPoint.hash = Data(utxoTxId.reversed()) // reverse of UTXO tx id, Bitcoin internal expects network byte order
-    $0.outPoint.index = 2                        // outpoint index of this this UTXO, "vout" field from blockbook utxo api
+    $0.outPoint.index = 2                        // outpoint index of this UTXO, "vout" field from blockbook utxo api
     $0.outPoint.sequence = UINT32_MAX
     $0.amount = 5151                             // value of this UTXO, "value" field from blockbook utxo api
     $0.script = BitcoinScript.lockScriptForAddress(address: address, coin: .bitcoinCash).data // Build lock script from address or public key hash
@@ -179,7 +179,7 @@ guard output.error.isEmpty else { return }
 // encoded transaction to broadcast
 print(output.encoded)
 ```
-It's worth to note that you can also calcuate fee and change manually (by using a `BitcoinTransactionPlan` struct)  
+It's worth to note that you can also calculate fee and change manually (by using a `BitcoinTransactionPlan` struct)  
 Below is another real world Zcash [transparent transaction](https://explorer.zcha.in/transactions/ec9033381c1cc53ada837ef9981c03ead1c7c41700ff3a954389cfaddc949256) demonstrate this
 
 ```swift
