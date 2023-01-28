@@ -15,5 +15,5 @@ This is a walkthrough of a sample iOS wallet application.
 This is a walkthrough of a sample Android wallet application.
 
 * [Server-Side GoLang Guide](server-side.md).
-Here we provide instructions on how to integrate Wallet Core into a *Go* languge backend-side project.
+Here we provide instructions on how to integrate Wallet Core into a *Go* language backend-side project.
 
