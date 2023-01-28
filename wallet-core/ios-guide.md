@@ -49,7 +49,7 @@ Then add libraries to target's `dependencies`:
 
 ## Code Examples
 
-In the following sections we show code examples for some common funcions.
+In the following sections we show code examples for some common functions.
 Please refer to the [Wallet Usage Guide](wallet-core-usage.md) for detailed explanations.
 
 Accessing Wallet Core functionality requires one import statement:
