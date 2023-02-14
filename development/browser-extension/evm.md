@@ -1,16 +1,14 @@
-## Ethereum & EVM chains
-
-Targeting Ethereum and EVM-compatible chains is the most popular option among developers, especially L2 chains like Binance Smart Chain and Polygon, which offer near-zero transaction fees. Other advantages of choosing such networks are their accessibility and ease of development through [Solidity](https://docs.soliditylang.org/), a high-level language for implementing smart contracts. Those, combined with the ease of integrating browser extension wallets into websites, add to the development experience. 
+Targeting Ethereum and EVM-compatible chains is the most popular option among developers, especially L2 chains like [Binance Smart Chain](https://www.bnbchain.org/en) and [Polygon](https://polygon.technology/), which offer near-zero transaction fees. Other advantages of choosing such networks are their accessibility and ease of development through [Solidity](https://docs.soliditylang.org/), a high-level language for implementing smart contracts. Those, combined with the ease of integrating browser extension wallets into websites, add to the development experience. 
 
 But why EVM-compatible browser extension wallets are so popular, and what does it mean for you as a developer? Let's see a high-level overview of those wallets' architecture to answer this question.
 
-The most crucial aspect is that the web extension injects a script into each browser tab. That script defines an **Injected Provider** global object**,** allowing the websites to communicate with the browser extension. The communication method is a standardized protocol known as [JSON-RPC](https://www.jsonrpc.org/specification).  We will get to that shortly, but remember that each wallet injects its own provider instance. Also, Note that wallets use JSON-RPC to communicate with various blockchains. 
+The most crucial aspect is that the web extension injects a script into each browser tab. That script defines an **Injected Provider** global object, allowing the websites to communicate with the browser extension. The communication method is a standardized protocol known as [JSON-RPC](https://www.jsonrpc.org/specification). We will get to that shortly, but remember that each wallet injects its own provider instance. Also, Note that wallets use JSON-RPC to communicate with various blockchains. 
 
-### Accessing the Injected Provider
+# Accessing the Injected Provider
 
 The Injected Provider is a global object that implements all the methods of the [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) specification and is available as `window.ethereum`. 
 
-> [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) defines events implemented by all wallets and allows clients to communicate with them in a standardized manner. It also specifies how each wallet should handle custom events. In the official standard, the term “Injected Provider” is referred as “the Provider”. However, using the official term, even if it is strictly defined with a clear purpose, can lead to misunderstandings for new users. For that reason, we refer to “the Provider” for browser extension wallets as the Injected Provider.
+> [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) defines events implemented by all wallets and allows clients to communicate with them in a standardized manner. It also specifies how each wallet should handle custom events. In the official standard, the term "Injected Provider" is referred as "the Provider". However, using the official term, even if it is strictly defined with a clear purpose, can lead to misunderstandings for new users. For that reason, we refer to "the Provider" for browser extension wallets as the Injected Provider.
 
 We already mentioned in the previous section that each wallet injects its provider, so the question that naturally arises is: What is the value of `window.ethereum` when multiple injected providers exist, ie users have multiple wallets installed?
 
@@ -48,7 +46,7 @@ function getTrustWalletFromWindow() {
 }
 ```
 
-`getTrustWalletFromWindow` will return either the Trust Waller Injected Provider or `null` if it cannot be found. We can assume that if the function returns `null`, TW is not installed in the user’s browser. But wait, there is a catch!
+`getTrustWalletFromWindow` will return either the Trust Waller Injected Provider or `null` if it cannot be found. We can assume that if the function returns `null`, TW is not installed in the user's browser. But wait, there is a catch!
 
 An [issue affects web extensions that utilize manifest V3](https://groups.google.com/a/chromium.org/g/chromium-extensions/c/ib-hi7hPdW8/m/34mFf8rrGQAJ?pli=1) and causes the injected provider to be initialized after the website loads. In that case, we must wait for the `trustwallet#initialize`  event. 
 
@@ -156,11 +154,11 @@ Now that we have `getTrustWalletInjectedProvider` let's see some common function
 const injectedProvider = await getTrustWalletInjectedProvider();
 ```
 
-### Connecting to Trust Wallet
+## Connecting to Trust Wallet
 
-Connecting to Trust Wallet means accessing the user’s selected account. This is different than what you may be used to when developing authenticating logic in web2 apps. Connection to web3 wallets is stateless and serves more like a “pairing” mechanism. There is no concept of “logging/authenticating into wallet”. Once you request access to the wallet, this access is kept until the users choose to disconnect/unpair the wallet from your website. 
+Connecting to Trust Wallet means accessing the user's selected account. This is different than what you may be used to when developing authenticating logic in web2 apps. Connection to web3 wallets is stateless and serves more like a "pairing" mechanism. There is no concept of "logging/authenticating into wallet". Once you request access to the wallet, this access is kept until the users choose to disconnect/unpair the wallet from your website. 
 
-Requesting access to a user’s account can be achieved through the `eth_requestAccounts` method.
+Requesting access to a user's account can be achieved through the `eth_requestAccounts` method.
 
 ```jsx
 try {
@@ -180,7 +178,7 @@ If a connection were established beforehand, the returning result would be an ar
 
 Otherwise, a notification would appear to users if a previous connection was not established, prompting them to initialize a new connection. If the user decides to reject this request, the promise will be rejected with a status code of `4001` . You can read more about various error status codes [here](https://eips.ethereum.org/EIPS/eip-1193#provider-errors).
 
-### Get selected account
+## Get selected account
 
 You can access the selected account for a connected wallet at any point in time using the `eth_accounts` method. Like `eth_requestAccounts`,  the returning value will be an array with only one element: the selected account. The distinction is that `eth_accounts` assumes a connection is already established. If this is not the case, the returned value will be an empty array. No connect notification will be sent to the user.
 
@@ -190,7 +188,7 @@ const accounts = await injectedProvider.request({
 })
 ```
 
-### Listening for accounts change events
+## Listening for accounts change events
 
 Users are allowed to change their connected accounts from within their wallets. You will have to update your website state to accommodate the newly selected account when this happens. This can be achieved by listening to the `accountsChanged` event. The new value will be an array that contains exactly one element: the new connected account.
 
@@ -201,7 +199,7 @@ injectedProvider.addListener("accountsChanged", (accounts) => {
 });
 ```
 
-### Listening for wallet disconnect events
+## Listening for wallet disconnect events
 
 Listening for `accountsChanged` can also help you identify when users disconnect their wallets from your website. This means no interaction between your app and the wallet can occur.  When that happens, the `accounts` parameter will be an empty array. 
 
@@ -226,7 +224,7 @@ injectedProvider.addListener("accountsChanged", (accounts) => {
 });
 ```
 
-### Listening for chain id change events
+## Listening for chain id change events
 
 Changing the connected chain id is also another everyday use case for users. For instance, many decentralized exchanges support multiple networks and offer that functionality to their users. 
 
@@ -242,7 +240,7 @@ injectedProvider.addListener("chainChanged", async (id) => {
 
 Each blockchain has its chain id. You can use a website like [https://chainlist.org/](https://chainlist.org/) to find out which chain id pairs to what network. 
 
-### Request chain id change
+## Request chain id change
 
 You can also request a chain id change yourself. Most dApps are published to specific blockchains, so you want to ensure that users are connected to the correct chain. This can be achieved using `wallet_switchEthereumChain` method and passing the hexadecimal value of the desired chain.
 
@@ -261,7 +259,7 @@ try {
 
 A notification will appear if users are not connected to the desired network, prompting them to change their network. Users who reject this request will trigger an error with `4001` as the status code. If the desired network is selected, this request will resolve without any additional action required by the user.
 
-### Get selected chain id
+## Get selected chain id
 
 You can access the selected account for a connected wallet at any point in time using the `eth_chainId` method. This method will always return the selected network. You don't need an active connection to execute this method successfully. 
 
@@ -269,7 +267,7 @@ You can access the selected account for a connected wallet at any point in time 
 const chainId = await injectedProvider.request({ method: "eth_chainId" });
 ```
 
-### A complete basic example
+## A complete basic example
 
 All the previous events are the basic building blocks for every dApp. You can combine them to create the desired flow for your app. Below, you will find a simple working example in React.
 
@@ -386,11 +384,11 @@ const App = () => {
 export default App;
 ```
 
-## Interacting with smart contracts
+# Interacting with smart contracts
 
 Pairing a website with the Trust Wallet browser extension is only half the story. We often request access to the wallet to interact with a smart contract (dApp). We will dedicate the following examples to explain how to set up your environment for production use and discuss some common best practices.
 
-### Introducing Ethers.js
+## Introducing Ethers.js
 
 Using the available methods of the Injected Provider will work for small applications. Still, as you scale into more complex projects requiring constant communication with the blockchain or more advanced functionalities like message signing and contract interaction, the best solution is to integrate a web3 library that will provide a higher level of abstraction. Meet [ethers.js](https://www.npmjs.com/package/ethers), a robust, popular, production-ready web3 library with millions of monthly downloads that will help you achieve your production requirements. Let's see how easy it is to get started.
 
@@ -415,7 +413,7 @@ const ethersProvider = new ethers.providers.Web3Provider(injectedProvider);
 
 You can learn more about ethers from their [official documentation](https://docs.ethers.org/v5/).
 
-### Retrieving the account balance
+## Retrieving the account balance
 
 To retrieve the account balance, you can call `getBalance`. The method accepts the public address in string format and returns a promise which will resolve into a [BigNumber](https://docs.ethers.org/v5/api/utils/bignumber/) object.
 
@@ -425,7 +423,7 @@ const accountBalance = await ethersProvider.getBalance(accounts[0]);
 
 You probably want to further process the return value into a primitive type like string or number. The BigNumber Library offers many convenient methods like `toString` or `toNumber` .
 
-### Calling a non-payable smart contract function
+## Calling a non-payable smart contract function
 
 To interact with a smart contract, you will need the following two things:
 
@@ -436,7 +434,7 @@ Most networks offer a blockchain explorer: Ethereumet has [Etherscan](https://et
 
 ![BscScan - Trust Wallet Token](/media/bsc-twt.png)
 
-For TWT the deployed address is `0x4B0F1812e5Df2A09796481Ff14017e6005508003`, time to get the ABI. The [Application Binary Interface (ABI)](https://docs.soliditylang.org/en/latest/abi-spec.html) of a smart contract **gives a contract the ability to communicate and interact with external applications and other smart contracts.** This will allow ethers to construct the request object and call the required methods successfully. To access the ABI through BscScan go to “Contract” → “Code”  and scroll down until the “Contract ABI” section****.**** Then copy-paste it into a JSON file. For this example, we will create a file `twtABI.json` and paste the ABI there.
+For TWT the deployed address is `0x4B0F1812e5Df2A09796481Ff14017e6005508003`, time to get the ABI. The [Application Binary Interface (ABI)](https://docs.soliditylang.org/en/latest/abi-spec.html) of a smart contract **gives a contract the ability to communicate and interact with external applications and other smart contracts.** This will allow ethers to construct the request object and call the required methods successfully. To access the ABI through BscScan go to "Contract" → "Code"  and scroll down until the "Contract ABI" section****.**** Then copy-paste it into a JSON file. For this example, we will create a file `twtABI.json` and paste the ABI there.
 
 ![BscScan - Trust Wallet Token ABI](/media/bsc-abi.gif)
 
@@ -470,7 +468,7 @@ const ethersProvider = new ethers.providers.Web3Provider(injectedProvider);
 const contract = new ethers.Contract(TWT_ADDRESS, twtABI, ethersProvider);
 ```
 
-The first parameter is the contract address. The second is the contract’s interface, ie ABI, and the third is the ethers provider instance. 
+The first parameter is the contract address. The second is the contract's interface, ie ABI, and the third is the ethers provider instance. 
 
 We can now access any defined function by calling it directly from the `contract` instance. 
 
@@ -597,7 +595,7 @@ const App = () => {
 export default App;
 ```
 
-### Calling a payable smart contract function
+## Calling a payable smart contract function
 
 Payable functions require you to pay a certain amount in native currency to execute it. For instance, when you buy an NFT on OpenSea you must pay a certain amount of tokens to complete the transaction (value of the NFT + network fees). 
 
@@ -611,11 +609,11 @@ await contract.buy(NFT_ID, {
 })
 ```
 
-Executing this statement will create a confirmation prompt in user’s wallet extension to approve (or reject) the transaction.
+Executing this statement will create a confirmation prompt in user's wallet extension to approve (or reject) the transaction.
 
-### Using Third-party providers
+## Using Third-party providers
 
-Apart from initializing ethers using the Injected Provider, you can also use HTTP providers, like [Alchemy](https://www.alchemy.com/) or Infura. What is great with that approach is having a dedicated endpoint for yourself, which offers higher rate limits, ie.  requests throughput. While the Injected Provider won’t cause any issues for most cases, it is considered best practice to use third-party providers for executing read calls to a smart contract. 
+Apart from initializing ethers using the Injected Provider, you can also use HTTP providers, like [Alchemy](https://www.alchemy.com/) or Infura. What is great with that approach is having a dedicated endpoint for yourself, which offers higher rate limits, ie.  requests throughput. While the Injected Provider won't cause any issues for most cases, it is considered best practice to use third-party providers for executing read calls to a smart contract. 
 
 Please note, however that you cannot execute payable functions when using HTTP providers because you will need access to your wallet to sign the transactions, which is only available through the Injected Provider.
 
