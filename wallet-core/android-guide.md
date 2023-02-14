@@ -7,8 +7,8 @@ A sample application is available at: https://github.com/trustwallet/wallet-core
 
 ## Prerequisites
 
-* *Android Studio*
-* *Android NDK Support plugin*
+- _Android Studio_
+- _Android NDK Support plugin_
 
 ## Adding Library Dependency
 
@@ -78,7 +78,6 @@ val wallet = HDWallet(128, "")
 val wallet = HDWallet("ripple scissors kick mammal hire column oak again sun offer wealth tomorrow wagon turn fatal", "")
 ```
 
-
 ### Account Address Derivation
 
 Generating the Default Address for a Coin
@@ -96,13 +95,12 @@ val key = wallet.getKey("m/44\'/60\'/1\'/0/0")   // m/44'/60'/1'/0/0
 val address = CoinType.ETHEREUM.deriveAddress(key)
 ```
 
-
 ### Transaction Signing
 
 In general, when creating a new blockchain transaction, a wallet has to:
 
 1. Put together a transaction with relevant fields (source, target, amount, etc.)
-2. Sign the transaction, using the account private key.  This is done by Wallet Core.
+2. Sign the transaction, using the account private key. This is done by Wallet Core.
 3. Send to a node for broadcasting to the blockchain network.
 
 Ethereum Transaction Signing

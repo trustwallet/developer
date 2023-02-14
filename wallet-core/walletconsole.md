@@ -1,11 +1,11 @@
 # WalletConsole utility
 
-The *Wallet Core* library comes with an interactive command-line utility, for accessing key- and address management functionality of the library. 
+The _Wallet Core_ library comes with an interactive command-line utility, for accessing key- and address management functionality of the library.
 
 ## Quick Start
 
 ```shell
-$ ./build/walletconsole/walletconsole 
+$ ./build/walletconsole/walletconsole
 Wallet-Core Console                          (c) TrustWallet
 Type 'help' for list of commands.
 > help
@@ -73,6 +73,7 @@ File methods:
 fileW <fileName> <data> Write data to a (new) binary file.
 fileR <fileName>        Read data from a binary file.
 ```
+
 ## Examples
 
 Here are various sample usages.

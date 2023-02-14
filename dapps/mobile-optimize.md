@@ -36,17 +36,17 @@ For Cosmos you can refer to the official [Keplr guide](https://docs.keplr.app/ap
 
 For Aptos please follow the official [Petra guide](https://petra.app/docs/sending-a-transaction). `window.trustwallet.aptos` is also preferred over `window.aptos`, although both will work.
 
-Consider including an explicit Trust Wallet icon or button in your DApp. This will help Trust Wallet users connect to your DApp for the first time. 
+Consider including an explicit Trust Wallet icon or button in your DApp. This will help Trust Wallet users connect to your DApp for the first time.
 
 Recommended steps to improve the user experience when a user clicks or taps the Trust Wallet icon:
 
 1. Check [How to Identify Trust Provider](https://github.com/trustwallet/trust-web3-provider#how-to-identify-trust-provider) guide.
 2. Verify that the DApp is open in desktop browsers or no `window.trustwallet.(ethereum/solana/cosmos/aptos)` -> Display the WalletConnect pairing popup
-3. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `window.trustwallet.(ethereum/solana/cosmos/aptos)`  directly.
+3. Verify that the DApp is open in the Trust Wallet DApp browser -> Access the `window.trustwallet.(ethereum/solana/cosmos/aptos)` directly.
 
 ## Test your DApp on both iOS and Android
 
-Trust Wallet users access their wallets on both Android and iOS devices, so your app must be thoroughly tested for both operating systems. Issues may occur on one operating system but not on the other. 
+Trust Wallet users access their wallets on both Android and iOS devices, so your app must be thoroughly tested for both operating systems. Issues may occur on one operating system but not on the other.
 
 This is one of the most important areas to optimize for but is often brushed over. Just open up your DApp with the Trust Wallet browser on both an iOS and Android device, then test the DApps functionalities such as sending or depositing tokens.
 

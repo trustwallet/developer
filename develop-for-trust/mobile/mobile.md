@@ -8,7 +8,7 @@ There are two common ways to integrate: Standalone Client and Web3Model (Web3 Pr
 
 Trust extends WalletConnect 1.x with aditional JSON-RPC methods to support multi-chain **dApps**. Currently, you can get all accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/registry.md) implements `signJSON` method in wallet core.
 
-__Supported Coins__
+**Supported Coins**
 
 - Binance Chain
 - Ethereum and forks
@@ -82,29 +82,30 @@ Once you have `walletconnect client` set up, you will be able to get user's acco
 
 ```javascript
 const request = connector._formatRequest({
-    method: 'get_accounts',
+  method: "get_accounts",
 });
 
 connector
   ._sendCallRequest(request)
-  .then(result => {
+  .then((result) => {
     // Returns the accounts
     console.log(result);
   })
-  .catch(error => {
+  .catch((error) => {
     // Error returned when rejected
     console.error(error);
   });
 ```
 
 The result is an array with following structure:
+
 ```javascript
 [
   {
     network: number,
-    address: string
-  }
-]
+    address: string,
+  },
+];
 ```
 
 ### Sign multi chain transaction
@@ -116,16 +117,16 @@ const network = 118; // Atom (SLIP-44)
 const account = accounts.find((account) => account.network === network);
 // Transaction structure based on Trust's protobuf messages.
 const tx = {
-accountNumber: "1035",
+  accountNumber: "1035",
   chainId: "cosmoshub-2",
   fee: {
     amounts: [
       {
         denom: "uatom",
-        amount: "5000"
-      }
+        amount: "5000",
+      },
     ],
-    gas: "200000"
+    gas: "200000",
   },
   sequence: "40",
   sendCoinsMessage: {
@@ -134,29 +135,29 @@ accountNumber: "1035",
     amounts: [
       {
         denom: "uatom",
-        amount: "100000"
-      }
-    ]
-  }
+        amount: "100000",
+      },
+    ],
+  },
 };
 
 const request = connector._formatRequest({
-    method: 'trust_signTransaction',
-    params: [
-        {
-            network,
-            transaction: JSON.stringify(tx),
-        },
-    ],
+  method: "trust_signTransaction",
+  params: [
+    {
+      network,
+      transaction: JSON.stringify(tx),
+    },
+  ],
 });
 
 connector
   ._sendCallRequest(request)
-  .then(result => {
+  .then((result) => {
     // Returns transaction signed in json or encoded format
     console.log(result);
   })
-  .catch(error => {
+  .catch((error) => {
     // Error returned when rejected
     console.error(error);
   });
@@ -166,35 +167,43 @@ The result can be either a string JSON or an HEX encoded string. For Atom, the r
 
 ```json
 {
-    "tx": {
-        "fee": {
-            "amount": [{
-                "amount": "5000",
-                "denom": "uatom"
-            }],
-            "gas": "200000"
-        },
-        "memo": "",
-        "msg": [{
-            "type": "cosmos-sdk/MsgSend",
-            "value": {
-                "amount": [{
-                    "amount": "100000",
-                    "denom": "uatom"
-                }],
-                "from_address": "cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0",
-                "to_address": "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa"
+  "tx": {
+    "fee": {
+      "amount": [
+        {
+          "amount": "5000",
+          "denom": "uatom"
+        }
+      ],
+      "gas": "200000"
+    },
+    "memo": "",
+    "msg": [
+      {
+        "type": "cosmos-sdk/MsgSend",
+        "value": {
+          "amount": [
+            {
+              "amount": "100000",
+              "denom": "uatom"
             }
-        }],
-        "signatures": [{
-            "pub_key": {
-                "type": "tendermint/PubKeySecp256k1",
-                "value": "A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7"
-            },
-            "signature": "m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A=="
-        }],
-        "type": "cosmos-sdk/MsgSend"
-    }
+          ],
+          "from_address": "cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0",
+          "to_address": "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa"
+        }
+      }
+    ],
+    "signatures": [
+      {
+        "pub_key": {
+          "type": "tendermint/PubKeySecp256k1",
+          "value": "A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7"
+        },
+        "signature": "m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A=="
+      }
+    ],
+    "type": "cosmos-sdk/MsgSend"
+  }
 }
 ```
 
@@ -223,17 +232,17 @@ const providerOptions = {
     package: WalletConnectProvider,
     options: {
       rpc: {
-        56: 'https://bsc-dataseed1.binance.org'
+        56: "https://bsc-dataseed1.binance.org",
       },
-      chainId: 56
-    }
-  }
-}
+      chainId: 56,
+    },
+  },
+};
 
 const web3Modal = new Web3Modal({
   network: "mainnet", // optional
   cacheProvider: true, // optional
-  providerOptions // required
+  providerOptions, // required
 });
 
 const provider = await web3Modal.connect();

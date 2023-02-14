@@ -3,6 +3,7 @@
 <center><img src='https://trustwallet.com/assets/images/media/assets/horizontal_blue.png' height="200"></center>
 
 ## Overview
+
 The [Trust Wallet Token Repository](https://github.com/trustwallet/assets)
 is a comprehensive, up-to-date collection of information about several thousands of crypto tokens.
 [Trust Wallet](https://trustwallet.com) uses token logos from this source, alongside a number of third-party projects.
@@ -34,22 +35,22 @@ primarily from token projects.
   </tbody>
 </table>
 
-
 ## Contribution Checklist
+
 This guide is for adding a logo for the following Trust Wallet supported blockchains:
 
- - [Ethereum ERC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
- - [Binance BEP2 token](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
- - [Smart Chain BEP20 token](https://github.com/trustwallet/assets/tree/master/blockchains/smartchain/assets)
- - [TRON TRC10, TRC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
+- [Ethereum ERC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/assets)
+- [Binance BEP2 token](https://github.com/trustwallet/assets/tree/master/blockchains/binance/assets)
+- [Smart Chain BEP20 token](https://github.com/trustwallet/assets/tree/master/blockchains/smartchain/assets)
+- [TRON TRC10, TRC20 token](https://github.com/trustwallet/assets/tree/master/blockchains/tron/assets)
 
 For **adding an token**:
+
 - [ ] Ensure your asset meets our [reqirements](requirements.md)
 - [ ] Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information
 - [ ] Pay the [processing fee](pr-fee.md)
 
 Adding a DApp logo or other type of asset? Check the [DApps](../dapps/listing-guide.md) section or [contribution guidelines](repository_details.md#contribution-guidelines).
-
 
 ### Adding new Assets using Asset App
 
@@ -60,30 +61,32 @@ Every Trust Wallet user can submit his token using our Web App. Before initiatin
 The steps for adding a new token through Asset App.
 
 - Access the **assets web app** via this link: https://assets.trustwallet.com
-![](/media/assetapp.png)
+  ![](/media/assetapp.png)
 
 - Log in to your **GitHub account**. If you have not yet logged in (using the current browser), it is compulsory to log in to your GitHub account.
-![](/media/gitassetapp.png)
+  ![](/media/gitassetapp.png)
 
 - If you are logging in for the first time you will need to authorize the Assets app to access your GitHub account
 - Upload the logo file.
 - Fill out the token contract.
-Note: For some tokens like (ERC20) some fields are auto-filled (symbol, decimals, etc.).
+  Note: For some tokens like (ERC20) some fields are auto-filled (symbol, decimals, etc.).
 - Fill in additional fields, symbols, decimals, descriptions, links, etc.
-- Press the **Check button.
+- Press the \*\*Check button.
 - If all is **OK**, press the Create Pull Request button. A PR will be created.
 
 ### Fee
+
 Due to an increasing number of pull request (and proportional checking & merging effort),
 a modest fee is required for processing a pull request, payable in cryptocurrency.
 Follow the instructions in the pull request for completing the fee payment.
 
-A fee of **500TWT or 5BNB** is required for each Pull Request, you will see the message from the merge-fee-bot with details about the payment. **Make sure to double-check the https://developer.trustwallet.com/assets/requirements, to minimize the risk of your PR being rejected.
+A fee of **500TWT or 5BNB** is required for each Pull Request, you will see the message from the merge-fee-bot with details about the payment. \*\*Make sure to double-check the https://developer.trustwallet.com/assets/requirements, to minimize the risk of your PR being rejected.
 
-For more details about the payment fee for your assets, see https://developer.trustwallet.com/assets/pr-fee 
+For more details about the payment fee for your assets, see https://developer.trustwallet.com/assets/pr-fee
 See also the [fee FAQ](pr-fee.md)
 
 ## Disclaimer
+
 Trust Wallet team allows anyone to submit new assets to this repository. However, this does not mean that we are in direct partnership with all of the projects.
 
 Trust Wallet team will reject projects that are deemed as scam or fraudulent after careful review.

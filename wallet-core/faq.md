@@ -26,11 +26,11 @@ A: Nope.
 
 ### Does Wallet Core support WIF?
 
-A: No, Here are some reasons: 
+A: No, Here are some reasons:
 
--   WIF (Wallet Import Format) is just a private key encoded in Base58-check format, you can decode it using `Base58` class.
--   It's cumbersome to support different prefix byte for all networks (mainly Bitcoin and forks)
--   Hex string encoding is a more widely used format.
+- WIF (Wallet Import Format) is just a private key encoded in Base58-check format, you can decode it using `Base58` class.
+- It's cumbersome to support different prefix byte for all networks (mainly Bitcoin and forks)
+- Hex string encoding is a more widely used format.
 
 ### Does Wallet Core have a method to verify an address format?
 
@@ -46,10 +46,10 @@ You can read [bip32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediaw
 
 A: You can find some on [Usage Guide](https://developer.trustwallet.com/wallet-core/integration-guide/wallet-core-usage), the comprehensive and up-to-date examples are in tests folder:
 
--   C++ tests: <https://github.com/trustwallet/wallet-core/tree/master/tests>
--   Swift tests: <https://github.com/trustwallet/wallet-core/tree/master/swift/Tests>
--   Kotlin tests: <https://github.com/trustwallet/wallet-core/tree/master/android/app/src/androidTest/java/com/trustwallet/core/app>
--   TypeScript tests: <https://github.com/trustwallet/wallet-core/tree/master/wasm/tests>
+- C++ tests: <https://github.com/trustwallet/wallet-core/tree/master/tests>
+- Swift tests: <https://github.com/trustwallet/wallet-core/tree/master/swift/Tests>
+- Kotlin tests: <https://github.com/trustwallet/wallet-core/tree/master/android/app/src/androidTest/java/com/trustwallet/core/app>
+- TypeScript tests: <https://github.com/trustwallet/wallet-core/tree/master/wasm/tests>
 
 ## Blockchain
 
@@ -73,9 +73,9 @@ A: Usually this error means the node can't find the unspent transaction (UTXO) y
 
 A: Wallet Core doesn't support any testnet in general:
 
--   no testnet network entry in `registry.json`
--   no method to generate testnet address for Bitcoin etc.
--   extra maintenance effort and we always require mainnet transaction signing test.
+- no testnet network entry in `registry.json`
+- no method to generate testnet address for Bitcoin etc.
+- extra maintenance effort and we always require mainnet transaction signing test.
 
 But for some networks like Ethereum, the testnet just has a different chain id, you can specify chain id when you signing a transaction.
 
@@ -91,9 +91,9 @@ A: Yes
 
 A: Polkadot supports multiple elliptic curve and signature schemes:
 
--   The vanilla `ed25519` implementation using Schnorr signatures.
--   The Schnorrkel/Ristretto `sr25519` variant using Schnorr signatures.
--   ECDSA signatures on `secp256k1`
+- The vanilla `ed25519` implementation using Schnorr signatures.
+- The Schnorrkel/Ristretto `sr25519` variant using Schnorr signatures.
+- ECDSA signatures on `secp256k1`
 
 It's might be incompatible with other wallets because Wallet Core currently only supports `ed25519`.
 

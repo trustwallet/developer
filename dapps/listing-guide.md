@@ -1,4 +1,5 @@
 # A Complete Guide to Listing your dApp with Trust Wallet
+
 Joining the Trust Wallet ecosystem with an already established base of users, projects, and communities is a great opportunity for your dApp project to leapfrog its growth. Before you can be listed alongside the other top dApps partnered with Trust Wallet, there is a documented process that needs to be carefully followed and completed.
 
 Trust Wallet is proud of the high standards of quality required for listed dApps, where the user and their experience are the key areas of focus. The app is one of the most popular wallets available for easy access to digital assets and dApps in one place.
@@ -23,6 +24,7 @@ The whole process can be divided into these key stages, along with some recommen
 Only by following closely the clearly defined instructions and recommendations will your dApp be able to join the list after careful scrutiny from the Trust Wallet team.
 
 ### Technical Requirements and Preparation
+
 Optimizing your application will require checking off a series of key areas noted in the following optimization sections. Some technical preparation will however be required whenever assets are added to the Trust Wallet GitHub repo.
 
 Therefore, it is required that you have a [GitHub](https://github.com) account to interact with the [Assets repo](https://github.com/trustwallet/assets) and submit your dApp logo for listing. Before uploading any image files, you must make sure they meet the following requirements:
@@ -32,7 +34,7 @@ Therefore, it is required that you have a [GitHub](https://github.com) account t
 - File Name：logo.png
 - Size: 256px by 256px
 - Background: Avoid transparency. White is preferred to fit in with app white/dark theme designs.
-- File size: maximum 100kB. Tip: optimize your image size using a simple drag-and-drop online service such as tinypng. Your logo’s file name must also meet the following criteria: <subdomain>.<domain_name>.png 
+- File size: maximum 100kB. Tip: optimize your image size using a simple drag-and-drop online service such as tinypng. Your logo’s file name must also meet the following criteria: <subdomain>.<domain_name>.png
   - For example: https://app.compound.finance/ => app.compound.finance.png
     https://kyberswap.com/ => kyberswap.com.png
 
@@ -51,28 +53,28 @@ Pull requests made to Trust Wall repositories have an associated fee to pay in e
 Contributing a fee filters spam requests and ensures that there is more time to handle genuine submissions.
 
 More details are available on the [pull request fee](../assets/pr-fee.md) that explains how this fits in with Trust Wallet’s open-source ethos.
-  
+
 **NOTE:** Paying the fee does not guarantee that your asset will be listed in the repository.
- 
+
 ### Applying for the Trust Wallet dApp Listing
 
-Adding your dApp to the official Trust Wallet listing provides users with a guarantee of the quality and service provided by your dApp. Not every project that is submitted to the listing is approved. *Upon review, a member of the Trust Wallet team will reach out with additional information or follow up questions if necessary*.
- 
-Trust Wallet is proud of the standards set in place to ensure that only the best projects are presented. Once you’ve applied, a member of the Trust Wallet team will reach out should we feel your app is a good candidate based on UX, mobile optimization, responsiveness, value proposition relative to other apps, etc.
- 
-The aim of the Trust Wallet dApp Directory is twofold: 
+Adding your dApp to the official Trust Wallet listing provides users with a guarantee of the quality and service provided by your dApp. Not every project that is submitted to the listing is approved. _Upon review, a member of the Trust Wallet team will reach out with additional information or follow up questions if necessary_.
 
-1. It empowers users to discover high-quality dApps within Trust Wallet. 
+Trust Wallet is proud of the standards set in place to ensure that only the best projects are presented. Once you’ve applied, a member of the Trust Wallet team will reach out should we feel your app is a good candidate based on UX, mobile optimization, responsiveness, value proposition relative to other apps, etc.
+
+The aim of the Trust Wallet dApp Directory is twofold:
+
+1. It empowers users to discover high-quality dApps within Trust Wallet.
 2. It allows developers to showcase their work to millions of users as part of a developed and supported ecosystem.
 
 #### Curation Guidelines
 
-dApp listing submissions are considered on a case-by-case basis. While there isn’t a strict formula that dictates which apps we decide to list, the safety and experience of our users are of the utmost importance to us. For that reason,  the dApp Directory is curated with the following set of guidelines:
+dApp listing submissions are considered on a case-by-case basis. While there isn’t a strict formula that dictates which apps we decide to list, the safety and experience of our users are of the utmost importance to us. For that reason, the dApp Directory is curated with the following set of guidelines:
 
- - We believe the dApp ecosystem should be open and allow for the expression of diverse ideas and opinions. dApp submissions with content or behavior that fails to meet a “common sense” bar for respecting different ideas or users will be rejected.
- - Attempts to misrepresent or otherwise deceive the listing and review process will result in your dApp being rejected or delisted from the directory.
- - Stronger consideration will be given to dApps that demonstrate a unique value proposition relative to other existing/popular apps
- - Good design is a critical component to increasing the accessibility of crypto and Defi. We look for dApps that scale gracefully across screen sizes and devices, and appropriate management of complex user flows through thoughtful UI 
+- We believe the dApp ecosystem should be open and allow for the expression of diverse ideas and opinions. dApp submissions with content or behavior that fails to meet a “common sense” bar for respecting different ideas or users will be rejected.
+- Attempts to misrepresent or otherwise deceive the listing and review process will result in your dApp being rejected or delisted from the directory.
+- Stronger consideration will be given to dApps that demonstrate a unique value proposition relative to other existing/popular apps
+- Good design is a critical component to increasing the accessibility of crypto and Defi. We look for dApps that scale gracefully across screen sizes and devices, and appropriate management of complex user flows through thoughtful UI
 
 Before submitting your dApp and filling out the submission form, you should ensure that your dApp is fully compliant with our submission criteria.
 
@@ -90,8 +92,7 @@ Trust Wallet will reject any dApp submitted for listing that contains or promote
 
 #### Legal & Business
 
-Ensure that your dApp is compliant with all relevant laws and regulations where you plan on making it available. dApps that encourage or solicit criminal or reckless behavior will not be tolerated and may result in notifying law enforcement. 
-
+Ensure that your dApp is compliant with all relevant laws and regulations where you plan on making it available. dApps that encourage or solicit criminal or reckless behavior will not be tolerated and may result in notifying law enforcement.
 
 ### Support and Questions
 

@@ -9,7 +9,6 @@ Open dapp browser with a specific url and network
 
 https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
-
 ## Assets
 
 ### Open coin
@@ -18,12 +17,11 @@ https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
 https://link.trustwallet.com/open_coin?asset=c60
 
-
 ### Add asset
 
 Asset will be added to local storage and will show up on the wallet screen.
 
-- `asset` asset in [UAI format](/assets/universal_asset_id.md) 
+- `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
 https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
 
@@ -121,7 +119,6 @@ https://link.trustwallet.com/alerts
 #### Definition
 
 slip44 index - https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-
 
 ## WalletConnect
 

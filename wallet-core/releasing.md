@@ -17,6 +17,7 @@ Run `bootstrap.sh` then `tools/ios-release`. This will build, archive and upload
 Run `bootstrap.sh` then `tools/android-release`. This will build and upload to [Bintray](https://bintray.com/trust/wallet-core/com.trustwallet.wallet-core) and [JFrog](https://oss.jfrog.org/webapp/#/home).
 
 You need to have this credentials as environment variables in order to upload to Bintray
+
 ```text
 BINTRAY_USER=user
 BINTRAY_KEY=key
