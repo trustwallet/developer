@@ -1,11 +1,11 @@
 # Table of contents
 
 * [Get Started](README.md)
-* [Developing for Trust Wallet platform](development/intro.md)
-  * [Browser Extension](development/browser-extension/intro.md)
-    * [Ethereum & EVM chains](development/browser-extension/evm.md)
-  * [Mobile (WalletConnect)](development/mobile/intro.md)
-  * [Deep Linking](development/deeplinking/intro.md)
+* [Developing for Trust Wallet platform](develop-for-trust/develop-for-trust.md)
+  * [Browser Extension](develop-for-trust/browser-extension/browser-extension.md)
+    * [Ethereum & EVM chains](develop-for-trust/browser-extension/evm.md)
+  * [Mobile (WalletConnect)](develop-for-trust/mobile/mobile.md)
+  * [Deep Linking](develop-for-trust/deeplinking/deeplinking.md)
 * [Listing new dApps](dapps/)
   * [A Complete Guide to Listing your dApp with Trust Wallet](dapps/listing-guide.md)
   * [Optimizing your dApp for Trust Wallet](dapps/mobile-optimize.md)

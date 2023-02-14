@@ -434,7 +434,7 @@ Most networks offer a blockchain explorer: Ethereumet has [Etherscan](https://et
 
 ![BscScan - Trust Wallet Token](/media/bsc-twt.png)
 
-For TWT the deployed address is `0x4B0F1812e5Df2A09796481Ff14017e6005508003`, time to get the ABI. The [Application Binary Interface (ABI)](https://docs.soliditylang.org/en/latest/abi-spec.html) of a smart contract **gives a contract the ability to communicate and interact with external applications and other smart contracts.** This will allow ethers to construct the request object and call the required methods successfully. To access the ABI through BscScan go to "Contract" → "Code"  and scroll down until the "Contract ABI" section****.**** Then copy-paste it into a JSON file. For this example, we will create a file `twtABI.json` and paste the ABI there.
+For TWT the deployed address is `0x4B0F1812e5Df2A09796481Ff14017e6005508003`, time to get the ABI. The [Application Binary Interface (ABI)](https://docs.soliditylang.org/en/latest/abi-spec.html) of a smart contract **gives a contract the ability to communicate and interact with external applications and other smart contracts.** This will allow ethers to construct the request object and call the required methods successfully. To access the ABI through BscScan go to "Contract" → "Code"  and scroll down until the "Contract ABI" section". Then copy-paste it into a JSON file. For this example, we will create a file `twtABI.json` and paste the ABI there.
 
 ![BscScan - Trust Wallet Token ABI](/media/bsc-abi.gif)
 
@@ -617,7 +617,7 @@ Apart from initializing ethers using the Injected Provider, you can also use HTT
 
 Please note, however that you cannot execute payable functions when using HTTP providers because you will need access to your wallet to sign the transactions, which is only available through the Injected Provider.
 
-To get started with [Alchemy](https://www.alchemy.com/), you will need an API key. Then you can instantiate the provider by using `[ethers.providers.AlchemyProvider](https://docs.ethers.org/v5/api-keys/#api-keys--alchemy)` .
+To get started with [Alchemy](https://www.alchemy.com/), you will need an API key. Then you can instantiate the provider by using [`ethers.providers.AlchemyProvider`](https://docs.ethers.org/v5/api-keys/#api-keys--alchemy).
 
 ```jsx
 const ALCHEMY_API_KEY = 'XXX'
@@ -628,4 +628,4 @@ const ethersProvider = new ethers.providers.AlchemyProvider(
 );
 ```
 
-To get started with [Infura](https://www.infura.io/), you will need an API key. Then you can instantiate the provider by using `[ethers.providers.InfuraProvider](https://docs.ethers.org/v5/api-keys/#api-keys--infura)`.
+To get started with [Infura](https://www.infura.io/), you will need an API key. Then you can instantiate the provider by using [`ethers.providers.InfuraProvider`](https://docs.ethers.org/v5/api-keys/#api-keys--infura).
