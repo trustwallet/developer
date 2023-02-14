@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Get Started](README.md)
-* [Developing for Trust Wallet platform](development/)
+* [Developing for Trust Wallet platform](development/intro.md)
   * [Browser Extension](development/browser-extension/intro.md)
   * [Mobile (WalletConnect)](development/mobile/intro.md)
   * [Deep Linking](development/deeplinking/intro.md)
