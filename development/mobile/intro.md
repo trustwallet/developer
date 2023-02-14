@@ -1,4 +1,4 @@
-# WalletConnect
+# Mobile (WalletConnect)
 
 [WalletConnect](https://walletconnect.org/) is an open source protocol for connecting dApps to mobile wallets with QR code scanning or deep linking, basically it's a websocket JSON-RPC channel.
 
