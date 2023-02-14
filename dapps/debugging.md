@@ -32,4 +32,4 @@ If above doesn't help, please create an issue on [trust-web3-provider](https://g
 1. What's your app version and OS version?
 2. Do you see any js error?
 3. How to reproduce? please record a video if possible
-5. what's the url of your dapp?
+4. what's the url of your dapp?

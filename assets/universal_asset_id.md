@@ -1,6 +1,6 @@
 # Universal Asset ID
 
-UAI unique identifier of the asset, it's blockchain agnostic and provides ability to easily distinguish asset across blockchains. 
+UAI unique identifier of the asset, it's blockchain agnostic and provides ability to easily distinguish asset across blockchains.
 
 ## Params:
 

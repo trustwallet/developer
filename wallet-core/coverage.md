@@ -16,7 +16,7 @@ Summary coverage rate:
 
 ## Detailed Coverage Report
 
-Detailed coverage report can be generated locally.  It includes file and line-level info on coverage.
+Detailed coverage report can be generated locally. It includes file and line-level info on coverage.
 
 Steps:
 
@@ -34,7 +34,6 @@ cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_
 make -Cbuild -j12 tests TrezorCryptoTests
 ```
 
-
 - Cleanup any old coverage files, and run unit tests
 
 ```shell
@@ -43,7 +42,7 @@ find . -name "*.gcda" -exec rm {} \;
 ./build/tests/tests tests --gtest_output=xml
 ```
 
-- Generate coverage info (slow).  With the `html` argument the script will generate HTML report as well:
+- Generate coverage info (slow). With the `html` argument the script will generate HTML report as well:
 
 ```shell
 ./tools/coverage html
@@ -56,6 +55,7 @@ c++filt: Unknown command line argument '--no-strip-underscores'.  Try: '/Applica
 c++filt: Did you mean '--no-strip-underscore'?
 genhtml: ERROR: c++filt output not as expected (0 vs 11) lines
 ```
+
 please upgrade `lcov` to min. `1.16`, or patch `genhtml` (for example /usr/local/Cellar/lcov/1.15/libexec/bin/), change `--no-strip-underscores` to `--no-strip-underscore`
 
 Open the generated `coverage/index.html` to view the report.

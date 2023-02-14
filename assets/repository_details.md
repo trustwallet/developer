@@ -20,12 +20,12 @@ The token repository contains the following collections:
 4. DApp logos displayed in `Browser` section of the Trust Wallet app, and bookmarks icons
    - [Image naming requirements](#dapp-image-naming-requirements)
    - [Request listing in Trust Wallet DApp Browser](#dapp-submission-and-listing-requirements)
-6. Staking validators information, such as name: `image`, `validator_id`, `website_url`
+5. Staking validators information, such as name: `image`, `validator_id`, `website_url`
    - [Supported staking coins](https://trustwallet.com/staking/)
    - [Read requirements](#staking-validators-requirements).
-7. Crypto price providers map: [CoinMarketCap](https://github.com/trustwallet/assets/blob/master/pricing/coinmarketcap/mapping.json)
-8. Token and coin information
-9. Smart contract deprecation/upgrade. [Read more](#update-and-remove-an-existing-asset)
+6. Crypto price providers map: [CoinMarketCap](https://github.com/trustwallet/assets/blob/master/pricing/coinmarketcap/mapping.json)
+7. Token and coin information
+8. Smart contract deprecation/upgrade. [Read more](#update-and-remove-an-existing-asset)
 
 ### Repository structure
 
@@ -36,22 +36,23 @@ The `assets` subfolder contains token folders named by smart contract address,
 in [checksum format](#checksum-format) for Ethereum like networks.  
 This folder should contain the `logo.png` image file, and the `info.json` file.
 
-For other networks the address must be specified as it was originated on the chain, e.g TRON TRC10: `1002000`, TRON TRC20: `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t` etc. 
+For other networks the address must be specified as it was originated on the chain, e.g TRON TRC10: `1002000`, TRON TRC20: `TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t` etc.
 
 The `info` folder contains a `logo.png` that represents the coin image.
 
-The `validators` folder contains folders: `assets` same structure as above and `list.json` information about validators. 
+The `validators` folder contains folders: `assets` same structure as above and `list.json` information about validators.
 
-The `denylist.json` and `allowlist.json`, present in some chain folders like `ethereum` and `binance`, contain list of approved tokens and banned tokens.  Trust Wallet will never show denylisted tokens, and only allowlisted tokens are shown in the token search results.
+The `denylist.json` and `allowlist.json`, present in some chain folders like `ethereum` and `binance`, contain list of approved tokens and banned tokens. Trust Wallet will never show denylisted tokens, and only allowlisted tokens are shown in the token search results.
 
 #### Checksum format
+
 For Ethereum like networks, contract folders must be named according to the so-called **Checksum Format**, with mixed lowercase and uppercase letters, such as `0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359`.
 Non-checksum addresses (e.g. all lowercase) are considered invalid.
 
 You can find the checksum address by searching on [etherscan.io](https://etherscan.io),
 for example stablecoin [DAI](https://etherscan.io/address/0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359)
 the checksum address is located at the top left corner of the page and has both uppercase and lowercase characters.
-Or [convert Ethereum address to Checksum address](https://piyolab.github.io/sushiether/RunScrapboxCode/?web3=1.0.0-beta.33&code=https://scrapbox.io/api/code/sushiether/web3.js_-_Ethereum_%E3%81%AE%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%B5%E3%83%A0%E4%BB%98%E3%81%8D%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B/demo.js). 
+Or [convert Ethereum address to Checksum address](https://piyolab.github.io/sushiether/RunScrapboxCode/?web3=1.0.0-beta.33&code=https://scrapbox.io/api/code/sushiether/web3.js_-_Ethereum_%E3%81%AE%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%B5%E3%83%A0%E4%BB%98%E3%81%8D%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B/demo.js).
 
 #### Layout
 
@@ -84,10 +85,10 @@ Or [convert Ethereum address to Checksum address](https://piyolab.github.io/sush
 |   |  |  └──TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t
 |   |  |      └──logo.png
 |   |  |      └──info.json
-|   |  | 
+|   |  |
 │   |  └──info
 │   |     └──logo.png
-|   |     └──info.json 
+|   |     └──info.json
 |   |
 |   └──cosmos
 │   │   └──info
@@ -103,14 +104,13 @@ Or [convert Ethereum address to Checksum address](https://piyolab.github.io/sush
 ├── ...
 ```
 
-
 ## Contribution Guidelines
 
 ### Contribution Use Cases
 
 #### Add new asset
 
-1. Prepare asset, look at [image requirements](#image-requirements), [dapp requirements](#dapp-image-naming-requirements). 
+1. Prepare asset, look at [image requirements](#image-requirements), [dapp requirements](#dapp-image-naming-requirements).
 2. Get familiar with our [folder structure](#repository-structure), it will give you an understanding where assets should be placed
 3. [Add asset guide](#how-to-add-files)
 4. Pay the merge [fee](#fee)
@@ -136,24 +136,27 @@ Smart contract address update procedure:
 
 `rm -r ./blockchains/ethereum/assets/0x19fFfd124CD9089E21026d10dA97f8cD6B442Bff/`
 ```
+
 2. Commit changes and make a PR (pull request)
 
 ### Image Requirements
+
 - File location: must be placed in the correct folder and subfolder within the [folder structure](#repository-structure).
 - File name：`logo.png`, all lowercase. Extension: `png` (uppercase `PNG` is considered invalid).
 - Dimension: recommended `256 x 256 pixels`, maximum `512 x 512 pixels`, aspect ratio should be 1:1.
-- File size: maximum 100kB.  Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
+- File size: maximum 100kB. Tip: optimize image size, e.g. using simple drag-and-drop online service [tinypng](https://tinypng.com/).
 - Edges and background:
-    - Logos are displayed cropped to a circular mask, a circle fitting in the square shape.  Thus the corners of the logo image will not be visible.  The logo should fit in the circle, but also fill it as much as it possible, i.e. there should not be unused spaces on the sides/top/bottom.
-    - Logos should look OK with white/lightgray background as well as on black/darkgray background (night mode).  For dark themed logos use white contour lines to make sure they stand out on dark background as well.
-    - Avoid using transparency inside the logo, as the color beneath the transparent layer is changing (light or dark).  Use transparency only outside of the logo.
-    - It is recommended to use the [Assets web app](https://assets.trustwallet.com) ([guide](https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957)), as it shows a preview of the logo with both light and dark background and circular cropping.
+  - Logos are displayed cropped to a circular mask, a circle fitting in the square shape. Thus the corners of the logo image will not be visible. The logo should fit in the circle, but also fill it as much as it possible, i.e. there should not be unused spaces on the sides/top/bottom.
+  - Logos should look OK with white/lightgray background as well as on black/darkgray background (night mode). For dark themed logos use white contour lines to make sure they stand out on dark background as well.
+  - Avoid using transparency inside the logo, as the color beneath the transparent layer is changing (light or dark). Use transparency only outside of the logo.
+  - It is recommended to use the [Assets web app](https://assets.trustwallet.com) ([guide](https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957)), as it shows a preview of the logo with both light and dark background and circular cropping.
 
 ### Info.json Contents
 
 The `info.json` file contains basic information about the token/project.
 
 It has following required fields:
+
 - `name`: name of the token
 - `type`: such as ERC20, BEP2, BEP20, TRC20, TRC10, ...
 - `symbol`: the token symbol
@@ -164,12 +167,12 @@ It has following required fields:
 - `status`: `"active"`
 - `id`: the id/contract/address of the token, same as the subfolder name
 - `links`: Array with `name`/`url` pairs, for social media links, documentation, etc.
-List of currently supported types:
-`github`, `whitepaper`, `twitter`, `telegram`, `telegram_news`, `medium`, `discord`, `reddit`, `facebook`, `youtube`, `coinmarketcap`, `coingecko`, `blog`, `forum`, `docs`, `source_code`.
-Note: the `socials` section is no longer used.
+  List of currently supported types:
+  `github`, `whitepaper`, `twitter`, `telegram`, `telegram_news`, `medium`, `discord`, `reddit`, `facebook`, `youtube`, `coinmarketcap`, `coingecko`, `blog`, `forum`, `docs`, `source_code`.
+  Note: the `socials` section is no longer used.
 - `tags`: Assigning these tags to tokens helps place them on appropriate token menus and ensures your token is evaluated correctly in conditions.
-List of currently supported tags: 
-`stablecoin`, `wrapped`, `synthetics`, `nft`, `governance`, `defi`, `staking`, `staking-native`, `privacy`, `nsfw`, `binance-peg`, `deflationary`, `memes`, `gamefi`.
+  List of currently supported tags:
+  `stablecoin`, `wrapped`, `synthetics`, `nft`, `governance`, `defi`, `staking`, `staking-native`, `privacy`, `nsfw`, `binance-peg`, `deflationary`, `memes`, `gamefi`.
 
 If in doubt about fields, look around / search in existing info.json files.
 
@@ -207,14 +210,16 @@ Sample `info.json`:
 ```
 
 ### dApp image naming requirements
+
 - [Folder for upload](https://github.com/trustwallet/assets/tree/master/dapps)
 - `<subdomain>.<domain_name>.png` e.g:
   https://app.compound.finance/ => `app.compound.finance.png`
   https://kyberswap.com/ => `kyberswap.com.png`
 
 ### dApp submission and listing requirements
+
 - Upload [logo](https://github.com/trustwallet/assets/tree/master/dapps)
-– Make sure you follow rules for image requirements.
+  – Make sure you follow rules for image requirements.
 - Integrate [deep linking](https://developer.trustwallet.com/deeplinking)
 - Add [logo](https://trustwallet.com/press) as dApp supported wallet
 - Test dApp inside Trust Wallet on iOS and Android devices
@@ -236,8 +241,8 @@ Sample `info.json`:
 6. Add Ethereum contract address to denylist [](https://github.com/trustwallet/assets/tree/master/blockchains/ethereum/denylist.json)
 7. Add TRON TRC10 ID or TRC20 owner contract address to allowlist [](https://github.com/trustwallet/assets/tree/master/blockchains/tron/allowlist.json)
 
-
 ### How To Add Files
+
 If you are not familiar with GitHub or Git, the process of adding new tokens may look complicated at first glance, but it consists of only a few steps, and is not very complicated.
 
 #### Basics, Prerequisites
@@ -255,14 +260,14 @@ Upon review the maintainers will accept your pull request, and the changes will 
 A new token can be submitted using the Assets application.
 See also: https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957
 
-1. Open the assets web app:   [https://assets.trustwallet.com]( https://assets.trustwallet.com)
-2. Press the Log in with Github button.  If not yet logged in (in the current browser session), you need to log in to Github
+1. Open the assets web app: [https://assets.trustwallet.com](https://assets.trustwallet.com)
+2. Press the Log in with Github button. If not yet logged in (in the current browser session), you need to log in to Github
 3. First time you will need to authorize the Assets app to access your Github account.
 4. Upload the logo file.
-5. Fill the token contract.  For some tokens (ERC20) some fields are auto-filled (symbol, decimals, etc.).
+5. Fill the token contract. For some tokens (ERC20) some fields are auto-filled (symbol, decimals, etc.).
 6. Fill in additional fields, symbol, decimals, description, links, etc.
 7. Press the Check button.
-8. If all is OK, press the Create Pull Request button.  A PR will be created.
+8. If all is OK, press the Create Pull Request button. A PR will be created.
 
 ## Token Status
 

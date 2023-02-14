@@ -1,25 +1,24 @@
 # Wallet Core Usage Guide
 
-We present here an overview of the basic wallet operations.  Language-specific samples are provided in step-by-step [guides](integration-guide.md).
+We present here an overview of the basic wallet operations. Language-specific samples are provided in step-by-step [guides](integration-guide.md).
 
 The covered basic operations are:
 
-* Wallet management
-  * Creating a new multi-coin wallet
-  * Importing a multi-coin wallet
-* Address derivation (receiving)
-  * Generating the default address for a coin
-  * Generating an address using a custom derivation path (expert)
-* Transaction signing (e.g. for sending)
+- Wallet management
+  - Creating a new multi-coin wallet
+  - Importing a multi-coin wallet
+- Address derivation (receiving)
+  - Generating the default address for a coin
+  - Generating an address using a custom derivation path (expert)
+- Transaction signing (e.g. for sending)
 
-For the examples we use *Bitcoin*, *Ethereum* and *Binance Coin* as sample coins/blockchains.
+For the examples we use _Bitcoin_, _Ethereum_ and _Binance Coin_ as sample coins/blockchains.
 
-Note: Wallet Core does not cover communication with blockchain networks (nodes): 
-address derivation is covered, but address balance retrieval not; 
+Note: Wallet Core does not cover communication with blockchain networks (nodes):
+address derivation is covered, but address balance retrieval not;
 transaction signing is covered, but broadcasting transactions to the network not.
 
 In this guide we use small code examples from a Swift sample application, but the focus is on the explanations.
-
 
 ## Wallet Management
 
@@ -32,7 +31,7 @@ It is a standard HD Wallet (Hierarchically Derived), employing the standard deri
 ### Creating a New Multi-Coin Wallet
 
 When a new wallet is created, a new seed (and thus recovery phrase) is chosen at random.  
-*After creation, the user has to be informed and guided to backup the recovery phrase.*
+_After creation, the user has to be informed and guided to backup the recovery phrase._
 
 The random generation employs secure random generation, as available on the device.
 
@@ -40,17 +39,18 @@ The random generation employs secure random generation, as available on the devi
 let wallet = HDWallet(strength: 128, passphrase: "")
 ```
 
-Input parameter | Description
----|---
-*strength* | The strength of the secret seed.  Higher seed means more information content, longer recovery phrase.  Default value is **128**, but 256 is also possible.
-*passphrase* | Optional passphrase, used to scramble the seed.  If specified, the wallet can be imported and opened only with the passphrase (Not to be confused with recovery phrase).
+| Input parameter | Description                                                                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _strength_      | The strength of the secret seed. Higher seed means more information content, longer recovery phrase. Default value is **128**, but 256 is also possible.                |
+| _passphrase_    | Optional passphrase, used to scramble the seed. If specified, the wallet can be imported and opened only with the passphrase (Not to be confused with recovery phrase). |
 
 ### Importing a Multi-Coin Wallet
 
-A previously created wallet can be imported using the recovery phrase.  Typical usecases for import are:
-* re-importing a wallet later, into a later installation, or
-* importing into another device, or 
-* importing into another wallet app.
+A previously created wallet can be imported using the recovery phrase. Typical usecases for import are:
+
+- re-importing a wallet later, into a later installation, or
+- importing into another device, or
+- importing into another wallet app.
 
 If the wallet was created with a passphrase, it is also required.
 
@@ -58,16 +58,15 @@ If the wallet was created with a passphrase, it is also required.
 let wallet = HDWallet(mnemonic: "ripple scissors kick mammal hire column oak again sun offer wealth tomorrow wagon turn fatal", passphrase: "")
 ```
 
-Input parameter | Description
----|---
-*mnemonic* | a.k.a. *recovery phrase*.  The string of several words that was used to create the wallet.
-*passphrase* | Optional passphrase, used to encrypt the seed.
-
+| Input parameter | Description                                                                               |
+| --------------- | ----------------------------------------------------------------------------------------- |
+| _mnemonic_      | a.k.a. _recovery phrase_. The string of several words that was used to create the wallet. |
+| _passphrase_    | Optional passphrase, used to encrypt the seed.                                            |
 
 ## Account Address Derivation
 
-Each coin needs a different account, with matching address.  Addresses are derived from the multi-coin wallet.
-Derivation is based on a *derivation path*, which is unique for each coin, but can have other parameters as well.
+Each coin needs a different account, with matching address. Addresses are derived from the multi-coin wallet.
+Derivation is based on a _derivation path_, which is unique for each coin, but can have other parameters as well.
 Each coin has a default derivation path, such as `"m/84'/0'/0'/0/0"` for Bitcoin and `"m/44'/60'/0'/0/0"` for Ethereum.
 
 ### Generating the Default Address for a Coin
@@ -105,49 +104,48 @@ let address = CoinType.ethereum.deriveAddress(privateKey: key)
 For example, a second Ethereum address can be derived using the custom derivation path `”m/44'/60’/1’/0/0”` (note the 1 in the third position),
 yielding address `0x68eF4e5660620976a5968c7d7925753D3Cc40809`.
 
-
 ## Transaction Signing
 
 In general, when creating a new blockchain transaction, a wallet has to:
 
 1. Put together a transaction with relevant fields (source, target, amount, etc.)
-2. Sign the transaction, using the account private key.  This is done by Wallet Core.
+2. Sign the transaction, using the account private key. This is done by Wallet Core.
 3. Send to a node for broadcasting to the blockchain network.
 
 The exact fields needed for a transaction are different for each blockchain.
 In Wallet Core, signing input and output parameters are typically represented in a protobuf message
 (internally needed for serialization for passing through different language runtimes).
 
-A generic, coin-independent signer also exists (*AnySigner*), but its usage is recommended only in browser-based applications.
+A generic, coin-independent signer also exists (_AnySigner_), but its usage is recommended only in browser-based applications.
 
 ### Bitcoin Transaction Signing
 
-Bitcoin is the first `UTXO` (Unspent Transaction Output) based cryptocurrency / blockchain, if you haven't read the documentation about Bitcoin, we highly recommend you to read [developer glossary](https://bitcoin.org/en/developer-glossary) and [raw transaction format](https://bitcoin.org/en/developer-reference#raw-transaction-format), these will help you understand how to sign a Bitcoin transaction. Wallet Core supports *Bitcoin*, *Bitcoin Cash*, *Zcash*, *Decred* and a few forks.
+Bitcoin is the first `UTXO` (Unspent Transaction Output) based cryptocurrency / blockchain, if you haven't read the documentation about Bitcoin, we highly recommend you to read [developer glossary](https://bitcoin.org/en/developer-glossary) and [raw transaction format](https://bitcoin.org/en/developer-reference#raw-transaction-format), these will help you understand how to sign a Bitcoin transaction. Wallet Core supports _Bitcoin_, _Bitcoin Cash_, _Zcash_, _Decred_ and a few forks.
 
 The most important models in Swift are `BitcoinSigningInput` and `BitcoinUnspentTransaction`
 
-*BitcoinSigningInput*
+_BitcoinSigningInput_
 
-Field | Sample value | Description
----|---|---
-hash_type | BitcoinSigHashType.all | *Bitcoin Cash* needs to `or` with `TitcoinSigHashType.fork` (see [Sighash](https://bitcoin.org/en/glossary/signature-hash) for more details)
-amount | 10000 | Amount (in satoshi) to send (value of new UTXO will be created)
-byteFee | 1 | Transaction fee is `byte_fee x transaction_size`, Wallet Core will calculate the fee for you by default
-toAddress | bc1q03h6k5lt6pzfjaanz5mlnmuc7aha2t3nkz7gh0 | Recipient address (Wallet Core will build lock script for you)
-changeAddress | 1AC4gh14wwZPULVPCdxUkgqbtPvC92PQPN | Address to receive changes, can be empty if you sweep a wallet
-privateKey | [Data(...), Data(...)] | Private keys for all the input UTXOs in this transaction
-scripts | [`script_hash`: Data(...)] | Redeem scripts indexed by script hash, usually for `P2SH`, `P2WPKH` or `P2WSH`
-utxo | [*BitcoinUnspentTransaction*] | All the input UTXOs, see below table for more details
-useMaxAmount | false | Consume all the input UTXOs, it will affect fee estimation and number of output
-coinType | 145 | [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) coin type, default is 0 / Bitcoin
+| Field         | Sample value                               | Description                                                                                                                                  |
+| ------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| hash_type     | BitcoinSigHashType.all                     | _Bitcoin Cash_ needs to `or` with `TitcoinSigHashType.fork` (see [Sighash](https://bitcoin.org/en/glossary/signature-hash) for more details) |
+| amount        | 10000                                      | Amount (in satoshi) to send (value of new UTXO will be created)                                                                              |
+| byteFee       | 1                                          | Transaction fee is `byte_fee x transaction_size`, Wallet Core will calculate the fee for you by default                                      |
+| toAddress     | bc1q03h6k5lt6pzfjaanz5mlnmuc7aha2t3nkz7gh0 | Recipient address (Wallet Core will build lock script for you)                                                                               |
+| changeAddress | 1AC4gh14wwZPULVPCdxUkgqbtPvC92PQPN         | Address to receive changes, can be empty if you sweep a wallet                                                                               |
+| privateKey    | [Data(...), Data(...)]                     | Private keys for all the input UTXOs in this transaction                                                                                     |
+| scripts       | [`script_hash`: Data(...)]                 | Redeem scripts indexed by script hash, usually for `P2SH`, `P2WPKH` or `P2WSH`                                                               |
+| utxo          | [*BitcoinUnspentTransaction*]              | All the input UTXOs, see below table for more details                                                                                        |
+| useMaxAmount  | false                                      | Consume all the input UTXOs, it will affect fee estimation and number of output                                                              |
+| coinType      | 145                                        | [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) coin type, default is 0 / Bitcoin                                    |
 
-*BitcoinUnspentTransaction*
+_BitcoinUnspentTransaction_
 
-Field | Sample value | Description
----|---|---
-outPoint | *BitcoinOutPoint(hash:index:)* | Refer to a particular transaction output, consisting of a 32-byte TXID and a 4-byte output index number (vout)
-amount | 10000 | A value field for transferring zero or more satoshis
-script | 0x76a9146cfa0e96c34fce09c0e4e671fcd43338c14812e588ac | A script (ScriptPubKey) included in outputs which sets the conditions that must be fulfilled for those satoshis to be spent
+| Field    | Sample value                                         | Description                                                                                                                 |
+| -------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| outPoint | _BitcoinOutPoint(hash:index:)_                       | Refer to a particular transaction output, consisting of a 32-byte TXID and a 4-byte output index number (vout)              |
+| amount   | 10000                                                | A value field for transferring zero or more satoshis                                                                        |
+| script   | 0x76a9146cfa0e96c34fce09c0e4e671fcd43338c14812e588ac | A script (ScriptPubKey) included in outputs which sets the conditions that must be fulfilled for those satoshis to be spent |
 
 Here is the Swift sample code for signing a real world Bitcoin Cash [transaction](https://blockchair.com/bitcoin-cash/transaction/96ee20002b34e468f9d3c5ee54f6a8ddaa61c118889c4f35395c2cd93ba5bbb4)
 
@@ -179,6 +177,7 @@ guard output.error.isEmpty else { return }
 // encoded transaction to broadcast
 print(output.encoded)
 ```
+
 It's worth to note that you can also calcuate fee and change manually (by using a `BitcoinTransactionPlan` struct)  
 Below is another real world Zcash [transparent transaction](https://explorer.zcha.in/transactions/ec9033381c1cc53ada837ef9981c03ead1c7c41700ff3a954389cfaddc949256) demonstrate this
 
@@ -221,17 +220,17 @@ Besides [orignal Bitcoin RPC](https://en.bitcoin.it/wiki/Original_Bitcoin_client
 
 A simple Ethereum send transaction needs the following fields:
 
-Field | Sample value | Description
----|---|---
-chainID | 1 | Network selector, use 1 for mainnet (see https://chainid.network for more)
-nonce | 1 | The count of the number of outgoing transactions, starting with 0
-gasPrice | 3600000000 | The price to determine the amount of ether the transaction will cost
-gasLimit | 21000 | The maximum gas that is allowed to be spent to process the transaction
-to | &lt;address&gt; | The account the transaction is sent to, if empty, the transaction will create a contract
-value | 100000000 | The amount of ether to send
-data | | Could be an arbitrary message or function call to a contract or code to create a contract
+| Field    | Sample value    | Description                                                                               |
+| -------- | --------------- | ----------------------------------------------------------------------------------------- |
+| chainID  | 1               | Network selector, use 1 for mainnet (see https://chainid.network for more)                |
+| nonce    | 1               | The count of the number of outgoing transactions, starting with 0                         |
+| gasPrice | 3600000000      | The price to determine the amount of ether the transaction will cost                      |
+| gasLimit | 21000           | The maximum gas that is allowed to be spent to process the transaction                    |
+| to       | &lt;address&gt; | The account the transaction is sent to, if empty, the transaction will create a contract  |
+| value    | 100000000       | The amount of ether to send                                                               |
+| data     |                 | Could be an arbitrary message or function call to a contract or code to create a contract |
 
-Several parameters, like the current nonce and gasPrice values can be obtained from Ethereum node RPC calls (see https://github.com/ethereum/wiki/wiki/JSON-RPC, e.g., *eth_gasPrice*).
+Several parameters, like the current nonce and gasPrice values can be obtained from Ethereum node RPC calls (see https://github.com/ethereum/wiki/wiki/JSON-RPC, e.g., _eth_gasPrice_).
 
 Code example to fill in the signer input parameters:
 
@@ -257,25 +256,25 @@ let output: EthereumSigningOutput = AnySigner.sign(input: input, coin: .ethereum
 print(" data:   ", output.encoded.hexString)
 ```
 
-For more details on Ethereum transactions, check the Ethereum documentation.  A few resources are here:
+For more details on Ethereum transactions, check the Ethereum documentation. A few resources are here:
 
-* https://medium.com/@codetractio/inside-an-ethereum-transaction-fa94ffca912f
-* https://kauri.io/article/7e79b6932f8a41a4bcbbd194fd2fcc3a/v2/ethereum-101-part-4-accounts-transactions-and-messages
-* https://github.com/ethereumbook/ethereumbook/blob/develop/06transactions.asciidoc
+- https://medium.com/@codetractio/inside-an-ethereum-transaction-fa94ffca912f
+- https://kauri.io/article/7e79b6932f8a41a4bcbbd194fd2fcc3a/v2/ethereum-101-part-4-accounts-transactions-and-messages
+- https://github.com/ethereumbook/ethereumbook/blob/develop/06transactions.asciidoc
 
 ### Binance Chain (BNB) Transaction Signing
 
 Binance Chain is built upon [cosmos-sdk](https://github.com/cosmos/cosmos-sdk), instead of `Message`, transaction in Binance Chain is called `Order`, [Binance.proto](https://github.com/trustwallet/wallet-core/blob/master/src/proto/Binance.proto#L144) shows all the orders that Wallet Core currently supports.
 
-To sign a order, you need to use `BinanceSigningInput`: 
+To sign a order, you need to use `BinanceSigningInput`:
 
-Field | Sample value | Description
----|---|---
-chainID | Binance-Chain-Nile | Network id, use Binance-Chain-Tigris for mainnet (see [node-info](https://dex.binance.org/api/v1/node-info) api)
-accountNumber | 51 | On chain account number. (see [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api)
-sequence | 437412 | Order sequence starting from 0, always plus 1 for new order from [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api
-source | 0 | [BEP10](https://github.com/binance-chain/BEPs/blob/master/BEP10.md) source id
-sendOrder | &lt;sendOrder&gt; | SendOrder contains `inputs` and `outputs`, see below sample code for more details
+| Field         | Sample value       | Description                                                                                                                                                       |
+| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| chainID       | Binance-Chain-Nile | Network id, use Binance-Chain-Tigris for mainnet (see [node-info](https://dex.binance.org/api/v1/node-info) api)                                                  |
+| accountNumber | 51                 | On chain account number. (see [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api)                                   |
+| sequence      | 437412             | Order sequence starting from 0, always plus 1 for new order from [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api |
+| source        | 0                  | [BEP10](https://github.com/binance-chain/BEPs/blob/master/BEP10.md) source id                                                                                     |
+| sendOrder     | &lt;sendOrder&gt;  | SendOrder contains `inputs` and `outputs`, see below sample code for more details                                                                                 |
 
 A Swift sample code send order is shown below:
 
@@ -320,7 +319,7 @@ print(output.encoded)
 
 For more details please check the Binance Chain documentation:
 
-* https://docs.binance.org/encoding.html
-* https://docs.binance.org/api-reference/dex-api/paths.html#http-api
+- https://docs.binance.org/encoding.html
+- https://docs.binance.org/api-reference/dex-api/paths.html#http-api
 
 Consult the complete sample applications for more details.

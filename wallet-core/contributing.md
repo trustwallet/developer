@@ -16,10 +16,10 @@ With these goals in mind we chose C/C++ for the implementation and a strict subs
 
 Keep this in mind when adding to the library:
 
-* Only expose C headers. Clients should not have access to the C++ interfaces.
-* C headers need to have annotations for the code generation tool, see below.
-* Use Protocol Buffers to represent models. C doesn't have good abstractions for variable-sized types.
-* Every time you modify the interface run the code generation tool and make sure the interface also makes sense in target languages.
+- Only expose C headers. Clients should not have access to the C++ interfaces.
+- C headers need to have annotations for the code generation tool, see below.
+- Use Protocol Buffers to represent models. C doesn't have good abstractions for variable-sized types.
+- Every time you modify the interface run the code generation tool and make sure the interface also makes sense in target languages.
 
 There is a [Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail) [project file](https://github.com/trustwallet/wallet-core/blob/master/wallet_core.srctrlprj) might help you explore all the code (after build and run `bootstrap.sh`).
 
@@ -29,21 +29,21 @@ There is a [Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail) [project 
 
 Please follow these instructions when submitting a pull request \(PR\):
 
-* Create a personal fork of the project on GitHub.
-* Clone the fork on your local machine. Your remote repo on Github is called `origin`.
-* Add the official repository as a remote called `upstream`.
-* If you created your fork a while ago be sure to pull upstream changes into your local repository.
-* Create a new branch to work on! Branch from the latest `upstream/master`.
-* Implement/fix your feature, comment your code.
-* Write or adapt tests as needed.
-* Follow the code style of the project, including indentation. Use `clang-format` if you are unsure.
-* Run the tests.
-* Modify your commit history so that it tells a story using git's [interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History). Create a new branch if necessary.
-* Write your commit messages in the present tense. Your commit message should describe what the commit, when applied, does to the code, not what you did to the code.
-* Push your branch to your fork on Github, the remote `origin`.
-* From your fork open a pull request in the correct branch. Target the project's `master` branch.
-* If we request further changes push them to your branch. The PR will be updated automatically.
-* Once the pull request is approved and merged you can pull the changes from `upstream` to your local repo and delete
+- Create a personal fork of the project on GitHub.
+- Clone the fork on your local machine. Your remote repo on Github is called `origin`.
+- Add the official repository as a remote called `upstream`.
+- If you created your fork a while ago be sure to pull upstream changes into your local repository.
+- Create a new branch to work on! Branch from the latest `upstream/master`.
+- Implement/fix your feature, comment your code.
+- Write or adapt tests as needed.
+- Follow the code style of the project, including indentation. Use `clang-format` if you are unsure.
+- Run the tests.
+- Modify your commit history so that it tells a story using git's [interactive rebase](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History). Create a new branch if necessary.
+- Write your commit messages in the present tense. Your commit message should describe what the commit, when applied, does to the code, not what you did to the code.
+- Push your branch to your fork on Github, the remote `origin`.
+- From your fork open a pull request in the correct branch. Target the project's `master` branch.
+- If we request further changes push them to your branch. The PR will be updated automatically.
+- Once the pull request is approved and merged you can pull the changes from `upstream` to your local repo and delete
 
   your extra branch\(es\).
 
@@ -53,17 +53,17 @@ Is it not uncommon for a PR to accumulate commits and merges with time. The libr
 
 This project has a number of different pieces. Each piece lives in its own subfolder.
 
-* The `docs` folder contains documentation.
-* The `src` folder contains the C++ implementation of the core functionality.
-* The `include` folder contains the public C header files used to expose a cross-platform interface.
-* The `codegen` folder contains the code and templates used to generate code for different platforms and languages.
-* The `jni` folder contains the generated JNI interface and Java classes.
-* The `android` folder contains the Android Studio project and integration tests.
-* The `swift` folder contains the generated Swift code and Xcode project.
-* The `trezor-crypto` folder contains a fork of [https://github.com/trezor/trezor-crypto/](https://github.com/trezor/trezor-crypto/) with modifications.
-* The `tests` folder contains unit tests.
-* The `tools` folder contains scripts to automate common tasks.
-* The `samples` folder contains sample applications.
+- The `docs` folder contains documentation.
+- The `src` folder contains the C++ implementation of the core functionality.
+- The `include` folder contains the public C header files used to expose a cross-platform interface.
+- The `codegen` folder contains the code and templates used to generate code for different platforms and languages.
+- The `jni` folder contains the generated JNI interface and Java classes.
+- The `android` folder contains the Android Studio project and integration tests.
+- The `swift` folder contains the generated Swift code and Xcode project.
+- The `trezor-crypto` folder contains a fork of [https://github.com/trezor/trezor-crypto/](https://github.com/trezor/trezor-crypto/) with modifications.
+- The `tests` folder contains unit tests.
+- The `tools` folder contains scripts to automate common tasks.
+- The `samples` folder contains sample applications.
 
 ## Prerequisites and Building
 
@@ -73,8 +73,8 @@ Please refer to [build instructions](building.md) for building the library local
 
 After running `bootstrap.sh` run `make -C build tests && build/tests/tests tests` to run all the C++ unit tests. To run integration tests on each platform run the respective script in the tools folder:
 
-* Android: run `tools/android-test` or import `android` folder to Android Studio
-* iOS: run `tools/ios-test` or cd `swift` folder and open `TrustWalletCore.xcworkspace`
+- Android: run `tools/android-test` or import `android` folder to Android Studio
+- iOS: run `tools/ios-test` or cd `swift` folder and open `TrustWalletCore.xcworkspace`
 
 To run all tests in one go use the `tools/tests` script.
 
@@ -126,46 +126,46 @@ Example:
 
 ```json
 {
-    "id": "bitcoin",
-    "name": "Bitcoin",
-    "coinId": 0,
-    "symbol": "BTC",
-    "decimals": 8,
-    "blockchain": "Bitcoin",
-    "derivation": [
-      {
-        "name": "segwit",
-        "path": "m/84'/0'/0'/0/0",
-        "xpub": "zpub",
-        "xprv": "zprv"
-      },
-      {
-        "name": "legacy",
-        "path": "m/44'/0'/0'/0/0",
-        "xpub": "xpub",
-        "xprv": "xprv"
-      }
-    ],
-    "curve": "secp256k1",
-    "publicKeyType": "secp256k1",
-    "p2pkhPrefix": 0,
-    "p2shPrefix": 5,
-    "hrp": "bc",
-    "publicKeyHasher": "sha256ripemd",
-    "base58Hasher": "sha256d",
-    "explorer": {
-      "url": "https://blockchair.com",
-      "txPath": "/bitcoin/transaction/",
-      "accountPath": "/bitcoin/address/",
-      "sampleTx": "0607f62530b68cfcc91c57a1702841dd399a899d0eecda8e31ecca3f52f01df2",
-      "sampleAccount": "17A16QmavnUfCW11DAApiJxp7ARnxN5pGX"
+  "id": "bitcoin",
+  "name": "Bitcoin",
+  "coinId": 0,
+  "symbol": "BTC",
+  "decimals": 8,
+  "blockchain": "Bitcoin",
+  "derivation": [
+    {
+      "name": "segwit",
+      "path": "m/84'/0'/0'/0/0",
+      "xpub": "zpub",
+      "xprv": "zprv"
     },
-    "info": {
-      "url": "https://bitcoin.org",
-      "source": "https://github.com/trezor/blockbook",
-      "rpc": "",
-      "documentation": "https://github.com/trezor/blockbook/blob/master/docs/api.md"
+    {
+      "name": "legacy",
+      "path": "m/44'/0'/0'/0/0",
+      "xpub": "xpub",
+      "xprv": "xprv"
     }
+  ],
+  "curve": "secp256k1",
+  "publicKeyType": "secp256k1",
+  "p2pkhPrefix": 0,
+  "p2shPrefix": 5,
+  "hrp": "bc",
+  "publicKeyHasher": "sha256ripemd",
+  "base58Hasher": "sha256d",
+  "explorer": {
+    "url": "https://blockchair.com",
+    "txPath": "/bitcoin/transaction/",
+    "accountPath": "/bitcoin/address/",
+    "sampleTx": "0607f62530b68cfcc91c57a1702841dd399a899d0eecda8e31ecca3f52f01df2",
+    "sampleAccount": "17A16QmavnUfCW11DAApiJxp7ARnxN5pGX"
+  },
+  "info": {
+    "url": "https://bitcoin.org",
+    "source": "https://github.com/trezor/blockbook",
+    "rpc": "",
+    "documentation": "https://github.com/trezor/blockbook/blob/master/docs/api.md"
+  }
 }
 ```
 
@@ -181,6 +181,6 @@ Wallet core follows the [LLVM Coding Standards](http://llvm.org/docs/CodingStand
 
 ## More
 
-* [Build instructions](building.md)
-* [Adding Support for a New Blockchain](newblockchain.md)
-* [Releasing](releasing.md)
+- [Build instructions](building.md)
+- [Adding Support for a New Blockchain](newblockchain.md)
+- [Releasing](releasing.md)

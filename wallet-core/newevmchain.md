@@ -5,9 +5,9 @@ For more complex chain integrations, see [general new blockchain docs](newblockc
 
 ## Prerequisties / Needed information
 
-- `ChainID`.  EVM chains have a unique ChainID, such as `8217`.
-- `Derivation path` used.  Most EVM chains use Ethereum derivation path, `"m/44'/60'/0'/0/0"` (but not all).
-- `CoinID`.  Most EVM chains do not have a SLIP 44 CoinID, but some do. We'll see below what to use if one is not available.
+- `ChainID`. EVM chains have a unique ChainID, such as `8217`.
+- `Derivation path` used. Most EVM chains use Ethereum derivation path, `"m/44'/60'/0'/0/0"` (but not all).
+- `CoinID`. Most EVM chains do not have a SLIP 44 CoinID, but some do. We'll see below what to use if one is not available.
 
 ## Steps
 
@@ -17,8 +17,8 @@ For more complex chain integrations, see [general new blockchain docs](newblockc
   - coinId: If own coinID is available, use that. Otherwise, use: `10000000 + chainID`, such as `10008217`.
 - Run `codegen/bin/newevmchain <chain>` to generate template source files, where <chain> is the chain `id` from registry.
 - The result will be a new line in `TWCoinType.h` and a new test file `tests/<Chain>/TWCoinTypeTests.cpp`.
-- There are some test cases test derivation for all coins.  Extend these with the new chain.
-If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
+- There are some test cases test derivation for all coins. Extend these with the new chain.
+  If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
 
 ```
 tests/common/CoinAddressDerivationTests.cpp
@@ -35,5 +35,6 @@ swift/Tests/CoinAddressDerivationTests.swift
 - If all is fine, create a PR with the changes.
 
 ## Some Sample PRs:
+
 - [github.com/trustwallet/wallet-core/pull/2307](https://github.com/trustwallet/wallet-core/pull/2307)
 - [github.com/trustwallet/wallet-core/pull/2157](https://github.com/trustwallet/wallet-core/pull/2157)
