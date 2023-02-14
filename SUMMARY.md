@@ -3,6 +3,7 @@
 * [Get Started](README.md)
 * [Developing for Trust Wallet platform](development/intro.md)
   * [Browser Extension](development/browser-extension/intro.md)
+    * [Ethereum & EVM chains](development/browser-extension/evm.md)
   * [Mobile (WalletConnect)](development/mobile/intro.md)
   * [Deep Linking](development/deeplinking/intro.md)
 * [Listing new dApps](dapps/)
