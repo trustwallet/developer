@@ -146,12 +146,12 @@ cd rust
 cargo test
 ```
 
-## Rust lints
+## Checking Rust lints
 
 We use [rustfmt](https://github.com/rust-lang/rustfmt), [clippy](https://github.com/rust-lang/rust-clippy) to check
 if the Rust code is formatted and does not contain common warnings/errors.
 
-Run Rust linters:
+Run Rust lints:
 
 ```shell
 ./tools/rust-lints
