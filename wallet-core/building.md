@@ -137,6 +137,26 @@ npm install && npm run copy:wasm && npm run build
 npm run test
 ```
 
+## Testing Rust library
+
+Rust library can be tested separately from the C++ part.
+
+```shell
+cd rust
+cargo test
+```
+
+## Rust lints
+
+We use [rustfmt](https://github.com/rust-lang/rustfmt), [clippy](https://github.com/rust-lang/rust-clippy) to check
+if the Rust code is formatted and does not contain common warnings/errors.
+
+Run Rust linters:
+
+```shell
+./tools/rust-lints
+```
+
 ## Building inside Docker image
 
 Here are the instructions to build Wallet Core with the provided `Dockerfile`.
