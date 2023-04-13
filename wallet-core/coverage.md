@@ -6,7 +6,7 @@ Test coverage is one important facet of assuring code quality, and we are strict
 
 ## Checking Coverage Summary in CI build
 
-The `Linux CI` CI build (executed on PRs and commits) contains coverage measurement, and summary is available in the build output:
+The `Linux CI` and `Linux CI Rust` CI builds (executed on PRs and commits) contain coverage measurement, and summary is available in the build output:
 
 ```
 Summary coverage rate:
@@ -63,3 +63,21 @@ Open the generated `coverage/index.html` to view the report.
 See also
 [tools/coverage](https://github.com/trustwallet/wallet-core/blob/master/tools/coverage) and
 [linux-ci.yml](https://github.com/trustwallet/wallet-core/blob/master/.github/workflows/linux-ci.yml)
+
+# Detailed Rust Coverage Report
+
+Detailed Rust coverage report can be generated locally. It includes file and line-level info on coverage.
+
+Steps:
+
+- Switch to the nightly toolchain and install dev dependencies
+
+```shell
+tools/install-rust-dependencies dev
+```
+
+- Run Rust tests and generate coverage info (slow). With the `html` argument the script will generate HTML report as well:
+
+```shell
+./tools/rust-coverage html
+```
