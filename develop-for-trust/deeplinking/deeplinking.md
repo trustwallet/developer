@@ -84,18 +84,17 @@ https://link.trustwallet.com/stake_claim_rewards?coin=118
 
 https://link.trustwallet.com/swap?from=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&to=c60
 
-### Open Exchange:
-
-- `from` asset in [UAI format](/assets/universal_asset_id.md)
-- `to` asset in [UAI format](/assets/universal_asset_id.md)
-
-https://link.trustwallet.com/exchange?from=c714_tRUNE-B1A&to=c714
-
 ### Open Buy Crypto
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
 https://link.trustwallet.com/buy?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
+
+### Open Sell Crypto
+
+- `asset` asset in [UAI format](/assets/universal_asset_id.md)
+
+https://link.trustwallet.com/sell?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
 
 ### Open Market Info
 
