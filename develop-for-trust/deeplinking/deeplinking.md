@@ -117,7 +117,7 @@ https://link.trustwallet.com/alerts
 
 #### Definition
 
-slip44 index - https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+slip44 index - https://github.com/trustwallet/wallet-core/blob/master/docs/registry.md
 
 ## WalletConnect
 
