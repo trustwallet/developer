@@ -137,7 +137,7 @@ _BitcoinSigningInput_
 | scripts       | [`script_hash`: Data(...)]                 | Redeem scripts indexed by script hash, usually for `P2SH`, `P2WPKH` or `P2WSH`                                                               |
 | utxo          | [*BitcoinUnspentTransaction*]              | All the input UTXOs, see below table for more details                                                                                        |
 | useMaxAmount  | false                                      | Consume all the input UTXOs, it will affect fee estimation and number of output                                                              |
-| coinType      | 145                                        | [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) coin type, default is 0 / Bitcoin                                    |
+| coinType      | 145                                        | [SLIP44 Index](https://github.com/trustwallet/wallet-core/blob/master/docs/registry.md) coin type, default is 0 / Bitcoin                                    |
 
 _BitcoinUnspentTransaction_
 
