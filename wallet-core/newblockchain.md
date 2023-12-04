@@ -30,10 +30,10 @@ Adding support for a new coin consists of these steps:
 
 - Add **coin definition** -- contains basic parameters of the new coin, several definition source files are generated from the definitions
 - Extend a few **central files**. There are a few central source files that need to be extended (some definitions, dispatching logic to coin implementations).
-- **C++ implementation** of **address** handling and **signing** functionality. Optionally protobuf definitions might be needed for more complex parameters.
-- **Unit tests** for coin definitions, and address and signing functionality
+- **Rust implementation** of **address** handling and **signing** functionality. Optionally protobuf definitions might be needed for more complex parameters.
+- **Unit tests** for coin definitions, address and signing functionality
 - **C interface** (basis for mobile integration)
-- **Java/JNI** and **Swift** bindings -- these are generated
+- **Kotlin** and **Swift** bindings -- these are generated
 - **Integration tests** for testing through C interface, and through JN and Swift interfaces.
 
 It helps to pick an existing coin, and refer to its implementation. Try to pick an existing coin that is similar to the new one, and check how/where is it implemented, tested, etc.
@@ -50,7 +50,15 @@ The fields are documented here: https://github.com/trustwallet/wallet-core/blob/
 
 ## Skeleton generation
 
-Execute the command `codegen/bin/newcoin <coinid>`, where `newcoin <coinid>` is the ID of the new coin from `registry.json`. This will generate skeleton `Address`, `Signer`, `Entry` classes, proto file, C interface for Signer and corresponding tests.
+Execute the command `cd codegen-v2 && cargo run -- new-blockchain <coinid>`, where `<coinid>` is the ID of the new coin from `registry.json`.
+This will generate the following files, crates and structures:
+- `src/proto/<CoinId>.proto` - Blockchain Protobuf interface.
+- `rust/chains/tw_<coinid>` - Rust crate that will contain all necessary code related to the new blockchain.
+- `rust/tw_any_coin/tests/chains/tw_<coinid>` - Rust integration tests.
+- `src/<CoinId>/Entry.h` - Intermediate layer between an end-user app and the Rust codebase.
+- `BlockchainType::<CoinId>` - Rust enum variant and its dispatching within the `rust/tw_coin_registry` crate.
+- `TWBlockchain<CoinId>` and `TWCoinType<CoinId>` - C++ enum variants.
+- `tests/chains/<CoinId>` - C++ integration tests.
 
 Run `tools/generate-files` to generate message proto files.
 
@@ -58,60 +66,88 @@ Run `cmake` to include the new files in the build (`cmake -H. -Bbuild -DCMAKE_BU
 
 ## Definition tests, first commit
 
-Review tests in `tests/X/TWCoinTypeTests.cpp` (where `X` is the name of the blockchain), exactly as in other blockchains.
-Run the tests and make sure everything is passing before moving on to the next step.
-You should reate a commit with this change, \(but don't create a pull request yet\).
+Review tests in `tests/chains/<CoinId>/TWCoinTypeTests.cpp` (where `X` is the name of the blockchain), exactly as in other blockchains.
+Run `cd rust && cargo check --tests` and `make -Cbuild -j12 tests TrezorCryptoTests` to check if Rust and C++ compile successfully.
+
+You should create a commit with this change, \(but don't create a pull request yet\).
 
 _Note:_ don't forget to add new files to git.
 _Note:_ don't forget to re-run `cmake` before building, to include new files in the build.
 
-## C++ Implementation
+## Rust implementation
 
-Implement the required functionality in C++. The code should be placed in the `src/X` folder where `X` is the name of the blockchain.
+Implement the required functionality in Rust. The code should be placed in the `rust/chains/tw_<coinid>` folder.
 
 Don't just dump an existing codebase in the repo. The code needs to follow the code style and use existing hashing and cryptographic functionality if possible.
-Adding new dependencies is something we want to avoid at all costs. We want to keep the codebase and the binary library as small as possible.
+Adding new dependencies is something we want to avoid as much as possible. We want to keep the codebase and the binary library as small as we can.
 
 If you do need to add a new cryptographic function or other building block please do so as a separate PR from the blockchain implementation.
 
 ### Entry point for coin functionality
 
-The `Entry` class should be kept minimal, it should have no logic, just call into relevant Address, Signer, etc. classes.
+The Rust's `Entry` structure implements the [CoinEntry](https://github.com/trustwallet/wallet-core/blob/dev/rust/tw_coin_entry/src/coin_entry.rs) trait that is responsible for address management and the transaction signing.
+It should be kept minimal, have no logic, just call into relevant Address, Signer, etc. classes.
+Ensure that it fits well with the existing infrastructure and conventions.
 
-Include the new coin Entry class in the list of coin dispatchers, in `src/Coin.cpp` (an include, a new instance in the list of dispatcher instances).
+_Note:_ Do not forget to implement trait methods and declare associated types similar to [tw_ethereum/entry.rs](https://github.com/trustwallet/wallet-core/blob/dev/rust/tw_ethereum/src/entry.rs).
 
 ### Address encoding/decoding
 
-The first step is to support the address format specific to the blockchain. Start with the generated source files `src/X/Address.h` and `src/X/Address.cpp` (where `X` is the blockchain name).
+The first step is to support the address format specific to the blockchain. Start with the generated source files `rust/chains/X/src/address.rs` (where `X` is the blockchain name).
 
-At minimum the address needs a string validation static method, a string constructor, a constructor from a public key, and a method to convert back to a string. Make sure you can parse a string representation of an address and detect invalid addresses. Write unit tests for this. Also make sure that you can derive an address string from a private key. Write unit tests for this as well.
+At minimum the address needs a string validation static method, a string constructor, a constructor from a public key, and a method to convert back to a string.
+Make sure you can parse a string representation of an address and detect invalid addresses. Write unit tests for this. Also make sure that you can derive an address string from a private key. Write unit tests for this as well.
 
-For an example of this have a look at Cosmos [Address.h](https://github.com/trustwallet/wallet-core/blob/master/src/Cosmos/Address.h) and [Address.cpp](https://github.com/trustwallet/wallet-core/blob/master/src/Cosmos/Address.cpp).
+For an example of this have a look at Ethereum [address.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_evm/src/address.rs).
 
-Make sure the dispatcher of address validation and derivation in `src/Coin.cpp` is also extended.
+Make sure the dispatcher of address validation and derivation in `rust/chains/tw_<coinid>/src/entry.rs` is also extended.
 
 ### Transaction signing
 
-The second step is supporting signing of transactions. Work on the `src/X/Signer.h` and `src/X/Signer.cpp` source files.
+The second step is supporting signing of transactions. Work on the `rust/chains/tw_<coinid>/src/signer.rs` source file.
 Make sure you can generate a valid signature and a valid signed and encoded transaction. Write a unit tests for this.
 
-For an example of this have a look at Binance's [Signer.h](https://github.com/trustwallet/wallet-core/blob/master/src/Binance/Signer.h) and [Signer.cpp](https://github.com/trustwallet/wallet-core/blob/master/src/Binance/Signer.cpp).
+For an example of this have a look at Aptos's [signer.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_aptos/src/signer.rs).
 
-### Tests
+### Unit Tests
 
-The tests should be put in `tests/X` where `X` is the name of the blockchain. All C++ code needs to be unit tested.
+Unit tests are used to test public and non-public, usually, a single structure, method or function.
+Rust allows to test non-public identities straightforward.
+Unit tests can be placed in any Rust source file (under the `#[cfg(test)]` attribute) or in a test file under the `rust/chains/tw_<coinid>/tests` directory.
+_Note:_ All Rust code needs to be unit tested.
 
-The C++ implementation with tests should be a separate commit.
+For an example of this have a look at Ethereum's Unit tests: [tw_evm/tests/signer.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_evm/tests/signer.rs) and [tw_evm/src/address.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_evm/src/address.rs).
 
-## C Interface
+The Rust implementation with tests should be a separate commit.
 
-Once you are satisfied with your C++ implementation, time to write some tests for C interface, usually you don't need to change the generated C interfaces, those C interfaces are made as small as possible so that clients don't need to worry about implementation details. If you are implementing blockchain `Xxx`, handle and implement it first in `TWAnyAddress.h` and `TWAnySigner.h` before writing tests.
+### Rust Integration Tests
 
-Please make sure you catch all C++ exceptions in C implementation.
+Integration tests are used to test if the blockchain implementation can be accessed through the `TWAnySigner`, `TWAnyAddress`, ... public interfaces.
+They should be placed in the `rust/tw_any_coin/tests/chains/<coinid>` directory.
 
-If possible test the interface on Android, iOS. Optionally add integration test to each platform. This is required only if the interface is significantly different than the interface used for other blockchains.
+Usually you don't need to change the generated FFI interfaces, those interfaces are made as small as possible so that clients don't need to worry about implementation details.
 
-The C interface, any Protobuf models, and integration tests should be a separate commit.
+For an example of this have a look at Cosmos's Integration tests: [cosmos_address.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_any_coin/tests/chains/cosmos/cosmos_address.rs), [cosmos_sign.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_any_coin/tests/chains/cosmos/cosmos_sign.rs).
+
+## C++ routing
+
+At this moment, every blockchain implemented in Rust must be routed through an intermediate C++ layer.
+The `src/X/Entry.h` is generated the way, so it passes requests to sign transactions, generate or validate addresses to Rust through FFI. So it can be considered as a bridge between an end-user app and the Rust codebase.
+_Note:_ FFI forwarding is derived from the `src/rust/RustCoinEntry` base class.
+_Note:_ Currently, blockchains in Rust do not support JSON signing as it is deprecated and will be removed in the future. Instead, if the blockchain should support JSON signing, consider overriding `RustCoinEntry::signJSON` method as in Ethereum: [src/Ethereum/Entry.h](https://github.com/trustwallet/wallet-core/blob/master/src/Ethereum/Entry.cpp).
+
+### C++ Integration Tests
+
+Once you are satisfied with your Rust implementation, time to write some tests for C interface.
+C++ integration tests can help us to ensure if the Rust functionality is routed correctly, and available to be used by end-user apps.
+
+## Mobile Integration Tests
+
+It is also required to test the interface on Android, iOS.
+Run `./codegen/bin/newcoin-mobile-tests <coinid>` to generate mobile integration tests:
+- `android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/foobar/Test<CoinId>Address.kt` - Address integration tests.
+- `android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/foobar/Test<CoinId>Signer.kt` - Signing integration tests.
+- `swift/Tests/Blockchains/<CoinId>Tests.swift` - Address, signing and compiling integration tests.
 
 ## Blockchain checklist
 
@@ -119,24 +155,25 @@ The above steps are summarized below as a checklist:
 
 - [ ] Coin Definition:
   - [ ] Add the coin definition to `registry.json`.
-  - [ ] Execute `codegen/bin/newcoin <coinid>`.
+  - [ ] Execute `pushd codegen-v2 && cargo run -- new-blockchain <coinid> && popd` to generate blockchain skeleton and configure integration tests.
   - [ ] Execute `tools/generate-files`.
-  - [ ] Add coin dispatcher to `src/Coin.cpp`.
-  - [ ] Create tests in `tests/Xxx/TWCoinTypeTests.cpp`.
-- [ ] Implement functionality in C++. Put it in a subfolder of `src/`.
-  - [ ] Entry.
-  - [ ] Address.
-  - [ ] Transaction \(if necessary\).
-  - [ ] Signer.
-- [ ] Write unit tests. Put them in a subfolder of `tests/`.
-  - [ ] `Mnemonic phrase - > Address` derivation test. Put this test in the `CoinTests.cpp` file.
-  - [ ] Transaction signing tests, at least one mainnet transaction test.
-  - [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
-- [ ] Add relevant constants in `TWEthereumChainID`, `TWCurve`, etc., as necessary.
-- [ ] Implement C interface in `src/interface`.
-  - [ ] Add tests for `TWAnyAddress` and `TWAnySigner`
+  - [ ] Execute `pushd rust && cargo check --tests && popd` to check if Rust codebase compiles successfully.
+  - [ ] Execute `make -Cbuild -j12 tests TrezorCryptoTests` to check if C++ codebase compiles successfully.
+- [ ] Add relevant constants in `Curve`, `Hasher` etc., in C++ and Rust, as necessary.
+- [ ] Implement functionality in Rust.
+  - [ ] Entry at `rust/chains/tw_<coinid>/src/entry.rs`.
+  - [ ] Address at `rust/chains/tw_<coinid>/src/address.rs`.
+  - [ ] Transaction \(if necessary\) at `rust/chains/tw_<coinid>/src/transaction.rs`.
+  - [ ] Signer at `rust/chains/tw_<coinid>/src/signer.rs`.
+  - [ ] Compiler at `rust/chains/tw_<coinid>/src/compiler.rs`.
+  - [ ] Write unit tests. Put them in the `rust/chains/tw_<coinid>/tests` directory.
+  - [ ] Write Rust integration tests. Put them in a subfolder of `rust/tw_any_coin/tests/chains/<coinid>`
+    - [ ] Transaction signing tests, at least one mainnet transaction test.
+    - [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
+- [ ] Write C++ integration tests. Put them in a subfolder of `tests/chains/<CoinId>`.
 - [ ] Validate generated code in Android an iOS projects. Write integration tests for each.
 - [ ] Extend central derivation and validation tests: make sure the following tests are extended with the new coin: `CoinAddressDerivationTests.cpp` and
+      `coin_address_derivation_test.rs`,
       `CoinAddressValidationTests.cpp`,
       `TWHRPTests.cpp`,
       `CoinAddressDerivationTests.kt`,
