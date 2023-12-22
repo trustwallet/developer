@@ -15,14 +15,16 @@ For more complex chain integrations, see [general new blockchain docs](newblockc
 - Add chain information to `registry.json`. Some notable fields:
   - blockchain: "Ethereum",
   - coinId: If own coinID is available, use that. Otherwise, use: `10000000 + chainID`, such as `10008217`.
-- Run `codegen/bin/newevmchain <chain>` to generate template source files, where <chain> is the chain `id` from registry.
+- Run `cd codegen-v2 && cargo run -- new-evmchain <chain>` to generate template source files, where <chain> is the chain `id` from registry.
 - The result will be a new line in `TWCoinType.h` and a new test file `tests/<Chain>/TWCoinTypeTests.cpp`.
 - There are some test cases test derivation for all coins. Extend these with the new chain.
   If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
 
 ```
+rust/tw_any_coin/tests/coin_address_derivation_test.rs
 tests/common/CoinAddressDerivationTests.cpp
 android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/CoinAddressDerivationTests.kt
+kotlin/wallet-core-kotlin/src/commonTest/kotlin/com/trustwallet/core/test/CoinAddressDerivationTests.kt
 swift/Tests/CoinAddressDerivationTests.swift
 ```
 
