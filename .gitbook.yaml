@@ -3,6 +3,3 @@ root: ./
 structure:
   readme: README.md
   summary: SUMMARY.md
-
-redirects:
-  developer/deeplinking: "index.md"
