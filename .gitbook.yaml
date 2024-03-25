@@ -5,4 +5,4 @@ structure:
   summary: SUMMARY.md
 
 redirects:
-  deeplinking: "index.md"
+  developer/deeplinking: "index.md"
