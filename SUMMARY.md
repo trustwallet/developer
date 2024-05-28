@@ -36,3 +36,5 @@
     - [Swift API Reference](https://trustwallet.github.io/docc/documentation/walletcore/)
     - [Kotlin API Reference](https://trustwallet.github.io/dokka/)
   - [FAQ](wallet-core/faq.md)
+- [Barz - Smart Wallet](barz-smart-wallet/barz-smart-wallet.md)
+    - [Introducing Barz. TrustWallet's Smart Wallet Solution](barz-smart-wallet/introducing-barz-trustwallet-smart-wallet-solution.md)
