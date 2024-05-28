@@ -197,8 +197,6 @@ This concept is also utilized in the Barz implementation to detach the storage b
 
 ![Illustrated example of Barz storage per Facet](/media/barz-storage-management.png)
 
-(Illustrated example of Barz storage per Facet)
-
 In contrast, `App Storage` is another type of storage pattern that is more suitable for storage variables that are shared among facets.
 
 App Storage also uses the Struct to define the storage, however, uses the storage slot `0` unlike the Diamond Storage which used a custom storage slot.
