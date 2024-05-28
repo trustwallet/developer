@@ -61,7 +61,7 @@ Diamond is a modular smart contract system enabled by a multi-faceted proxy stat
 
 A multi-faceted proxy is different from the conventional proxy pattern like [UUPS(Universal Upgradeable Proxy Standard)](https://eips.ethereum.org/EIPS/eip-1822) and TransparentUpgradeable where they have a single implementation to route the call to.
 
-![Conventional Proxy Pattern e.g., UUPS](/media/conventional-proxy-pattern.png)*Conventional Proxy Pattern e.g., UUPS*
+![Conventional Proxy Pattern e.g., UUPS](/media/conventional-proxy-pattern.png)
 
 For example, a UUPS based proxy smart contract stores the single implementation contract address in the EIP-1967 based storage slot and performs upgrade by modifying the storage slot.
 
@@ -125,7 +125,7 @@ But Diamond not only includes how Proxy and Facets interact but proposes a compr
 
 Let’s dive into the details of how Diamond works under the hood.
 
-![Diamond Proxy Pattern](/media/diamond-proxy-pattern.png)*Diamond Proxy Pattern*
+![Diamond Proxy Pattern](/media/diamond-proxy-pattern.png)
 
 Considering Diamond has multiple implementation contracts called Facets, Diamond requires a routing logic to route the function call to the correct corresponding facet.
 
@@ -195,7 +195,9 @@ As the storage slot will be intentionally different to prevent storage collision
 
 This concept is also utilized in the Barz implementation to detach the storage between facets.
 
-![Illustrated example of Barz storage per Facet](/media/barz-storage-management.png)*Illustrated example of Barz storage per Facet*
+![Illustrated example of Barz storage per Facet](/media/barz-storage-management.png)
+
+(Illustrated example of Barz storage per Facet)
 
 In contrast, `App Storage` is another type of storage pattern that is more suitable for storage variables that are shared among facets.
 
@@ -325,7 +327,7 @@ For example, this is an overview of Barz seen from [louper.dev](http://louper.de
 
 [Overview of Barz from Louper - The Ethereum Diamond Inspector](https://louper.dev/diamond/0xbD741C9A6c3C197F863F0657A15D2E9070534BE3?network=polygon)
 
-![Overview of Barz account from louper.dev](/media/louper-barz.png)*Overview of Barz account from louper.dev*
+![Overview of Barz account from louper.dev](/media/louper-barz.png)
 
 ## ERC 4337 Account with Diamond
 
