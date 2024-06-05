@@ -5,7 +5,11 @@
 
 ![Barz](/media/barz-diagram.png)
 
-Check out our blog series for details! [Introducing Barz. Trust Wallet's Smart Wallet Solution](/introducing-barz-trustwallet-smart-wallet-solution.md)
+Check out our blog series for details! 
+
+[1. Introducing Barz. Trust Wallet's Smart Wallet Solution](/barz-smart-wallet/introducing-barz-trustwallet-smart-wallet-solution.md)
+
+[2. Cutting Diamonds: How to Make Accounts Awesome](/barz-smart-wallet/cutting-diamonds-how-to-make-accounts-awesome.md)
 
 [Github Codebase](https://github.com/trustwallet/barz)
 

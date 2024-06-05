@@ -1,13 +1,16 @@
 # Introducing Barz. Trust Wallet’s Smart Wallet Solution.
 
-by David Kim
+By [David Kim](https://twitter.com/0xDavidKim)
 
-Special thanks to Luis Ocegueda and Artem Goryunov for their feedback and contributions.
+
+Special thanks to [Luis Ocegueda](https://twitter.com/luis_oce) and [Artem Goryunov](https://twitter.com/ArtemGoryunov) for their feedback and contributions.
+
+
 
 This is the first of an article series on Barz. 
 
-1. Introducing Barz: Trust Wallet’s Smart Wallet Solution
-2. Cutting Diamonds: How to make Accounts Awesome????
+1. [Introducing Barz: Trust Wallet’s Smart Wallet Solution](/introducing-barz-trustwallet-smart-wallet-solution)
+2. [Cutting Diamonds: How to make Accounts Awesome](/cutting-diamonds-how-to-make-accounts-awesome)
 3. For Builders By Builders:  Introducing the Barz SDK
 4. Multi-tier Module system. A secure foundation for open innovation
 
