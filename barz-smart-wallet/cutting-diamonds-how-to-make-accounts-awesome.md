@@ -539,7 +539,7 @@ if (_action == IDiamondCut.FacetCutAction.Add) {
 
 Although we understood that this was the default behavior of Diamonds which is updating each function selector’s mapping to facet address value, we tried to look for ways tailored to the Account to reduce the gas consumption as much as possible.
 
-During this time, author of [EIP-2535](https://eips.ethereum.org/EIPS/eip-2535) and I had a discussion on how we could further optimize the gas consumption during the `diamondCut()` for default facets, and we came up with an interesting idea of having a pre-existing entity that holds the values for the Diamond’s functionSelector <> Facet mapping.
+During this time, [Nick(Author of EIP-2535 Diamonds)](https://x.com/mudgen) and I had a discussion on how we could further optimize the gas consumption during the `diamondCut()` for default facets, and we came up with an interesting idea of having a pre-existing entity that holds the values for the Diamond’s functionSelector <> Facet mapping.
 
 After having this interesting idea, our team started the implementation of a standalone contract that provides the default mapping value of the diamond, and named it `DefaultFallbackHandler`.
 
