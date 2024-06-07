@@ -1,5 +1,3 @@
-# Introducing Barz. Trust Wallet’s Smart Wallet Solution.
-
 By [David Kim](https://twitter.com/0xDavidKim)
 
 
@@ -14,7 +12,7 @@ This is the first of an article series on Barz.
 3. For Builders By Builders:  Introducing the Barz SDK
 4. Multi-tier Module system. A secure foundation for open innovation
 
-In February 2024, we successfully launched Swift Wallet, an Account Abstraction Wallet to give our users a more secure, smarter wallet. Swift Wallet introduced innovative features including Passkeys, gas payment with 200+ tokens, 1 step swap & bridging.
+In February 2024, we successfully launched [Swift Wallet](https://trustwallet.com/swift), an Account Abstraction Wallet to offer our users a more secure, smarter wallet. Swift Wallet introduced innovative features including Passkeys, gas payment with 200+ tokens, 1 step swap & bridging.
 
 Today, we are open sourcing our robust Smart Wallet solution “Barz”.
 

@@ -1,11 +1,9 @@
-Cutting Diamonds: How to Make Accounts Awesome
-
 By [David Kim](https://twitter.com/0xDavidKim)
 
 Special thanks to [Luis Ocegueda](https://twitter.com/luis_oce), [Artem Goryunov](https://twitter.com/ArtemGoryunov) and Dami Odufuwa for their feedback and contributions.
 
 
-This is the first of an article series on Barz. 
+This is the second of an article series on Barz. 
 
 1. [Introducing Barz: Trust Wallet’s Smart Wallet Solution](/introducing-barz-trustwallet-smart-wallet-solution)
 2. [Cutting Diamonds: How to make Accounts Awesome](/cutting-diamonds-how-to-make-accounts-awesome)
@@ -15,6 +13,8 @@ This is the first of an article series on Barz.
 TL;DR: 
 
 In this article, we’ll share the optimizations we did to Diamond to make Barz a more efficient and secure Smart Wallet system. We’ll also dive into the components we added outside of Diamond to enhance its security.
+
+
 
 In our [first article](/introducing-barz-trustwallet-smart-wallet-solution), we introduced the [Barz Smart Wallet System](https://github.com/trustwallet/barz/tree/main), and we’ve also shared about the overall structure of [Barz](https://github.com/trustwallet/barz/tree/main) and how [Diamond Proxy Pattern(EIP-2535)](https://eips.ethereum.org/EIPS/eip-2535) works under the hood.
 
