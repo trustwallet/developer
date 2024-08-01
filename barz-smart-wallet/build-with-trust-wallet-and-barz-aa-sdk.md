@@ -392,3 +392,4 @@ Are there any costs associated to using Smart Accounts?
 - [How to create and use a Trust smart account with permissionless.js](https://docs.pimlico.io/permissionless/how-to/accounts/use-trustwallet-account)
 - [Pimlico](https://www.pimlico.io/)
 - [Barz](https://github.com/trustwallet/barz-dev)
+- [Security Liability Statement](https://github.com/trustwallet/developer/blob/master/barz-smart-wallet/security-monitoring-system-liability-statement.md)
