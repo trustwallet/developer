@@ -32,7 +32,7 @@ In this article, we’ll walk you through the development of the below demo toge
 
 The full codebase is available here: https://github.com/trustwallet/trustsmartaccdemo
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/c47ef4ae-b412-4e0c-9b94-d1cfbca0e6bc/e984aea1-c6a3-4815-9f4c-4f071545a6e4/Untitled.png)
+![Demo](/media/tw-aa-sdk.png)
 
 ## For New Projects
 
@@ -387,7 +387,7 @@ Are there any costs associated to using Smart Accounts?
   - Halborn https://github.com/trustwallet/barz-dev/blob/main/audit/Halborn_Trustwallet-barz-Audit.pdf
 - **Open Source:** Barz, our smart contract wallet solution, is open-sourced, promoting transparency and allowing the community to review and contribute to its development. https://trustwallet.com/blog/introducing-barz-smart-contract-wallet-solution
 - **Passkeys Support:** Trust Smart Accounts support passkeys for an additional layer of security, providing a more secure and user-friendly authentication mechanism.
-- **On-chain security monitoring service**: All Trust Wallet smart accounts ~~will be are~~ automatically monitored by our security monitoring infrastructure for free. All users will be able to maintain a highly secure state and could get immediately notified when a hack occurs. For detailed explanation, please reference this [doc](https://docs.pimlico.io/permissionless/how-to/accounts/use-trustwallet-account).
+- **On-chain security monitoring service**: All Trust Wallet smart accounts are automatically monitored by our security monitoring infrastructure for free. All users will be able to maintain a highly secure state and could get immediately notified when a hack occurs. For detailed explanation, please reference this [doc](https://docs.pimlico.io/permissionless/how-to/accounts/use-trustwallet-account).
 
 ### Resources
 
