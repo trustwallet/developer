@@ -1,5 +1,7 @@
 # Build with Trust Wallet and Barz, A Comprehensive Guide to Integrating Barz with AA SDK
 
+By [Moncif Loukili](https://x.com/monciflo)
+
 ## Introduction
 
 In this article, we will explore how to seamlessly integrate [Trust Wallet’s Smart Accounts](https://trustwallet.com/swift) with the [permissionless.js](https://docs.pimlico.io/permissionless) framework, a library managed by [Pimlico](https://www.pimlico.io/) to deploy and manage Smart Accounts based on the ERC-4337 standard. Using our [SDK](https://docs.pimlico.io/permissionless/how-to/accounts/use-trustwallet-account), you can create Trust Smart Accounts for your users and enhance your dApp with features such as gasless and batched transactions and much more.
