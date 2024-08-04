@@ -129,15 +129,15 @@ Smart contract address update procedure:
 
 1. Rename old contract address in coresponding coin folder to new contract e.g.:
 
-1. Remove smart contract e.g.:
+2. Remove smart contract e.g.:
 
-```bash
-`rm -r ./blockchains/<COIN>/assets/<OLD_CONTRACT_ADDRESS>/`
+    ```bash
+    `rm -r ./blockchains/<COIN>/assets/<OLD_CONTRACT_ADDRESS>/`
+    
+    `rm -r ./blockchains/ethereum/assets/0x19fFfd124CD9089E21026d10dA97f8cD6B442Bff/`
+    ```
 
-`rm -r ./blockchains/ethereum/assets/0x19fFfd124CD9089E21026d10dA97f8cD6B442Bff/`
-```
-
-2. Commit changes and make a PR (pull request)
+3. Commit changes and make a PR (pull request)
 
 ### Image Requirements
 
