@@ -24,7 +24,20 @@ Wallet Core can be build inside a Docker image, or natively.
 
 ## Prerequisites
 
-Here is the list of required prerequisites.
+Use one top-level script to install all required dependencies and prepare WalletCore for building:
+
+```shell
+./bootstrap.sh all
+```
+
+Please note that the script configures the environment for all target platforms: Native, Android, iOS (on MacOS), and WASM.
+If you intend to use WalletCore on specific platforms only, you can specify those platforms in the arguments:
+
+```shell
+./bootstrap.sh android ios
+```
+
+Otherwise, consider installing the required prerequisites manually below.
 
 ### Prerequisites on macOS
 
@@ -37,6 +50,7 @@ Here is the list of required prerequisites.
 - [Android Studio](https://developer.android.com/studio/index.html)
 - [Android NDK](https://developer.android.com/ndk/guides/)
 - Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- [emscripten (for WASM)](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html)
 
 ### Prerequisites on Linux
 
@@ -49,6 +63,7 @@ Ubuntu as a example:
 - CMake `sudo apt-get install cmake` or (from https://github.com/Kitware/CMake/releases)
 - [Android Studio](https://developer.android.com/studio/index.html)
 - Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- [emscripten (for WASM)](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html)
 
 ### Managed Prerequisites
 
@@ -61,57 +76,55 @@ Additionally, the following prerequisites are also needed, but they are managed 
 
 ## Full Build
 
-The full build can be triggered with one top-level script:
+WalletCore is ready to be built after installing all prerequisites.
+Building for each platform is different.
+
+### Native building and testing
+
+To build and run tests on the native platform (Linux, MacOS), run the following command:
 
 ```shell
-./bootstrap.sh
+./tools/build-and-test
 ```
 
 Or, broken up in smaller steps:
 
-```shell
-## Linux
-./tools/install-sys-dependencies-linux
-
-## MacOS
-./tools/install-sys-dependencies-mac
-
-./tools/install-dependencies
-./tools/install-rust-dependencies
-```
-
-This script downloads and compiles some prerequisites.
+1. This script generates source files, coin- and protobuf files.
+Needs to be re-run whenever `registry.json`, or protobuf files, or `./include` interface, or Rust codebase are changed.
 
 ```shell
 ./tools/generate-files
 ```
 
-This script generates source files, coin- and protobuf files. Needs to be re-run whenever `registry.json` or protobuf files are changed.
+2. Standard CMake and make commands for building the library. The `cmake` command needs to be re-run whenever a new C++ source file is added.
 
 ```shell
 cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug
-make -Cbuild
 ```
 
-Standard CMake and make commands for building the library. The `cmake` command needs to be re-run whenever a new source file is added.
+3. Build TrezorCrypto and WalletCore C++ tests.
 
-After build, _unit tests_ can be executed:
+```shell
+make -Cbuild -j12 tests TrezorCryptoTests
+```
+
+4. Run TrezorCrypto and WalletCore C++ tests.
 
 ```shell
 ./build/tests/tests tests --gtest_filter=*
-```
-
-The generate-cmake-make-test steps are also available together in one script:
-
-```shell
-./tools/build-and-test
 ```
 
 If you'd rather use and IDE for building and debugging you can specify the `-G` option to cmake. For instance to use Xcode call `cmake -Bxcode -GXcode -DCMAKE_BUILD_TYPE=Debug` and use the generated project in the xcode folder.
 
 ### Wasm building
 
-Install [Emscripten SDK](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html) (emsdk):
+Configure WASM environment with either running a bootstrap:
+
+```shell
+./bootstrap.sh wasm
+```
+
+Or installing [Emscripten SDK](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html) (emsdk) manually:
 
 ```shell
 `tools/install-wasm-dependencies`
@@ -123,7 +136,7 @@ Activate `emsdk`:
 `source emsdk/emsdk_env.sh`
 ```
 
-Build Wasm:
+After WASM environment is configured, build WalletCore for WASM:
 
 ```shell
 tools/wasm-build

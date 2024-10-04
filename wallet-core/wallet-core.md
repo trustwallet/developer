@@ -29,6 +29,11 @@ If you want to use wallet core in your project follow these instructions:
 - [Frontier](https://frontier.xyz/)
 - [Belco](https://www.belcobtm.com/)
 - [Pumapay](https://pumapay.io/)
+- [Tokenary](https://tokenary.io/)
+- [MemesWallet](https://planetmemes.com/)
+- [xPortal](https://xportal.com/)
+- [Slingshot](https://slingshot.finance/)
+- [ECOIN Wallet](https://play.google.com/store/apps/details?id=org.ecoinwallet&pcampaignid=web_share)
 
 ## Contributing
 
