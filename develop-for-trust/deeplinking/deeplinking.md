@@ -129,3 +129,25 @@ https://link.trustwallet.com/wc?uri=wc%3Aca1fccc0-f4d1-46c2-90b7-c07fce1c0cae%40
 
 - `https://link.trustwallet.com`
 - `trust://`
+
+## NFTs
+
+Open NFTs tab.
+
+`https://link.trustwallet.com/nfts`
+
+#### Available domains links:
+
+- `https://link.trustwallet.com`
+- `trust://`
+
+## Quest
+
+Open the quest page.
+
+`https://link.trustwallet.com/quest`
+
+#### Available domains links:
+
+- `https://link.trustwallet.com`
+- `trust://`
