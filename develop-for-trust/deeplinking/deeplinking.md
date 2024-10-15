@@ -1,5 +1,11 @@
 # Deeplinking
 
+All deeplink routes can be used with either `https://link.trustwallet.com` or `trust://`.
+
+The `https://link.trustwallet.com` domain will route the user to a download landing page where the user can download the app for iOS, Android, or web extension. If the user already has the app installed, they will get a pop-up deeplinking them to the actual route page in the app.
+
+The `trust://` URI will directly deeplink route the user to the corresponding in-app page and should be used in campaigns where it is known that all users clicking on the link already have the Trust Wallet app installed.
+
 ## DApp Browser
 
 Open dapp browser with a specific url and network
@@ -7,7 +13,7 @@ Open dapp browser with a specific url and network
 - `coin` slip44 index
 - `url` website url
 
-https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
+`https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance`
 
 ## Assets
 
@@ -15,7 +21,7 @@ https://link.trustwallet.com/open_url?coin_id=60&url=https://compound.finance
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/open_coin?asset=c60
+`https://link.trustwallet.com/open_coin?asset=c60`
 
 ### Add asset
 
@@ -23,7 +29,7 @@ Asset will be added to local storage and will show up on the wallet screen.
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca
+`https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e8264ecf986ca`
 
 ## Payment
 
@@ -32,7 +38,7 @@ https://link.trustwallet.com/add_asset?asset=c60_t0x514910771af9ca656af840dff83e
 - `code` unique code
 - `provider` provider url
 
-https://link.trustwallet.com/redeem?code=abc123
+`https://link.trustwallet.com/redeem?code=abc123`
 
 ### Send Payment:
 
@@ -42,11 +48,11 @@ https://link.trustwallet.com/redeem?code=abc123
 - `memo` Optional. Memo
 - `data` Optional. Data
 
-https://link.trustwallet.com/send?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&address=0x650b5e446edabad7eba7fa7bb2f6119b2630bfbb&amount=1&memo=test
+`https://link.trustwallet.com/send?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&address=0x650b5e446edabad7eba7fa7bb2f6119b2630bfbb&amount=1&memo=test`
 
 ### Referral:
 
-https://link.trustwallet.com/referral
+`https://link.trustwallet.com/referral`
 
 ## Staking
 
@@ -54,26 +60,26 @@ https://link.trustwallet.com/referral
 
 - `coin` slip44 index
 
-https://link.trustwallet.com/stake?coin=118
+`https://link.trustwallet.com/stake?coin=118`
 
 ### Stake / Delegate:
 
 - `coin` slip44 index
 - `id` validator / delegator to be selected. Optional
 
-https://link.trustwallet.com/stake_delegate?coin=118&id=cosmosvaloper156gqf9837u7d4c4678yt3rl4ls9c5vuursrrzf
+`https://link.trustwallet.com/stake_delegate?coin=118&id=cosmosvaloper156gqf9837u7d4c4678yt3rl4ls9c5vuursrrzf`
 
 ### Unstake / Undelegate:
 
 - `coin` slip44 index
 
-https://link.trustwallet.com/stake_undelegate?coin=118
+`https://link.trustwallet.com/stake_undelegate?coin=118`
 
 ### Claim Rewards:
 
 - `coin` slip44 index
 
-https://link.trustwallet.com/stake_claim_rewards?coin=118
+`https://link.trustwallet.com/stake_claim_rewards?coin=118`
 
 ## Exchange
 
@@ -82,53 +88,39 @@ https://link.trustwallet.com/stake_claim_rewards?coin=118
 - `from` asset in [UAI format](/assets/universal_asset_id.md)
 - `to` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/swap?from=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&to=c60
+`https://link.trustwallet.com/swap?from=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F&to=c60`
 
 ### Open Buy Crypto
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/buy?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
+`https://link.trustwallet.com/buy?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F`
 
 ### Open Sell Crypto
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/sell?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
+`https://link.trustwallet.com/sell?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F`
 
 ### Open Market Info
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
 
-https://link.trustwallet.com/market?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F
+`https://link.trustwallet.com/market?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F`
 
 ### Open Notifications
 
-https://link.trustwallet.com/notifications
+`https://link.trustwallet.com/notifications`
 
 ### Open Price alerts
 
-https://link.trustwallet.com/alerts
-
-#### Available domains links:
-
-- `https://link.trustwallet.com`
-- `trust://`
-
-#### Definition
-
-slip44 index - https://github.com/trustwallet/wallet-core/blob/master/docs/registry.md
+`https://link.trustwallet.com/alerts`
 
 ## WalletConnect
 
 ### Connect to a WalletConnect session
 
-https://link.trustwallet.com/wc?uri=wc%3Aca1fccc0-f4d1-46c2-90b7-c07fce1c0cae%401%3Fbridge%3Dhttps%253A%252F%252Fbridge.walletconnect.org%26key%3Da413d90751839c7628873557c718fd73fcedc5e8e8c07cfecaefc0d3a178b1d8
-
-#### Available domains links:
-
-- `https://link.trustwallet.com`
-- `trust://`
+`https://link.trustwallet.com/wc?uri=wc%3Aca1fccc0-f4d1-46c2-90b7-c07fce1c0cae%401%3Fbridge%3Dhttps%253A%252F%252Fbridge.walletconnect.org%26key%3Da413d90751839c7628873557c718fd73fcedc5e8e8c07cfecaefc0d3a178b1d8`
 
 ## NFTs
 
@@ -136,18 +128,14 @@ Open NFTs tab.
 
 `https://link.trustwallet.com/nfts`
 
-#### Available domains links:
-
-- `https://link.trustwallet.com`
-- `trust://`
-
 ## Quest
 
 Open the quest page.
 
 `https://link.trustwallet.com/quest`
 
-#### Available domains links:
+## Launchpool
 
-- `https://link.trustwallet.com`
-- `trust://`
+Open the Launchpool page.
+
+`https://link.trustwallet.com/launchpool`
