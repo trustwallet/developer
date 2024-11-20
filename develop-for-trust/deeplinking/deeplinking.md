@@ -139,3 +139,22 @@ Open the quest page.
 Open the Launchpool page.
 
 `https://link.trustwallet.com/launchpool`
+
+## Hot Tokens
+
+Open the Hot Tokens tab on the Swap page.
+
+`https://link.trustwallet.com/hot_tokens`
+
+### Open Hot category and all networks
+
+- `category_id` category identifier
+
+`https://link.trustwallet.com/hot_tokens?category_id=hot`
+
+### Open Hot category and Bitcoin network
+
+- `category_id` category identifier
+- `network` network identifier (slip44 index)
+
+`https://link.trustwallet.com/hot_tokens?category_id=hot&network=c0`
