@@ -152,7 +152,7 @@ Open the Hot Tokens tab on the Swap page.
 
 `https://link.trustwallet.com/hot_tokens?category_id=hot`
 
-### Open Hot category and Bitcoin network
+### Open Hot category and specific network
 
 - `category_id` category identifier
 - `network` network identifier (slip44 index)
