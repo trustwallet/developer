@@ -93,8 +93,13 @@ Asset will be added to local storage and will show up on the wallet screen.
 ### Open Buy Crypto
 
 - `asset` asset in [UAI format](/assets/universal_asset_id.md)
+- `provider` Specifies the fiat ramp provider (e.g., moonpay, mercuryo, ramp). Optional.
+- `payment_method` Specifies the payment method (e.g., credit_card, bank_transfer, apple_pay, google_pay, digital_wallet). Optional.
+- `sub_payment_method` Specifies the sub payment method (e.g., paypal, skrill, blik). Optional.
+- `fiat_currency` Specifies the currency for the amount (e.g., USD, GBP). Optional.
+- `fiat_quantity` Specifies the default quantity of the asset to buy (e.g., 3, 0.25). Optional.
 
-`https://link.trustwallet.com/buy?asset=c60_t0x6B175474E89094C44Da98b954EedeAC495271d0F`
+`https://link.trustwallet.com/buy?asset=c60&provider=moonpay&payment_method=digital_wallet&sub_payment_method=paypal&fiat_currency=USD&fiat_quantity=300`
 
 ### Open Sell Crypto
 
