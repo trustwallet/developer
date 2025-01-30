@@ -196,7 +196,7 @@ Sample `info.json`:
         },
         {
             "name": "twitter",
-            "url": "https://twitter.com/TrustWalletApp"
+            "url": "https://x.com/TrustWalletApp"
         },
         {
             "name": "reddit",
