@@ -163,3 +163,9 @@ Open the Hot Tokens tab on the Swap page.
 - `network` network identifier (slip44 index)
 
 `https://link.trustwallet.com/hot_tokens?category_id=hot&network=c0`
+
+## Settings
+
+### Open the notification settings page
+
+`https://link.trustwallet.com/notification_settings`
