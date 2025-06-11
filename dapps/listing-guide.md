@@ -10,7 +10,7 @@ Missing out on just any one part of the optimization and application process wil
 
 1. [Optimization](dApps/mobile-optimize.md)
 2. [Upload Assets via Github Pull Request (involves nominal fee)](#technical-requirements-and-preperation)
-3. [Application Form](https://trustwallet.com/submit-dApp)
+3. [Application Form](https://forms.gle/bdZPHseXypr72S8E7)
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
 
