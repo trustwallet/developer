@@ -23,11 +23,8 @@ If you want to use wallet core in your project follow these instructions:
 
 - [Trust Wallet](https://trustwallet.com)
 - [coinpaprika](https://coinpaprika.com/)
-- [IFWallet](https://www.ifwallet.com/)
-- [Alice](https://www.alicedapp.com/)
 - [Crypto.com](https://crypto.com)
 - [Frontier](https://frontier.xyz/)
-- [Belco](https://www.belcobtm.com/)
 - [Pumapay](https://pumapay.io/)
 - [Tokenary](https://tokenary.io/)
 - [MemesWallet](https://planetmemes.com/)
