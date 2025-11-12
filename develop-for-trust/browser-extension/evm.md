@@ -38,7 +38,7 @@ function getTrustWalletFromWindow() {
     return window.ethereum;
   }
 
-  if (window.ethereum?.providers)
+  if (window.ethereum?.providers) {
     return window.ethereum.providers.find(isTrustWallet) ?? null;
   }
 
