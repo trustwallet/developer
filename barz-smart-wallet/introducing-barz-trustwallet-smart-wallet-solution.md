@@ -1,7 +1,7 @@
-By [David Kim](https://twitter.com/0xDavidKim)
+By [David Kim](https://x.com/0xDavidKim)
 
 
-Special thanks to [Luis Ocegueda](https://twitter.com/luis_oce) and [Artem Goryunov](https://twitter.com/ArtemGoryunov) for their feedback and contributions.
+Special thanks to [Luis Ocegueda](https://x.com/luis_oce) and [Artem Goryunov](https://x.com/ArtemGoryunov) for their feedback and contributions.
 
 
 

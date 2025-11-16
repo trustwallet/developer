@@ -4,7 +4,7 @@ Joining the Trust Wallet ecosystem with an already established base of users, pr
 
 Trust Wallet is proud of the high standards of quality required for listed dApps, where the user and their experience are the key areas of focus. The app is one of the most popular wallets available for easy access to digital assets and dApps in one place.
 
-By improving the functionality of your project and its overall optimization, you allow users already familiar with the Trust Wallet space the best chance of using your dApp. Taking advantage of the vibrant [community](https://twitter.com/trustwalletapp) is a logical step to take. Marketing efforts also help, so get in touch with the Trust Wallet team via [Trust Wallet Community](https://community.trustwallet.com/) to explore more promotional opportunities.
+By improving the functionality of your project and its overall optimization, you allow users already familiar with the Trust Wallet space the best chance of using your dApp. Taking advantage of the vibrant [community](https://x.com/trustwalletapp) is a logical step to take. Marketing efforts also help, so get in touch with the Trust Wallet team via [Trust Wallet Community](https://community.trustwallet.com/) to explore more promotional opportunities.
 
 Missing out on just any one part of the optimization and application process will ultimately lead to an unsuccessful application. The journey involves rounds of:
 
