@@ -179,7 +179,7 @@ Prerequisite is a working Docker installation.
 The command for building the Docker image:
 
 ```shell
-docker build docker/wallet-core --tag wallet-core-dev
+docker build --tag wallet-core-dev .
 ```
 
 Then launch the container:
@@ -191,7 +191,6 @@ docker run -i -t wallet-core-dev /bin/bash
 Inside the container the build commands can be executed (as described above; note that install-dependencies is not necessary):
 
 ```shell
-cd wallet-core
 ./tools/build-and-test
 ```
 
@@ -204,7 +203,6 @@ Unit tests and [wallet console utility](walletconsole.md) can be executed straig
 
 ```shell
 docker run -i -t trustwallet/wallet-core
-cd wallet-core
 ./build/tests/tests tests
 ./build/walletconsole/walletconsole
 exit
