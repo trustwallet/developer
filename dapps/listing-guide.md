@@ -9,8 +9,7 @@ By improving the functionality of your project and its overall optimization, you
 Missing out on just any one part of the optimization and application process will ultimately lead to an unsuccessful application. The journey involves rounds of:
 
 1. [Optimization](dApps/mobile-optimize.md)
-2. [Upload Assets via Github Pull Request (involves nominal fee)](#technical-requirements-and-preperation)
-3. [Application Form](https://forms.gle/bdZPHseXypr72S8E7)
+2. [Application Form](https://forms.gle/bdZPHseXypr72S8E7)
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
 
@@ -45,16 +44,6 @@ Some basic information is also required on your dApp project as part of the subm
 - A description of your dApp for listing
 - Your dApp name for the listing
 - The URL of your dApp for listing
-
-### Pull Request Fee
-
-Pull requests made to Trust Wall repositories have an associated fee to pay in either TWT or BNB. Due to the number of tokens, coins, and projects supported by Trust Wallet, a large number of requests are made that must be processed.
-
-Contributing a fee filters spam requests and ensures that there is more time to handle genuine submissions.
-
-More details are available on the [pull request fee](../assets/pr-fee.md) that explains how this fits in with Trust Wallet’s open-source ethos.
-
-**NOTE:** Paying the fee does not guarantee that your asset will be listed in the repository.
 
 ### Applying for the Trust Wallet dApp Listing
 
@@ -96,6 +85,6 @@ Ensure that your dApp is compliant with all relevant laws and regulations where 
 
 ### Support and Questions
 
-Should you at any point find yourself with questions about any of the processes laid out in this guide, then don’t hesitate to get in touch at the [Trust Wallet Community](https://community.trustwallet.com/).
+Should you at any point find yourself with questions about any of the processes laid out in this guide, then don’t hesitate to get in touch with us via partnerships@trustwallet.com
 
 It should be noted that this guide contains the minimum needed to begin the submission process and is not exhaustive. There may be other qualities that are considered for listing, but completing the process of optimization and following our guidelines will get you the best chance of success.
