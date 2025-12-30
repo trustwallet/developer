@@ -1,256 +1,128 @@
 # Mobile (WalletConnect)
 
-[WalletConnect](https://walletconnect.org/) is an open source protocol for connecting dApps to mobile wallets with QR code scanning or deep linking, basically it's a websocket JSON-RPC channel.
+Trust Wallet supports WalletConnect 2.0 with multi-chain capabilities. You can connect to multiple blockchains simultaneously and sign transactions.
 
-There are two common ways to integrate: Standalone Client and Web3Model (Web3 Provider)
+[WalletConnect](https://walletconnect.org/) is an open source protocol for connecting dApps to mobile wallets with QR code scanning or deep linking.
 
-## Standalone Client
+**Supported Networks**
 
-Trust extends WalletConnect 1.x with aditional JSON-RPC methods to support multi-chain **dApps**. Currently, you can get all accounts and sign transactions [for any blockchain](https://github.com/trustwallet/wallet-core/blob/master/docs/registry.md) implements `signJSON` method in wallet core.
-
-**Supported Coins**
-
-- Binance Chain
-- Ethereum and forks
-- Cosmos, Kava and other sdk based chains
-- Tezos
-- Nano
-- Filecoin
-- Harmony
+- Ethereum and all EVM chains
 - Solana
-- Zilliqa
+
+> **Note:** We are currently working on adding more network support.
+
+## Dapp Integration
+
+There are two common ways to integrate WalletConnect: you can use the low-level library [Sign API](https://specs.walletconnect.com/2.0/specs/clients/sign/) directly for more control, or use a higher-level library like [Wagmi](https://wagmi.sh/) that simplifies the integration.
+
+## Wagmi
+
+[Wagmi](https://wagmi.sh/) provides React Hooks for WalletConnect with built-in Trust Wallet support, it also supports Vue and vanilla JavaScript. See their [documentation](https://wagmi.sh/) for integration guides.
+
+## Sign API
 
 ### Installation
 
 ```bash
-npm install --save @walletconnect/client @walletconnect/qrcode-modal
+npm install --save-exact @walletconnect/sign-client
 ```
 
 ### Initiate Connection
 
-Before you can sign transactions, you have to initiate a connection to a WalletConnect bridge server, and handle all possible states:
+WalletConnect v2 uses the Sign API. You'll need to initialize the client with your project ID from [WalletConnect Cloud](https://cloud.walletconnect.com):
 
-```javascript
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "@walletconnect/qrcode-modal";
+```typescript
+import { SignClient } from "@walletconnect/sign-client";
 
-// Create a connector
-const connector = new WalletConnect({
-  bridge: "https://bridge.walletconnect.org", // Required
-  qrcodeModal: QRCodeModal,
-});
-
-// Check if connection is already established
-if (!connector.connected) {
-  // create new session
-  connector.createSession();
-}
-
-// Subscribe to connection events
-connector.on("connect", (error, payload) => {
-  if (error) {
-    throw error;
-  }
-
-  // Get provided accounts and chainId
-  const { accounts, chainId } = payload.params[0];
-});
-
-connector.on("session_update", (error, payload) => {
-  if (error) {
-    throw error;
-  }
-
-  // Get updated accounts and chainId
-  const { accounts, chainId } = payload.params[0];
-});
-
-connector.on("disconnect", (error, payload) => {
-  if (error) {
-    throw error;
-  }
-
-  // Delete connector
-});
-```
-
-code snippet above is copied from https://docs.walletconnect.org/quick-start/dapps/client#initiate-connection, please check out the original link for standard methods.
-
-### Get multiple chain accounts from Trust
-
-Once you have `walletconnect client` set up, you will be able to get user's accounts:
-
-```javascript
-const request = connector._formatRequest({
-  method: "get_accounts",
-});
-
-connector
-  ._sendCallRequest(request)
-  .then((result) => {
-    // Returns the accounts
-    console.log(result);
-  })
-  .catch((error) => {
-    // Error returned when rejected
-    console.error(error);
-  });
-```
-
-The result is an array with following structure:
-
-```javascript
-[
-  {
-    network: number,
-    address: string,
+// Initialize Sign Client
+const signClient = await SignClient.init({
+  projectId: "YOUR_PROJECT_ID", // Get from https://cloud.walletconnect.com
+  metadata: {
+    name: "Your dApp Name",
+    description: "Your dApp Description",
+    url: "https://yourdapp.com",
+    icons: ["https://yourdapp.com/icon.png"],
   },
-];
+});
+
+// Subscribe to session events
+signClient.on("session_event", ({ event }) => {
+  // Handle session events
+  console.log("Session event:", event);
+});
+
+signClient.on("session_update", ({ topic, params }) => {
+  const { namespaces } = params;
+  const session = signClient.session.get(topic);
+  // Update session state
+  console.log("Session updated:", session);
+});
+
+signClient.on("session_delete", () => {
+  // Session was deleted, reset dApp state
+  console.log("Session disconnected");
+});
 ```
 
-### Sign multi chain transaction
+WalletConnect v2 follows the [CAIP-25](https://chainagnostic.org/CAIPs/caip-25) protocol for establishing sessions. To connect with different networks, refer to the [WalletConnect namespaces specification](https://specs.walletconnect.com/2.0/specs/clients/sign/namespaces#example-of-a-proposal-namespace).
 
-Once you have the account list, you will be able to sign a transaction, please note that the json structure is based on [WalletCore's proto messages](https://github.com/trustwallet/wallet-core/tree/master/src/proto), we suggest using `protobuf.js` or [@trustwallet/wallet-core](https://github.com/trustwallet/wallet-core/packages/294430) to generate it properly.
-
-```javascript
-const network = 118; // Atom (SLIP-44)
-const account = accounts.find((account) => account.network === network);
-// Transaction structure based on Trust's protobuf messages.
-const tx = {
-  accountNumber: "1035",
-  chainId: "cosmoshub-2",
-  fee: {
-    amounts: [
-      {
-        denom: "uatom",
-        amount: "5000",
+```typescript
+// Request session
+try {
+  const { uri, approval } = await signClient.connect({
+    requiredNamespaces: {
+      eip155: {
+        methods: [
+          "eth_sendTransaction",
+          "personal_sign",
+          "eth_signTypedData",
+        ],
+        chains: ["eip155:1"],
+        events: ["chainChanged", "accountsChanged"],
       },
-    ],
-    gas: "200000",
-  },
-  sequence: "40",
-  sendCoinsMessage: {
-    fromAddress: account.address,
-    toAddress: "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa",
-    amounts: [
-      {
-        denom: "uatom",
-        amount: "100000",
-      },
-    ],
-  },
-};
-
-const request = connector._formatRequest({
-  method: "trust_signTransaction",
-  params: [
-    {
-      network,
-      transaction: JSON.stringify(tx),
     },
-  ],
-});
-
-connector
-  ._sendCallRequest(request)
-  .then((result) => {
-    // Returns transaction signed in json or encoded format
-    console.log(result);
-  })
-  .catch((error) => {
-    // Error returned when rejected
-    console.error(error);
   });
-```
-
-The result can be either a string JSON or an HEX encoded string. For Atom, the result is JSON:
-
-```json
-{
-  "tx": {
-    "fee": {
-      "amount": [
-        {
-          "amount": "5000",
-          "denom": "uatom"
-        }
-      ],
-      "gas": "200000"
-    },
-    "memo": "",
-    "msg": [
-      {
-        "type": "cosmos-sdk/MsgSend",
-        "value": {
-          "amount": [
-            {
-              "amount": "100000",
-              "denom": "uatom"
-            }
-          ],
-          "from_address": "cosmos135qla4294zxarqhhgxsx0sw56yssa3z0f78pm0",
-          "to_address": "cosmos1zcax8gmr0ayhw2lvg6wadfytgdhen25wrxunxa"
-        }
-      }
-    ],
-    "signatures": [
-      {
-        "pub_key": {
-          "type": "tendermint/PubKeySecp256k1",
-          "value": "A+mYPFOMSp6IYyXsW5uKTGWbXrBgeOOFXHNhLGDsGFP7"
-        },
-        "signature": "m10iqKAHQ5Ku5f6NcZdP29fPOYRRR+p44FbGHqpIna45AvYWrJFbsM45xbD+0ueX+9U3KYxG/jSs2I8JO55U9A=="
-      }
-    ],
-    "type": "cosmos-sdk/MsgSend"
-  }
+// ...
 }
 ```
 
-## Web3Modal
+The connect function will return two variables:
 
-[Web3Modal](https://github.com/Web3Modal/web3modal) is an easy-to-use library to help developers add support for multiple providers (including WalletConnect) in their apps with a simple customizable configuration.
+- `uri`: A string used to establish the session. You can use it to generate a QR Code that wallets can scan, or pass it via deep link for mobile-to-mobile connections.
 
-### Installation
+- `approval`: A function that returns a promise which resolves once the session proposal has been either accepted or rejected by the wallet.
 
-```bash
-npm install --save web3modal web3 @walletconnect/web3-provider
+> **Important:** On iOS Safari, `window.open()` must be called synchronously in response to a user action (like a button click). Calling it inside an async function or after an `await` will be blocked by the popup blocker.
+
+```typescript
+function openMobileWallet(){
+	const deepLink = `https://link.trustwallet.com/wc?uri=${encodeURIComponent(uri)}`
+	window.open(deepLink, '_blank', 'noreferrer noopener')
+}
 ```
 
-### Customize chain id
+or
 
-Sample code for configuring WalletConnect with Binance Smart Chain
+```tsx
+import { Cuer } from 'cuer'
 
-```js
-import Web3 from "web3";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import Web3Modal from "web3modal";
-
-// set chain id and rpc mapping in provider options
-const providerOptions = {
-  walletconnect: {
-    package: WalletConnectProvider,
-    options: {
-      rpc: {
-        56: "https://bsc-dataseed1.binance.org",
-      },
-      chainId: 56,
-    },
-  },
-};
-
-const web3Modal = new Web3Modal({
-  network: "mainnet", // optional
-  cacheProvider: true, // optional
-  providerOptions, // required
-});
-
-const provider = await web3Modal.connect();
-await web3Modal.toggleModal();
-
-// regular web3 provider methods
-const newWeb3 = new Web3(provider);
-const accounts = await newWeb3.eth.getAccounts();
-
-console.log(accounts);
+export function QRCodeComponent() {
+  return uri && <Cuer arena={uri} />
+}
 ```
+
+Finally, we wait for the user's approval
+
+```typescript
+try {
+  // ...
+  // Await session approval from the wallet
+  const session = await approval();
+
+  console.log("Session established:", session);
+} catch (error) {
+  console.error("Connection error:", error);
+}
+```
+
+For more details, check the [WalletConnect v2 Sign API specs](https://specs.walletconnect.com/2.0/specs/clients/sign).
