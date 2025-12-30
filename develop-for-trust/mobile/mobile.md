@@ -2,7 +2,7 @@
 
 Trust Wallet supports WalletConnect v2.0 with multi-chain capabilities. You can connect to multiple blockchains simultaneously and sign transactions.
 
-[WalletConnect](https://walletconnect.org/) is an open source protocol for connecting dApps to mobile wallets with QR code scanning or deep linking.
+<a href="https://walletconnect.org/" target="_blank">WalletConnect</a> is an open source protocol for connecting dApps to mobile wallets with QR code scanning or deep linking.
 
 **Supported Networks**
 
@@ -13,11 +13,11 @@ Trust Wallet supports WalletConnect v2.0 with multi-chain capabilities. You can 
 
 ## Dapp Integration
 
-There are two common ways to integrate WalletConnect: you can use the low-level library [Sign API](https://specs.walletconnect.com/2.0/specs/clients/sign/) directly for more control, or use a higher-level library like [Wagmi](https://wagmi.sh/) that simplifies the integration.
+There are two common ways to integrate WalletConnect: you can use the low-level library <a href="https://specs.walletconnect.com/2.0/specs/clients/sign/" target="_blank">Sign API</a> directly for more control, or use a higher-level library like <a href="https://wagmi.sh/" target="_blank">Wagmi</a> that simplifies the integration.
 
 ## Wagmi
 
-[Wagmi](https://wagmi.sh/) provides React Hooks for WalletConnect with built-in Trust Wallet support, it also supports Vue and vanilla JavaScript. See their [documentation](https://wagmi.sh/) for integration guides.
+<a href="https://wagmi.sh/" target="_blank">Wagmi</a> provides React Hooks for WalletConnect with built-in Trust Wallet support, it also supports Vue and vanilla JavaScript. See their <a href="https://wagmi.sh/" target="_blank">documentation</a> for integration guides.
 
 ## Sign API
 
@@ -29,7 +29,7 @@ npm install --save-exact @walletconnect/sign-client
 
 ### Initiate Connection
 
-WalletConnect v2 uses the Sign API. You'll need to initialize the client with your project ID from [WalletConnect Cloud](https://cloud.walletconnect.com):
+WalletConnect v2 uses the Sign API. You'll need to initialize the client with your project ID from <a href="https://cloud.walletconnect.com" target="_blank">WalletConnect Cloud</a>:
 
 ```typescript
 import { SignClient } from "@walletconnect/sign-client";
@@ -64,7 +64,7 @@ signClient.on("session_delete", () => {
 });
 ```
 
-WalletConnect v2 follows the [CAIP-25](https://chainagnostic.org/CAIPs/caip-25) protocol for establishing sessions. To connect with different networks, refer to the [WalletConnect namespaces specification](https://specs.walletconnect.com/2.0/specs/clients/sign/namespaces#example-of-a-proposal-namespace).
+WalletConnect v2 follows the <a href="https://chainagnostic.org/CAIPs/caip-25" target="_blank">CAIP-25</a> protocol for establishing sessions. To connect with different networks, refer to the <a href="https://specs.walletconnect.com/2.0/specs/clients/sign/namespaces#example-of-a-proposal-namespace" target="_blank">WalletConnect namespaces specification</a>.
 
 ```typescript
 // Request session
@@ -88,7 +88,7 @@ try {
 
 The connect function will return two variables:
 
-- `uri`: A string used to establish the session. You can use it to generate a QR Code that wallets can scan, or pass it via deep link for mobile-to-mobile connections.
+- `uri`: A string used to establish the session. You can use it to generate a QR Code that wallets can scan, or pass it via deep link to connect from a mobile browser or mobile dApp to the Trust Wallet mobile app.
 
 - `approval`: A function that returns a promise which resolves once the session proposal has been either accepted or rejected by the wallet.
 
@@ -125,4 +125,4 @@ try {
 }
 ```
 
-For more details, check the [WalletConnect v2 Sign API specs](https://specs.walletconnect.com/2.0/specs/clients/sign).
+For more details, check the <a href="https://specs.walletconnect.com/2.0/specs/clients/sign" target="_blank">WalletConnect v2 Sign API specs</a>.
