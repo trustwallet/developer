@@ -1,6 +1,6 @@
 # Mobile (WalletConnect)
 
-Trust Wallet supports WalletConnect 2.0 with multi-chain capabilities. You can connect to multiple blockchains simultaneously and sign transactions.
+Trust Wallet supports WalletConnect v2.0 with multi-chain capabilities. You can connect to multiple blockchains simultaneously and sign transactions.
 
 [WalletConnect](https://walletconnect.org/) is an open source protocol for connecting dApps to mobile wallets with QR code scanning or deep linking.
 
@@ -70,7 +70,7 @@ WalletConnect v2 follows the [CAIP-25](https://chainagnostic.org/CAIPs/caip-25) 
 // Request session
 try {
   const { uri, approval } = await signClient.connect({
-    requiredNamespaces: {
+    optionalNamespaces: {
       eip155: {
         methods: [
           "eth_sendTransaction",
