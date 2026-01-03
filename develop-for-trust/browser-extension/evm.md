@@ -2,9 +2,19 @@
 
 Modern browsers often have multiple wallet extensions installed. [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963) standardizes provider discovery through a well-defined event mechanism, allowing each wallet to announce itself without conflicts. This replaces the legacy `window.ethereum` pattern where wallets would overwrite each other.
 
-Trust Wallet supports EIP-6963 to announces itself. You should always use this discovery mechanism to locate the Trust Wallet EIP-1193 provider.
+Trust Wallet supports EIP-6963 to announce itself. You should always use this discovery mechanism to locate the Trust Wallet EIP-1193 provider.
 
 ```ts
+/**
+ * Represents the assets needed to display a wallet
+ */
+interface EIP6963ProviderInfo {
+  uuid: string;
+  name: string;
+  icon: string;
+  rdns: string;
+}
+
 // EIP-6963 Provider Detail containing wallet info and provider instance
 interface EIP6963ProviderDetail {
   info: EIP6963ProviderInfo;
@@ -22,13 +32,13 @@ interface EIP6963RequestProviderEvent extends Event {
   type: "eip6963:requestProvider";
 }
 
-// Store all announced providers by their reverse DNS identifier
-const announcedProviders = new Map();
+// Store all announced providers by their UUID identifier
+const announcedProviders = new Map<string, EIP6963ProviderDetail>();
 
 function initializeEIP6963() {
   const onAnnounce = (event: EIP6963AnnounceProviderEvent) => {
     const { info, provider } = event.detail;
-    const key = info.rdns
+    const key = info.uuid
     // Avoid duplicates
     if(announcedProviders.has(key)) return
 
@@ -114,7 +124,7 @@ const accounts = await provider.request({ method: "eth_accounts" });
 The `accountsChanged` event ([EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)) fires when the user switches accounts or disconnects from your dApp.
 
 ```jsx
-provider.addListener("accountsChanged", (accounts) => {
+provider.on("accountsChanged", (accounts) => {
   if (accounts.length === 0) {
     console.log("User disconnected.");
   } else {
@@ -130,7 +140,7 @@ provider.addListener("accountsChanged", (accounts) => {
 The `chainChanged` event ([EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)) notifies your dApp when the user switches to a different network.
 
 ```jsx
-provider.addListener("chainChanged", (chainId) => {
+provider.on("chainChanged", (chainId) => {
   console.log("New chain:", chainId); // hex string
 });
 ```
@@ -183,80 +193,6 @@ try {
 }
 ```
 
-## Interacting with smart contracts
-
-### Read data from contracts
-
-The `eth_call` method ([EIP-1474](https://eips.ethereum.org/EIPS/eip-1474)) executes a read-only contract call without creating a transaction on the blockchain.
-
-```jsx
-// Read the balance of an ERC20 token
-try {
-  const balance = await provider.request({
-    method: "eth_call",
-    params: [{
-      to: "0x6B175474E89094C44Da98b954EedeAC495271d0F", // DAI contract
-      data: "0x70a08231..." // Encoded function call data
-    }, "latest"]
-  });
-  console.log("Token balance:", balance);
-} catch (e) {
-  console.error("Error reading contract:", e);
-}
-```
-
-### Write data to contracts
-
-The `eth_sendTransaction` method ([EIP-1474](https://eips.ethereum.org/EIPS/eip-1474)) creates a transaction that modifies blockchain state. This requires user approval and gas fees.
-
-```jsx
-// Transfer ERC20 tokens
-try {
-  const txHash = await provider.request({
-    method: "eth_sendTransaction",
-    params: [{
-      from: accountAddress,
-      to: "0x6B175474E89094C44Da98b954EedeAC495271d0F", // DAI contract
-      data: "0xa9059cbb...", // Encoded function call data (e.g., transfer)
-      value: "0x0" // No ETH being sent, only token transfer
-    }]
-  });
-  console.log("Transaction hash:", txHash);
-} catch (e) {
-  if (e.code === 4001) console.error("User rejected transaction.");
-  else console.error("Transaction error:", e);
-}
-```
-
-### Sign and send raw transactions
-
-The `eth_signTransaction` method ([EIP-1474](https://eips.ethereum.org/EIPS/eip-1474)) signs a transaction without broadcasting it, and `eth_sendRawTransaction` broadcasts a signed transaction.
-
-```jsx
-// Sign a transaction
-try {
-  const signedTx = await provider.request({
-    method: "eth_signTransaction",
-    params: [{
-      from: accountAddress,
-      to: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
-      value: "0x0de0b6b3a7640000", // 1 ETH in wei
-      gas: "0x5208", // 21000 gas
-      gasPrice: "0x09184e72a000" // Gas price in wei
-    }]
-  });
-
-  // Broadcast the signed transaction
-  const txHash = await provider.request({
-    method: "eth_sendRawTransaction",
-    params: [signedTx]
-  });
-  console.log("Transaction hash:", txHash);
-} catch (e) {
-  console.error("Transaction error:", e);
-}
-```
-
 ## Signing messages
 
 ### Sign arbitrary messages
@@ -264,11 +200,6 @@ try {
 The `personal_sign` method ([EIP-1474](https://eips.ethereum.org/EIPS/eip-1474)) requests a signature for an arbitrary message. This is commonly used for authentication and proof of ownership.
 
 ```jsx
-const message = "Sign this message to authenticate";
-const hexMessage = "0x" + Array.from(new TextEncoder().encode(message))
-  .map(b => b.toString(16).padStart(2, '0'))
-  .join('');
-
 try {
   const signature = await provider.request({
     method: "personal_sign",
@@ -359,13 +290,69 @@ try {
 }
 ```
 
-## Building production applications
+## Interacting with smart contracts
 
-For production React applications, we recommend using [Wagmi](https://wagmi.sh/) instead of manual RPC calls. Wagmi provides:
+### Send transactions to contracts
 
-- **Built-in EIP-6963 support**: Automatically discovers and connects to Trust Wallet
-- **Type-safe hooks**: React hooks for wallet connection, contract reads/writes, and network switching
-- **State management**: Handles caching, reconnection, and multi-chain state automatically
-- **Framework integration**: First-class support for Next.js, Vite, and other modern frameworks
+The `eth_sendTransaction` method ([EIP-1474](https://eips.ethereum.org/EIPS/eip-1474)) creates a transaction that modifies blockchain state. This requires user approval and gas fees.
 
-The manual provider approach shown in this guide is useful for understanding the underlying protocol or implementing custom flows. For most production use cases, Wagmi handles these concerns in a more abstracted way.
+```jsx
+// Example: Transfer ERC20 tokens
+try {
+  const txHash = await provider.request({
+    method: "eth_sendTransaction",
+    params: [{
+      from: accountAddress,
+      to: "0x6B175474E89094C44Da98b954EedeAC495271d0F", // Contract address
+      data: "0xa9059cbb...", // ABI-encoded function call
+      value: "0x0" // Amount of ETH to send (0 for token transfers)
+    }]
+  });
+  console.log("Transaction hash:", txHash);
+} catch (e) {
+  if (e.code === 4001) console.error("User rejected transaction.");
+  else console.error("Transaction error:", e);
+}
+```
+
+When interacting with smart contracts, you need to encode function calls into the `data` field of transactions. This encoding follows the [Contract ABI Specification](https://docs.soliditylang.org/en/latest/abi-spec.html).
+
+### Understanding the `data` field
+
+The `data` field contains:
+1. **Function selector**: First 4 bytes (8 hex characters) - the keccak256 hash of the function signature
+2. **Encoded parameters**: The function arguments encoded according to ABI rules
+
+For example, calling `transfer(address recipient, uint256 amount)`:
+- Function signature: `transfer(address,uint256)`
+- Function selector: `0xa9059cbb` (first 4 bytes of keccak256 hash)
+- Encoded parameters: recipient address (32 bytes) + amount (32 bytes)
+
+To simplify this process you can use libraries like [Viem](https://viem.sh/), [Ethers.js](https://docs.ethers.org/), or [Voltaire](https://voltaire.tevm.sh/) to handle ABI encoding automatically. These libraries take care of the complex encoding process for you.
+
+## High level abstractions
+
+While the manual provider approach shown in this guide is useful for understanding the underlying protocol, production applications can use higher-level abstractions that handle the complexity for you.
+
+### Wagmi
+
+For React or Vue applications, we recommend [Wagmi](https://wagmi.sh/). Wagmi is a collection of React hooks that provides:
+
+- **Automatic EIP-6963 discovery**: Detects and connects to Trust Wallet without manual setup
+- **Type-safe hooks**: `useAccount`, `useConnect`, `useWriteContract`, `useReadContract`, and more
+- **Built-in state management**: Handles connection state, caching, and automatic reconnection
+
+Wagmi abstracts away the low-level RPC calls, providing a better developer experience and more reliable applications.
+
+### Wagmi Core
+
+For vanilla JavaScript, Svelte, Solid, or other non-React frameworks, you can use [Wagmi Core](https://wagmi.sh/core). A framework-agnostic version of Wagmi that provides:
+
+- **EIP-6963 support**: Same automatic provider discovery as Wagmi
+- **Framework-agnostic**: Works with any JavaScript framework or vanilla JS
+- **TypeScript-first**: Full type safety without React dependencies
+- **Action-based API**: Simple functions like `getAccount`, `connect`, `writeContract`, `readContract`
+
+## Need help?
+
+If you have questions or need assistance integrating Trust Wallet into your application, feel free to open a discussion on our [GitHub Discussions](https://github.com/trustwallet/developer/discussions).
