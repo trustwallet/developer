@@ -328,30 +328,21 @@ For example, calling `transfer(address recipient, uint256 amount)`:
 - Function selector: `0xa9059cbb` (first 4 bytes of keccak256 hash)
 - Encoded parameters: recipient address (32 bytes) + amount (32 bytes)
 
-To simplify this process you can use libraries like [Viem](https://viem.sh/), [Ethers.js](https://docs.ethers.org/), or [Voltaire](https://voltaire.tevm.sh/) to handle ABI encoding automatically. These libraries take care of the complex encoding process for you.
+To simplify this process you can use libraries like [Viem](https://viem.sh/), [Voltaire](https://voltaire.tevm.sh/) or [Ethers.js](https://docs.ethers.org/) to handle ABI encoding automatically. These libraries take care of the complex encoding process for you.
 
 ## High level abstractions
 
 While the manual provider approach shown in this guide is useful for understanding the underlying protocol, production applications can use higher-level abstractions that handle the complexity for you.
 
-### Wagmi
+### Wagmi (React/Vue) and Wagmi Core (framework-agnostic)
 
-For React or Vue applications, we recommend [Wagmi](https://wagmi.sh/). Wagmi is a collection of React hooks that provides:
+We recommend [Wagmi](https://wagmi.sh/), which provide a higher-level, TypeScript-first API on top of EIP-1193 providers:
 
-- **Automatic EIP-6963 discovery**: Detects and connects to Trust Wallet without manual setup
-- **Type-safe hooks**: `useAccount`, `useConnect`, `useWriteContract`, `useReadContract`, and more
-- **Built-in state management**: Handles connection state, caching, and automatic reconnection
-
-Wagmi abstracts away the low-level RPC calls, providing a better developer experience and more reliable applications.
-
-### Wagmi Core
-
-For vanilla JavaScript, Svelte, Solid, or other non-React frameworks, you can use [Wagmi Core](https://wagmi.sh/core). A framework-agnostic version of Wagmi that provides:
-
-- **EIP-6963 support**: Same automatic provider discovery as Wagmi
-- **Framework-agnostic**: Works with any JavaScript framework or vanilla JS
-- **TypeScript-first**: Full type safety without React dependencies
-- **Action-based API**: Simple functions like `getAccount`, `connect`, `writeContract`, `readContract`
+- **Automatic EIP-6963 discovery**: Detects injected wallets (including Trust Wallet) without manual event wiring
+- **Type-safe APIs**:
+  - Wagmi (React/Vue): hooks like `useAccount`, `useConnect`, `useWriteContract`, `useReadContract`, and more
+  - Wagmi Core (any framework / vanilla JS): action-based functions like `getAccount`, `connect`, `writeContract`, `readContract`
+- **Built-in state management** (Wagmi): handles connection state, caching, and automatic reconnection
 
 ## Need help?
 
