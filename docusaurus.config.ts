@@ -62,18 +62,12 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Trust Wallet Developers',
+      title: 'Trust Wallet',
       logo: {
         alt: 'Trust Wallet Logo',
         src: 'img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
-          position: 'left',
-          label: 'Documentation',
-        },
         {
           href: 'https://github.com/trustwallet/developer-docs',
           label: 'GitHub',
@@ -129,7 +123,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Trust Wallet. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Trust Wallet.`,
     },
     prism: {
       theme: prismThemes.github,

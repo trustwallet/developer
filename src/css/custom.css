@@ -113,6 +113,12 @@
   font-weight: 600;
 }
 
+/* Make navbar brand non-clickable */
+.navbar__brand {
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Sidebar enhancements */
 .menu__link {
   border-radius: var(--ifm-code-border-radius);
@@ -197,6 +203,18 @@ table {
 .footer__title {
   color: var(--ifm-font-color-base);
   font-weight: 600;
+}
+
+.footer__link-item {
+  color: var(--ifm-font-color-base);
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+}
+
+.footer__copyright {
+  color: var(--ifm-font-color-secondary);
 }
 
 /* Hero section on homepage */
