@@ -1,0 +1,318 @@
+/**
+ * Trust Wallet Developer Documentation
+ * Custom styling based on Trust Wallet branding
+ */
+
+/* Fonts */
+:root {
+  --ifm-font-family-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ifm-font-family-monospace: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Light mode colors - Trust Wallet branding */
+:root {
+  /* Primary brand color */
+  --ifm-color-primary: #0500FF;
+  --ifm-color-primary-dark: #0400e6;
+  --ifm-color-primary-darker: #0400d9;
+  --ifm-color-primary-darkest: #0300b3;
+  --ifm-color-primary-light: #1a14ff;
+  --ifm-color-primary-lighter: #2621ff;
+  --ifm-color-primary-lightest: #4d47ff;
+
+  /* Background colors */
+  --ifm-background-color: #f9fafb;
+  --ifm-background-surface-color: #ffffff;
+
+  /* Text colors */
+  --ifm-font-color-base: #111827;
+  --ifm-font-color-secondary: #6b7280;
+
+  /* Success and danger */
+  --ifm-color-success: #22c55e;
+  --ifm-color-danger: #dc2626;
+
+  /* Borders and cards */
+  --ifm-color-emphasis-100: #f3f4f6;
+  --ifm-color-emphasis-200: #e5e7eb;
+  --ifm-color-emphasis-300: #d1d5db;
+  --ifm-color-emphasis-400: #9ca3af;
+
+  /* Border radius */
+  --ifm-global-radius: 14px;
+  --ifm-button-border-radius: 14px;
+  --ifm-card-border-radius: 14px;
+  --ifm-code-border-radius: 8px;
+
+  /* Shadows */
+  --ifm-global-shadow-lw: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --ifm-global-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --ifm-global-shadow-tl: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  /* Code blocks */
+  --ifm-code-background: #f3f4f6;
+  --ifm-code-border-radius: 8px;
+}
+
+/* Dark mode colors - Trust Wallet branding */
+[data-theme='dark'] {
+  /* Primary brand color for dark mode */
+  --ifm-color-primary: #48ff91;
+  --ifm-color-primary-dark: #2eff7f;
+  --ifm-color-primary-darker: #21ff76;
+  --ifm-color-primary-darkest: #00ff54;
+  --ifm-color-primary-light: #62ffa3;
+  --ifm-color-primary-lighter: #6fffac;
+  --ifm-color-primary-lightest: #96ffc7;
+
+  /* Background colors */
+  --ifm-background-color: #121213;
+  --ifm-background-surface-color: #161618;
+
+  /* Text colors */
+  --ifm-font-color-base: #eef5ef;
+  --ifm-font-color-secondary: #b3c1b6;
+
+  /* Success and danger */
+  --ifm-color-success: #48ff91;
+  --ifm-color-danger: #ff7d7d;
+
+  /* Borders and cards */
+  --ifm-color-emphasis-100: #2a2a2e;
+  --ifm-color-emphasis-200: #242427;
+  --ifm-color-emphasis-300: #1f1f23;
+  --ifm-color-emphasis-400: #18181a;
+
+  /* Shadows */
+  --ifm-global-shadow-lw: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --ifm-global-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --ifm-global-shadow-tl: 0 20px 40px rgba(0, 0, 0, 0.6);
+
+  /* Navbar */
+  --ifm-navbar-background-color: #161618;
+  --ifm-navbar-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+  /* Code blocks */
+  --ifm-code-background: #1f1f23;
+
+  /* Cards */
+  --ifm-card-background-color: #161618;
+}
+
+/* Navbar enhancements */
+.navbar {
+  box-shadow: var(--ifm-navbar-shadow);
+  backdrop-filter: blur(10px);
+}
+
+.navbar__title {
+  font-weight: 600;
+}
+
+/* Sidebar enhancements */
+.menu__link {
+  border-radius: var(--ifm-code-border-radius);
+  transition: all 0.2s ease;
+}
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+.menu__link:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .menu__link:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+/* Cards and containers */
+.card {
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Buttons */
+.button {
+  border-radius: var(--ifm-button-border-radius);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.button:hover {
+  box-shadow: var(--ifm-global-shadow-md);
+  transform: translateY(-1px);
+}
+
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+/* Code blocks */
+code {
+  border-radius: var(--ifm-code-border-radius);
+  padding: 0.2rem 0.4rem;
+}
+
+.prism-code {
+  border-radius: var(--ifm-global-radius);
+}
+
+/* Tables */
+table {
+  border-radius: var(--ifm-code-border-radius);
+  overflow: hidden;
+}
+
+/* Admonitions (callouts) */
+.admonition {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.footer__title {
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+}
+
+/* Hero section on homepage */
+.hero {
+  background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-color-emphasis-100) 100%);
+  border-radius: var(--ifm-global-radius);
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-color-emphasis-400) 100%);
+}
+
+.hero__title {
+  font-weight: 700;
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.2s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow-lw);
+  transform: translateY(-2px);
+}
+
+/* Table of contents */
+.table-of-contents__link {
+  transition: all 0.2s ease;
+}
+
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.table-of-contents__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Search */
+.navbar__search-input {
+  border-radius: var(--ifm-button-border-radius);
+  background-color: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.2s ease;
+}
+
+.navbar__search-input:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(5, 0, 255, 0.1);
+}
+
+[data-theme='dark'] .navbar__search-input:focus {
+  box-shadow: 0 0 0 2px rgba(72, 255, 145, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Link hover effects */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Markdown content spacing */
+.markdown h1 {
+  margin-top: 2rem;
+  font-weight: 700;
+}
+
+.markdown h2 {
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.markdown h3 {
+  margin-top: 1.25rem;
+  font-weight: 600;
+}
+
+/* Breadcrumbs */
+.breadcrumbs__link {
+  transition: all 0.2s ease;
+  border-radius: var(--ifm-code-border-radius);
+  padding: 0.2rem 0.4rem;
+}
+
+.breadcrumbs__link:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* Mobile improvements */
+@media (max-width: 996px) {
+  .navbar__item {
+    padding: 0.5rem 1rem;
+  }
+
+  .menu__link {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Announcement bar (if needed) */
+.announcementBar {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .announcementBar {
+  background: linear-gradient(90deg, #48ff91 0%, #2eff7f 100%);
+  color: #121213;
+}
