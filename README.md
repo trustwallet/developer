@@ -1,6 +1,6 @@
 # Trust Wallet Developer Documentation
 
-This repository contains the official developer documentation for Trust Wallet, built with [Docusaurus](https://docusaurus.io/).
+This repository contains the official developer documentation for Trust Wallet.
 
 ## Installation
 
