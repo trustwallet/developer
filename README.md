@@ -12,3 +12,4 @@ Welcome to the Trust Wallet developer documentation. Here you can find documenta
 - [Barz - Smart Wallet](barz-smart-wallet/barz-smart-wallet.md)
 
 Want to discuss more? join our [Trust Wallet Developers](https://discord.gg/trustwallet) on Discord.
+vck_4MxOYMJSgZ6Vj9lDvs3aRjK3ZhdojSlSPkCMXXWzqUXRefo9lx0n8vct
