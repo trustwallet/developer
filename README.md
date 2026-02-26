@@ -6,6 +6,17 @@ This documentation covers everything for developers: building on top of Trust Wa
 
 ---
 
+## Trust Wallet Agent SDK
+
+### [Agent SDK](agent-sdk/agent-sdk.md)
+Programmatic access to Trust Wallet's multichain infrastructure — balance queries, token prices, swaps, transaction history, and more — through a CLI and an MCP server for AI agents.
+
+- [Quickstart](agent-sdk/quickstart.md)
+- [CLI Reference](agent-sdk/cli-reference.md)
+- [Authentication](agent-sdk/authentication.md)
+
+---
+
 ## Build on Trust Wallet
 
 ### [Developing for Trust Wallet](develop-for-trust/develop-for-trust.md)
