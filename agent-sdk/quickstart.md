@@ -18,7 +18,7 @@ The CLI exposes two aliases: `twak` and `tw-agent`.
 
 ## Step 2 — Configure credentials
 
-Get your API key and HMAC secret from the [developer portal](https://developer.trustwallet.com/dashboard/keys), then run:
+Get your API key and HMAC secret from the [developer portal](https://portal.trustwallet.com/dashboard/apps), then run:
 
 ```bash
 twak init --api-key twk_live_your_access_id \

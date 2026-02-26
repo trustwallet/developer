@@ -18,4 +18,4 @@ The Trust Wallet Agent SDK gives developers programmatic access to Trust Wallet'
 
 ## Developer portal
 
-Create and manage your API keys at [developer.trustwallet.com](https://developer.trustwallet.com).
+Create and manage your API keys at [portal.trustwallet.com](https://portal.trustwallet.com).
