@@ -29,7 +29,7 @@ Credentials are saved to `~/.tw-agent/credentials.json`.
 ### auth setup
 
 ```bash
-twak auth setup --api-key <key> --api-secret <secret>
+twak auth setup --api-key <key> --api-secret <secret> [--wc-project-id <id>]
 ```
 
 ### auth status
@@ -45,31 +45,53 @@ twak auth status [--json]
 ### wallet create
 
 ```bash
-twak wallet create --password <pw> [--json]
+twak wallet create --password <pw> [--no-keychain] [--json]
 ```
 
 ### wallet address
 
 ```bash
-twak wallet address --chain <chain> --password <pw> [--json]
+twak wallet address --chain <chain> [--password <pw>] [--json]
 ```
+
+Password falls back to the OS keychain or `TWAK_WALLET_PASSWORD` environment variable.
 
 ### wallet addresses
 
 ```bash
-twak wallet addresses --password <pw> [--json]
+twak wallet addresses [--password <pw>] [--json]
 ```
 
 ### wallet balance
 
 ```bash
-twak wallet balance --chain <chain> --password <pw> [--json]
+twak wallet balance --chain <chain> [--password <pw>] [--json]
 ```
 
 ### wallet export
 
 ```bash
-twak wallet export --password <pw>
+twak wallet export [--password <pw>]
+```
+
+### wallet keychain save
+
+Save the wallet password to the OS keychain for passwordless usage.
+
+```bash
+twak wallet keychain save --password <pw>
+```
+
+### wallet keychain delete
+
+```bash
+twak wallet keychain delete
+```
+
+### wallet keychain check
+
+```bash
+twak wallet keychain check
 ```
 
 ### wallet connect
@@ -209,14 +231,16 @@ twak risk <assetId> [--json]
 ### erc20 approve
 
 ```bash
-twak erc20 approve --token <address> --spender <address> --amount <amount> \
+twak erc20 approve --token <assetId> --spender <address> --amount <amount> \
                    --password <pw> [--json]
 ```
+
+Token uses the Trust Wallet asset ID format (e.g., `c60_t0xA0b8...`).
 
 ### erc20 allowance
 
 ```bash
-twak erc20 allowance --token <address> --owner <address> --spender <address> [--json]
+twak erc20 allowance --token <assetId> --owner <address> --spender <address> [--json]
 ```
 
 ---
