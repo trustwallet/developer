@@ -2,6 +2,7 @@
 
 Welcome to the Trust Wallet developer documentation. Here you can find documentation on contributing to Trust Wallet as well as on using Trust Wallet libraries on your own projects.
 
+- [Trust Wallet Agent SDK](agent-sdk/agent-sdk.md)
 - [Developing for Trust Wallet platform](develop-for-trust/develop-for-trust.md)
   - [Browser Extension](develop-for-trust/browser-extension/browser-extension.md)
   - [Mobile (WalletConnect)](develop-for-trust/mobile/mobile.md)
