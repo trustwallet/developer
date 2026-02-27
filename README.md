@@ -10,5 +10,6 @@ Welcome to the Trust Wallet developer documentation. Here you can find documenta
 - [Listing new assets](assets/new-asset.md)
 - [Wallet Core](wallet-core/wallet-core.md)
 - [Barz - Smart Wallet](barz-smart-wallet/barz-smart-wallet.md)
+- [Claude Code Skills](claude-code-skills/claude-code-skills.md)
 
 Want to discuss more? join our [Trust Wallet Developers](https://discord.gg/trustwallet) on Discord.
