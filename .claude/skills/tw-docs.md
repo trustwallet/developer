@@ -11,7 +11,6 @@ Discord: https://discord.gg/trustwallet
 
 | Section | What it covers |
 |---------|---------------|
-| [Agent SDK](#agent-sdk) | CLI, TypeScript SDK, MCP server for AI agents |
 | [Browser Extension](#browser-extension) | EIP-6963 provider discovery, EVM/multichain dApp integration |
 | [Mobile (WalletConnect)](#mobile-walletconnect) | WalletConnect v2, Wagmi, session management |
 | [Deep Linking](#deep-linking) | trust:// and link.trustwallet.com URL schemes |
@@ -19,102 +18,6 @@ Discord: https://discord.gg/trustwallet
 | [Listing Assets](#listing-assets) | Adding tokens/logos to the Trust Wallet asset repository |
 | [Wallet Core](#wallet-core) | Cross-platform C++ crypto library (iOS/Android/server) |
 | [Barz Smart Wallet](#barz-smart-wallet) | Account abstraction / ERC-4337 smart wallet solution |
-
----
-
-## Agent SDK
-
-The Trust Wallet Agent SDK gives programmatic access to Trust Wallet's multichain infrastructure (balances, prices, swaps, history) via a CLI, TypeScript SDK, and MCP server.
-
-**Packages:**
-- `@twak/cli` — `twak` / `tw-agent` binaries
-- `@twak/sdk` — TypeScript SDK
-- `twak serve` — MCP server (stdio or REST)
-
-**Developer portal:** https://portal.trustwallet.com
-
-### Quickstart
-
-```bash
-npm install -g @twak/cli
-twak init --api-key twk_live_... --api-secret <secret>
-twak auth status
-twak price ETH
-```
-
-Or with env vars (CI/CD):
-```bash
-export TWAK_ACCESS_ID=twk_live_...
-export TWAK_HMAC_SECRET=...
-```
-
-### Authentication
-
-All requests use **HMAC-SHA256** over: `METHOD + PATH + QUERY + ACCESS_ID + NONCE + DATE`
-
-Headers required for raw HTTP: `X-TW-Credential`, `X-TW-Nonce`, `X-TW-Date`, `Authorization` (base64 signature).
-
-The CLI and SDK handle signing automatically.
-
-### CLI Reference (key commands)
-
-```bash
-# Prices & market data
-twak price <token> [--chain <chain>] [--json]
-twak trending [--limit <n>] [--json]
-twak search <query> [--json]
-twak chains [--json]
-twak asset <assetId> [--json]
-twak risk <assetId> [--json]          # rug-risk / token security
-
-# Balances
-twak balance --address <addr> --coin <coinId> [--json]
-twak holdings --address <addr> --coin <coinId> [--json]
-
-# Wallet management
-twak wallet create --password <pw>
-twak wallet address --chain <chain>
-twak wallet addresses
-twak wallet balance --chain <chain>
-twak wallet export
-twak wallet keychain save --password <pw>
-twak wallet connect                    # WalletConnect
-
-# Transactions
-twak transfer --to <addr> --amount <n> --token <token> --password <pw>
-twak swap <amount> <from> <to> [--chain <c>] [--quote-only]
-twak history --address <addr> [--chain <c>] [--limit <n>]
-twak tx <hash> --chain <chain>
-twak validate --address <addr>
-
-# ERC-20
-twak erc20 approve --token <assetId> --spender <addr> --amount <n> --password <pw>
-twak erc20 allowance --token <assetId> --owner <addr> --spender <addr>
-
-# Alerts
-twak alert create --token <t> --chain <c> (--above <price> | --below <price>)
-twak alert list [--active]
-twak alert check
-twak alert delete <id>
-
-# On/off ramp
-twak onramp quote --amount <n> --asset <a> --wallet <addr>
-twak onramp buy --quote-id <id> --wallet <addr>
-twak onramp sell-quote --amount <n> --asset <a> --wallet <addr>
-twak onramp sell --quote-id <id> --wallet <addr>
-
-# DCA / limit order automation
-twak automate add --from <t> --to <t> --amount <n> [--interval <i>] [--price <p>]
-twak automate list
-twak automate delete <id>
-
-# MCP / REST server
-twak serve [--rest] [--port <n>]
-```
-
-Common coin IDs (SLIP44): `60` = Ethereum, `0` = Bitcoin, `501` = Solana.
-
-Asset ID format: `c<coinId>_t<contractAddress>` — e.g. `c60_t0x1f9840a85d5aF5bf1D1762F925BdADdC4201F984` (UNI on Ethereum).
 
 ---
 
@@ -271,6 +174,5 @@ Barz is Trust Wallet's account abstraction (ERC-4337) smart wallet solution buil
 
 - Always use **EIP-6963** for browser extension detection, not `window.ethereum`
 - Use **Wagmi** for the simplest WalletConnect + Trust Wallet mobile integration
-- For AI agent use cases, `twak serve` starts an MCP server — connect any MCP-compatible agent
 - Asset IDs use the **UAI format**: `c60` = ETH, `c60_t0x...` = ERC-20 token on Ethereum
 - SLIP44 coin IDs: 60 = Ethereum, 0 = Bitcoin, 501 = Solana, 195 = Tron
