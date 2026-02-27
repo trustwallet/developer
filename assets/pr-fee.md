@@ -1,60 +1,64 @@
-# Pull Request Fee -- FAQ
+# Pull Request Fee
 
-Trust Wallet supports an insane number of assets/tokens requests.
-We are committed to supporting the tokens used by our users, but supporting millions of assets comes at a high cost. In terms of running the infrastructure, ensuring continuous integrations, handling a massive number of requests to the assets info, etc., and also avoiding a lot of spam/scam coins.
-We have introduced this crypto contribution in order to filter requests, so we have more time to handle genuine ones.
-We were partly inspired by Token Curated Registry.
+Trust Wallet supports a vast number of asset and token requests. We are committed to supporting the tokens used by our users, but maintaining millions of assets comes at a significant cost — from running infrastructure and ensuring continuous integration, to handling the massive volume of asset info requests and filtering out spam and scam tokens.
 
-A fee of 500TWT or 2.5BNB is required for each Pull Request, you will see the message from the merge-fee-bot with details about the payment. Make sure to double-check the https://developer.trustwallet.com/assets/requirements to minimize the risk of your PR being rejected.
+To help manage this, we introduced a crypto contribution to filter out low-quality submissions and free up more time to review genuine requests. This approach was partly inspired by the concept of a Token Curated Registry.
 
-## Why the payment?\*\*
+> A fee of **500 TWT or 2.5 BNB** is required for each Pull Request. The merge-fee-bot will provide payment details once your PR is submitted. Before submitting, please review the [listing requirements](https://developer.trustwallet.com/assets/requirements).
 
-- Due to a high number of pull requests, this led to a high cost of running infrastructure. A modest fee is required for processing a pull request, which is payable in cryptocurrency.
-- Cost is used to run the infrastructure that powers millions of Assets/tokens
-- Reducing spam/scam coins/tokens request
-- Ensuring smooth integration and handling of a massive number of assets request
+---
 
-**How does this Fee fit with Open Source?**
+## Why the payment?
 
-We believe in the power of open-source software, and essential parts of Trust Wallet are open-source to contribute to the community(Wallet-Core). But Trust Wallet is a branded product, and running its backend infrastructure, support, marketing, etc. has costs (done by a non-volunteer-based team).
-The assets repository is open source. You are free to use it and free to create your version (fork it and change it). But if you want to get into our app, you have to accept our rules, and we've chosen to ask for a contribution to include/change the information in the Trust Wallet product.
+> Due to the high volume of pull requests, maintaining the infrastructure that powers millions of assets and tokens comes at a significant cost. A modest fee is required to process each pull request, payable in cryptocurrency. This fee helps to:
+> - Cover the cost of running and maintaining backend infrastructure
+> - Reduce the number of spam and scam token submissions
+> - Ensure smooth integration and handling of the large volume of asset requests
 
-**What do I have to pay attention to?**
+### How does this Fee fit with Open Source?
 
-- Double-check the contribution guidelines, to minimize the risk of your PR being rejected.
-- Make sure to set the correct memo on your transfer.
+> - We believe in the power of open-source software, and essential parts of Trust Wallet are open source to contribute to the community (e.g., Wallet-Core). However, Trust Wallet is a branded product, and running its backend infrastructure, support, marketing, and other operations has real costs, handled by a dedicated team.
+> - The assets repository is open source — you are free to use it or fork it and create your own version. But if you want your asset included in the Trust Wallet app, you must follow our guidelines, which include a contribution fee to support the maintenance of the Trust Wallet product.
+
+### What do I have to pay attention to?
+
+> - Always double-check the [contribution guidelines](https://developer.trustwallet.com/assets/requirements) before submitting your pull request.
+> - Make sure to set the correct memo on your transfer.
+
+---
 
 ## See FAQs question:
 
-**Is crypto payment for processing my Pull Request a scam?**
+### Is crypto payment for processing my Pull Request a scam?
 
-No, it's not a scam!
-This is a legitimate request from the Trust Wallet team, but always be cautious when someone asks you for payment! Check that there is a description about it under Trust Wallet Developers' documentation (this page). Check that the app is under the trust wallet GitHub account, or that its owner belongs to the Trust Wallet group, and finally check thoroughly that you are using the correct URL: https://assets.trustwallet.com/
+> No, it's not a scam!
+>
+> This is a legitimate request from the Trust Wallet team. However, always be cautious when someone asks you for payment. Verify that the fee is documented under the Trust Wallet Developer documentation (this page), that the repository is under the official Trust Wallet GitHub account, and that you are using the correct URL: https://assets.trustwallet.com/
 
-**When is my payment evaluated?**
+### When is my payment evaluated?
 
-Payment is handled automatically by our bot. The fee payment should be detected automatically (mostly within a minute).
+> Payment is handled automatically by our bot and is typically detected within a minute.
 
-**What happens after I pay? Is merging automatically?**
+### What happens after I pay? Is merging automatically?
 
-When the bot detects payment, it automatically places an “Accept Review” on the PR. This is a precondition for merging. But merging is currently not automatic, it is done by the maintainers.
+> Once the bot detects your payment, it automatically places an "Accept Review" on the PR. This is a precondition for merging, but merging itself is not automatic — it is done by the maintainers.
 
-**I forgot to set a memo in my transfer, do I have to send another payment?**
+### I forgot to set a memo in my transfer, do I have to send another payment?
 
-Yes. Crypto transactions are final and irreversible. As such, payments with missing memos or mistyped addresses cannot be recovered. Please verify all transaction details carefully before sending payment.
+> Yes. Crypto transactions are final and irreversible. Payments with missing memos or mistyped addresses cannot be recovered. Please verify all transaction details carefully before sending payment.
 
-**If you decide not to merge my PR, do I get my payment back?**
+### If you decide not to merge my PR, do I get my payment back?
 
-The pull request fee is non-refundable and covers the processing only; payment is not a guarantee that your pull request will be merged. Please consult the contribution guidelines before paying the fee.
+> No. The pull request fee is non-refundable and covers processing only. Payment does not guarantee that your pull request will be merged. Please review the [contribution guidelines](https://developer.trustwallet.com/assets/requirements) before paying the fee.
 
-**Do I need to pay the PR fee again to make updates to my submission?**
+### Do I need to pay the PR fee again to make updates to my submission?
 
-If your asset is already accepted into the repository, subsequent updates will require payment of the fee to cover processing your changes. This includes changes made for name changes, logo changes, rebranding, etc.
+> Yes. If your asset is already in the repository, subsequent updates (such as name changes, logo changes, or rebranding) will require payment of the fee to cover processing.
 
-**Can the fee be waived?**
+### Can the fee be waived?
 
-Not really. Inclusions decided and performed by our team are done without fee, but for external-triggered changes, we require the fee.
+> Generally, no. Inclusions initiated and performed by our team are done without a fee, but externally submitted changes require the fee.
 
-**What is Trust Wallet Token TWT?**
+### What is Trust Wallet Token TWT?
 
-TWT is the token of Trust Wallet, with uses such as our Referral Program. TWT lives in multiple chains and can be obtained on several exchanges (TWT Community page).
+> [TWT](https://coinmarketcap.com/currencies/trust-wallet-token/) is the native token of Trust Wallet, used for features such as our Referral Program. [TWT](https://coinmarketcap.com/currencies/trust-wallet-token/) is available on BEP20 and can be obtained on several exchanges.

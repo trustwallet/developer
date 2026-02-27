@@ -18,6 +18,7 @@
   - [Pull Request Fee](assets/pr-fee.md)
   - [FAQ](assets/faq.md)
   - [Repository Details](assets/repository_details.md)
+  - [Staking Validators](assets/staking-validator.md)
   - [Universal Asset ID](assets/universal_asset_id.md)
 - [Wallet Core](wallet-core/wallet-core.md)
   - [New Blockchain Support](wallet-core/newblockchain.md)
