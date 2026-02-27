@@ -42,4 +42,3 @@
 - [Barz - Smart Wallet](barz-smart-wallet/barz-smart-wallet.md)
   - [Introducing Barz. TrustWallet's Smart Wallet Solution](barz-smart-wallet/introducing-barz-trustwallet-smart-wallet-solution.md)
   - [Cutting Diamonds: How to make Accounts Awesome](barz-smart-wallet/cutting-diamonds-how-to-make-accounts-awesome.md)
-  - [Build with Trust Wallet and Barz, A Comprehensive Guide to Integrating Barz with AA SDK](barz-smart-wallet/build-with-trust-wallet-and-barz-aa-sdk.md)
