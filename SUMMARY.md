@@ -1,6 +1,8 @@
 # Table of contents
 
 - [Get Started](README.md)
+- [MCP Server](mcp/mcp.md)
+- [Claude Code Skills](claude-code-skills/claude-code-skills.md)
 - [Developing for Trust Wallet platform](develop-for-trust/develop-for-trust.md)
   - [Browser Extension](develop-for-trust/browser-extension/browser-extension.md)
     - [Ethereum & EVM chains](develop-for-trust/browser-extension/evm.md)
@@ -40,4 +42,3 @@
   - [Introducing Barz. TrustWallet's Smart Wallet Solution](barz-smart-wallet/introducing-barz-trustwallet-smart-wallet-solution.md)
   - [Cutting Diamonds: How to make Accounts Awesome](barz-smart-wallet/cutting-diamonds-how-to-make-accounts-awesome.md)
   - [Build with Trust Wallet and Barz, A Comprehensive Guide to Integrating Barz with AA SDK](barz-smart-wallet/build-with-trust-wallet-and-barz-aa-sdk.md)
-- [Claude Code Skills](claude-code-skills/claude-code-skills.md)

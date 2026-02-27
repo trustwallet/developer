@@ -2,6 +2,8 @@
 
 Welcome to the Trust Wallet developer documentation. Here you can find documentation on contributing to Trust Wallet as well as on using Trust Wallet libraries on your own projects.
 
+- [MCP Server](mcp/mcp.md)
+- [Claude Code Skills](claude-code-skills/claude-code-skills.md)
 - [Developing for Trust Wallet platform](develop-for-trust/develop-for-trust.md)
   - [Browser Extension](develop-for-trust/browser-extension/browser-extension.md)
   - [Mobile (WalletConnect)](develop-for-trust/mobile/mobile.md)
@@ -10,6 +12,5 @@ Welcome to the Trust Wallet developer documentation. Here you can find documenta
 - [Listing new assets](assets/new-asset.md)
 - [Wallet Core](wallet-core/wallet-core.md)
 - [Barz - Smart Wallet](barz-smart-wallet/barz-smart-wallet.md)
-- [Claude Code Skills](claude-code-skills/claude-code-skills.md)
 
 Want to discuss more? join our [Trust Wallet Developers](https://discord.gg/trustwallet) on Discord.
