@@ -241,7 +241,7 @@ Sample `info.json`:
 
 ### dApp submission and listing requirements
 
-- Please follow our [dApp listing guide](../dapps/listing-guide.md)
+- Please refer to and follow our [dApp listing guide](../dapps/listing-guide.md).
 
 ### Common Uploads
 
