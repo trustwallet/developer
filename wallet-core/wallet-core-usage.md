@@ -12,7 +12,7 @@ The covered basic operations are:
   - Generating an address using a custom derivation path (expert)
 - Transaction signing (e.g. for sending)
 
-For the examples we use _Bitcoin_, _Ethereum_ and _Binance Coin_ as sample coins/blockchains.
+For the examples we use _Bitcoin_ and _Ethereum_ as sample coins/blockchains.
 
 Note: Wallet Core does not cover communication with blockchain networks (nodes):
 address derivation is covered, but address balance retrieval not;
@@ -83,7 +83,6 @@ Here is the sample code fort obtaining the default address for different coins:
 ```swift
 let addressBTC = wallet.getAddressForCoin(coin: .bitcoin)
 let addressETH = wallet.getAddressForCoin(coin: .ethereum)
-let addressBNB = wallet.getAddressForCoin(coin: .binance)
 ```
 
 ### Generating an Address Using a Custom Derivation Path (Expert)
@@ -116,7 +115,7 @@ The exact fields needed for a transaction are different for each blockchain.
 In Wallet Core, signing input and output parameters are typically represented in a protobuf message
 (internally needed for serialization for passing through different language runtimes).
 
-A generic, coin-independent signer also exists (_AnySigner_), but its usage is recommended only in browser-based applications.
+A generic, coin-independent signer also exists (_AnySigner_), usable across all supported platforms and languages.
 
 ### Bitcoin Transaction Signing
 
@@ -128,7 +127,7 @@ _BitcoinSigningInput_
 
 | Field         | Sample value                               | Description                                                                                                                                  |
 | ------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| hash_type     | BitcoinSigHashType.all                     | _Bitcoin Cash_ needs to `or` with `TitcoinSigHashType.fork` (see [Sighash](https://bitcoin.org/en/glossary/signature-hash) for more details) |
+| hash_type     | BitcoinSigHashType.all                     | _Bitcoin Cash_ needs to `or` with `BitcoinSigHashType.fork` (see [Sighash](https://bitcoin.org/en/glossary/signature-hash) for more details) |
 | amount        | 10000                                      | Amount (in satoshi) to send (value of new UTXO will be created)                                                                              |
 | byteFee       | 1                                          | Transaction fee is `byte_fee x transaction_size`, Wallet Core will calculate the fee for you by default                                      |
 | toAddress     | bc1q03h6k5lt6pzfjaanz5mlnmuc7aha2t3nkz7gh0 | Recipient address (Wallet Core will build lock script for you)                                                                               |
@@ -230,7 +229,7 @@ A simple Ethereum send transaction needs the following fields:
 | value    | 100000000       | The amount of ether to send                                                               |
 | data     |                 | Could be an arbitrary message or function call to a contract or code to create a contract |
 
-Several parameters, like the current nonce and gasPrice values can be obtained from Ethereum node RPC calls (see https://github.com/ethereum/wiki/wiki/JSON-RPC, e.g., _eth_gasPrice_).
+Several parameters, like the current nonce and gasPrice values can be obtained from Ethereum node RPC calls (see [Ethereum JSON-RPC Specification](https://ethereum.org/en/developers/docs/apis/json-rpc/), e.g., _eth_gasPrice_).
 
 Code example to fill in the signer input parameters:
 
@@ -261,65 +260,5 @@ For more details on Ethereum transactions, check the Ethereum documentation. A f
 - https://medium.com/@codetractio/inside-an-ethereum-transaction-fa94ffca912f
 - https://kauri.io/article/7e79b6932f8a41a4bcbbd194fd2fcc3a/v2/ethereum-101-part-4-accounts-transactions-and-messages
 - https://github.com/ethereumbook/ethereumbook/blob/develop/06transactions.asciidoc
-
-### Binance Chain (BNB) Transaction Signing
-
-Binance Chain is built upon [cosmos-sdk](https://github.com/cosmos/cosmos-sdk), instead of `Message`, transaction in Binance Chain is called `Order`, [Binance.proto](https://github.com/trustwallet/wallet-core/blob/master/src/proto/Binance.proto#L144) shows all the orders that Wallet Core currently supports.
-
-To sign a order, you need to use `BinanceSigningInput`:
-
-| Field         | Sample value       | Description                                                                                                                                                       |
-| ------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| chainID       | Binance-Chain-Nile | Network id, use Binance-Chain-Tigris for mainnet (see [node-info](https://dex.binance.org/api/v1/node-info) api)                                                  |
-| accountNumber | 51                 | On chain account number. (see [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api)                                   |
-| sequence      | 437412             | Order sequence starting from 0, always plus 1 for new order from [account](https://dex.binance.org/api/v1/account/bnb1jxfh2g85q3v0tdq56fnevx6xcxtcnhtsmcu64m) api |
-| source        | 0                  | [BEP10](https://github.com/binance-chain/BEPs/blob/master/BEP10.md) source id                                                                                     |
-| sendOrder     | &lt;sendOrder&gt;  | SendOrder contains `inputs` and `outputs`, see below sample code for more details                                                                                 |
-
-A Swift sample code send order is shown below:
-
-```swift
-let privateKey = PrivateKey(data: Data(hexString: "95949f757db1f57ca94a5dff23314accbe7abee89597bf6a3c7382c84d7eb832")!)!
-let publicKey = privateKey.getPublicKeySecp256k1(compressed: true)
-
-let token = BinanceSendOrder.Token.with {
-    $0.denom = "BNB" // BNB or BEP2 token symbol
-    $0.amount = 1    // Amount, 1 BNB
-}
-
-// A.k.a from / sender
-let orderInput = BinanceSendOrder.Input.with {
-    $0.address = CosmosAddress(hrp: .binance, publicKey: publicKey)!.keyHash
-    $0.coins = [token]
-}
-
-// A.k.a to / recipient
-let orderOutput = BinanceSendOrder.Output.with {
-    $0.address = CosmosAddress(string: "bnb1hlly02l6ahjsgxw9wlcswnlwdhg4xhx38yxpd5")!.keyHash
-    $0.coins = [token]
-}
-
-let input = BinanceSigningInput.with {
-    $0.chainID = "Binance-Chain-Nile" // Testnet Chain id
-    $0.accountNumber = 0              // On chain account number
-    $0.sequence = 0                   // Sequence number
-    $0.source = 0                     // BEP10 source id
-    $0.privateKey = privateKey.data
-    $0.memo = ""
-    $0.sendOrder = BinanceSendOrder.with {
-        $0.inputs = [orderInput]
-        $0.outputs = [orderOutput]
-    }
-}
-
-let output: BinanceSigningOutput = AnySigner.sign(input: input, coin: .binance)
-// encoded order to broadcast
-print(output.encoded)
-```
-
-For more details please check the Binance Chain documentation:
-
-- https://docs.binance.org/encoding.html
-- https://docs.binance.org/api-reference/dex-api/paths.html#http-api
 
 Consult the complete sample applications for more details.

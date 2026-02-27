@@ -85,13 +85,12 @@ Generating the Default Address for a Coin
 ```kotlin
 val addressBTC = wallet.getAddressForCoin(CoinType.BITCOIN)
 val addressETH = wallet.getAddressForCoin(CoinType.ETHEREUM)
-val addressBNB = wallet.getAddressForCoin(CoinType.BINANCE)
 ```
 
 Generating an Address Using a Custom Derivation Path (Expert)
 
 ```kotlin
-val key = wallet.getKey("m/44\'/60\'/1\'/0/0")   // m/44'/60'/1'/0/0
+val key = wallet.getKey(CoinType.ETHEREUM, "m/44\'/60\'/1\'/0/0")   // m/44'/60'/1'/0/0
 val address = CoinType.ETHEREUM.deriveAddress(key)
 ```
 
@@ -121,5 +120,5 @@ val signerInput = Ethereum.SigningInput.newBuilder().apply {
     privateKey = ByteString.copyFrom(secretPrivateKey.data())
 }.build()
 val output = AnySigner.sign(signerInput, CoinType.ETHEREUM, Ethereum.SigningOutput.parser())
-println("Signed transaction: \n${signerOutput.encoded.toByteArray().toHexString()}")
+println("Signed transaction: \n${output.encoded.toByteArray().toHexString()}")
 ```

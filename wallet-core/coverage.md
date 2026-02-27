@@ -20,12 +20,12 @@ Detailed coverage report can be generated locally. It includes file and line-lev
 
 Steps:
 
-- Run `tools/generate-file` to make sure new added files are generated
+- Run `tools/generate-files` to make sure new added files are generated
 
-- Run `cmake` with `-DCODE_COVERAGE=ON` to enable coverage measurement
+- Run `cmake` with `-DTW_CODE_COVERAGE=ON` to enable coverage measurement
 
 ```shell
-cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCODE_COVERAGE=ON
+cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DTW_CODE_COVERAGE=ON
 ```
 
 - Build tests

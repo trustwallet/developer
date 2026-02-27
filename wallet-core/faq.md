@@ -44,7 +44,7 @@ You can read [bip32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediaw
 
 ### Where do I find transaction signing examples?
 
-A: You can find some on [Usage Guide](https://developer.trustwallet.com/wallet-core/integration-guide/wallet-core-usage), the comprehensive and up-to-date examples are in tests folder:
+A: You can find some on [Usage Guide](wallet-core-usage.md), the comprehensive and up-to-date examples are in tests folder:
 
 - C++ tests: <https://github.com/trustwallet/wallet-core/tree/master/tests>
 - Swift tests: <https://github.com/trustwallet/wallet-core/tree/master/swift/Tests>

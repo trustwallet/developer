@@ -14,5 +14,5 @@ The guide has the following outline:
 - [Android Integration Guide](android-guide.md).
   This is a walkthrough of a sample Android wallet application.
 
-- [Server-Side GoLang Guide](server-side.md).
-  Here we provide instructions on how to integrate Wallet Core into a _Go_ languge backend-side project.
+- [Server-Side Go Guide](server-side.md).
+  Here we provide instructions on how to integrate Wallet Core into a _Go_ language backend-side project.

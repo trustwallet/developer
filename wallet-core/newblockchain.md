@@ -1,5 +1,7 @@
 # Adding Support for a New Blockchain
 
+> **Important:** At this time, new blockchains are not merged into Wallet Core without a positive decision from our Business Development team. Before investing time in an implementation, please reach out to [partnerships@trustwallet.com](mailto:partnerships@trustwallet.com) to start that conversation.
+
 If you haven't, first read the [guide to contributing](contributing.md). It contains important information about the library and how to contribute.
 
 ## Blockchains, Coins and Tokens
@@ -18,7 +20,7 @@ The general integration criteria is as follows:
 
 - The blockchain has launched mainnet and has stably run for at least 3 ~ 6 months without major security incidents.
 - The blockchain has extensive public documentation and tools available for developers to use.
-- The native coin is listed in the top 100 coins on CoinMarketCap and proposal gets approved on [https://governance.trustwallet.com].
+- The native coin is listed in the top 100 coins on CoinMarketCap.
 - The project needs to provide API/JSON-RPC access to the node with a load balancing setup for private use, see detail requirements [here](https://developer.trustwallet.com/wallet-core/rpc-requirements).
 - The native coin is tradable on major exchanges.
 
@@ -39,7 +41,7 @@ Adding support for a new coin consists of these steps:
 It helps to pick an existing coin, and refer to its implementation. Try to pick an existing coin that is similar to the new one, and check how/where is it implemented, tested, etc.
 
 Note that unit **tests** are crucial in ensuring quality needed for multi-coin support. Functionality here can be well unit-tested, so don't ignore them.
-Coverage must not decrease! This is enforced automatically in the valiation of the pull requests.
+Coverage must not decrease! This is enforced automatically in the validation of the pull requests.
 
 ## Blockchain definition
 
@@ -50,11 +52,11 @@ The fields are documented here: https://github.com/trustwallet/wallet-core/blob/
 
 ## Skeleton generation
 
-Execute the command `cd codegen-v2 && cargo run -- new-blockchain <coinid>`, where `<coinid>` is the ID of the new coin from `registry.json`.
-This will generate the following files, crates and structures:
+Run the `tools/new-blockchain <coinid>` script, where `<coinid>` is the ID of the new coin from `registry.json`.
+This script runs `codegen-v2` and `codegen/bin/newcoin-mobile-tests` and generates the following files, crates and structures:
 - `src/proto/<CoinId>.proto` - Blockchain Protobuf interface.
 - `rust/chains/tw_<coinid>` - Rust crate that will contain all necessary code related to the new blockchain.
-- `rust/tw_any_coin/tests/chains/tw_<coinid>` - Rust integration tests.
+- `rust/chains/tw_<coinid>/tests` - Rust unit and integration tests.
 - `src/<CoinId>/Entry.h` - Intermediate layer between an end-user app and the Rust codebase.
 - `BlockchainType::<CoinId>` - Rust enum variant and its dispatching within the `rust/tw_coin_registry` crate.
 - `TWBlockchain<CoinId>` and `TWCoinType<CoinId>` - C++ enum variants.
@@ -85,11 +87,11 @@ If you do need to add a new cryptographic function or other building block pleas
 
 ### Entry point for coin functionality
 
-The Rust's `Entry` structure implements the [CoinEntry](https://github.com/trustwallet/wallet-core/blob/dev/rust/tw_coin_entry/src/coin_entry.rs) trait that is responsible for address management and the transaction signing.
+The Rust's `Entry` structure implements the [CoinEntry](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_coin_entry/src/coin_entry.rs) trait that is responsible for address management and the transaction signing.
 It should be kept minimal, have no logic, just call into relevant Address, Signer, etc. classes.
 Ensure that it fits well with the existing infrastructure and conventions.
 
-_Note:_ Do not forget to implement trait methods and declare associated types similar to [tw_ethereum/entry.rs](https://github.com/trustwallet/wallet-core/blob/dev/rust/tw_ethereum/src/entry.rs).
+_Note:_ Do not forget to implement trait methods and declare associated types similar to [tw_ethereum/entry.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_ethereum/src/entry.rs).
 
 ### Address encoding/decoding
 
@@ -123,11 +125,9 @@ The Rust implementation with tests should be a separate commit.
 ### Rust Integration Tests
 
 Integration tests are used to test if the blockchain implementation can be accessed through the `TWAnySigner`, `TWAnyAddress`, ... public interfaces.
-They should be placed in the `rust/tw_any_coin/tests/chains/<coinid>` directory.
+They should be placed in the `rust/chains/tw_<coinid>/tests` directory.
 
 Usually you don't need to change the generated FFI interfaces, those interfaces are made as small as possible so that clients don't need to worry about implementation details.
-
-For an example of this have a look at Cosmos's Integration tests: [cosmos_address.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_any_coin/tests/chains/cosmos/cosmos_address.rs), [cosmos_sign.rs](https://github.com/trustwallet/wallet-core/blob/master/rust/tw_any_coin/tests/chains/cosmos/cosmos_sign.rs).
 
 ## C++ routing
 
@@ -144,7 +144,7 @@ C++ integration tests can help us to ensure if the Rust functionality is routed 
 ## Mobile Integration Tests
 
 It is also required to test the interface on Android, iOS.
-Run `./codegen/bin/newcoin-mobile-tests <coinid>` to generate mobile integration tests:
+Mobile integration tests are generated automatically by `tools/new-blockchain`. The generated files are:
 - `android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/foobar/Test<CoinId>Address.kt` - Address integration tests.
 - `android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/foobar/Test<CoinId>Signer.kt` - Signing integration tests.
 - `swift/Tests/Blockchains/<CoinId>Tests.swift` - Address, signing and compiling integration tests.
@@ -155,7 +155,7 @@ The above steps are summarized below as a checklist:
 
 - [ ] Coin Definition:
   - [ ] Add the coin definition to `registry.json`.
-  - [ ] Execute `pushd codegen-v2 && cargo run -- new-blockchain <coinid> && popd` to generate blockchain skeleton and configure integration tests.
+  - [ ] Execute `tools/new-blockchain <coinid>` to generate blockchain skeleton, integration tests, and mobile test scaffolding.
   - [ ] Execute `tools/generate-files`.
   - [ ] Execute `pushd rust && cargo check --tests && popd` to check if Rust codebase compiles successfully.
   - [ ] Execute `make -Cbuild -j12 tests TrezorCryptoTests` to check if C++ codebase compiles successfully.
@@ -167,7 +167,7 @@ The above steps are summarized below as a checklist:
   - [ ] Signer at `rust/chains/tw_<coinid>/src/signer.rs`.
   - [ ] Compiler at `rust/chains/tw_<coinid>/src/compiler.rs`.
   - [ ] Write unit tests. Put them in the `rust/chains/tw_<coinid>/tests` directory.
-  - [ ] Write Rust integration tests. Put them in a subfolder of `rust/tw_any_coin/tests/chains/<coinid>`
+  - [ ] Write Rust integration tests. Put them in `rust/chains/tw_<coinid>/tests`
     - [ ] Transaction signing tests, at least one mainnet transaction test.
     - [ ] Add stake, unstake, get rewards tests if the blockchain is PoS like.
 - [ ] Write C++ integration tests. Put them in a subfolder of `tests/chains/<CoinId>`.
@@ -183,7 +183,7 @@ The above steps are summarized below as a checklist:
 
 ### Bitcoin forks checklist
 
-If you're adding a Bitcoin fork, you might not neeed to implement new Address or Signer class, please complete this checklist before you submit a pull request:
+If you're adding a Bitcoin fork, you might not need to implement new Address or Signer class, please complete this checklist before you submit a pull request:
 
 - [ ] Derive address according to definition in `registry.json`, `p2pkh` address for `bip44` or native `bech32` segwit address for `bip84`.
 - [ ] Check [SLIP-0132 :Registered HD version bytes](https://github.com/satoshilabs/slips/blob/master/slip-0132.md).
