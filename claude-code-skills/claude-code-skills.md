@@ -12,7 +12,7 @@ Register the Trust Wallet marketplace in Claude Code:
 /plugin marketplace add trustwallet/tw-agent-skills
 ```
 
-Then install the skills plugin:
+Then install the `web3-skills` bundle, which includes all 5 skills listed below:
 
 ```
 /plugin install web3-skills@tw-agent-skills
