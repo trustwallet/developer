@@ -26,25 +26,17 @@ The dependency can be installed simply by `pod install`:
 pod install
 ```
 
-SPM is also supported, download latest `Package.swift` from [GitHub Releases](https://github.com/trustwallet/wallet-core/releases) and put it in a local `WalletCore` folder.
+SPM is also supported. In Xcode, go to **File → Add Package Dependencies** and enter the repository URL:
 
-Add this line to the `dependencies` parameter in your `Package.swift`:
-
-```swift
-.package(name: "WalletCore", path: "../WalletCore"),
+```
+https://github.com/trustwallet/wallet-core
 ```
 
-Or add remote url + `master` branch, it points to recent (not always latest) binary release.
-
-```swift
-.package(name: "WalletCore", url: "https://github.com/trustwallet/wallet-core", .branchItem("master")),
-```
-
-Then add libraries to target's `dependencies`:
+Select the desired version tag. Then add the libraries to your target's dependencies:
 
 ```swift
 .product(name: "WalletCore", package: "WalletCore"),
-.product(name: "SwiftProtobuf", package: "WalletCore"),
+.product(name: "WalletCoreSwiftProtobuf", package: "WalletCore"),
 ```
 
 ## Code Examples
@@ -63,7 +55,7 @@ import WalletCore
 Creating or Importing a Multi-Coin HD Wallet
 
 ```swift
-let wallet = HDWallet(strength: 128, passphrase: "")
+let wallet = HDWallet(strength: 128, passphrase: "")!
 ```
 
 ```swift
@@ -77,7 +69,6 @@ Generating the Default Address for a Coin
 ```swift
 let addressBTC = wallet.getAddressForCoin(coin: .bitcoin)
 let addressETH = wallet.getAddressForCoin(coin: .ethereum)
-let addressBNB = wallet.getAddressForCoin(coin: .binance)
 ```
 
 Generating an Address Using a Custom Derivation Path (Expert)

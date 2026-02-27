@@ -49,12 +49,12 @@ Otherwise, consider installing the required prerequisites manually below.
 - Other tools: `brew install git ninja autoconf automake libtool xcodegen clang-format ccache cocoapods`
 - [Android Studio](https://developer.android.com/studio/index.html)
 - [Android NDK](https://developer.android.com/ndk/guides/)
-- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- Rust: `brew install rustup && rustup-init`
 - [emscripten (for WASM)](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html)
 
 ### Prerequisites on Linux
 
-Ubuntu as a example:
+Ubuntu as an example:
 
 - Various essential packages `sudo apt-get install build-essential libtool autoconf pkg-config ninja-build ccache`
 - Clang `sudo apt-get install clang-14 llvm-14 libc++-dev libc++abi-dev`
@@ -62,7 +62,7 @@ Ubuntu as a example:
 - Boost `sudo apt-get install libboost-all-dev`
 - CMake `sudo apt-get install cmake` or (from https://github.com/Kitware/CMake/releases)
 - [Android Studio](https://developer.android.com/studio/index.html)
-- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- Rust: `sudo apt-get install rustc`
 - [emscripten (for WASM)](https://emscripten.org/docs/introducing_emscripten/about_emscripten.html)
 
 ### Managed Prerequisites
@@ -71,7 +71,7 @@ Additionally, the following prerequisites are also needed, but they are managed 
 
 - Google test (gtest)
 - libcheck
-- nolhmann json
+- nlohmann json
 - Protobuf
 
 ## Full Build
@@ -179,7 +179,7 @@ Prerequisite is a working Docker installation.
 The command for building the Docker image:
 
 ```shell
-docker build docker/wallet-core --tag wallet-core-dev
+docker build . --tag wallet-core-dev
 ```
 
 Then launch the container:

@@ -4,43 +4,54 @@
 
 ## Introduction
 
-Trust Wallet Core is a cross-platform library that implements low-level cryptographic wallet functionality for many blockchains. Most of the code is C++ with a set of strict exported C interfaces. The library provides idiomatic interfaces for all supported languages \(currently Swift for iOS and Java for Android\).
+Trust Wallet Core is an open-source, cross-platform, mobile-focused library implementing low-level cryptographic wallet functionality for a high number of blockchains. It is a core part of [Trust Wallet](https://trustwallet.com) and several other projects.
+
+Most of the code is C++ with a set of strict C interfaces, and idiomatic interfaces for supported languages: Swift for iOS and Java/Kotlin for Android. Additional bindings are available for Rust, Kotlin Multiplatform, WebAssembly, Go, and NPM (beta).
+
+Wallet Core supports more than **130 blockchains**: Bitcoin, Ethereum, BNB, Cosmos, Solana, and most major blockchain platforms. The full list is in the [registry](https://github.com/trustwallet/wallet-core/blob/master/docs/registry.md).
 
 ## Usage
 
-If you want to use wallet core in your project follow these instructions:
+If you want to use Wallet Core in your project, follow these instructions:
 
-- For building locally, or using Docker image, see the [Build Instructions](building.md).
-- For trying out, e.g. testing key management and address derivation, see the [WalletConsole utility](walletconsole.md).
+- For building locally, or using a Docker image, see the [Build Instructions](building.md).
+- For trying out key management and address derivation, see the [WalletConsole utility](walletconsole.md).
 - If you want to include Wallet Core in your project, see the [Integration Guides](integration-guide.md).
   Start with the overview of the most common wallet operations ([Usage Guide](wallet-core-usage.md)),
-  and see the platform-specifc guides for
+  and see the platform-specific guides for
   [iOS](ios-guide.md) and
   [Android](android-guide.md).
-- We have a [FAQ](faq.md) list may already answer some of your questions.
+- We have a [FAQ](faq.md) that may already answer some of your questions.
 
-## Projects using Wallet Core -- Add yours here too!
+## Projects using Wallet Core
+
+Add yours too!
 
 - [Trust Wallet](https://trustwallet.com)
-- [coinpaprika](https://coinpaprika.com/)
 - [Crypto.com](https://crypto.com)
 - [Frontier](https://frontier.xyz/)
-- [Pumapay](https://pumapay.io/)
 - [Tokenary](https://tokenary.io/)
 - [MemesWallet](https://planetmemes.com/)
 - [xPortal](https://xportal.com/)
 - [Slingshot](https://slingshot.finance/)
-- [ECOIN Wallet](https://play.google.com/store/apps/details?id=org.ecoinwallet&pcampaignid=web_share)
+- [ECOIN Wallet](https://play.google.com/store/apps/details?id=org.ecoinwallet)
 
 ## Contributing
 
-The best way to submit feedback and report bugs is to [open a GitHub issue](https://github.com/trustwallet/wallet-core/issues/new).
-If you want to contribute code please see [Contributing](contributing.md).
-If you want to add support for a new blockchain also see [Adding Support for a New Blockchain](newblockchain.md).
+The best way to submit feedback and report bugs related to Wallet Core is to [open a GitHub issue](https://github.com/trustwallet/wallet-core/issues/new).
+If the bug is not related to Wallet Core but to the Trust Wallet app, please [create a Customer Support ticket](https://support.trustwallet.com/).
+If you want to contribute code, see [Contributing](contributing.md).
+If you want to add support for a new blockchain, see [Adding Support for a New Blockchain](newblockchain.md).
 
 Thanks to all the people who contribute.
-<a href="graphs/contributors"><img src="https://opencollective.com/wallet-core/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/trustwallet/wallet-core/graphs/contributors"><img src="https://opencollective.com/wallet-core/contributors.svg?width=890&button=false" /></a>
+
+## Disclaimer
+
+The Wallet Core project is led and managed by Trust Wallet with a large contributor community and is actively used in several projects. Our goal is to give other wallets an easy way to add chain support.
+
+Trust Wallet products leverage Wallet Core, however they may not leverage all of its capabilities, features, and assets due to their own product requirements.
 
 ## License
 
-Trust Wallet Core is available under the MIT license. See the [LICENSE](https://github.com/trustwallet/wallet-core/blob/master/LICENSE) file for more info.
+Trust Wallet Core is available under the Apache 2.0 license. See the [LICENSE](https://github.com/trustwallet/wallet-core/blob/master/LICENSE) file for more info.

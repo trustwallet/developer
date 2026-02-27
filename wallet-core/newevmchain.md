@@ -1,9 +1,11 @@
 # Adding an EVM Chain
 
+> **Important:** At this time, new blockchains are not merged into Wallet Core without a positive decision from our Business Development team. Before investing time in an implementation, please reach out to [partnerships@trustwallet.com](mailto:partnerships@trustwallet.com) to start that conversation.
+
 Adding support for a new fully EVM-compatible chain to Wallet Core requires only a few changes, follow the steps here.
 For more complex chain integrations, see [general new blockchain docs](newblockchain.md).
 
-## Prerequisties / Needed information
+## Prerequisites / Needed information
 
 - `ChainID`. EVM chains have a unique ChainID, such as `8217`.
 - `Derivation path` used. Most EVM chains use Ethereum derivation path, `"m/44'/60'/0'/0/0"` (but not all).
@@ -15,13 +17,13 @@ For more complex chain integrations, see [general new blockchain docs](newblockc
 - Add chain information to `registry.json`. Some notable fields:
   - blockchain: "Ethereum",
   - coinId: If own coinID is available, use that. Otherwise, use: `10000000 + chainID`, such as `10008217`.
-- Run `cd codegen-v2 && cargo run -- new-evmchain <chain>` to generate template source files, where <chain> is the chain `id` from registry.
+- Run `tools/new-evmchain <chain>` to generate template source files, where `<chain>` is the chain `id` from registry.
 - The result will be a new line in `TWCoinType.h` and a new test file `tests/<Chain>/TWCoinTypeTests.cpp`.
-- There are some test cases test derivation for all coins. Extend these with the new chain.
+- There are some test cases that test derivation for all coins. Extend these with the new chain.
   If the new chain reuses Ethereum address, it can reuse the Ethereum case in the switch statements.
 
 ```
-rust/tw_any_coin/tests/coin_address_derivation_test.rs
+rust/tw_tests/tests/coin_address_derivation_test.rs
 tests/common/CoinAddressDerivationTests.cpp
 android/app/src/androidTest/java/com/trustwallet/core/app/blockchains/CoinAddressDerivationTests.kt
 kotlin/wallet-core-kotlin/src/commonTest/kotlin/com/trustwallet/core/test/CoinAddressDerivationTests.kt

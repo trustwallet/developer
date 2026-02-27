@@ -55,6 +55,7 @@ newMnemonic <strength>  Create and store a new mnemonic, of strength (128 -- 256
 dumpSeed                Dump the seed of the current mnemonic (secret!)
 dumpMnemonic            Dump the current mnemonic (secret!)
 dumpDP                  Dump the default derivation path of the current coin (ex.: m/84'/0'/0'/0/0)
+dumpXpub                Dump the XPUB of the current mnemonic
 priDP [<derivPath>]     Derive a new private key for the coin, from the current mnemonic and given derivation path.
                         If derivation path is missing, the default one is used (see dumpDP).
 Addresses:
@@ -63,8 +64,8 @@ addrPri <priKey>        Create <coin> address from private key
 addr <addr>             Check string <coin> address
 addrDefault             Derive default address, for current coin, fom current mnemonic; see dumpDP
 addrDP <derivPath>      Derive a new address with the given derivation path (using current coin and mnemonic)
+addrXpub <xpub> <index> Derive a new address from the given XPUB and address index (using current coin)
 Coin-specific methods:
-tonInitMsg <priKey>     Build TON account initialization message.
 Transformations:
 hex <inp>               Encode given string to hex
 base64Encode <inp>      Encode given hex data to Base64

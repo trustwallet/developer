@@ -21,7 +21,7 @@ Keep this in mind when adding to the library:
 - Use Protocol Buffers to represent models. C doesn't have good abstractions for variable-sized types.
 - Every time you modify the interface run the code generation tool and make sure the interface also makes sense in target languages.
 
-There is a [Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail) [project file](https://github.com/trustwallet/wallet-core/blob/master/wallet_core.srctrlprj) might help you explore all the code (after build and run `bootstrap.sh`).
+There is a [Sourcetrail](https://github.com/CoatiSoftware/Sourcetrail) [project file](https://github.com/trustwallet/wallet-core/blob/master/wallet_core.srctrlprj) that may help you explore the code after running `bootstrap.sh` and building.
 
 ![](/media/sourcetrail-screenshot.png)
 
@@ -56,12 +56,14 @@ This project has a number of different pieces. Each piece lives in its own subfo
 - The `docs` folder contains documentation.
 - The `src` folder contains the C++ implementation of the core functionality.
 - The `include` folder contains the public C header files used to expose a cross-platform interface.
+- The `rust` folder contains the Rust implementation of blockchain functionality.
 - The `codegen` folder contains the code and templates used to generate code for different platforms and languages.
+- The `codegen-v2` folder contains the newer Rust-based code generator.
 - The `jni` folder contains the generated JNI interface and Java classes.
 - The `android` folder contains the Android Studio project and integration tests.
 - The `swift` folder contains the generated Swift code and Xcode project.
 - The `trezor-crypto` folder contains a fork of [https://github.com/trezor/trezor-crypto/](https://github.com/trezor/trezor-crypto/) with modifications.
-- The `tests` folder contains unit tests.
+- The `tests` folder contains C++ unit and integration tests.
 - The `tools` folder contains scripts to automate common tasks.
 - The `samples` folder contains sample applications.
 
@@ -71,16 +73,16 @@ Please refer to [build instructions](building.md) for building the library local
 
 ## Testing
 
-After running `bootstrap.sh` run `make -C build tests && build/tests/tests tests` to run all the C++ unit tests. To run integration tests on each platform run the respective script in the tools folder:
+After running `bootstrap.sh`, use `tools/build-and-test` to build and run all C++ unit tests. To run integration tests on each platform run the respective script in the tools folder:
 
-- Android: run `tools/android-test` or import `android` folder to Android Studio
-- iOS: run `tools/ios-test` or cd `swift` folder and open `TrustWalletCore.xcworkspace`
+- Android: run `tools/android-test` or import the `android` folder into Android Studio
+- iOS: run `tools/ios-test` or open `TrustWalletCore.xcworkspace` in the `swift` folder (generated after running `tools/generate-files`)
 
-To run all tests in one go use the `tools/tests` script.
+To run all tests across all platforms in one go, use the `tools/tests` script.
 
 ## C Headers
 
-The wallet core code generator parses C headers for class and struct definitions. Headers need to be in the `include/TrustWalletCode` folder and start with the `TW` prefix followed by the class or sturct name. Inside each header file there needs to be exactly one class or struct defition.
+The wallet core code generator parses C headers for class and struct definitions. Headers need to be in the `include/TrustWalletCore` folder and start with the `TW` prefix followed by the class or struct name. Inside each header file there needs to be exactly one class or struct definition.
 
 A class definition starts with the `TW_EXPORT_CLASS` macro followed by a forward-declared struct. For example:
 
@@ -177,7 +179,7 @@ The proto file will be used to generate C++ classes and also classes in each sup
 
 ## Code Style
 
-Wallet core follows the [LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html) for C++. We use `clang-format` to ensure a consistent code sytle. **Do not** reformat files that you didn't modify, or the header files in the `include` folder. You can install a clang-format extension for your IDE.
+Wallet core follows the [LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html) for C++. We use `clang-format` to ensure a consistent code style. **Do not** reformat files that you didn't modify, or the header files in the `include` folder. You can install a clang-format extension for your IDE.
 
 ## More
 

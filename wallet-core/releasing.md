@@ -1,6 +1,6 @@
 # Releasing
 
-Before releasing please update the version numbers in `android/gradle.properties` and `TrustWalletCore.podspec` and commit this change. Then create a new git tag for that number and push \(replace 0.0.0 with the actual version number\):
+Before releasing, update the version numbers in `android/gradle.properties` and `WalletCore.podspec`, then commit the change. Create a new git tag for that version and push (replace 0.0.0 with the actual version number):
 
 ```text
 git tag 0.0.0
@@ -10,17 +10,19 @@ git push origin 0.0.0
 
 ## iOS
 
-Run `bootstrap.sh` then `tools/ios-release`. This will build, archive and upload a Cocoapod. You need to be registered as an owner for the pod.
+Run `bootstrap.sh` then `tools/ios-xcframework-release`. This will build the xcframework binaries, upload them to GitHub Releases, and auto-generate `Package.swift` with the correct checksums for Swift Package Manager.
+
+You need to be authenticated with the GitHub CLI (`gh auth login`) and registered as a repository collaborator to upload release assets.
 
 ## Android
 
-Run `bootstrap.sh` then `tools/android-release`. This will build and upload to [Bintray](https://bintray.com/trust/wallet-core/com.trustwallet.wallet-core) and [JFrog](https://oss.jfrog.org/webapp/#/home).
+Run `bootstrap.sh` then `tools/android-release`. This will build and publish the Android artifacts to [GitHub Packages](https://github.com/trustwallet/wallet-core/packages).
 
-You need to have this credentials as environment variables in order to upload to Bintray
+You need the following credentials as environment variables in order to publish:
 
 ```text
-BINTRAY_USER=user
-BINTRAY_KEY=key
+GITHUB_USER=user
+GITHUB_TOKEN=token
 ```
 
 ## Docker Hub
