@@ -2,7 +2,7 @@
 
 Trust Wallet displays staking validator information sourced directly from the [Trust Wallet Assets repository](https://github.com/trustwallet/assets). Validators are listed per supported blockchain, allowing users to discover and delegate to them directly within the Trust Wallet app.
 
-> **Note:** Submission and payment of a Pull Request does not guarantee it will be merged and displayed in Trust Wallet. All entries are subject to review, and the team reserves the right to reject entries that do not meet quality standards.
+> **Note:** Submitting a Pull Request and making a payment do not guarantee it will be merged or displayed in Trust Wallet. All entries are subject to review, and the team reserves the right to reject entries that do not meet quality standards.
 
 ---
 

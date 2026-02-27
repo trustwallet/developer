@@ -11,8 +11,8 @@
 
 > A merge conflict happens if the same file has been modified in the pull request, and also in the master branch since the fork was created. With the assets repo, this is typically caused by using a fork that was created long ago.
 > The simplest way to resolve this is to:
->   1. Open your branch locally and fetch the latest changes from origin and push.
->   2. If that doesn't resolve the conflict, close your current pull request, clone the latest version of our repository, and submit a new one.
+>   1. Open your branch locally, fetch the latest changes from the origin, then push your updates.
+>   2. If that doesn't resolve the conflict, close your current pull request, fork the latest version of our repository, and submit a new one.
 
 ### Why I don't see my token in search after PR was merged?
 

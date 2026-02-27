@@ -4,7 +4,7 @@ Trust Wallet supports a vast number of asset and token requests. We are committe
 
 To help manage this, we introduced a crypto contribution to filter out low-quality submissions and free up more time to review genuine requests. This approach was partly inspired by the concept of a Token Curated Registry.
 
-> A fee of **500 TWT or 2.5 BNB** is required for each Pull Request. The merge-fee-bot will provide payment details once your PR is submitted. Before submitting, please review the [listing requirements](https://developer.trustwallet.com/assets/requirements).
+> A fee of **500 TWT or 2.5 BNB** is required for each Pull Request. The merge-fee-bot will provide payment details once your PR is submitted. Before submitting, please review the [listing requirements](./requirements.md)
 
 ---
 
@@ -22,8 +22,8 @@ To help manage this, we introduced a crypto contribution to filter out low-quali
 
 ### What do I have to pay attention to?
 
-> - Always double-check the [contribution guidelines](https://developer.trustwallet.com/assets/requirements) before submitting your pull request.
-> - Make sure to set the correct memo on your transfer.
+> - Always double-check the [contribution guidelines](./requirements.md) before submitting your pull request.
+> - Make sure to set the correct `memo` on your transfer.
 
 ---
 
@@ -49,7 +49,7 @@ To help manage this, we introduced a crypto contribution to filter out low-quali
 
 ### If you decide not to merge my PR, do I get my payment back?
 
-> No. The pull request fee is non-refundable and covers processing only. Payment does not guarantee that your pull request will be merged. Please review the [contribution guidelines](https://developer.trustwallet.com/assets/requirements) before paying the fee.
+> No. The pull request fee is non-refundable and covers processing only. Payment does not guarantee that your pull request will be merged. Please review the [contribution guidelines](./requirements.md) before paying the fee.
 
 ### Do I need to pay the PR fee again to make updates to my submission?
 
