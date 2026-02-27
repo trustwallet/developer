@@ -4,46 +4,22 @@ Joining the Trust Wallet ecosystem with an already established base of users, pr
 
 Trust Wallet is proud of the high standards of quality required for listed dApps, where the user and their experience are the key areas of focus. The app is one of the most popular wallets available for easy access to digital assets and dApps in one place.
 
-By improving the functionality of your project and its overall optimization, you allow users already familiar with the Trust Wallet space the best chance of using your dApp. Taking advantage of the vibrant [community](https://twitter.com/trustwalletapp) is a logical step to take. Marketing efforts also help, so get in touch with the Trust Wallet team via [Trust Wallet Community](https://community.trustwallet.com/) to explore more promotional opportunities.
+By improving the functionality of your project and its overall optimization, you allow users already familiar with the Trust Wallet space the best chance of using your dApp. Taking advantage of the vibrant [community](https://twitter.com/TrustWallet) is a logical step to take.
 
 Missing out on just any one part of the optimization and application process will ultimately lead to an unsuccessful application. The journey involves rounds of:
 
-1. [Optimization](dApps/mobile-optimize.md)
+1. [Optimization](mobile-optimize.md)
 2. [Application Form](https://forms.gle/bdZPHseXypr72S8E7)
 
 The whole process can be divided into these key stages, along with some recommended marketing activities to help give your project a better chance of success.
 
 - [ ] Optimization of your dApp for the Trust Wallet browser
 - [ ] Optimization of your dApp for desktop users
-- [ ] Uploading of required logo assets
 - [ ] Application to join the Trust Wallet dApp listing
-- [ ] Hosting a Trust Wallet AMA session
-- [ ] Creating a Barn of Trust staking vault
 
 Only by following closely the clearly defined instructions and recommendations will your dApp be able to join the list after careful scrutiny from the Trust Wallet team.
 
-### Technical Requirements and Preparation
-
-Optimizing your application will require checking off a series of key areas noted in the following optimization sections. Some technical preparation will however be required whenever assets are added to the Trust Wallet GitHub repo.
-
-Therefore, it is required that you have a [GitHub](https://github.com) account to interact with the [Assets repo](https://github.com/trustwallet/assets) and submit your dApp logo for listing. Before uploading any image files, you must make sure they meet the following requirements:
-
-- File Extension: `png`
-  - Uppercase `PNG` is considered invalid
-- File Name：logo.png
-- Size: 256px by 256px
-- Background: Avoid transparency. White is preferred to fit in with app white/dark theme designs.
-- File size: maximum 100kB. Tip: optimize your image size using a simple drag-and-drop online service such as tinypng. Your logo’s file name must also meet the following criteria: <subdomain>.<domain_name>.png
-  - For example: https://app.compound.finance/ => app.compound.finance.png
-    https://kyberswap.com/ => kyberswap.com.png
-
-Some basic information is also required on your dApp project as part of the submission process. This includes:
-
-- A short and clear explanation of your dApp functionality
-- Your Telegram channel
-- A description of your dApp for listing
-- Your dApp name for the listing
-- The URL of your dApp for listing
+> **Important:** Do not submit any assets (logos, metadata) to the Trust Wallet Assets repository until your application has been reviewed by the Business Development team and an agreement has been reached. Premature asset submissions will be rejected.
 
 ### Applying for the Trust Wallet dApp Listing
 
