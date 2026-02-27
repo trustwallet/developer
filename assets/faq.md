@@ -2,34 +2,51 @@
 
 ### Why is the build on my pull request red?
 
-Contributions in a pull request are verified by an automated build.
-The checks fail if something is wrong, like to logo is too large or an Ethereum contract is not in
-[checksum format](#checksum-format).
-Checks the exact error message in the build to find out the problem.
+> Contributions in a pull request are verified by an automated build.
+> The checks fail if something is wrong, like the logo is too large or an Ethereum contract is not in
+> [checksum format](repository_details.md#checksum-format).
+> Check the exact error message in the build to find out the problem.
 
 ### Why is there a merge conflict in my pull request?
 
-A merge conflict happens if the same file has been modified in the pull request, and also in the master branch since the fork was created. With assets repo, this typically caused by using a fork that was created long ago.
-The simplest solution in this case is to delete your pull request, delete your fork, create a new fork, and create a new PR. Alternatively, a merge conflict can be resolved using git command line, but Git skills are required.
-A pull request can also happen when overriding an existing logo.
+> A merge conflict happens if the same file has been modified in the pull request, and also in the master branch since the fork was created. With the assets repo, this is typically caused by using a fork that was created long ago.
+> The simplest way to resolve this is to:
+>   1. Open your branch locally and fetch the latest changes from origin and push.
+>   2. If that doesn't resolve the conflict, close your current pull request, clone the latest version of our repository, and submit a new one.
 
 ### Why I don't see my token in search after PR was merged?
 
-After PR was merged, it may take some time, but not longer than one hour, until search will show the new logo.
+> After PR was merged, it may take some time, but not longer than one hour, until the search shows the new logo.
 
-### Why do I still see old logo in Trust Wallet after uploaded new one?
+### Why do I still see old logo in Trust Wallet after uploading a new one?
 
-Both clients, Android and iOS keep old image cache for up to a few days. In order to see changes immediately, reinstall Trust Wallet. But as always, make sure you have a backup of all your wallets.
+> All clients (Android, iOS, and Browser Extension) cache images for a few hours. To see your changes immediately, clear your cache or reinstall Trust Wallet.
+>
+> **Important**: Back up all your wallets before reinstalling.
 
 ### What is smart contract deprecation?
 
-A process of removing smart contract information such as (token logo and info) from this repository.
-Removed contract address will be added to the denylist and, as a result, will no longer be present in token search results inside the TW app.
-Why would you want to do this ?.
-You are contract owner or just good samaritan who noticed contract to be no longer "active" and was an upgrade and abandoned by owning organization, involved in a scam, mimicking by its name or/and symbol a real contract. All facts must be supported with a link to any resource proving these statements.
+> Smart contract deprecation is the process of removing a token's logo and information from this repository. The deprecated contract address is added to the denylist and will no longer appear in token search results within the Trust Wallet app.
+>
+> ### When should a contract be deprecated?
+>
+> A deprecation request is appropriate when a contract is:
+> - No longer active or has been abandoned by its organization
+> - Upgraded and replaced by a new contract
+> - Involved in a scam
+> - Mimicking the name or symbol of a legitimate token
+>
+> **Note**: All deprecation requests must include supporting evidence with links to verifiable sources.
 
 ### Why isn't my token's price displaying in the app?
 
-Token prices will only show up within Trust Wallet if the CoinMarketCap (CMC) listing has the correct contract address associated with it. You can submit changes to your CMC listing via their [online form](https://support.coinmarketcap.com/hc/en-us/requests/new). Once an asset's contract address has been added to it's CMC listing, and the asset has enough transaction volume, pricing data will automatically appear in Trust Wallet.
-
-Note: submitting an asset to the Trust Wallet repository does not guarantee that can pricing data can or will be associated by CMC. Please review CMC's listing criteria [here](https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria).
+> Trust Wallet sources pricing data from CoinMarketCap (CMC). For your token's price to appear, the following must be in place:
+>
+>   1. Your token's correct contract address is linked to its CMC listing.
+>   2. The token has sufficient transaction volume on CMC.
+> 
+> If your contract address is missing or incorrect on CMC, you can submit an update through their [online form](https://support.coinmarketcap.com/hc/en-us/requests/new).
+>
+> Once both conditions are met, pricing data will appear in Trust Wallet automatically.
+>
+> **Note**: Listing a token in the Trust Wallet repository does not guarantee that CMC will associate pricing data with it. Please review CMC's [listing criteria](https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria) for more details.
