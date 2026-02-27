@@ -50,7 +50,7 @@ Every Trust Wallet user can submit their token using our Web App. Before initiat
 
 The steps for adding a new token through Asset App.
 
-1. Access the **assets web app** via this link: https://assets.trustwallet.com
+1. Access the **assets web app** via this link: [https://assets.trustwallet.com](https://assets.trustwallet.com)
 
    ![](/media/assetapp.png)
 
