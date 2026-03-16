@@ -2,7 +2,7 @@
 
 - [Get Started](README.md)
 - [MCP Server](mcp/mcp.md)
-- [Claude Code Skills](claude-code-skills/claude-code-skills.md)
+- [Agent Skills](claude-code-skills/claude-code-skills.md)
 - [Developing for Trust Wallet platform](develop-for-trust/develop-for-trust.md)
   - [Browser Extension](develop-for-trust/browser-extension/browser-extension.md)
     - [Ethereum & EVM chains](develop-for-trust/browser-extension/evm.md)

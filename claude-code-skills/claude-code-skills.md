@@ -1,41 +1,78 @@
-# Claude Code Skills
+# Agent Skills
 
-[Claude Code](https://claude.ai/code) is Anthropic's AI coding tool. **Skills** extend Claude Code with domain-specific knowledge — when a skill is active, Claude understands the library's architecture, APIs, and conventions without you having to paste documentation into every conversation.
+**Agent Skills** give AI coding agents domain-specific knowledge about Trust Wallet libraries and APIs. When a skill is active, the agent understands architecture, endpoints, and conventions without you having to paste documentation into every conversation.
 
-Trust Wallet publishes an open source skills marketplace on GitHub: [`trustwallet/tw-agent-skills`](https://github.com/trustwallet/tw-agent-skills).
+Skills are published in an open-source marketplace on GitHub: [`trustwallet/tw-agent-skills`](https://github.com/trustwallet/tw-agent-skills).
 
 ## Installation
 
-Register the Trust Wallet marketplace in Claude Code:
+Install all skills with a single command:
 
 ```
-/plugin marketplace add trustwallet/tw-agent-skills
+npx skills add trustwallet/tw-agent-skills
 ```
 
-Then install the `web3-skills` bundle, which includes all 5 skills listed below:
+The installer auto-detects your agent. To target a specific agent:
 
 ```
-/plugin install web3-skills@tw-agent-skills
+npx skills add trustwallet/tw-agent-skills -a claude-code
+npx skills add trustwallet/tw-agent-skills -a cursor
+npx skills add trustwallet/tw-agent-skills -a windsurf
+npx skills add trustwallet/tw-agent-skills -a codex
+npx skills add trustwallet/tw-agent-skills -a github-copilot
+npx skills add trustwallet/tw-agent-skills -a cline
+npx skills add trustwallet/tw-agent-skills -a opencode
+npx skills add trustwallet/tw-agent-skills -a roo
 ```
 
-Restart Claude Code after installing.
+To install a single skill:
 
-## Available Skills
+```
+npx skills add trustwallet/tw-agent-skills -s swap-quote
+```
 
-| Skill | What it helps with |
-|-------|--------------------|
-| `trust-web3-provider` | Integrating and extending the Web3 provider — Ethereum (EIP-1193), Solana (Wallet Standard), Cosmos (Keplr), Bitcoin, Aptos, TON, Tron |
-| `wallet-core` | HD wallet creation, address derivation, and transaction signing across 140+ blockchains in Swift, Kotlin, TypeScript, and Go |
-| `assets` | Looking up token logos and metadata, listing assets by chain, using CDN URLs, and contributing new assets |
-| `barz` | Building with and contributing to Barz — Trust Wallet's modular ERC-4337 smart contract wallet |
-| `trust-developer` | Deep links, browser extension detection, and WalletConnect integration |
+## Prerequisites
+
+API skills require credentials from [portal.trustwallet.com](https://portal.trustwallet.com). Set the following environment variables:
+
+```
+TWAK_ACCESS_ID=<your-access-id>
+TWAK_HMAC_SECRET=<your-hmac-secret>
+```
+
+- **Base URL**: `https://tws.trustwallet.com`
+- **Authentication**: HMAC-SHA256
+- **Rate limit**: 1 request/second (free tier)
+
+## API Skills
+
+6 skills, 18 actions total.
+
+| Skill | Actions | Description |
+|-------|---------|-------------|
+| `setup` | — | Authentication (HMAC-SHA256), base URLs, 100+ supported chains |
+| `token-info` | 3 | Token search, asset details, and coin status |
+| `swap-quote` | 6 | Swap quotes, step transactions, providers, domains via Amber |
+| `market-data` | 3 | Token prices, trending tokens across 16+ categories |
+| `security` | 2 | Address validation and token risk analysis |
+| `onramp` | 4 | Fiat buy/sell quotes and checkout URLs |
+
+## Open-Source Library Skills
+
+| Skill | Description |
+|-------|-------------|
+| `wallet-core` | HD wallet creation, address derivation, tx signing across 140+ blockchains |
+| `trust-web3-provider` | Web3 provider for Ethereum, Solana, Cosmos, Bitcoin, Aptos, TON, Tron |
+| `trust-developer` | Deep links, browser extension detection, WalletConnect |
+| `assets` | Token logos and metadata across 180+ blockchains |
+| `barz` | Modular ERC-4337 smart contract wallet |
 
 ## Usage
 
 After installing, mention the skill by name in your request:
 
 ```
-Use the trust-web3-provider skill to help me add Solana support to my wallet
+Use the swap-quote skill to get a quote for swapping 1 ETH to USDC
 ```
 
 ```
@@ -43,22 +80,7 @@ Use the wallet-core skill to implement transaction signing in Swift
 ```
 
 ```
-Use the assets skill to add a new token logo
-```
-
-## Browse Interactively
-
-```
-/plugin browse
-```
-
-Select `tw-agent-skills` → `web3-skills` → `Install now`.
-
-## Updating Skills
-
-```
-/plugin marketplace update tw-agent-skills
-/plugin install web3-skills@tw-agent-skills
+Use the market-data skill to find trending tokens on Ethereum
 ```
 
 ## Contributing
