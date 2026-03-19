@@ -46,7 +46,7 @@ TWAK_HMAC_SECRET=<your-hmac-secret>
 
 ## API Skills
 
-6 skills, 18 actions total.
+5 skills, 14 actions total.
 
 | Skill | Actions | Description |
 |-------|---------|-------------|
@@ -55,7 +55,6 @@ TWAK_HMAC_SECRET=<your-hmac-secret>
 | `swap-quote` | 6 | Swap quotes, step transactions, providers, domains via Amber |
 | `market-data` | 3 | Token prices, trending tokens across 16+ categories |
 | `security` | 2 | Address validation and token risk analysis |
-| `onramp` | 4 | Fiat buy/sell quotes and checkout URLs |
 
 ## Open-Source Library Skills
 
