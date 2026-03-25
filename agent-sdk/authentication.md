@@ -39,7 +39,7 @@ METHOD + PATH + QUERY + ACCESS_ID + NONCE + DATE
 | `NONCE` | Unique random string — prevents replay attacks |
 | `DATE` | ISO 8601 timestamp — validated within a ±5 min window |
 
-The resulting base64 signature is sent in the `Authorization` header. Three additional headers identify the request:
+The resulting base64 signature is sent in the `Authorization` header. Four headers are required on every request:
 
 | Header | Value |
 |--------|-------|

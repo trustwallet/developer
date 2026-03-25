@@ -117,7 +117,8 @@ twak wallet status [--json]
 
 ```bash
 twak transfer --to <address> --amount <amount> --token <token> \
-              [--max-usd <n>] [--skip-safety-check] [--password <pw>] [--json]
+              [--confirm-to <address>] [--max-usd <n>] [--skip-safety-check] \
+              [--password <pw>] [--json]
 ```
 
 | Flag | Description |
@@ -333,4 +334,4 @@ twak serve [--rest] [--port <port>] [--host <host>] \
 | `--auto-lock` | Auto-lock wallet after N minutes of inactivity |
 | `--x402` | Require x402 micropayment for REST endpoints |
 
-The REST server requires Bearer token authentication using your HMAC secret.
+The REST server authenticates requests via `Authorization: Bearer <HMAC_SECRET>`. This is separate from the HMAC signing used by `tws.trustwallet.com` — the REST server runs locally and uses the raw secret as a shared token for simplicity.
