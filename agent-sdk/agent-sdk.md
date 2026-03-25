@@ -6,8 +6,8 @@ The Trust Wallet Agent SDK gives developers programmatic access to Trust Wallet'
 
 | Package | Description |
 |---------|-------------|
-| `@twak/cli` | Command-line interface — `twak` / `tw-agent` binaries |
-| `@twak/sdk` | TypeScript SDK for server-side and agent integrations |
+| `@trustwallet/cli` | Command-line interface — `twak` binary |
+| `@twak/*` | TypeScript SDK packages for server-side and agent integrations |
 | MCP server | `twak serve` — connect any MCP-compatible AI agent |
 
 ## Get started

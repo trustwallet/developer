@@ -1,8 +1,8 @@
 # CLI Reference
 
-The `twak` CLI (also aliased as `tw-agent`) provides full access to the Trust Wallet Agent SDK from the command line.
+The `twak` CLI provides full access to the Trust Wallet Agent SDK from the command line.
 
-**Install:** `npm install -g @twak/cli`
+**Install:** `npm install -g @trustwallet/cli`
 
 ---
 
@@ -11,16 +11,15 @@ The `twak` CLI (also aliased as `tw-agent`) provides full access to the Trust Wa
 Initialize configuration and save credentials.
 
 ```bash
-twak init --api-key <key> --api-secret <secret> [--wc-project-id <id>]
+twak init --api-key <key> --api-secret <secret>
 ```
 
 | Flag | Required | Description |
 |------|----------|-------------|
 | `--api-key` | Yes | TWAK API access ID |
 | `--api-secret` | Yes | HMAC secret |
-| `--wc-project-id` | No | WalletConnect project ID |
 
-Credentials are saved to `~/.tw-agent/credentials.json`.
+Credentials are saved to `~/.twak/credentials.json`.
 
 ---
 
@@ -29,7 +28,7 @@ Credentials are saved to `~/.tw-agent/credentials.json`.
 ### auth setup
 
 ```bash
-twak auth setup --api-key <key> --api-secret <secret> [--wc-project-id <id>]
+twak auth setup --api-key <key> --api-secret <secret>
 ```
 
 ### auth status
@@ -68,6 +67,24 @@ twak wallet addresses [--password <pw>] [--json]
 twak wallet balance --chain <chain> [--password <pw>] [--json]
 ```
 
+### wallet portfolio
+
+Full portfolio across all chains — native balances, token holdings, and USD values.
+
+```bash
+twak wallet portfolio [--chains <list>] [--password <pw>] [--json]
+```
+
+Default chains include all major EVM chains plus Solana and TRON.
+
+### wallet sign-message
+
+Sign an arbitrary message with the agent wallet key.
+
+```bash
+twak wallet sign-message --chain <chain> --message <text> [--password <pw>] [--json]
+```
+
 ### wallet export
 
 ```bash
@@ -94,14 +111,6 @@ twak wallet keychain delete
 twak wallet keychain check
 ```
 
-### wallet connect
-
-Connect an external wallet via WalletConnect.
-
-```bash
-twak wallet connect [--json]
-```
-
 ### wallet status
 
 ```bash
@@ -113,8 +122,18 @@ twak wallet status [--json]
 ## transfer
 
 ```bash
-twak transfer --to <address> --amount <amount> --token <token> --password <pw> [--json]
+twak transfer --to <address> --amount <amount> --token <token> \
+              [--max-usd <n>] [--skip-safety-check] [--password <pw>] [--json]
 ```
+
+| Flag | Description |
+|------|-------------|
+| `--to` | Destination address or ENS name (e.g., `vitalik.eth`) |
+| `--amount` | Amount in human-readable format |
+| `--token` | Asset ID (e.g., `c60` for ETH, `c60_t0xA0b8...` for ERC-20) |
+| `--max-usd` | Maximum allowed transfer value in USD (default: 10000) |
+| `--skip-safety-check` | Skip the USD-value safety check |
+| `--confirm-to` | Pin expected resolved address — rejects if ENS resolves differently |
 
 ---
 
@@ -124,6 +143,13 @@ twak transfer --to <address> --amount <amount> --token <token> --password <pw> [
 twak swap <amount> <from> <to> [--chain <chain>] [--to-chain <chain>] \
           [--slippage <pct>] [--quote-only] [--password <pw>] [--json]
 ```
+
+| Flag | Description |
+|------|-------------|
+| `--chain` | Source chain (default: ethereum) |
+| `--to-chain` | Destination chain for cross-chain swaps |
+| `--slippage` | Slippage tolerance % (default: 1, max: 50) |
+| `--quote-only` | Preview quote without executing |
 
 Use `--quote-only` to preview without executing.
 
@@ -135,7 +161,7 @@ Use `--quote-only` to preview without executing.
 twak price <token> [--chain <chain>] [--json]
 ```
 
-Default chain is `ethereum`.
+Chain is auto-detected from native token symbols (ETH, BNB, SOL, etc.).
 
 ---
 
@@ -170,8 +196,24 @@ twak search <query> [--networks <ids>] [--limit <n>] [--json]
 ## trending
 
 ```bash
-twak trending [--limit <n>] [--json]
+twak trending [--category <cat>] [--sort <field>] [--limit <n>] [--json]
 ```
+
+Categories: `ai`, `rwa`, `memes`, `defi`, `dex`, `bnb`, `eth`, `sol`, `pumpfun`, `launchpad`, `layer1`.
+
+Sort fields: `price_change` (default), `market_cap`, `volume`.
+
+---
+
+## dapps
+
+Browse featured DApps and protocols.
+
+```bash
+twak dapps [--category <cat>] [--json]
+```
+
+Categories: `defi`, `dex`, `lending`, `nft`, `gaming`, `social`.
 
 ---
 
@@ -232,10 +274,16 @@ twak risk <assetId> [--json]
 
 ```bash
 twak erc20 approve --token <assetId> --spender <address> --amount <amount> \
-                   --password <pw> [--json]
+                   [--confirm-unlimited] --password <pw> [--json]
 ```
 
 Token uses the Trust Wallet asset ID format (e.g., `c60_t0xA0b8...`).
+
+### erc20 revoke
+
+```bash
+twak erc20 revoke --token <assetId> --spender <address> --password <pw> [--json]
+```
 
 ### erc20 allowance
 
@@ -273,70 +321,22 @@ twak alert delete <id> [--json]
 
 ---
 
-## onramp
-
-### onramp quote
-
-```bash
-twak onramp quote --amount <amount> --asset <asset> --wallet <address> \
-                  [--currency <fiat>] [--json]
-```
-
-### onramp buy
-
-```bash
-twak onramp buy --quote-id <id> --wallet <address> [--json]
-```
-
-### onramp sell-quote
-
-```bash
-twak onramp sell-quote --amount <amount> --asset <asset> --wallet <address> \
-                       [--currency <fiat>] [--method <method>] [--json]
-```
-
-### onramp sell
-
-```bash
-twak onramp sell --quote-id <id> --wallet <address> [--json]
-```
-
----
-
-## automate
-
-### automate add
-
-Create a DCA or limit order automation.
-
-```bash
-twak automate add --from <token> --to <token> --amount <amount> \
-                  [--chain <chain>] [--interval <interval>] \
-                  [--price <price>] [--condition above|below] [--json]
-```
-
-### automate list
-
-```bash
-twak automate list [--all] [--json]
-```
-
-### automate delete
-
-```bash
-twak automate delete <id> [--json]
-```
-
----
-
 ## serve
 
 Start an MCP server (stdio) or REST API server for AI agent integrations.
 
 ```bash
-twak serve [--rest] [--port <port>] [--x402] \
-           [--payment-amount <amount>] [--payment-asset <asset>] \
+twak serve [--rest] [--port <port>] [--host <host>] \
+           [--auto-lock <minutes>] [--password <pw>] \
+           [--x402] [--payment-amount <amount>] [--payment-asset <asset>] \
            [--payment-chain <chain>] [--payment-recipient <address>]
 ```
 
-Use `--rest` to start an HTTP server instead of stdio MCP.
+| Flag | Description |
+|------|-------------|
+| `--rest` | Start REST HTTP server instead of MCP stdio |
+| `--port` | Port for REST server (default: 3000) |
+| `--auto-lock` | Auto-lock wallet after N minutes of inactivity |
+| `--x402` | Require x402 micropayment for REST endpoints |
+
+The REST server requires Bearer token authentication using your HMAC secret.

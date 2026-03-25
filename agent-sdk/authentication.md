@@ -63,7 +63,7 @@ SIGNATURE=$(printf '%s' "${METHOD}${REQ_PATH}${QUERY}${ACCESS_ID}${NONCE}${DATE}
   | openssl dgst -sha256 -hmac "$TWAK_HMAC_SECRET" -binary \
   | base64)
 
-curl -X GET "https://api.trustwallet.com${REQ_PATH}?${QUERY}" \
+curl -X GET "https://tws.trustwallet.com${REQ_PATH}?${QUERY}" \
   -H "X-TW-Credential: $ACCESS_ID" \
   -H "X-TW-Nonce: $NONCE" \
   -H "X-TW-Date: $DATE" \

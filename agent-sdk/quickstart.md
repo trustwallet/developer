@@ -5,7 +5,7 @@ Get from zero to your first API call in under 5 minutes using the `twak` CLI.
 ## Step 1 — Install the CLI
 
 ```bash
-npm install -g @twak/cli
+npm install -g @trustwallet/cli
 ```
 
 Verify the install:
@@ -13,8 +13,6 @@ Verify the install:
 ```bash
 twak --version
 ```
-
-The CLI exposes two aliases: `twak` and `tw-agent`.
 
 ## Step 2 — Configure credentials
 
@@ -25,7 +23,7 @@ twak init --api-key twk_live_your_access_id \
           --api-secret your_hmac_secret
 ```
 
-Credentials are stored in `~/.tw-agent/credentials.json`.
+Credentials are stored in `~/.twak/credentials.json`.
 
 Alternatively, export environment variables (useful in CI/CD):
 
@@ -54,7 +52,6 @@ Add `--json` for machine-readable output:
 
 ```bash
 twak price ETH --json
-# {"token":"ETH","chain":"ethereum","priceUsd":3241.87}
 ```
 
 List all supported chains:
@@ -72,8 +69,14 @@ twak balance --address <addr> --coin 60
 # All token holdings for an address
 twak holdings --address <addr> --coin 60
 
-# Top 5 trending tokens right now
+# Trending tokens (with optional category and sort)
 twak trending --limit 5
+twak trending --category ai
+twak trending --category memes --sort volume
+
+# Browse DApps and protocols
+twak dapps
+twak dapps --category defi
 
 # Search for tokens by name or symbol
 twak search uniswap
@@ -87,7 +90,11 @@ twak risk c60_t0x1f9840a85d5af5bf1d1762f925bdaddc4201f984
 # Create an embedded agent wallet
 twak wallet create --password <pw>
 
-# Execute a token swap
+# Portfolio with USD values across all chains
+twak wallet portfolio
+
+# Get a swap quote first, then execute
+twak swap 0.1 ETH USDC --chain ethereum --quote-only
 twak swap 0.1 ETH USDC --chain ethereum
 
 # Start an MCP server for AI agent integrations
