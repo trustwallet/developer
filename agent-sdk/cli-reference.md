@@ -85,12 +85,6 @@ Sign an arbitrary message with the agent wallet key.
 twak wallet sign-message --chain <chain> --message <text> [--password <pw>] [--json]
 ```
 
-### wallet export
-
-```bash
-twak wallet export [--password <pw>]
-```
-
 ### wallet keychain save
 
 Save the wallet password to the OS keychain for passwordless usage.

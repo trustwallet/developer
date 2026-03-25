@@ -19,7 +19,7 @@ twak --version
 Get your API key and HMAC secret from the [developer portal](https://portal.trustwallet.com/dashboard/apps), then run:
 
 ```bash
-twak init --api-key twk_live_your_access_id \
+twak init --api-key your_access_id \
           --api-secret your_hmac_secret
 ```
 
@@ -28,7 +28,7 @@ Credentials are stored in `~/.twak/credentials.json`.
 Alternatively, export environment variables (useful in CI/CD):
 
 ```bash
-export TWAK_ACCESS_ID=twk_live_your_access_id
+export TWAK_ACCESS_ID=your_access_id
 export TWAK_HMAC_SECRET=your_hmac_secret
 ```
 

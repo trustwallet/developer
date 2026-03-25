@@ -6,19 +6,19 @@ All requests to the Trust Wallet API are authenticated with an **API access ID**
 
 1. Sign in at [portal.trustwallet.com](https://portal.trustwallet.com)
 2. Create an app, then create an API key inside it
-3. Copy your **Access ID** (`twk_live_...`) and **HMAC Secret** — the secret is shown only once
+3. Copy your **Access ID** and **HMAC Secret** — the secret is shown only once
 
 ## Configuring the CLI
 
 ```bash
-twak init --api-key twk_live_your_access_id \
+twak init --api-key your_access_id \
           --api-secret your_hmac_secret
 ```
 
 Or via environment variables:
 
 ```bash
-export TWAK_ACCESS_ID=twk_live_your_access_id
+export TWAK_ACCESS_ID=your_access_id
 export TWAK_HMAC_SECRET=your_hmac_secret
 ```
 
@@ -57,8 +57,8 @@ ACCESS_ID="$TWAK_ACCESS_ID"
 NONCE=$(uuidgen | tr -d '-')
 DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 METHOD="GET"
-REQ_PATH="/v1/wallet/balance"
-QUERY="address=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&chain=ethereum"
+REQ_PATH="/v1/search/assets"
+QUERY="query=ethereum&limit=5"
 SIGNATURE=$(printf '%s' "${METHOD}${REQ_PATH}${QUERY}${ACCESS_ID}${NONCE}${DATE}" \
   | openssl dgst -sha256 -hmac "$TWAK_HMAC_SECRET" -binary \
   | base64)
