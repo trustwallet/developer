@@ -1,14 +1,12 @@
 # Trust Wallet Agent SDK
 
-The Trust Wallet Agent SDK gives developers programmatic access to Trust Wallet's multichain infrastructure — balance queries, token prices, swaps, transaction history, and more — through a CLI, a TypeScript SDK, and an MCP server for AI agents.
+The Trust Wallet Agent SDK gives developers programmatic access to Trust Wallet's multichain infrastructure — balance queries, token prices, swaps, transaction history, and more — through a CLI and an MCP server for AI agents.
 
-## What's included
+## Install
 
-| Package | Description |
-|---------|-------------|
-| `@trustwallet/cli` | Command-line interface — `twak` binary |
-| `@twak/*` | TypeScript SDK packages for server-side and agent integrations |
-| MCP server | `twak serve` — connect any MCP-compatible AI agent |
+```bash
+npm install -g @trustwallet/cli
+```
 
 ## Get started
 
