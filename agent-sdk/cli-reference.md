@@ -64,8 +64,10 @@ twak wallet addresses [--password <pw>] [--json]
 ### wallet balance
 
 ```bash
-twak wallet balance --chain <chain> [--password <pw>] [--json]
+twak wallet balance [--chain <chain>] [--all] [--no-tokens] [--password <pw>] [--json]
 ```
+
+Use `--all` to show balances across all chains with funds. Use `--no-tokens` to skip token balance lookup.
 
 ### wallet portfolio
 
@@ -172,14 +174,6 @@ Common coin IDs: `60` (Ethereum), `0` (Bitcoin), `501` (Solana).
 
 ---
 
-## holdings
-
-```bash
-twak holdings --address <address> --coin <coinId> [--json]
-```
-
----
-
 ## search
 
 ```bash
@@ -194,7 +188,7 @@ twak search <query> [--networks <ids>] [--limit <n>] [--json]
 twak trending [--category <cat>] [--sort <field>] [--limit <n>] [--json]
 ```
 
-Categories: `ai`, `rwa`, `memes`, `defi`, `dex`, `bnb`, `eth`, `sol`, `pumpfun`, `launchpad`, `layer1`.
+Categories: `ai`, `rwa`, `memes`, `defi`, `dex`, `bnb`, `eth`, `sol`, `pumpfun`, `bonk`, `launchpad`, `launchpool`, `layer1`.
 
 Sort fields: `price_change` (default), `market_cap`, `volume`.
 
@@ -205,10 +199,10 @@ Sort fields: `price_change` (default), `market_cap`, `volume`.
 Browse featured DApps and protocols.
 
 ```bash
-twak dapps [--category <cat>] [--json]
+twak dapps [--category <cat>] [--search <query>] [--categories] [--limit <n>] [--json]
 ```
 
-Categories: `defi`, `dex`, `lending`, `nft`, `gaming`, `social`.
+Categories: `defi`, `dex`, `lending`, `nft`, `gaming`, `social`. Use `--categories` to list all available.
 
 ---
 
