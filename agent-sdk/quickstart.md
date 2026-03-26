@@ -4,15 +4,20 @@ Get from zero to your first API call in under 5 minutes using the `twak` CLI.
 
 ## Step 1 — Install the CLI
 
+Run directly without installing (recommended):
+
+```bash
+npx @trustwallet/cli --version
+```
+
+Or install globally:
+
 ```bash
 npm install -g @trustwallet/cli
-```
-
-Verify the install:
-
-```bash
 twak --version
 ```
+
+> **Permission denied?** If you get `EACCES` on macOS/Linux, either use `npx @trustwallet/cli` (no install needed), install Node via [nvm](https://github.com/nvm-sh/nvm) (avoids `/usr/local` permissions), or run `sudo npm install -g @trustwallet/cli`.
 
 ## Step 2 — Configure credentials
 

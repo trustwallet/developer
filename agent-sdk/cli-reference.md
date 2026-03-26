@@ -2,7 +2,7 @@
 
 The `twak` CLI provides full access to the Trust Wallet Agent SDK from the command line.
 
-**Install:** `npm install -g @trustwallet/cli`
+**Run:** `npx @trustwallet/cli <command>` or install globally with `npm install -g @trustwallet/cli`
 
 ---
 
