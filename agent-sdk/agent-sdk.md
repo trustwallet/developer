@@ -5,8 +5,10 @@ The Trust Wallet Agent SDK gives developers programmatic access to Trust Wallet'
 ## Install
 
 ```bash
-npm install -g @trustwallet/cli
+npx @trustwallet/cli --version
 ```
+
+Or install globally: `npm install -g @trustwallet/cli`
 
 ## Get started
 
