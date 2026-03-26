@@ -23,14 +23,16 @@ twak init --api-key your_access_id \
           --api-secret your_hmac_secret
 ```
 
-Credentials are stored in `~/.twak/credentials.json`.
+Credentials are stored in `~/.twak/credentials.json` (file permissions `0600`). This is the recommended approach for local development.
 
-Alternatively, export environment variables (useful in CI/CD):
+For CI/CD pipelines, use environment variables instead:
 
 ```bash
 export TWAK_ACCESS_ID=your_access_id
 export TWAK_HMAC_SECRET=your_hmac_secret
 ```
+
+> **Do not add these exports to `~/.zshrc` or `~/.bashrc`.** Use `twak init` for persistent local credentials — it stores them in a dedicated file with restricted permissions. Env vars are intended for ephemeral CI/CD environments.
 
 Confirm the setup:
 

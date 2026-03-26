@@ -10,17 +10,21 @@ All requests to the Trust Wallet API are authenticated with an **API access ID**
 
 ## Configuring the CLI
 
+The recommended approach is `twak init`, which stores credentials in `~/.twak/credentials.json` with `0600` permissions:
+
 ```bash
 twak init --api-key your_access_id \
           --api-secret your_hmac_secret
 ```
 
-Or via environment variables:
+For CI/CD pipelines, use environment variables:
 
 ```bash
 export TWAK_ACCESS_ID=your_access_id
 export TWAK_HMAC_SECRET=your_hmac_secret
 ```
+
+> **Do not add these exports to shell config files** (`~/.zshrc`, `~/.bashrc`). Use `twak init` for persistent local credentials. Env vars are intended for ephemeral CI/CD environments where secrets are injected at runtime.
 
 ## How HMAC signing works
 
@@ -72,7 +76,9 @@ curl -X GET "https://tws.trustwallet.com${REQ_PATH}?${QUERY}" \
 
 ## Security best practices
 
-- Never commit your HMAC secret to version control
-- Add `.env` to `.gitignore`
+- Use `twak init` for local credentials — stores in `~/.twak/credentials.json` with restricted permissions
+- Use `twak wallet keychain save` to store the wallet password in the OS keychain (macOS Keychain / Linux Secret Service)
+- Never commit your HMAC secret to version control — add `.env` to `.gitignore`
+- Never add credentials to shell config files (`~/.zshrc`, `~/.bashrc`) — use `twak init` instead
 - Rotate keys regularly from the developer portal
 - Use separate keys for development and production
