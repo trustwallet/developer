@@ -46,7 +46,7 @@ TWAK_HMAC_SECRET=<your-hmac-secret>
 
 ## API Skills
 
-5 skills, 14 actions total.
+5 skills, 14 actions.
 
 | Skill | Actions | Description |
 |-------|---------|-------------|
@@ -56,7 +56,24 @@ TWAK_HMAC_SECRET=<your-hmac-secret>
 | `market-data` | 3 | Token prices, trending tokens across 16+ categories |
 | `security` | 2 | Address validation and token risk analysis |
 
-## Open-Source Library Skills
+## CLI Skills
+
+The `trust-wallet-cli` skill gives agents access to `twak`, the Trust Wallet CLI for multichain wallet operations.
+
+| Skill | Actions | Description |
+|-------|---------|-------------|
+| `trust-wallet-cli` | 12 | Wallet management, balances, transfers, swaps, alerts, DCA, limit orders, ERC-20, token risk, x402 |
+
+Key capabilities:
+- **Wallet**: Create HD wallets, derive addresses for 110+ chains, export keys, keychain integration
+- **Transfers**: Send native tokens and ERC-20s with ENS support and safety limits
+- **Swaps**: Same-chain and cross-chain swaps via Amber/Rango with inline approval
+- **Alerts**: Price alerts with continuous monitoring via `twak watch`
+- **Automations**: DCA (recurring swaps) and limit orders (conditional swaps) executed by `twak watch`
+- **ERC-20**: Token approvals, allowance checks, revocations
+- **MCP Server**: `twak serve` exposes all operations as MCP tools for AI agents
+
+
 
 | Skill | Description |
 |-------|-------------|
