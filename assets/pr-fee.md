@@ -33,7 +33,8 @@ To help manage this, we introduced a crypto contribution to filter out low-quali
 
 > No, it's not a scam!
 >
-> This is a legitimate request from the Trust Wallet team. However, always be cautious when someone asks you for payment. Verify that the fee is documented under the Trust Wallet Developer documentation (this page), that the repository is under the official Trust Wallet GitHub account, and that you are using the correct URL: https://assets.trustwallet.com/
+<!-- >> This is a legitimate request from the Trust Wallet team. However, always be cautious when someone asks you for payment. Verify that the fee is documented under the Trust Wallet Developer documentation (this page), that the repository is under the official Trust Wallet GitHub account, and that you are using the correct URL: https://assets.trustwallet.com/ -->
+> This is a legitimate request from the Trust Wallet team. However, always be cautious when someone asks you for payment. Verify that the fee is documented under the Trust Wallet Developer documentation (this page), that the repository is under the official Trust Wallet GitHub account.
 
 ### When is my payment evaluated?
 

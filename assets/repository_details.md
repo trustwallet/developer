@@ -172,7 +172,7 @@ Here are some examples:
   - Logos are displayed cropped to a circular mask, a circle fitting in the square shape. Thus the corners of the logo image will not be visible. The logo should fit in the circle, but also fill it as much as possible, i.e. there should not be unused spaces on the sides/top/bottom.
   - Logos should look OK with white/lightgray background as well as on black/darkgray background (night mode). For dark themed logos use white contour lines to make sure they stand out on dark background as well.
   - Avoid using transparency inside the logo, as the color beneath the transparent layer is changing (light or dark). Use transparency only outside of the logo.
-  - It is recommended to use the [Assets web app](https://assets.trustwallet.com) ([guide](https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957)), as it shows a preview of the logo with both light and dark background and circular cropping.
+  <!-- - It is recommended to use the [Assets web app](https://assets.trustwallet.com) ([guide](https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957)), as it shows a preview of the logo with both light and dark background and circular cropping. -->
 
 ### Info.json Contents
 
@@ -264,7 +264,7 @@ To do changes in the assets repository, you need to create a personal copy calle
 Once the changes are prepared inside the fork, you need to create a _pull request_ to the main repository.
 Upon review the maintainers will accept your pull request, and the changes will be incorporated.
 
-#### Adding files using Assets App
+<!-- #### Adding files using Assets App
 
 A new token can be submitted using the Assets application.
 See also: https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-assets-app/82957
@@ -276,7 +276,7 @@ See also: https://community.trustwallet.com/t/how-to-submit-a-token-logo-using-a
 5. Fill in the token contract. For some tokens (ERC20) some fields are auto-filled (symbol, decimals, etc.).
 6. Fill in additional fields, symbol, decimals, description, links, etc.
 7. Press the Check button.
-8. If all is OK, press the Create Pull Request button. A PR will be created.
+8. If all is OK, press the Create Pull Request button. A PR will be created. -->
 
 ## Token Status
 

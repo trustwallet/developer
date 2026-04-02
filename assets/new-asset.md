@@ -33,14 +33,15 @@ This guide is for adding a logo for the following Trust Wallet supported blockch
 For **adding a token**:
 
 - [ ] Ensure your asset meets our [requirements](requirements.md)
-- [ ] Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information
+<!-- - [ ] Visit the [Assets web app](https://assets.trustwallet.com) (GitHub account required), and fill out the requested information -->
+- [ ] Create a pull request to https://github.com/trustwallet/assets
 - [ ] Pay the [processing fee](pr-fee.md)
 
 Adding a DApp logo or other type of asset? Check the [DApps](../dapps/listing-guide.md) section or [contribution guidelines](repository_details.md#contribution-guidelines).
 
 Adding new chain? Please contact our Business Development team at **partnerships@trustwallet.com** to discuss this further.
 
----
+<!-- ---
 
 ### Adding new Assets using Asset App
 
@@ -70,7 +71,7 @@ The steps for adding a new token through Asset App.
 7. Press the **Check** button.
 
 8. If all is **OK**, press the Create Pull Request button. A PR will be created.
-
+-->
 ---
 
 ### Pull Request Fee
