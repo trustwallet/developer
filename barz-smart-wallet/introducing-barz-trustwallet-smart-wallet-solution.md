@@ -428,5 +428,3 @@ The Barz Smart Wallet Architecture utilizing Diamond allows modular and flexible
 In our next article, we’ll share the optimizations we did to make Diamonds much better for building smart wallets.
 
 Stay tuned for our next article series and releases of powerful use cases of smart wallet built on [Barz](https://github.com/trustwallet/barz).
-
-*If you have questions or want to use Trust Wallet’s AA SDK in your service or any ideas for collaboration, reach out in smartwallet channel in our [Trust Wallet Discord](https://discord.gg/trustwallet)*

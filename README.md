@@ -58,7 +58,3 @@ Trust Wallet publishes a Model Context Protocol (MCP) server that gives AI codin
 
 ### [Claude Code Skills](claude-code-skills/claude-code-skills.md)
 Domain-specific Claude Code skills for Trust Wallet libraries, enabling AI-assisted development with knowledge of Trust Wallet's APIs and conventions.
-
----
-
-Have questions? Join the [Trust Wallet Developers](https://discord.gg/trustwallet) Discord.

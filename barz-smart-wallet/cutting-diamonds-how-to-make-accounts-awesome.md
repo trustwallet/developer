@@ -647,5 +647,3 @@ Barz Smart Wallet utilizes the Diamond proxy pattern that provides a very flexib
 In our next article, we’ll dive into the details of Trust Wallet’s Barz SDK.
 
 Stay tuned for our next article in this series and releases on the powerful use cases of smart wallets built on Barz.
-
-*If you have questions or want to use Trust Wallet’s AA SDK in your service or any ideas for collaboration, reach out in the smartwallet channel in our [Discord](https://discord.gg/trustwallet)*
