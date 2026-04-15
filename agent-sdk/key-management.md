@@ -43,13 +43,13 @@ The AI model never has direct access to the mnemonic or private keys. It interac
 
 ## Password Resolution
 
-When a signing operation is requested, TWAK resolves the password using the first available source:
+When a signing operation is requested, TWAK tries each source in order and uses the first one available:
 
-| Priority | Source | Notes |
-| --- | --- | --- |
-| 1 | `--password` flag | Checked first. Visible in shell history — avoid in production. |
-| 2 | `TWAK_WALLET_PASSWORD` env var | Suitable for CI/CD and containerized environments. |
-| 3 | OS keychain | macOS Keychain, Linux Secret Service. Most secure option. |
+| Source | Notes |
+| --- | --- |
+| `--password` flag | Checked first. Visible in shell history — avoid in production. |
+| `TWAK_WALLET_PASSWORD` env var | Suitable for CI/CD and containerized environments. |
+| OS keychain | macOS Keychain, Linux Secret Service. Most secure option. |
 
 If none are available, the operation fails with an authentication error.
 
