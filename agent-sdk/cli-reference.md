@@ -53,7 +53,7 @@ twak wallet create --password <pw> [--no-keychain] [--json]
 twak wallet address --chain <chain> [--password <pw>] [--json]
 ```
 
-Password falls back to the OS keychain or `TWAK_WALLET_PASSWORD` environment variable.
+Password falls back to the OS keychain or `TWAK_WALLET_PASSWORD` environment variable. See [Key Management](key-management.md) for full details on key storage, password resolution, and signing permissions.
 
 ### wallet addresses
 

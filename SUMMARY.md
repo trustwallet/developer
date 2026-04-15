@@ -5,6 +5,7 @@
   - [Quickstart](agent-sdk/quickstart.md)
   - [CLI Reference](agent-sdk/cli-reference.md)
   - [Authentication](agent-sdk/authentication.md)
+  - [Key Management](agent-sdk/key-management.md)
 - [MCP Server](mcp/mcp.md)
 - [Agent Skills](claude-code-skills/claude-code-skills.md)
 - [Developing for Trust Wallet platform](develop-for-trust/develop-for-trust.md)

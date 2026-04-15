@@ -15,6 +15,7 @@ Or install globally: `npm install -g @trustwallet/cli`
 - [Quickstart](quickstart.md) — install the CLI and make your first request in 5 minutes
 - [CLI Reference](cli-reference.md) — all commands, subcommands, and flags
 - [Authentication](authentication.md) — API keys and HMAC signing
+- [Key Management](key-management.md) — wallet keys, encryption, and signing permissions
 
 ## Developer portal
 
