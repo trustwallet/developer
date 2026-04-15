@@ -14,6 +14,7 @@ Programmatic access to Trust Wallet's multichain infrastructure — balance quer
 - [Quickstart](agent-sdk/quickstart.md)
 - [CLI Reference](agent-sdk/cli-reference.md)
 - [Authentication](agent-sdk/authentication.md)
+- [Key Management](agent-sdk/key-management.md)
 
 ---
 
