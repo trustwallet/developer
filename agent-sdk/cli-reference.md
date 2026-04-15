@@ -44,7 +44,7 @@ twak auth status [--json]
 ### wallet create
 
 ```bash
-twak wallet create --password <pw> [--no-keychain] [--json]
+twak wallet create --password <pw> [--no-keychain] [--skip-password-check] [--json]
 ```
 
 ### wallet address
