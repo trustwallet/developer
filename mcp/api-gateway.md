@@ -8,7 +8,6 @@ The Trust Wallet API Gateway MCP server gives AI agents programmatic access to l
 https://mcp.trustwallet.com/tws
 ```
 
-The gateway is a shared HTTP service backed by [tws.trustwallet.com](https://tws.trustwallet.com). Each request carries its own credentials, so a single deployed instance serves multiple users without any shared secrets.
 
 ## Get API credentials
 
