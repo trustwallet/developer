@@ -5,7 +5,7 @@ The Trust Wallet API Gateway MCP server gives AI agents programmatic access to l
 **MCP endpoint:**
 
 ```
-https://trust-mcp.trustwallet.com/mcp
+https://mcp.trustwallet.com/tws
 ```
 
 The gateway is a shared HTTP service backed by [tws.trustwallet.com](https://tws.trustwallet.com). Each request carries its own credentials, so a single deployed instance serves multiple users without any shared secrets.
@@ -35,7 +35,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 {
   "mcpServers": {
     "trust-wallet": {
-      "url": "https://trust-mcp.trustwallet.com/mcp",
+      "url": "https://mcp.trustwallet.com/tws",
       "headers": {
         "X-TW-CREDENTIAL": "your-access-id",
         "X-TW-SECRET-KEY": "your-hmac-secret"
@@ -61,7 +61,7 @@ Add to `.cursor/mcp.json` in your project (or the global `~/.cursor/mcp.json`):
 {
   "mcpServers": {
     "trust-wallet": {
-      "url": "https://trust-mcp.trustwallet.com/mcp",
+      "url": "https://mcp.trustwallet.com/tws",
       "headers": {
         "X-TW-CREDENTIAL": "your-access-id",
         "X-TW-SECRET-KEY": "your-hmac-secret"
@@ -79,7 +79,7 @@ Add to `.vscode/mcp.json` in your project:
 {
   "servers": {
     "trust-wallet": {
-      "url": "https://trust-mcp.trustwallet.com/mcp",
+      "url": "https://mcp.trustwallet.com/tws",
       "headers": {
         "X-TW-CREDENTIAL": "your-access-id",
         "X-TW-SECRET-KEY": "your-hmac-secret"
