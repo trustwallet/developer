@@ -54,8 +54,8 @@ Trust Wallet's open-source, cross-platform cryptographic library. Supports 130+ 
 
 ## Tooling
 
-### [MCP Server](mcp/mcp.md)
-Trust Wallet publishes a Model Context Protocol (MCP) server that gives AI coding assistants direct access to this documentation.
+### [MCP Servers](mcp/mcp.md)
+Trust Wallet publishes two MCP servers for AI coding assistants: a [Docs MCP](mcp/docs-mcp.md) for searching developer documentation, and an [API Gateway MCP](mcp/api-gateway.md) for querying live blockchain data (prices, swaps, security checks, and more).
 
 ### [Claude Code Skills](claude-code-skills/claude-code-skills.md)
 Domain-specific Claude Code skills for Trust Wallet libraries, enabling AI-assisted development with knowledge of Trust Wallet's APIs and conventions.

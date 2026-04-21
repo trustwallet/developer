@@ -1,76 +1,14 @@
-# MCP Server
+# MCP Servers
 
-Trust Wallet publishes a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server powered by GitBook, giving AI coding assistants direct access to the Trust Wallet developer documentation.
+Trust Wallet publishes two [Model Context Protocol (MCP)](https://modelcontextprotocol.io) servers for AI coding assistants:
 
-**MCP endpoint:**
+- [**Docs MCP**](docs-mcp.md) — search and retrieve content from the full Trust Wallet developer documentation. Powered by GitBook; no API key required.
+- [**API Gateway MCP**](api-gateway.md) — query live blockchain data: token prices, swap quotes, trending tokens, address security checks, and more. Backed by [tws.trustwallet.com](https://tws.trustwallet.com); requires API credentials from [portal.trustwallet.com](https://portal.trustwallet.com).
 
-```
-https://developer.trustwallet.com/developer/~gitbook/mcp
-```
+## Which one should I use?
 
-## What is MCP?
+Use the **Docs MCP** when you want your AI assistant to answer questions about Trust Wallet's developer documentation — integration guides, Wallet Core, asset listing, and so on.
 
-MCP is an open standard that lets AI tools (Claude, Cursor, VS Code Copilot, etc.) connect to external knowledge sources and services. When an MCP server is configured, the AI can query it in real time rather than relying solely on its training data.
+Use the **API Gateway MCP** when you want your AI agent to interact with live blockchain data and crypto services programmatically.
 
-## Configuration
-
-### Claude Desktop
-
-Add the following to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "trust-wallet-docs": {
-      "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://developer.trustwallet.com/developer/~gitbook/mcp"
-      ]
-    }
-  }
-}
-```
-
-### Claude Code
-
-```
-claude mcp add --transport http trust-wallet-docs https://developer.trustwallet.com/developer/~gitbook/mcp
-```
-
-### Cursor
-
-Add to `.cursor/mcp.json` in your project (or the global `~/.cursor/mcp.json`):
-
-```json
-{
-  "mcpServers": {
-    "trust-wallet-docs": {
-      "url": "https://developer.trustwallet.com/developer/~gitbook/mcp"
-    }
-  }
-}
-```
-
-## What the server exposes
-
-Once connected, your AI assistant can search and retrieve content from the full Trust Wallet developer documentation, including:
-
-- Browser Extension and WalletConnect integration guides
-- Deep linking reference
-- Asset listing requirements and PR process
-- Wallet Core API usage, building, and blockchain support
-- Barz smart wallet documentation
-- Claude Code Skills for Trust Wallet
-
-## Usage example
-
-After configuring the MCP server, you can ask your AI assistant questions like:
-
-> "How do I detect the Trust Wallet browser extension?"
-
-> "What are the asset listing requirements for a new token?"
-
-> "Show me how to sign a transaction with Wallet Core in Swift."
-
-The assistant will query the Trust Wallet docs in real time and return accurate, up-to-date answers.
+Both servers can be active at the same time.
