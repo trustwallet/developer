@@ -3,7 +3,7 @@
 Trust Wallet publishes two [Model Context Protocol (MCP)](https://modelcontextprotocol.io) servers for AI coding assistants:
 
 - [**Docs MCP**](docs-mcp.md) — search and retrieve content from the full Trust Wallet developer documentation. Powered by GitBook; no API key required.
-- [**API Gateway MCP**](api-gateway.md) — query live blockchain data: token prices, swap quotes, trending tokens, address security checks, and more. Backed by [tws.trustwallet.com](https://tws.trustwallet.com); requires API credentials from [portal.trustwallet.com](https://portal.trustwallet.com).
+- [**API Gateway MCP**](api-gateway.md) — query live blockchain data: token prices, swap quotes, trending tokens, address security checks, and more. Requires API credentials from [portal.trustwallet.com](https://portal.trustwallet.com).
 
 ## Which one should I use?
 
