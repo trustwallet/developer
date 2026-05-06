@@ -172,6 +172,8 @@ twak onramp quote --amount <fiat> --asset <id> [--currency <code>] \
 | `--currency` | Fiat currency (default: `USD`) |
 | `--wallet` | Override the destination address (defaults to your stored wallet's address on the asset's chain) |
 
+Quotes are sorted lowest-spread-first; the top row is the provider giving the most crypto for the same fiat input.
+
 ### onramp buy
 
 Open the provider checkout URL for a chosen quote.
@@ -198,6 +200,8 @@ twak onramp sell-quote --amount <crypto> --asset <id> [--currency <code>] \
 | `--amount` | Crypto amount to sell, e.g. `0.1` |
 | `--asset` | Asset ID being sold |
 | `--method` | Payout method: `ANY`, `card`, `bank_transfer` (default: `ANY`) |
+
+Sorted lowest-spread-first; the top row is the provider returning the most fiat for the same crypto input.
 
 ### onramp sell
 
