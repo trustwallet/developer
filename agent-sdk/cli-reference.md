@@ -183,7 +183,11 @@ twak onramp buy --quote-id <id> [--asset <id>] [--wallet <address>] \
                 [--password <pw>] [--json]
 ```
 
-`--asset` is required when `--wallet` is omitted (used to derive your address).
+| Flag | Description |
+|------|-------------|
+| `--quote-id` | Quote ID from `twak onramp quote` |
+| `--asset` | Crypto asset ID — required when `--wallet` is omitted (used to derive your destination address) |
+| `--wallet` | Override the destination address |
 
 ### onramp sell-quote
 
@@ -199,7 +203,9 @@ twak onramp sell-quote --amount <crypto> --asset <id> [--currency <code>] \
 |------|-------------|
 | `--amount` | Crypto amount to sell, e.g. `0.1` |
 | `--asset` | Asset ID being sold |
+| `--currency` | Fiat currency for the payout (default: `USD`) |
 | `--method` | Payout method: `ANY`, `card`, `bank_transfer` (default: `ANY`) |
+| `--wallet` | Override the source address (defaults to your stored wallet's address on the asset's chain) |
 
 Sorted lowest-spread-first; the top row is the provider returning the most fiat for the same crypto input.
 
@@ -211,6 +217,12 @@ Open the provider checkout URL to complete KYC and reveal the deposit address.
 twak onramp sell --quote-id <id> [--asset <id>] [--wallet <address>] \
                  [--password <pw>] [--json]
 ```
+
+| Flag | Description |
+|------|-------------|
+| `--quote-id` | Quote ID from `twak onramp sell-quote` |
+| `--asset` | Crypto asset ID — required when `--wallet` is omitted (used to derive your source address) |
+| `--wallet` | Override the source address |
 
 ### onramp sell-confirm
 
@@ -229,6 +241,7 @@ twak onramp sell-confirm --asset <id> --to <deposit-address> --amount <n> \
 | `--to` | Provider's deposit address (shown after KYC) |
 | `--amount` | Exact amount the provider displays — must match |
 | `--memo` | Memo / destination tag (Cosmos, XRP, Stellar, BNB Beacon) — funds can be unrecoverable without it when the chain requires one |
+| `--quote-id` | Optional. Recorded in the output for traceability; the on-chain tx is built from `--to` / `--amount`, not from this ID |
 | `--max-usd` | USD safety cap (default: 10000) |
 | `--skip-safety-check` | Bypass the USD cap |
 
