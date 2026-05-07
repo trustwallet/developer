@@ -152,6 +152,103 @@ Use `--quote-only` to preview without executing.
 
 ---
 
+## onramp
+
+Buy crypto with fiat (onramp) or sell crypto for fiat (offramp) through third-party providers. Quotes are aggregated; the user completes KYC and payment in the provider's hosted browser flow. Available providers depend on the user's region.
+
+### onramp quote
+
+Get fiat-to-crypto quotes from multiple providers.
+
+```bash
+twak onramp quote --amount <fiat> --asset <id> [--currency <code>] \
+                  [--wallet <address>] [--password <pw>] [--json]
+```
+
+| Flag | Description |
+|------|-------------|
+| `--amount` | Fiat amount, e.g. `100` |
+| `--asset` | Asset ID, e.g. `c60` for ETH |
+| `--currency` | Fiat currency (default: `USD`) |
+| `--wallet` | Override the destination address (defaults to your stored wallet's address on the asset's chain) |
+
+Quotes are sorted lowest-spread-first; the top row is the provider giving the most crypto for the same fiat input.
+
+### onramp buy
+
+Open the provider checkout URL for a chosen quote.
+
+```bash
+twak onramp buy --quote-id <id> [--asset <id>] [--wallet <address>] \
+                [--password <pw>] [--json]
+```
+
+| Flag | Description |
+|------|-------------|
+| `--quote-id` | Quote ID from `twak onramp quote` |
+| `--asset` | Crypto asset ID — required when `--wallet` is omitted (used to derive your destination address) |
+| `--wallet` | Override the destination address |
+
+### onramp sell-quote
+
+Get crypto-to-fiat quotes.
+
+```bash
+twak onramp sell-quote --amount <crypto> --asset <id> [--currency <code>] \
+                       [--method <method>] [--wallet <address>] \
+                       [--password <pw>] [--json]
+```
+
+| Flag | Description |
+|------|-------------|
+| `--amount` | Crypto amount to sell, e.g. `0.1` |
+| `--asset` | Asset ID being sold |
+| `--currency` | Fiat currency for the payout (default: `USD`) |
+| `--method` | Payout method: `ANY`, `card`, `bank_transfer` (default: `ANY`) |
+| `--wallet` | Override the source address (defaults to your stored wallet's address on the asset's chain) |
+
+Sorted lowest-spread-first; the top row is the provider returning the most fiat for the same crypto input.
+
+### onramp sell
+
+Open the provider checkout URL to complete KYC and reveal the deposit address.
+
+```bash
+twak onramp sell --quote-id <id> [--asset <id>] [--wallet <address>] \
+                 [--password <pw>] [--json]
+```
+
+| Flag | Description |
+|------|-------------|
+| `--quote-id` | Quote ID from `twak onramp sell-quote` |
+| `--asset` | Crypto asset ID — required when `--wallet` is omitted (used to derive your source address) |
+| `--wallet` | Override the source address |
+
+### onramp sell-confirm
+
+Broadcast the on-chain payout to the provider's deposit address. Run this **after** completing KYC in the browser and copying the deposit address and exact amount the provider displayed.
+
+```bash
+twak onramp sell-confirm --asset <id> --to <deposit-address> --amount <n> \
+                         [--memo <tag>] [--quote-id <id>] \
+                         [--max-usd <n>] [--skip-safety-check] \
+                         [--password <pw>] [--json]
+```
+
+| Flag | Description |
+|------|-------------|
+| `--asset` | Asset being sold |
+| `--to` | Provider's deposit address (shown after KYC) |
+| `--amount` | Exact amount the provider displays — must match |
+| `--memo` | Memo / destination tag (Cosmos, XRP, Stellar, BNB Beacon) — funds can be unrecoverable without it when the chain requires one |
+| `--quote-id` | Optional. Recorded in the output for traceability; the on-chain tx is built from `--to` / `--amount`, not from this ID |
+| `--max-usd` | USD safety cap (default: 10000) |
+| `--skip-safety-check` | Bypass the USD cap |
+
+The deposit address is **not under your control** — verify it byte-for-byte against what the provider displayed before broadcasting. Signing always happens locally; the browser flow has no access to your keys.
+
+---
+
 ## price
 
 ```bash
