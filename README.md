@@ -20,6 +20,14 @@ Programmatic access to Trust Wallet's multichain infrastructure — balance quer
 
 ## Build on Trust Wallet
 
+### [TrustConnect SDK](trustconnect/trustconnect.md)
+The free, open-source wallet connection SDK for every chain. Connect dApps to Trust Wallet across EVM, Solana, and Bitcoin with a modular React hooks API and fully customizable UI.
+
+- [Quickstart](trustconnect/quickstart.md)
+- [EVM (EIP-155)](trustconnect/evm.md)
+- [Solana](trustconnect/solana.md)
+- [Bitcoin (BIP-122)](trustconnect/bitcoin.md)
+
 ### [Developing for Trust Wallet](develop-for-trust/develop-for-trust.md)
 An introduction to web3 development with Trust Wallet. Covers the Provider API, WalletConnect, deep linking, and the browser extension.
 
