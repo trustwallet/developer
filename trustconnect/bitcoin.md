@@ -78,7 +78,7 @@ Sign a Partially Signed Bitcoin Transaction (PSBT):
 import { useSignPsbt } from '@trustwallet/connect-bip122-react'
 
 function BitcoinSignPsbt() {
-    const { mutate: signPsbt, isPending } = useSignPsbt({})
+    const { mutate: signPsbt, isPending } = useSignPsbt()
 
     const handleSignPsbt = () => {
         signPsbt({
@@ -114,7 +114,7 @@ Send a simple BTC transfer:
 import { useSendTransfer } from '@trustwallet/connect-bip122-react'
 
 function BitcoinTransfer() {
-    const { mutateAsync: sendTransfer, isPending } = useSendTransfer({})
+    const { mutateAsync: sendTransfer, isPending } = useSendTransfer()
 
     const handleTransfer = async () => {
         try {
