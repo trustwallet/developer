@@ -152,6 +152,51 @@ Use `--quote-only` to preview without executing.
 
 ---
 
+## automate
+
+Create and manage DCA (dollar-cost-average) and limit-order automations. Both run as scheduled swaps under your stored wallet.
+
+### automate add
+
+Create a DCA automation by passing `--interval`; create a limit order by passing `--price` (and optional `--condition`). The two flags are mutually exclusive — exactly one must be supplied.
+
+```bash
+twak automate add --from <token> --to <token> --amount <n> \
+                  [--chain <chain>] \
+                  (--interval <duration> | --price <usd> [--condition above|below]) \
+                  [--max-runs <n>] [--expires <date>] [--json]
+```
+
+| Flag | Description |
+|------|-------------|
+| `--from` | Source asset ID, e.g. `c60_t0xA0b8...` for USDC on Ethereum |
+| `--to` | Destination asset ID, e.g. `c60` for ETH |
+| `--amount` | Amount of source token per run |
+| `--chain` | Source chain (default: `ethereum`) |
+| `--interval` | DCA interval — accepts `30s`, `5m`, `1h`, `7d`, etc. Creates a recurring swap. |
+| `--price` | Target USD price for a limit order (mutually exclusive with `--interval`) |
+| `--condition` | Limit-order trigger: `above` or `below` (default: `below`) |
+| `--max-runs` | Stop after N executions |
+| `--expires` | Expiry date in ISO 8601, e.g. `2026-04-01` |
+
+### automate list
+
+```bash
+twak automate list [--json]
+```
+
+### automate pause / resume / delete
+
+```bash
+twak automate pause <id> [--json]
+twak automate resume <id> [--json]
+twak automate delete <id> [--json]
+```
+
+Use the `id` returned by `automate list`. Paused automations stop executing but stay in storage; deleted ones are removed.
+
+---
+
 ## onramp
 
 Buy crypto with fiat (onramp) or sell crypto for fiat (offramp) through third-party providers. Quotes are aggregated; the user completes KYC and payment in the provider's hosted browser flow. Available providers depend on the user's region.
@@ -404,6 +449,59 @@ twak alert check [--json]
 ```bash
 twak alert delete <id> [--json]
 ```
+
+---
+
+## x402
+
+Pay for HTTP endpoints that respond with `402 Payment Required`. The client signs an on-chain payment authorization (EIP-3009 gasless preferred over Permit2) and retries the request with the proof attached as a `PAYMENT-SIGNATURE` header.
+
+### x402 quote
+
+Preview the payment options an endpoint offers. Read-only — no wallet password required.
+
+```bash
+twak x402 quote <url> [--method <method>] [--body <json>] [--json]
+```
+
+Renders a table of available routes (chain + asset + amount + transfer method) sorted preferred-first, plus a `Next:` line with the exact `twak x402 request` command to run. Use the same `--method`/`--body` you plan to pay with — the server may emit a different challenge per verb.
+
+### x402 request
+
+Pay and fetch the resource.
+
+```bash
+twak x402 request <url> --max-payment <atomic> \
+                  [--method <method>] [--body <json>] \
+                  [--prefer-network <chain>] [--prefer-method eip3009|permit2-exact] \
+                  [--prefer-asset <addr-or-name>] \
+                  [--yes] [--auto-approve] [--password <pw>] [--json]
+```
+
+| Flag | Description |
+|------|-------------|
+| `--max-payment` | Required. Max payment to auto-approve, in atomic units of the chosen asset (e.g. `10000` = 0.01 USDC at 6dp). |
+| `--method` | HTTP method (default: `GET`). Body is stripped on `GET`/`HEAD`. |
+| `--body` | Raw request body. Sent with `Content-Type: application/json`. |
+| `--prefer-network` | Restrict route to a chain — TWAK key (`base`, `bsc`, …) or CAIP-2 (`eip155:8453`). |
+| `--prefer-method` | Restrict to `eip3009` (gasless) or `permit2-exact`. |
+| `--prefer-asset` | Restrict to a contract address or a token-name substring (e.g. `Tether`, `USDC`). |
+| `--yes` | Skip the per-payment confirmation prompt. Still capped by `--max-payment`. |
+| `--auto-approve` | Skip the one-time Permit2 `approve(Permit2, MAX)` prompt (you pay gas). Independent of `--yes`. |
+
+Only `https://` URLs are accepted; loopback/private IPs are rejected before any network call. EIP-3009 wins by default whenever offered with valid `extra.name`/`extra.version` metadata. Common live routes: USDC on `base` (recommended), USDC/USDT on `bsc`.
+
+### x402 info
+
+```bash
+twak x402 info
+```
+
+Prints inline help for the x402 subcommands.
+
+### Server side
+
+To gate your own REST endpoints behind x402, see `twak serve --x402` below.
 
 ---
 
