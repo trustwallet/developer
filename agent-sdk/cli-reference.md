@@ -154,14 +154,14 @@ Use `--quote-only` to preview without executing.
 
 ## automate
 
-Create and manage DCA (dollar-cost-average) and limit-order automations. Both run as scheduled swaps under your stored wallet.
+Create and manage dollar-cost averaging (DCA) and limit-order automations. Both run as scheduled swaps under your stored wallet.
 
 ### automate add
 
 Create a DCA automation by passing `--interval`; create a limit order by passing `--price` (and optional `--condition`). The two flags are mutually exclusive — exactly one must be supplied.
 
 ```bash
-twak automate add --from <token> --to <token> --amount <n> \
+twak automate add --from <token> --to <token> --amount <amount> \
                   [--chain <chain>] \
                   (--interval <duration> | --price <usd> [--condition above|below]) \
                   [--max-runs <n>] [--expires <date>] [--json]
