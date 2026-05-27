@@ -413,9 +413,7 @@ Start an MCP server (stdio) or REST API server for AI agent integrations.
 
 ```bash
 twak serve [--rest] [--port <port>] [--host <host>] \
-           [--auto-lock <minutes>] [--password <pw>] \
-           [--x402] [--payment-amount <amount>] [--payment-asset <asset>] \
-           [--payment-chain <chain>] [--payment-recipient <address>]
+           [--auto-lock <minutes>] [--password <pw>]
 ```
 
 | Flag | Description |
@@ -423,6 +421,5 @@ twak serve [--rest] [--port <port>] [--host <host>] \
 | `--rest` | Start REST HTTP server instead of MCP stdio |
 | `--port` | Port for REST server (default: 3000) |
 | `--auto-lock` | Auto-lock wallet after N minutes of inactivity |
-| `--x402` | Require x402 micropayment for REST endpoints |
 
 The REST server authenticates requests via `Authorization: Bearer <HMAC_SECRET>`. This is separate from the HMAC signing used by `tws.trustwallet.com` — the REST server runs locally and uses the raw secret as a shared token for simplicity.
