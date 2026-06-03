@@ -522,5 +522,13 @@ twak serve [--rest] [--port <port>] [--host <host>] \
 | `--port` | Port for REST server (default: 3000) |
 | `--auto-lock` | Auto-lock wallet after N minutes of inactivity |
 | `--x402` | Require x402 micropayment for REST endpoints |
+| `--watch` | Run saved DCA and limit-order automations in the background |
+| `--watch-interval` | How often to check automations, e.g. `5m` (default: every 60 seconds) |
 
 The REST server authenticates requests via `Authorization: Bearer <HMAC_SECRET>`. This is separate from the HMAC signing used by `tws.trustwallet.com` — the REST server runs locally and uses the raw secret as a shared token for simplicity.
+
+### Running automations in the background
+
+DCA and limit-order automations you set up with `twak automate` are saved, but they only run while a watcher is active. When running the MCP server for an AI agent, start it with `twak serve --watch` so those automations execute in the background. Tune how often it checks with `--watch-interval` (for example, `--watch-interval 5m`; the default is every 60 seconds). Without `--watch`, your automations are saved but never run.
+
+The background runner uses your local agent wallet. If you've connected through WalletConnect instead, the runner stays idle, since those transactions need manual approval.
