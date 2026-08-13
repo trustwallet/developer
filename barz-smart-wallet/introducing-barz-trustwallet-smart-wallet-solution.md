@@ -7,8 +7,8 @@ Special thanks to [Luis Ocegueda](https://twitter.com/luis_oce) and [Artem Goryu
 
 This is the first of an article series on Barz. 
 
-1. [Introducing Barz: Trust Wallet’s Smart Wallet Solution](/introducing-barz-trustwallet-smart-wallet-solution)
-2. [Cutting Diamonds: How to make Accounts Awesome](/cutting-diamonds-how-to-make-accounts-awesome)
+1. [Introducing Barz: Trust Wallet’s Smart Wallet Solution](/barz-smart-wallet/introducing-barz-trustwallet-smart-wallet-solution.md)
+2. [Cutting Diamonds: How to make Accounts Awesome](/barz-smart-wallet/cutting-diamonds-how-to-make-accounts-awesome.md)
 3. For Builders By Builders:  Introducing the Barz SDK
 4. Multi-tier Module system. A secure foundation for open innovation
 

@@ -5,8 +5,8 @@ Special thanks to [Luis Ocegueda](https://twitter.com/luis_oce), [Artem Goryunov
 
 This is the second of an article series on Barz. 
 
-1. [Introducing Barz: Trust Wallet’s Smart Wallet Solution](/introducing-barz-trustwallet-smart-wallet-solution)
-2. [Cutting Diamonds: How to make Accounts Awesome](/cutting-diamonds-how-to-make-accounts-awesome)
+1. [Introducing Barz: Trust Wallet’s Smart Wallet Solution](/barz-smart-wallet/introducing-barz-trustwallet-smart-wallet-solution.md)
+2. [Cutting Diamonds: How to make Accounts Awesome](/barz-smart-wallet/cutting-diamonds-how-to-make-accounts-awesome.md)
 3. For Builders By Builders:  Introducing the Barz SDK
 4. Multi-tier Module system. A secure foundation for open innovation
 
@@ -16,7 +16,7 @@ In this article, we’ll share the optimizations we did to Diamond to make Barz 
 
 
 
-In our [first article](/introducing-barz-trustwallet-smart-wallet-solution), we introduced the [Barz Smart Wallet System](https://github.com/trustwallet/barz/tree/main), and we’ve also shared about the overall structure of [Barz](https://github.com/trustwallet/barz/tree/main) and how [Diamond Proxy Pattern(EIP-2535)](https://eips.ethereum.org/EIPS/eip-2535) works under the hood.
+In our [first article](/barz-smart-wallet/introducing-barz-trustwallet-smart-wallet-solution.md), we introduced the [Barz Smart Wallet System](https://github.com/trustwallet/barz/tree/main), and we’ve also shared about the overall structure of [Barz](https://github.com/trustwallet/barz/tree/main) and how [Diamond Proxy Pattern(EIP-2535)](https://eips.ethereum.org/EIPS/eip-2535) works under the hood.
 
 In this article, we’ll dive into the details of how we optimized Diamond and added smart contract-level infrastructural components to provide better security to our users.
 
